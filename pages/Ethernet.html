@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="none">
+  <meta name="robots" content="noimageindex, nofollow">
+  <title>Ethernet</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main__container">
+      <div class="logo"><a href="../index.html">MAY THE FORCE BE WITH YOU</a></div>
+      <img src="./img/Ethernet.jpg" alt="">
+      <img src="./img/CSMA.jpg" alt="">
+      <p>
+        После преамбулы все компьютеры в сети начинают записывать передаваемый кадр в свой буфер.
+        Первые 6 байт кадра содержат адрес получателя: <br>
+        - компьютер, который узнал свой адрес, продолжает записывать кадр, <br>
+        - остальные удаляют кадр из буфера. <br>
+        <br>
+        Для диагностики сети удобно использовать <i>Promiscuous mode</i>
+        (неразборчивый режим работы стевого адаптера) - адаптер принимает все кадры в сети, 
+        не зависимо от МАС-адреса получателя. <br>
+        <br>
+        Недостатки классического Ethernet: <br>
+        <em>Плохая масштабируемость</em>: <br>
+        - сеть становиться неработоспособной при загрузки разделяемой среды больше чем на 30%, <br>
+        - работоспособное количество компьютеров - 30. <br>
+        <br>
+        <em>Низкая безопасность</em> - данные в разделяемой среде доступны всем. <br>
+        <em>Разное время доставки кадра</em>: <br>
+        - причина - коллизии, <br>
+        - плохо для трафика реального времени (аудиозвонок, видеоконференция). <br>
+        <br>
+        В распределяемой среде возможны коллизии. <br>
+        В коммутируемом Ethernet соединение Точка-Точка без разделяемой среды.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

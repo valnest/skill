@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="none">
+  <meta name="robots" content="noimageindex, nofollow">
+  <title>CI/CD</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main__container">
+      <div class="logo"><a href="../index.html">MAY THE FORCE BE WITH YOU</a></div>
+      <li>Github <br>
+        <img src="./img/gitt.png" alt=""><br>
+        Version Control System, VCS или Revision Control System:
+        <p>Система контроля (управления) версий — программное
+            обеспечение для облегчения работы с
+            изменяющейся информацией. Система
+            управления версиями позволяет хранить
+            несколько версий одного и того же
+            документа, при необходимости
+            возвращаться к более ранним версиям,
+            определять, кто и когда сделал то или иное
+            изменение, и многое другое
+        </p>
+<pre>GIT
+1. Создать репозиторий на github или bitbucket
+2. git init к папке проекта на компьютере
+
+Чтобы добавить адрес репозитория к себе в гит:
+3. git remote add origin https://github.com/vamalevany/conspect.git
+
+Добавить все файлы в гит:
+4. git add .
+
+Сделать фиксацию(коммит) текущего состояния
+5. git commit -a -m "Some comments here"
+
+Перенести все свои новые коммиты в репозиторий.
+6. git push -u origin master
+
+
+Чтобы скачать себе последнюю версию с репозитория, если файлы изменил другой человек, работающий над проектом:
+7. git pull origin master
+
+Еще в гите можно вести несколько веток. Например, у Вас есть проект, Вы добавляете новые фичи, клиент хочет
+их посмотреть на тестовом сервере, но в тоже время он иногда может просить внести быстрые правки в сайт на основном
+(продакшн) сервере. В таком случае делаете новую ветку в гите, копируя текущую ветку master (они будут существовать
+параллельно). -b - говорит о том, что в новую ветку информация будет скопирована из текущей.
+Чтобы в дальнейшем переключиться в существующую ветку, -b в конце писать не нужно.
+
+git checkout testing -b
+
+
+Вы окажитесь в новой ветке гита. Теперь все имзенения, которые вы делаете по проекту, будут отображаться только в этой ветке,
+а если вы вернетесь в ветку мастер, то измненений не будет:
+
+git checkout master
+
+Если Вы все-таки хотите перенести в текущую ветку master (в которой Вы должны находиться) все изменения
+из ветки testing, то просто напишите:
+
+git merge testing
+</pre>
+        <p>Репозито́рий, хранилище — место, где
+            хранятся и поддерживаются какие-либо
+            данные. Чаще всего данные в репозитории
+            хранятся в виде файлов, доступных для
+            дальнейшего распространения по сети.
+        </p>
+        <img src="./img/VCS.png" alt="">
+    </li>
+    <img src="./img/Git/Git1.png" alt="">
+    <img src="./img/Git/Git2.png" alt="">
+    <img src="./img/Git/Git3.png" alt="">
+    <img src="./img/Git/Git4.png" alt="">
+    <img src="./img/Git/Git5.png" alt="">
+    <img src="./img/Git/Git6.png" alt="">
+    <img src="./img/Git/Git7.png" alt="">
+    <img src="./img/Git/Git8.png" alt="">
+    <img src="./img/Git/Git9.png" alt="">
+    <img src="./img/Git/Git10.png" alt="">
+    <img src="./img/Git/Git11.png" alt="">
+    <img src="./img/Git/Git12.png" alt="">
+    <img src="./img/Git/Git13.png" alt="">
+    <img src="./img/Git/Git14.png" alt="">
+    <img src="./img/Git/Git15.png" alt="">
+    <img src="./img/Git/Git16.png" alt="">
+    <img src="./img/Git/Git17.png" alt="">
+    <img src="./img/Git/Git18.png" alt="">
+    <img src="./img/Git/Git19.png" alt="">
+    <img src="./img/Git/Git20.png" alt="">
+    <img src="./img/Git/Git21.png" alt="">
+    <br>
+    <p>Continuous integration <br>
+      Непрерывная интеграция — практика
+      разработки программного обеспечения,
+      которая заключается в постоянном слиянии
+      рабочих копий в общую основную ветвь
+      разработки (до нескольких раз в день) и
+      выполнении частых автоматизированных
+      сборок проекта для скорейшего выявления
+      потенциальных дефектов и решения
+      интеграционных проблем
+    </p>
+    <img src="./img/ci.png" alt="">
+    <p>Continuous delivery <br>
+      Непрерывная доставка (англ. Continuous
+      delivery или CD, или CDE) - это подход к
+      разработке программного обеспечения, при
+      котором программное обеспечение
+      производится короткими итерациями,
+      гарантируя, что ПО является стабильным и
+      может быть передано в эксплуатацию в
+      любое время, а передача его происходит
+      вручную
+    </p>
+    <p>Continuous Deployment <br>
+      Непрерывная развертывание (англ.
+      Continuous Deployment) - это стратегия для
+      выпусков программного обеспечения, в
+      которой любой коммит кода, который
+      проходит этап автоматизированного
+      тестирования, автоматически выпускается в
+      производственную среду, внося изменения,
+      которые видны пользователям программного
+      обеспечения.
+    </p>
+    <img src="./img/cd.png" alt="">
+    <img src="./img/CI_CD/CI_CD1.png" alt="">
+    <img src="./img/CI_CD/CI_CD2.png" alt="">
+    <img src="./img/CI_CD/CI_CD3.png" alt="">
+    <img src="./img/CI_CD/CI_CD4.png" alt="">
+    <img src="./img/CI_CD/CI_CD5.png" alt="">
+    <img src="./img/CI_CD/CI_CD6.png" alt="">
+    <img src="./img/CI_CD/CI_CD7.png" alt="">
+    <img src="./img/CI_CD/CI_CD8.png" alt="">
+    <img src="./img/CI_CD/CI_CD9.png" alt="">
+    <img src="./img/CI_CD/CI_CD10.png" alt="">
+    <img src="./img/CI_CD/CI_CD11.png" alt="">
+    <img src="./img/CI_CD/CI_CD12.png" alt="">
+    <img src="./img/CI_CD/CI_CD13.png" alt="">
+    <img src="./img/CI_CD/CI_CD14.png" alt="">
+    <img src="./img/CI_CD/CI_CD15.png" alt="">
+    <img src="./img/CI_CD/CI_CD16.png" alt="">
+    <img src="./img/CI_CD/CI_CD17.png" alt="">
+    <img src="./img/CI_CD/CI_CD18.png" alt="">
+    <img src="./img/CI_CD/CI_CD19.png" alt="">
+    <img src="./img/CI_CD/CI_CD20.png" alt="">
+    <img src="./img/CI_CD/CI_CD21.png" alt="">
+    <img src="./img/CI_CD/CI_CD22.png" alt="">
+    <img src="./img/CI_CD/CI_CD23.png" alt="">
+    <img src="./img/CI_CD/CI_CD24.png" alt="">
+    <img src="./img/CI_CD/CI_CD25.png" alt="">
+    <img src="./img/CI_CD/CI_CD26.png" alt="">
+    <img src="./img/CI_CD/CI_CD27.png" alt="">
+    <img src="./img/CI_CD/CI_CD28.png" alt="">
+    <img src="./img/CI_CD/CI_CD29.png" alt="">
+    <img src="./img/CI_CD/CI_CD30.png" alt="">
+    </div>
+  </div>
+</body>
+</html>

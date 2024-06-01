@@ -7,95 +7,73 @@
   <meta name="robots" content="none">
   <meta name="robots" content="noimageindex, nofollow">
   <title>Skills</title>
-  <link rel="stylesheet" href="./CSS/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
   <div class="wrapper">
     <div class="main__container">
-      <div class="logo"><a href="#">MAY THE FORCE BE WITH YOU</a></div>
+      <div class="logo"><a href="./index.html">MAY THE FORCE BE WITH YOU</a></div>
       <div class="home">
         <nav class="menu"><!--Menu-->
           <details class="menu__item"><!--LANGUAGE-->
             <summary>LANGUAGE</summary>
             <ul>
-              <li><a href="./English.html">English</a></li>
-              <li><a href="./Deutsch.html">Deutsch</a></li>
+              <li><a href="./pages/English.html">English</a></li>
+              <li><a href="./pages/Deutsch.html">Deutsch</a></li>
             </ul>
           </details>
           <details class="menu__item"><!--DEVELOPMENT-->
             <summary>DEVELOPMENT</summary>
             <ul>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Computer</a></li>
-              <li><a href="#">Docker</a></li>
-              <li><a href="#">Nginx</a></li>
-              <li><a href="#">Browser</a></li>
-              <li><a href="#">Layout</a>
-                <ul class="menu__sublist">
-                  <li><a href="#">HTML</a></li>
-                  <li><a href="#">CSS</a></li>
-                  <li><a href="#">JS</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Rust</a></li>
-              <li><a href="#">SQL</a></li>
-              <li><a href="#">CI/CD</a></li>
-              <li><a href="#">QC</a></li>
+              <li><a href="./pages/Roadmap.html">Roadmap</a></li>
+              <li><a href="./pages/Computer.html">Computer</a></li>
+              <li><a href="./pages/Layout.html">Layout</a></li>
+              <li><a href="./pages/Rust.html">Rust</a></li>
+              <li><a href="./pages/SQL.html">SQL</a></li>
+              <li><a href="./pages/ci_cd.html">CI/CD</a></li>
+              <li><a href="./pages/QC.html">QC</a></li>
             </ul>
           </details>
           <details class="menu__item"><!--WEB-->
             <summary>WEB</summary>
+<p class="menu__item_prelude">
+  <em>HTML, XML - языки:</em> <br>
+    HTML - закрепленные теги, прощает некоторые синтаксические ошибки. <br>
+    XML - теги создает пользователь, проверка синтаксиса и валидация документа по WDSL. <br>
+    <br>
+  <em>RPC, REST - архитектура API:</em> <br>
+    RPC - запрос на выполнение функции на сервере по имени функции с входными параметрами. <br>
+    REST - запрос с помощью установленных методов к ресурсу (сущности) на сервере. <br>
+    <br>
+  <em>XML, JSON - формат передачи данных:</em> <br>
+    XML - наличие тегов, корневого элемента и пространства имен. Не может содержать массивы. <br>
+    JSON - более компактный, не имеет тегов, может содержать в значениях массивы. <br>
+    <br>
+  <em>HTTP, SOAP - протоколы передачи данных:</em> <br>
+    HTTP - протокол прикладного уровня передачи данных. <br>
+    SOAP - формальный корпоративный подход, работает поверх любого протокола связи, даже асинхронно. <br>
+    <br>
+  <em>Наиболее распространенные связки:</em> <br>
+    JSON + REST + HTTP <br>
+    XML + RPC + SOAP <br>
+</p>
               <ul>
-                <li><a href="#">Network</a></li>
-                <li><a href="#">Ethernet</a></li>
-                <li><a href="#">OSI</a></li>
-                <li><a href="#">Internet</a></li>
-                <li><a href="#">Protocols</a>
-                  <ul class="menu__sublist">
-                    <li><a href="#">IP</a></li>
-                    <li><a href="#">TCP</a></li>
-                    <li><a href="#">TCP/IP</a></li>
-                    <li><a href="#">UDP</a></li>
-                    <li><a href="#">SOAP</a></li>
-                    <li><a href="#">HTTP</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">RPC</a></li>
-                <li><a href="#">REST</a></li>
-                <li><a href="#">JSON</a></li>
-                <li><a href="#">XML</a></li>
+                <li><a href="./pages/Network.html">Network</a></li>
+                <li><a href="./pages/Ethernet.html">Ethernet</a></li>
+                <li><a href="./pages/OSI.html">OSI</a></li>
+                <li><a href="./pages/Internet.html">Internet</a></li>
+                <li><a href="./pages/Protocols.html">Protocols</a></li>
+                <li><a href="./pages/API.html">API</a></li>
+                <li><a href="./pages/XML.html">XML</a></li>
               </ul>
           </details>
           <details class="menu__item"><!--SECURITY-->
             <summary>SECURITY</summary>
             <ul>
-              <li><a href="#">Hacker</a></li>
-              <li><a href="#">Reconnaissance</a>
-                <ul class="menu__sublist">
-                  <li><a href="#">Dig & Whois</a></li>
-                  <li><a href="#">Nmap & Gobuster</a></li>
-                  <li><a href="#">DAST</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Broken Access Control</a></li>
-              <li><a href="#">Cryptographic Failures</a></li>
-              <li><a href="#">Injection</a>
-                <ul class="menu__sublist">
-                  <li><a href="#">SQL injection</a></li>
-                  <li><a href="#">XSS & ХХЕ</a></li>
-                  <li><a href="#">SSTI</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Insecure Design</a></li>
-              <li><a href="#">Security Misconfiguration</a></li>
-              <li><a href="#">Vulnerable and Outdated Components</a></li>
-              <li><a href="#">Identification and Authentication Failures</a></li>
-              <li><a href="#">Software and Data Integrity Failures</a></li>
-              <li><a href="#">Security Logging and Monitoring Failures</a></li>
-              <li><a href="#">Server-Side Request Forgery</a></li>
-              <li><a href="#">Linux</a></li>
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Windows</a></li>
+              <li><a href="./pages/Hacker.html">Hacker</a></li>
+              <li><a href="./pages/Linux.html">Linux</a></li>
+              <li><a href="./pages/Android.html">Android</a></li>
+              <li><a href="./pages/Windows.html">Windows</a></li>
             </ul>
           </details>
         </nav>

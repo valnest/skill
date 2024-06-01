@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="none">
+  <meta name="robots" content="noimageindex, nofollow">
+  <title>Computer</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main__container">
+      <div class="logo"><a href="../index.html">MAY THE FORCE BE WITH YOU</a></div>
+      <details><!--Docker-->
+        <summary>Docker</summary>
+<pre>
+# Debian + Shell + SSH + Docker + Nginx
+
+Docker:
+https://www.docker.com/
+
+https://docs.docker.com/install/linux/docker-ce/debian/ - установка на дебиан
+
+Images:
+Debian
+Nginx
+
+docker + Enter - описание команд докера
+sudo systemctl status docker - проверяем работу docker
+sudo usermod -aG docker $USER - добавляет sudo в вызов docker по умолчанию
+перезагрузка
+
+docker ps - показать работающие контейнеры
+docker ps -a - показать контейнеры, которые работали
+docker images - показывает какие образы есть на компьюторе
+
+docker search nginx - поиск образа с установленным nginx на DockerHub
+docker pull nginx - скачать образ с nginx на свой компьютер
+docker run -it -p 1234:80 nginx - запуск образа nginx интерактивно с перенаправлением с порта запроса 1234 на порт nginx 80
+docker run -d -p 8888:80 nginx - запуск образа nginx как демона с перенаправлением с порта запроса 8888 на порт nginx 80
+docker run -it ubuntu bash - запуск образа убунту интерактивно с запуском порграммы bash в убунту, в таком случае контейнер
+работает пока выполняется указанная программа (bash), т.е. при выходе из bash контейнер выключится
+docker run -d --name pg postgres - скачивание и запуск образа postgres в фоновом режиме с присвоением имени pg
+docker start name or ID - запуск существующего контейнера
+docker stop name or ID - остановка работающего контейнера
+docker exec -it pg bash - команда выполнить bash внутри контейнера pg интерактивно
+docker run -it -v /home/valentyn:/home/ alpine - скачивание и запуск образа alpine с подключением своего домашнего каталога
+docker build -t myimage . - создание image из DockerFile с названием myimage? точка означает, что DockerFile локальный
+
+docker tag denis_ubuntu denis_ubuntu-PROD - создание дубликата
+docker tag denis_ubuntu denis_ubuntu-PROD:v2
+
+docker rm name or ID - удалить контейнер
+docker rmi name or ID - удалить image
+docker rm $(docker ps -aq) - позволяет удалить все контейнеры, а - означает все, q - означает ID-ник
+docker rmi $(docker images -q) - удаляет все образы
+
+ctop - показывает параметры работающего контейнера
+
+UPDATE IMAGE
+
+```
+docker run -d -p 7777:80 denis_ubuntu4
+docker exec -it 5267e21d140 /bin/bash - вход в консоль на image
+echo "V2" >> /var/www/html/index.html - добавление текста в файл index.html на image
+exit - выход из image
+docker commit 5267e21d140 denis_v2:latest - создание image из работающего контейнера
+
+Export/Import Docker Image to file
+```
+
+docker save image:tag > arch_name.tar
+docker load -i arch_name.tar
+
+#---------------------------------------------------------------------------
+
+# Dockefile to build Docker Image of Apache WebServer running on Ubuntu
+
+#---------------------------------------------------------------------------
+
+FROM ubuntu:16.04
+
+RUN apt-get -y update
+RUN apt-get -y install apache2
+
+RUN echo 'Hello World from Docker!' > /var/www/html/index.html
+
+CMD ["/usr/sbin/apache2ctl", "-D","FOREGROUND"]
+EXPOSE 80
+#-----------------------------------------------------------------------------
+
+docker run -it --name node-octo alpine sh
+apk add nodejs
+node --version
+docker commit node-octo vamalevany/node-octo:12.14 - сокомител свой образ node-octo для DockerHub под учеткой vamalevany
+с тэгом 12.14
+docker images
+docker login
+Username: vamalevany
+Password:
+docker push vamalevany/node-octo - отправляем образ в репозиторий на DockerHub под учеткой vamalevany
+docker rmi vamalevany/node-octo:12.14 - удаляем созданный образ
+docker pull vamalevany/node-octo:12.14 - скачиваем образ из DockerHub под учеткой vamalevany
+
+nano Dockerfile
+#---------------------------------------------------------------------------
+
+# Dockefile to build Docker Image of alpine linux Nodejs npm http-server
+
+#---------------------------------------------------------------------------
+
+FROM alpine - за основу берем образ alpine linux
+
+RUN apk add npm && i -g http-server - каждая строка RUN это новый слой в docker,
+пакетный менеджер alpine apk устанавливает nodejs со своим пакетным менеджером
+и устанавливает (i - install) глобально (-g) http-server
+VOLUME /home/server/ - папка для хранения
+
+WORKDIR /home/server/ - рабочая папка
+
+COPY ./ /home/server/ - скопировать содержимое из текущей директории (где собирается образ из Dockerfile) в /home/server образа
+
+EXPOSE 8080 - указываем порт на котором будет работать контейнер
+
+CMD http-server - запуск http-server при старте контейнера
+#-----------------------------------------------------------------------------
+docker build -t vamalevany/node:v1 . - строим образ из Dockerfile с именем (-t) vamalevany/node:v1,
+точка указывает, что место сборки текущая дмректория
+
+nano Dockerfile.ex
+#---------------------------------------------------------------------------
+
+# Создание Dockerfile для внешней сборки приложений
+
+#---------------------------------------------------------------------------
+
+FROM node - за основу берем образ node
+
+RUN npm i -g yarn
+
+VOLUME /opt/server/
+
+WORKDIR /opt/server/
+
+COPY ./ /opt/server/
+
+EXPOSE 3000
+
+CMD yarn start
+#-----------------------------------------------------------------------------
+docker build -t vamalevany/web-server-external:v1 -f Dockerfile.ex .
+
+nano Dockerfile.in
+#---------------------------------------------------------------------------
+
+# Создание Dockerfile для внутренней сборки приложений
+
+#---------------------------------------------------------------------------
+
+FROM alpine
+
+RUN apk add git \ - будем использовать файлы с git, \ - экранирует перевод строки
+&& apk add yarn \ - устанавливаем yarn
+&& git clone https://github.com/vamalevany/cont.git \ - копируем папку проекта с git
+&& cd cont \ - переходим в папку проекта на сервере
+&& yarn - запускаем yarn для обновления зависимостей
+
+VOLUME ./cont
+
+WORKDIR ./cont
+
+EXPOSE 3000
+
+CMD yarn start
+#-----------------------------------------------------------------------------
+docker build -t vamalevany/web-server-internal:v1 -f Dockerfile.in .
+
+В учетке DockerHub можно настроить автосборку и автообновление образов на самом DockerHub из файлов на GitHub.
+При обновлении файлов на GitHub будет обновляться образ на DockerHub, созданный из этих файлов
+
+Docker Compose - позволяет запускать образы в связке друг с другом.
+Docker-compose install: - в примере версия 1.25.4
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version - (если не найдет, нужно сделать ссылку на другую директорию, например sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose)
+
+nano docker-compose.yml
+#---------------------------------------------------------------------------
+
+# docker-compose файл
+
+#---------------------------------------------------------------------------
+version: '3'
+services:
+db:
+image: postgres:11.4-alpine - образ берем с DockerHub
+container_name: postgres - имя можем придумать мы либо сформирует автоматически
+ports: - 5432:5432 - проброс портов из образа на сервер
+volumes: - ./pg_data:/var/lib/postgresql/data/pgdata - сохраняет базу данных вне контейнера в директории ./pg_data
+environment:
+POSTGRES_PASSWORD: 123 - пароль к базе данных, пользователь по умолчанию postgres
+POSTGRES_DB: docker_test - название базы данных
+PGDATA: /var/lib/postgresql/data/pgdata - расположение базы данных
+restart: always - в случае остановки приложения db без команды docker-compose будет его перезапускать
+app:
+image: vamalevany/web-server - собираем контейнер на собственном образе, который хранится на DockerHub
+container_name: application - имя придумываем сами
+ports: - 3000:3000 - внутренний порт в контейнере выставляем наружу такой же
+environment:
+POSTGRES_HOST: db - переменная POSTGRES_HOST заданна в образе для поключения базы данных
+restart: always
+links: - db - указываем зависимости, т.е. перед запуском контейнера app должен быть запущен контейнер db
+nginx:
+image: nginx:1.17.2-alpine - образ с DockerHub
+container_name: nginx - имя придумываем
+volumes: - ./default.conf:/etc/nginx/conf.d/default.conf - пробрасываем настройки в контейнер с локального компьютера
+links: - app - зависимости запуска
+ports: - 8989:8989 - пробрасываем порт из контейнера наружу
+#---------------------------------------------------------------------------
+
+nano default.conf
+#---------------------------------------------------------------------------
+
+# Настройка прокси-сервера nginx
+
+#---------------------------------------------------------------------------
+server {
+listen 8989;
+server_name localhost;
+location {
+proxy_pass http://app:3000; - указываем где находится контейнер приложения
+proxy_set_header Host $host;
+proxy_set_header X-Real_IP $remote_addr;
+}
+}
+#---------------------------------------------------------------------------
+docker-compose --help - помощь
+docker-compose up - создает и запускает контейнеры
+docker-compose start - запускает контейнеры
+docker-compose images - список образов и в каких контейнерах они используются
+docker-compose ps - список контейнеров
+docker-compose logs - логи
+docker-compose stop - остановка контейнеров
+docker-compose down - останавливает и удаляет все контейнеры текущего docker-compose файла
+
+nano docker-compose.yml
+#---------------------------------------------------------------------------
+
+# docker-compose файл с вариантом запуска пяти контейнеров (каждый на своем порту)
+
+#---------------------------------------------------------------------------
+version: '3'
+services:
+db:
+image: postgres:11.4-alpine
+container_name: postgres
+ports: - 5432:5432
+volumes: - ./pg_data:/var/lib/postgresql/data/pgdata
+environment:
+POSTGRES_PASSWORD: 123
+POSTGRES_DB: docker_test
+PGDATA: /var/lib/postgresql/data/pgdata
+restart: always
+app:
+image: vamalevany/web-server
+ports: - 3000-3005:3000 - задаем пул портов
+environment:
+POSTGRES_HOST: db
+restart: always
+links: - db
+nginx:
+image: nginx:1.17.2-alpine
+container_name: nginx
+volumes: - ./default.conf:/etc/nginx/conf.d/default.conf
+links: - app
+ports: - 8989:8989
+#---------------------------------------------------------------------------
+nano default.conf
+#---------------------------------------------------------------------------
+
+# Настройка прокси-сервера nginx при запуске пяти контейнеров
+
+#---------------------------------------------------------------------------
+upstream application { - аккумулирование прослушиваемых портов
+server app:3000;
+server app:3001;
+server app:3002;
+server app:3003;
+server app:3004;
+server app:3005;
+}
+
+server {
+listen 8989;
+server_name localhost;
+location {
+proxy_pass http://application; - пул перебираемых портов
+proxy_set_header Host $host;
+proxy_set_header X-Real_IP $remote_addr;
+}
+}
+#---------------------------------------------------------------------------
+docker-compose up --scale app=5 - запускаем контейнер app в пять потоков
+</pre>
+      </details>
+      <details><!--Nginx-->
+          <summary>Nginx</summary>
+<pre>
+# Сервер в связке Nginx + NodeJs
+
+> Данная пошаговая инструкция поможет освоить основы на простом примере
+
+**Для справки**
+
+Сервер поднимался на `Debian 8` c характеристиками:
+
+CPU - 1 ядро x 500 МГц
+
+RAM - 512 МБ
+
+Диск - 5 ГБ SSD+HDD
+
+## Принцип работы на пальцах
+
+`Nginx` будет отдавать статические файлы самостоятельно, динамический контент передавать из `NodeJS`.
+
+## Установка и настройка Nginx
+
+Представим что у вас чистый сервер и ничего не установлено. Идем в папку **/root** и становим `Nginx`:
+
+```bash
+$ apt-get install -y nginx
+```
+
+После установки `Nginx`, в папке **/var** появилась папка **/www**, а в ней папка **/html**, а в ней файл **index.html**.
+Идем в папку **/var** и переименуем папку **/html** в папку **/nginx**:
+
+```bash
+$ mv /var/www/html /var/www/nginx
+```
+
+Создаем доп.файл **style.css** (для теста):
+
+```bash
+$ touch /var/www/nginx/style.css
+```
+
+В файле **index.html** пишем код, этот файл будет заглушкой:
+
+```html
+<h1>Заглушка</h1>
+```
+
+В файле **style.css** пишем код:
+
+```css
+* {background: #000;}
+```
+
+Еще нам нуно создать папку для `NodeJS`:
+
+```bash
+$ mkdir /var/www/nodejs
+```
+
+Далее прописывем на всякий случай права для папок:
+
+```bash
+$ chown www-data /var/www && chown www-data /var/www/nginx && chown www-data /var/www/nodejs
+```
+
+Теперь самое интересное, настраиваем файл конфига `Nginx`, редактируем файл **default**:
+
+```bash
+$ mcedit /etc/nginx/sites-available/default
+```
+
+Очищаем весь файл и пишем (комменты # ниже):
+```
+# Настройка сервера
+server {
+# Nginx слушает порт 80
+# default_server - указан в /etc/nginx/nginx.conf
+listen 80 default_server;
+# Указываем "динамическую" папку NodeJS
+root /var/www/nodejs;
+# Указываем основной файл заглушки
+index index.html;
+# Устанавливаем страницы ошибок
+# В папке /var/www/errors должны быть файлы 
+# 50x.html и 40x.html соответственно
+error_page 500 502 503 504 /50x.html;
+error_page 400 401 402 403 404 /40x.html;
+location = /50x.html { 
+root /var/www/errors;
+}
+location = /40x.html { 
+root /var/www/errors;
+}
+# Указываем IP адрес сервера
+server_name IP_адрес_сервера;
+# Если мы обращаемся по любому УРЛ начиная с /
+# то сервер будет обрабатывать NodeJS
+location / {
+# Тут указываем IP|Url и порт (8000) для NodeJS
+# поскольку Nginx будет висеть на 80 порту
+proxy_pass http://IPorURL_адрес_сервера:8000;
+proxy_set_header Host $host;
+}
+# Если мы обращемся по УРЛ начинающийся с /nginx/
+# то мы будем подгружать "статичные" файлы хранящиеся в нем
+# в соответствии с наличием этих файлов в этой папке
+location /nginx/ {
+# Указываем корень
+root /var/www/;
+autoindex off;
+# Итого путь для Nginx будет
+# /var/www/static/
+}
+}	 
+```
+
+Добавляем `Nginx` в автозагрузку и запускаем, что бы изменения применились, после проверяем статус:
+
+```bash
+$ systemctl enable nginx && systemctl start nginx && systemctl status nginx
+```
+
+## Установка и настройка NodeJS
+
+Идем в папку **/root** и под пользователем `root` устанавливаем `cURL`
+
+```bash
+$ apt-get install -y curl
+```
+
+С помощью cURL скачиваем `NodeJS`, в моем случае верся 6:
+
+```bash
+$ curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+```
+
+Запускаем скаченный файл:
+
+```bash
+$ bash nodesource_setup.sh
+```
+
+Устанавливаем `NodeJS`
+
+```bash
+$ apt-get install -y nodejs build-essential
+```
+
+Готово! Можно протестировать:
+
+```bash
+$ node
+> console.log ('hello world')
+```
+
+Вместе с `NodeJS` установился и `NPM` (Node Package Manager), с помощью которого мы установим `express` и `pm2`:
+
+> С помощью демона `pm2` можно позабыть о проблемах с падением `NodeJS` (устанавливаем глобально):
+
+```bash
+$ npm install pm2 -g
+```
+
+> Инициализируем проект, создаем `package.json` в который будем фиксировать нужные пакеты (спасибо [@niiu](https://github.com/niiu) за подсказку)
+
+```bash
+$ npm init
+```
+
+> С помощью библиотеки `express` код будет писаться намного проще и быстрее (устанавлиаем локально):
+
+```bash
+$ cd /var/www/nodejs/
+$ npm install express --save
+```
+
+Создаем файл **server.js** для `NodeJS`, который будет основным (входным) файлом:
+
+```bash
+$ touch /var/www/nodejs/server.js
+```
+
+Код файла **server.js** описан ниже:
+
+```js
+// Настройки
+const setup = {port:8000}
+// Подключаем express
+const express = require ('express'); 
+// создаем приложение
+const app = express ();
+// Маршрутизируем GET-запрос http://ваш_сайт/test
+app.get('/test', (req, res) => {    
+res.send('Тест'); 
+});
+// Слушаем порт и при запуске сервера сообщаем
+app.listen(setup.port, () => {
+console.log('Сервер: порт %s - старт!', setup.port);
+});
+```
+
+Теперь можно добавить демону 1 процесс и запустить наш `NodeJS` сервер:
+
+```bash
+$ pm2 start /var/www/nodejs/server.js
+```
+
+> При этом у нас запущен сервер `Nginx`
+
+После перезагрузки ОС, pm2 сам себя не запустит и соответственно не запустит процессы. Выполняем команды:
+
+1. Сначала добавляем нужный процесс (в нашем случае скрипт `NodeJS`)
+2. Потом сохраняем конфигурацию
+3. После, добавляем `PM2` в сервисы ОС
+
+```bash
+$ pm2 start server.js
+$ pm2 save
+$ pm2 startup
+```
+
+## Готово
+
+Если все запустилось, значит у вас ровные руки, а у меня талант писать пошаговые инструкции :)
+
+**Тестируем**
+
+Переходим на [http://IP_адрес_сайта:80/](http://IP_адрес_сайта:80/) - дожны увидеть фразу "Тест"
+
+Переходим на [http://IP_адрес_сайта:80/nginx/style.css](http://IP_адрес_сайта:80/nginx/style.css) - дожны увидеть код стилей
+
+Переходим на [http://IP_адрес_сайта:80/nginx/](http://IP_адрес_сайта:80/nginx/) или [http://IP_адрес_сайта:80/nginx/index.html](http://IP_адрес_сайта:80/nginx/index.html) - дожны увидеть заглушку
+
+**Итого**
+
+`Nginx` является прокси-сервером, `NodeJS` основным приложением. Первый висит на *80* порту, второй на *8000* и слушает первый. `NodeJS` отдает динамику, а `Nginx` отвечает за статику.  
+
+> Если что-то не получилось или вы нашли ошибку, пишите в комментариях ниже!
+
+## Полезные материалы
+
+| Сайт | GitHub |
+| --- | --- |
+| [https://nginx.org/](https://nginx.org/) | [https://github.com/nginx/nginx](https://github.com/nginx/nginx) |
+| [https://nodejs.org/](https://nodejs.org/) | [https://github.com/nodejs/node](https://github.com/nodejs/node) |
+| [http://expressjs.com/](http://expressjs.com/) | [https://github.com/expressjs/express](https://github.com/expressjs/express) |
+| [https://www.npmjs.com/](https://www.npmjs.com/) | [https://github.com/npm](https://github.com/npm) |
+| [https://www.npmjs.com/package/pm2](https://www.npmjs.com/package/pm2) |  |
+| [https://packages.debian.org/ru/jessie/curl](https://packages.debian.org/ru/jessie/curl) |  |
+</pre>
+      </details>
+      SEO (Search Engine Optimization) https://www.brightedge.com/ || https://www.bluecorona.com/
+    </div>
+  </div>
+</body>
+</html>

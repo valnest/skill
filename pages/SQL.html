@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="none">
+  <meta name="robots" content="noimageindex, nofollow">
+  <title>SQL</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="main__container">
+      <div class="logo"><a href="../index.html">MAY THE FORCE BE WITH YOU</a></div>
+      <div class="menu__inner">
+        <p><em>SQL</em> — применяется для создания, модификации и управления данными в реляционной базе данных, 
+          управляемой соответствующей системой управления базами данных.<br>
+            В базовом варианте SQL является информационно-логическим языком, а не языком программирования. <br>
+            <br>
+            <em>Система управления базами данных (СУБД)</em> — совокупность программных и лингвистических средств
+            общего или специального назначения, обеспечивающих управление созданием и использованием баз данных. <br>
+            <br>
+            <em>База данных (БД)</em> - под базой данных (БД) понимают хранилище структурированных данных, 
+            при этом данные должны быть непротиворечивы, минимально избыточны и целостны. <br>
+            <br>
+            <em>Реляционная база данных</em> — база данных, основанная на реляционной модели данных. <br>
+            Реляционные БД представляют связанную между собой совокупность таблиц-сущностей базы данных. <br>
+            Каждая таблица БД представляется как совокупность строк и столбцов, где строки соответствуют
+            экземпляру объекта, конкретному событию или явлению, а столбцы - атрибутам (признакам,
+            характеристикам, параметрам) объекта, события, явления. <br>
+            При практической разработке БД таблицы-сущности зовутся таблицами, строки-экземпляры - записями,
+            столбцы-атрибуты - полями. <br>
+            <br>
+            Преимущества SQL - наличие стандартов и независимость от конкретной СУБД. <br>
+            Недостатки SQL - сложность.
+        </p>
+        <ul><em>Классификация по модели данных:</em>
+          <li>Иерархическая</li>
+          <li>Объектная и объектно-ориентированная</li>
+          <li>Объектно-реляционная</li>
+          <li>Реляционная</li>
+          <li>Сетевая</li>
+          <li>Функциональная</li>
+        </ul>
+        <br>
+        <p>
+          <em>Типы отношений:</em><br>
+          Многие к одному <br>
+          Многие ко многим <br>
+          Один к одному <br>
+          <img src="../img/sql/SQL11.png" alt=""> <br>
+          <img src="../img/sql/SQL12.png" alt=""> <br>
+        </p>
+        <br>  
+        <details><!--DDL-->
+          <summary>Операторы определения данных (Data Definition Language, DDL)</summary>
+<pre>
+  <em>CREATE</em> - создает объект БД (саму базу, таблицу, представление, пользователя и т. д.)
+  <em>ALTER</em> - изменяет объект
+  <em>DROP</em> - удаляет объект
+</pre>
+        </details>
+        <details><!--DML-->
+          <summary>Операторы манипуляции данными (Data Manipulation Language, DML)</summary>
+          <details><!--SELECT-->
+            <summary>SELECT</summary>
+<pre>
+  <em>SELECT</em> - выбирает данные, удовлетворяющие заданным условиям, <small>SELECT * FROM table</small>
+  <small>
+    SELECT DISTINCT speed, ram
+    FROM PC
+    WHERE price < 500
+    ORDER BY ram DESC;
+  
+    SELECT model, speed, hd
+    FROM PC
+    WHERE hd IN (10, 20) AND
+    model IN (SELECT model
+    FROM product
+    WHERE maker = 'A');
+  
+    SELECT model, speed
+    FROM PC
+    WHERE price BETWEEN 400 AND 600;
+  
+    SELECT *
+    FROM Ships
+    WHERE class NOT LIKE '%go' AND
+    class LIKE '%o' ;
+    select * from movies where studio_id = (select id from studios where studio_name like '%Pictures');
+    select * from movies where studio_id = ANY (select id from studios where studio_name like '%Pictures');
+    select * from movies where studio_id IN (select id from studios where studio_name like '%Pictures');
+    select distinct country from (select title, country, revenue from movies order by revenue desclimit 5) AS top_movies;
+    select country, studio_id, max(oscar_winner) from movies
+    Group by country, studio_id
+    order by 2 desc
+    select country, max(oscar_winner) from movies
+    Group by country
+    HAVING MAX(oscar_winner) > 1
+    order by 2 desc
+  </small>
+  В выражении SELECT мы можем вводить <em>подзапросы</em> четырьмя способами:
+    В условии в выражении WHERE
+    В качестве таблицы для выборки в выражении FROM
+    В качестве спецификации столбца в выражении SELECT
+    В условии в выражении HAVING
+
+  <em>Агрегатные функции:</em>
+  <em>COUNT(*)</em> - Возвращает количество строк источника записей
+      <small>select count(*) from movies</small>
+      <small>select count(rating) from movies</small>
+  <em>SUM</em> - Возвращает сумму значений в указанном столбце
+      <small>select sum(revenue) from movies</small>
+  <em>AVG</em> - Возвращает среднее значение в указанном столбце
+      <small>select avg(budget) from movies</small>
+  <em>MIN</em> - Возвращает минимальное значение в указанном столбце
+  <em>MAX</em> - Возвращает максимальное значение в указанном столбц
+      <small>select max(oscar_winner) from movies</small>
+</pre>
+          </details>
+          <details><!--JOIN-->
+              <summary>JOIN</summary>
+<pre>
+<em>Неявное соединение:</em>
+  <small>select * from persons, staff where persons.id = staff.person_id</small>
+  либо
+  <small>select * from persons CROSS JOIN staff where persons.id = staff.person_id</small>
+
+<em>Явное соединение:</em>
+<small>  select [columns] from table1 [INNER] | {[LEFT] | [RIGHT] | [FULL]} [OUTER] JOIN table2
+  ON table1.[column] = table2.[column]
+  
+  select * from persons [INNER] JOIN staff ON persons.id = staff.person_id
+  
+  select [columns] from table1 t1 [LEFT] | [RIGHT] | [FULL] JOIN table2 t2
+  ON t1.[column] = t2.[column]</small>
+
+<small>
+  select * from persons p JOIN staff s
+  ON p.id = s.person_id
+  
+  select * from persons p LEFT JOIN staff s
+  ON p.id = s.person_id
+  
+  select * from persons p RIGHT JOIN staff s
+  ON p.id = s.person_id
+  
+  select * from persons p FULL JOIN staff s
+  ON p.id = s.person_id</small>
+</pre>
+          </details>
+          <details><!--UNION-->
+              <summary>UNION</summary>
+<pre>
+<em>UNION</em> – объединение:                                         
+  UNION применяется для объединения результатов двух SQL-запросов
+  в единую таблицу, состоящую из схожих строк. Оба запроса должны
+  возвращать одинаковое число столбцов и совместимые типы данных
+  в соответствующих столбцах!!!
+<small>
+  select [columns] from table1
+  UNION [ALL]
+  elect [columns] from table2
+</small>
+</pre>
+          </details>
+          <details><!--INTERSECT-->
+              <summary>INTERSECT</summary>
+<pre>
+  <em>INTERSECT</em> - Пересечение:
+  Пересечение — множество, состоящее из элементов, которые
+  одновременно принадлежат всем данным множествам.
+  INTERSECT, также как и UNION обладает ограничением на результат
+  запросов, которые должны быть совместимы по объединению
+<small>
+  select [columns] from table1
+  INTERSECT
+  select [columns] from table2
+</small>
+</pre>
+          </details>
+          <details><!--MINUS или EXCEPT-->
+              <summary>MINUS или EXCEPT</summary>
+              <p>
+                  <dfn></dfn> 
+                  
+<pre>
+  <em>MINUS или EXCEPT</em> - Разность:
+  Разность двух множеств — это операция, результатом которой
+  является множество, в которое входят все элементы первого
+  множества, не входящие во второе множество
+<small>
+  select [columns] from table1
+  MINUS | EXCEPT
+  select [columns] from table2
+</small>
+</pre>          
+              </p>
+          </details>
+          <details><!--INSERT-->
+              <summary>INSERT</summary>
+<pre>
+  <em>INSERT</em> добавляет новые данные
+<small>
+  INSERT INTO table ([columns])
+  VALUES ([values])
+  INSERT INTO persons (id, full_name, birth_date, gender)
+  VALUES (1000, 'Chris Pratt', '1979-06-21', 'male')
+</small>
+</pre>
+          </details>
+          <details><!--UPDATE-->
+              <summary>UPDATE</summary>
+<pre>
+  <em>UPDATE</em> изменяет существующие данные
+<small>
+  UPDATE table SET [column1] = [value],
+  [column2] = [value]
+  WHERE ...
+  UPDATE persons SET full_name = 'Chris Hemsworth',
+  Birth_date = '1983-08-11' WHERE id = 1000
+</small>
+</pre>
+          </details>
+          <details><!--DELETE-->
+              <summary>DELETE</summary>
+<pre>
+  <em>DELETE</em> удаляет данные
+<small>
+  DELETE FROM table WHERE ...
+  DELETE from persons WHERE id = 1000
+</small>
+</pre>
+          </details>
+        </details>
+        <details><!--DCL-->
+          <summary>Операторы определения доступа к данным (Data Control Language, DCL)</summary>
+<pre>
+  <em>GRANT</em> - предоставляет пользователю (группе) разрешения на определенные операции с объектом
+  <em>REVOKE</em> - отзывает ранее выданные разрешения
+  <em>DENY</em> - задает запрет, имеющий приоритет над разрешением
+</pre>
+        </details>
+        <details><!--TCL-->
+          <summary>Операторы управления транзакциями (Transaction Control Language, TCL)</summary>
+<pre>
+  <em>COMMIT</em> - применяет транзакцию
+  <em>ROLLBACK</em> - откатывает все изменения, сделанные в контексте текущей транзакции
+  <em>SAVEPOINT</em> - делит транзакцию на более мелкие участки
+
+  START TRANSACTION/COMMIT/ROLLBACK:
+  SET AUTOCOMMIT = [1|0] | [ON|OFF]
+  START TRANSACTION;
+  COMMIT;
+  ROLLBACK;
+</pre>
+        </details>
+        <br>
+        <a href="https://sql-ex.ru/?Lang=0">Тренажер</a> <br>
+        <a href="https://sqlbolt.com/lesson/">sqlbolt</a> <br>
+        <a href="https://sql-academy.org/ru/guide/multi-table-request-join">join</a> <br>
+        <a href="https://www.w3schools.com/sql/exercise.asp?">w3s</a> <br>
+        <br>
+        <img src="../img/sql/SQL1.png" alt="">
+        <img src="../img/sql/SQL2.png" alt="">
+        <img src="../img/sql/SQL3.png" alt="">
+        <img src="../img/sql/SQL4.png" alt="">
+        <img src="../img/sql/SQL5.png" alt="">
+        <img src="../img/sql/SQL6.png" alt="">
+        <img src="../img/sql/SQL7.png" alt="">
+        <img src="../img/sql/SQL8.png" alt="">
+        <img src="../img/sql/SQL9.png" alt="">
+        <img src="../img/sql/SQL10.png" alt="">
+        <img src="../img/sql/SQL14.png" alt="">
+        <img src="../img/sql/SQL15.png" alt="">
+        <img src="../img/sql/SQL16.png" alt="">
+        <img src="../img/sql/SQL17.png" alt="">
+        <img src="../img/sql/SQL18.png" alt="">
+        <img src="../img/sql/SQL19.png" alt="">
+        <img src="../img/sql/SQL20.png" alt="">
+        <img src="../img/sql/SQL21.png" alt="">
+        <img src="../img/sql/SQL22.png" alt="">
+        <img src="../img/sql/SQL23.png" alt="">
+        <img src="../img/sql/SQL24.png" alt="">
+        <img src="../img/sql/SQL25.png" alt="">
+        <img src="../img/sql/SQL26.png" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
