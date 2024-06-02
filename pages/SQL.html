@@ -12,7 +12,7 @@
 <body>
   <div class="wrapper">
     <div class="main__container">
-      <div class="logo"><a href="../index.html">MAY THE FORCE BE WITH YOU</a></div>
+      <div class="logo"><a href="../">MAY THE FORCE BE WITH YOU</a></div>
       <div class="menu__inner">
         <p><em>SQL</em> — применяется для создания, модификации и управления данными в реляционной базе данных, 
           управляемой соответствующей системой управления базами данных.<br>
@@ -46,10 +46,10 @@
         <br>
         <p>
           <em>Типы отношений:</em><br>
-          Многие к одному <br>
-          Многие ко многим <br>
-          Один к одному <br>
-          <img src="../img/sql/SQL11.png" alt=""> <br>
+          Один к одному (one-to-one) <br>
+          Один ко многим (one-to-many) <br>
+          Многие к одному (many-to-one) <br>
+          Многие ко многим (many-to-many, реализуется через отдельную таблицу) <br>
           <img src="../img/sql/SQL12.png" alt=""> <br>
         </p>
         <br>  
@@ -57,66 +57,244 @@
           <summary>Операторы определения данных (Data Definition Language, DDL)</summary>
 <pre>
   <em>CREATE</em> - создает объект БД (саму базу, таблицу, представление, пользователя и т. д.)
+    <small>
+      <span class="menu__komment">Создать таблицу table со столбцами id, field_1, field_2, field_3.
+      По каждому столбцу заданы тип и количество символов</span>
+      <em>CREATE</em> <em>TABLE</em> table(
+        id <em>INT</em> <em>PRIMARY KEY</em>,
+        field_1 <em>VARCHAR</em>(100),
+        field_2 <em>VARCHAR</em>(30),
+        field_3 <em>INT</em>
+      );
+
+      <span class="menu__komment">PRIMARY KEY - уникальный идентификатор записей.
+      FOREIGN KEY - внешний ключ, значения идентификатора записей в связанной таблице.
+      SERIAL - автоинкремент идентификатора в PostgreSQL</span>
+      <em>CREATE</em> <em>TABLE</em> table(
+        id <em>SERIAL</em> <em>PRIMARY KEY</em>,
+        field_1 <em>VARCHAR</em>(100),
+        field_2 <em>VARCHAR</em>(30),
+        field_3 <em>INT</em>
+      );
+      <span class="menu__komment"><em>DESCRIBE</em> table - информация о таблице</span>
+    </small>
   <em>ALTER</em> - изменяет объект
+    <small>
+      <span class="menu__komment">Изменить таблицу table, добавить столбец field_4 с типом BOOLEAN</span>
+      <em>ALTER</em> <em>TABLE</em> table <em>ADD</em> <em>COLUMN</em> field_4 <em>BOOLEAN</em>;
+
+      <span class="menu__komment">Изменить таблицу table, удалить столбец field_4</span>
+      <em>ALTER</em> <em>TABLE</em> table <em>DROP</em> <em>COLUMN</em> field_4;
+
+      <span class="menu__komment">Изменить таблицу table, переименовать столбец field_4 в field_5</span>
+      <em>ALTER</em> <em>TABLE</em> table <em>RENAME</em> <em>COLUMN</em> field_4 <em>TO</em> field_5;
+
+      <span class="menu__komment">Изменить таблицу table, переименовать в another_table</span>
+      <em>ALTER</em> <em>TABLE</em> table <em>RENAME</em> <em>TO</em> another_table;
+    </small>
   <em>DROP</em> - удаляет объект
+    <small><em>DROP</em> <em>TABLE</em> table
+    
+    <span class="menu__komment">Скрипт создания таблицы:</span>
+    <em>DROP</em> <em>TABLE</em> <em>IF</em> <em>EXISTS</em> table;
+    <em>CREATE</em> <em>TABLE</em> table(
+      id <em>SERIAL</em> <em>PRIMARY KEY</em>,
+      field_1 <em>VARCHAR</em>(100),
+      field_2 <em>VARCHAR</em>(30),
+      field_3 <em>INT</em>
+    );
+    </small>
 </pre>
         </details>
-        <details><!--DML-->
+        <details><!--DML--> 
           <summary>Операторы манипуляции данными (Data Manipulation Language, DML)</summary>
           <details><!--SELECT-->
             <summary>SELECT</summary>
 <pre>
   <em>SELECT</em> - выбирает данные, удовлетворяющие заданным условиям, <small>SELECT * FROM table</small>
   <small>
-    SELECT DISTINCT speed, ram
-    FROM PC
-    WHERE price < 500
-    ORDER BY ram DESC;
-  
-    SELECT model, speed, hd
-    FROM PC
-    WHERE hd IN (10, 20) AND
-    model IN (SELECT model
-    FROM product
-    WHERE maker = 'A');
-  
-    SELECT model, speed
-    FROM PC
-    WHERE price BETWEEN 400 AND 600;
-  
-    SELECT *
-    FROM Ships
-    WHERE class NOT LIKE '%go' AND
-    class LIKE '%o' ;
-    select * from movies where studio_id = (select id from studios where studio_name like '%Pictures');
-    select * from movies where studio_id = ANY (select id from studios where studio_name like '%Pictures');
-    select * from movies where studio_id IN (select id from studios where studio_name like '%Pictures');
-    select distinct country from (select title, country, revenue from movies order by revenue desclimit 5) AS top_movies;
-    select country, studio_id, max(oscar_winner) from movies
-    Group by country, studio_id
-    order by 2 desc
-    select country, max(oscar_winner) from movies
-    Group by country
-    HAVING MAX(oscar_winner) > 1
-    order by 2 desc
-  </small>
-  В выражении SELECT мы можем вводить <em>подзапросы</em> четырьмя способами:
-    В условии в выражении WHERE
-    В качестве таблицы для выборки в выражении FROM
-    В качестве спецификации столбца в выражении SELECT
-    В условии в выражении HAVING
+    <span class="menu__komment">Для примера используем таблицу table со столбцами field_1, field_2 и т.д.
+      У каждого столбца свои значения value_1, value_2, value_3 и т.д.
+    </span>
+    <span class="menu__komment">Выбираю столбец (field_1) и столбец (field_2) из таблицы (table)</span>
+    <em>SELECT</em> field_1, field_2
+    <from>FROM</from> table;
 
+    <span class="menu__komment">Ключевое слово AS назначает псевдоним f1 столбцу field_1</span>
+    <em>SELECT</em> field_1 <em>AS</em> f1
+    <em>FROM</em> table;
+
+    <span class="menu__komment">Выбрать только уникальные значения столбца field_1</span>
+    <em>SELECT</em> <em>DISTINCT</em>(field_1)
+    <em>FROM</em> table;
+
+    <span class="menu__komment">Выбрать первых 10 уникальных значений столбца field_1</span>
+    <em>SELECT</em> <em>DISTINCT</em>(field_1)
+    <em>FROM</em> table
+    <em>LIMIT</em> 10;
+
+    <span class="menu__komment">Выбрать из таблицы table все строки со значением value в столбце field_2</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_2 = 'value'; <span class="menu__komment">Ключевое слово WHERE и фильтр field_2 = 'value'</span>
+    <span class="menu__komment">Используем в WHERE:
+        =         Равно
+      <>, !=      Неравно
+        >         Больше
+        >=        Больше или равно
+        <         Меньше
+        <=        Меньше или равно
+        BETWEEN   Значение в диапозоне
+        IN        Значение в списке
+        LIKE      Соответствие шаблону
+        AND       Логическое И
+        OR        Логическое ИЛИ
+        NOT       Логическое НЕ
+    </span>
+    <span class="menu__komment">Выбрать из таблицы table все строки со значениями от value_1 по value_2 в столбце field_2</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_2
+    <em>BETWEEN</em> value_1 AND value_2;
+
+    <span class="menu__komment">Выбрать из таблицы table все строки со значениями по списку IN из столбца field_2</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_2
+    <em>IN</em> (value_1, value_2, value_3);
+
+    <span class="menu__komment">Выбрать из таблицы table все строки, у которых в столбе field_2 значение содержит value</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_2
+    <em>LIKE</em> '%value%';
+    <span class="menu__komment">Спец.символы в шаблонах LIKE:
+      % - любое количество символов (можно и без символов)
+      _ - ровно один символ
+    </span>
+    <span class="menu__komment">Выбрать из таблицы table все строки, у которых одновременно в столбе field_1 значение value_3 
+      и в столбце field_2 значение value_2</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = value_3
+    <em>AND</em> field_2 = value_2;
+
+    <span class="menu__komment">Выбрать из таблицы table все строки, у которых в столбце field_1 значение value_3 либо 
+    в столбце field_2 значение value_2</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = value_3
+    <em>OR</em> field_2 = value_2;
+
+    <span class="menu__komment">Выбрать из таблицы table все строки со значениями вне списка IN из столбца field_2</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_2
+    <em>NOT IN</em> (value_1, value_2, value_3);
+
+    <span class="menu__komment">Выбрать из таблицы table все строки и отсортировать их по столбцу field_3</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>ORDER BY</em> field_3 <span class="menu__komment">Сортировка данных по столбцу field_3, по умолчанию это ASC</span>
+    <span class="menu__komment">Порядок сортировки в ORDER BY:
+      ASC (ascending) - сортировка по возрастанию (по умолчанию)
+      DESC (descending) - сортировка по убыванию
+    </span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>ORDER BY</em> field_3 <em>DESC</em>; <span class="menu__komment">Сортировка данных по столбцу field_3 по убыванию</span>
+
+    <span class="menu__komment">Выбрать из таблицы table все строки, у которых в столбце field_1 значение value_3 
+      и отсортировать по столбцу field_3 по убыванию</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = value_3
+    <em>ORDER BY</em> field_3 <em>DESC</em>;
+
+    <span class="menu__komment">Выбрать из таблицы table все строки, у которых одновременно в столбе field_1 значение value_3 
+      и в столбце field_2 значение value_2 и отсортировать по столбцу field_3 по убыванию и вывести первые пять строк</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = value_3
+    <em>AND</em> field_2 = value_2
+    <em>ORDER BY</em> field_3 <em>DESC</em>
+    <em>LIMIT</em> 5;
+
+    <span class="menu__komment">Выбрать из таблицы table все строки и отсортировать по двум столбцам</span>
+    <em>SELECT</em> *
+    <em>FROM</em> table
+    <em>ORDER BY</em> field_3, field_2;
+  </small>
+  
   <em>Агрегатные функции:</em>
-  <em>COUNT(*)</em> - Возвращает количество строк источника записей
-      <small>select count(*) from movies</small>
-      <small>select count(rating) from movies</small>
+  <small>
+  <em>COUNT</em>(*) - Возвращает количество строк источника записей
+    <span class="menu__komment">Считает количество записей в таблице table</span>
+    <em>SELECT</em> <em>COUNT</em>(*) <em>FROM</em> table
+
+    <span class="menu__komment">Считает количество записей в столбцe field_2 таблицы table</span>
+    <em>SELECT</em> <em>COUNT</em>(field_2) <em>FROM</em> table
+
+    <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам
+    и посчитать сколько записей каждого вида</span>
+    <em>SELECT</em> field_2, <em>COUNT</em>(*) <em>FROM</em> table
+    <em>GROUP BY</em> field_2
+
   <em>SUM</em> - Возвращает сумму значений в указанном столбце
-      <small>select sum(revenue) from movies</small>
+    <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
+      посчитать сколько записей каждого вида и суммировать значения в столбце field_3 
+      соответствующих сгруппированным видам </span>
+    <em>SELECT</em> field_2, <em>COUNT</em>(*), <em>SUM</em>(field_3)
+    <em>FROM</em> table
+    <em>GROUP BY</em> field_2
+
   <em>AVG</em> - Возвращает среднее значение в указанном столбце
-      <small>select avg(budget) from movies</small>
+    <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
+      посчитать среднее значение по каждому виду в столбце field_3.
+      Среднее расчитывается со знаками после запятой.</span>
+    <em>SELECT</em> field_2, <em>AVG</em>(field_3) 
+    <em>FROM</em> table
+    <em>GROUP BY</em> field_2
+
+    <span class="menu__komment">Посчитать среднее без знака после запятой</span>
+    <em>SELECT</em> field_2, <em>SUM</em>(field_3)/<em>COUNT</em>(*) <em>AS</em> average 
+    <em>FROM</em> table
+    <em>GROUP BY</em> field_2
+
   <em>MIN</em> - Возвращает минимальное значение в указанном столбце
-  <em>MAX</em> - Возвращает максимальное значение в указанном столбц
-      <small>select max(oscar_winner) from movies</small>
+    <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
+      определить минимальное и максимальное значение каждого вида в столбце field_3, вывести столбец field_2 
+      с групированными значениями, столбец минимальных и столбец максимальных значений каждого вида,
+      отсортировать по убыванию по столбцу максимальных значений</span>
+    <em>SELECT</em> field_2, <em>MIN</em>(field_3), <em>MAX</em>(field_3)
+    <em>FROM</em> table
+    <em>GROUP BY</em> field_2
+    <em>ORDER BY</em> <em>MAX</em>(field_3) <em>DESC</em>
+
+  <em>MAX</em> - Возвращает максимальное значение в указанном столбцe
+    <span class="menu__komment">Считает все функции в таблице table</span>
+    <em>SELECT</em> <em>COUNT</em>(*),
+      <em>MIN</em>(field_2),
+      <em>MAX</em>(field_2),
+      <em>SUM</em>(field_2),
+      <em>AVG</em>(field_2)
+    <em>FROM</em> table
+    </small>
+  В выражении <em>SELECT</em> мы можем вводить <em>подзапросы</em> четырьмя способами:
+    В условии в выражении <em>WHERE</em>
+    В качестве таблицы для выборки в выражении <em>FROM</em>
+    В качестве спецификации столбца в выражении <em>SELECT</em>
+    В условии в выражении <em>HAVING</em>
+    <small>
+      <span class="menu__komment">Выбрать из таблицы table все строки со значением value_3 в столбце field_1,
+        отсортировать по видам в столбце field_2, посчитать количество строк по каждому виду,
+        отсортировать виды, у которых количество строк больше 10</span>
+      <em>SELECT</em> field_2, <em>COUNT</em>(*)
+      <em>FROM</em> table
+      <em>WHERE</em> field_1 = value_3
+      <em>GROUP BY</em> field_2
+      <em>HAVING</em> <em>COUNT</em>(*) > 10 <span class="menu__komment">HAVING работает с результатами группировки</span>
+    </small>
 </pre>
           </details>
           <details><!--JOIN-->
@@ -159,9 +337,9 @@
   возвращать одинаковое число столбцов и совместимые типы данных
   в соответствующих столбцах!!!
 <small>
-  select [columns] from table1
-  UNION [ALL]
-  elect [columns] from table2
+  select columns from table1
+  UNION ALL
+  select columns from table2
 </small>
 </pre>
           </details>
@@ -174,9 +352,9 @@
   INTERSECT, также как и UNION обладает ограничением на результат
   запросов, которые должны быть совместимы по объединению
 <small>
-  select [columns] from table1
+  select columns from table1
   INTERSECT
-  select [columns] from table2
+  select columns from table2
 </small>
 </pre>
           </details>
@@ -191,9 +369,9 @@
   является множество, в которое входят все элементы первого
   множества, не входящие во второе множество
 <small>
-  select [columns] from table1
+  select columns from table1
   MINUS | EXCEPT
-  select [columns] from table2
+  select columns from table2
 </small>
 </pre>          
               </p>
@@ -203,10 +381,9 @@
 <pre>
   <em>INSERT</em> добавляет новые данные
 <small>
-  INSERT INTO table ([columns])
-  VALUES ([values])
-  INSERT INTO persons (id, full_name, birth_date, gender)
-  VALUES (1000, 'Chris Pratt', '1979-06-21', 'male')
+  <span class="menu__komment">Вставить в таблицу table значение value_2 в столбец field_1, value_4 в столбец field_2</span>
+  <em>INSERT</em> <em>INTO</em> table (field_1, field_2)
+  <em>VALUES</em> (value_2, value_4);
 </small>
 </pre>
           </details>
@@ -215,11 +392,16 @@
 <pre>
   <em>UPDATE</em> изменяет существующие данные
 <small>
-  UPDATE table SET [column1] = [value],
-  [column2] = [value]
-  WHERE ...
-  UPDATE persons SET full_name = 'Chris Hemsworth',
-  Birth_date = '1983-08-11' WHERE id = 1000
+  <span class="menu__komment">Обновить значения value_3 в столбец field_2, value_2 в столбец field_3, в строке с id = 1</span>
+  <em>UPDATE</em> table
+  <em>SET</em> field_2 = value_3, field_3 = value_2
+  <em>WHERE</em> id = 1
+
+  <span class="menu__komment">Обновить значения во всех строках где в столбце field_2 значение value_1, 
+  вставить в столбец field_3 значение value_2</span>
+  <em>UPDATE</em> table
+  <em>SET</em> field_3 = value_2
+  <em>WHERE</em> field_2 = value_1
 </small>
 </pre>
           </details>
@@ -228,8 +410,16 @@
 <pre>
   <em>DELETE</em> удаляет данные
 <small>
-  DELETE FROM table WHERE ...
-  DELETE from persons WHERE id = 1000
+  <span class="menu__komment">Удалить из таблицы table строку с id = 2</span>
+  <em>DELETE</em> <em>FROM</em> table
+  <em>WHERE</em> id = 2
+
+  <span class="menu__komment">Удалить из таблицы table строки со значением value_1 в столбце field_2</span>
+  <em>DELETE</em> <em>FROM</em> table
+  <em>WHERE</em> field_2 = value_1
+
+  <span class="menu__komment">Удалить из таблицы table все данные</span>
+  <em>DELETE</em> <em>FROM</em> table
 </small>
 </pre>
           </details>
@@ -261,30 +451,6 @@
         <a href="https://sqlbolt.com/lesson/">sqlbolt</a> <br>
         <a href="https://sql-academy.org/ru/guide/multi-table-request-join">join</a> <br>
         <a href="https://www.w3schools.com/sql/exercise.asp?">w3s</a> <br>
-        <br>
-        <img src="../img/sql/SQL1.png" alt="">
-        <img src="../img/sql/SQL2.png" alt="">
-        <img src="../img/sql/SQL3.png" alt="">
-        <img src="../img/sql/SQL4.png" alt="">
-        <img src="../img/sql/SQL5.png" alt="">
-        <img src="../img/sql/SQL6.png" alt="">
-        <img src="../img/sql/SQL7.png" alt="">
-        <img src="../img/sql/SQL8.png" alt="">
-        <img src="../img/sql/SQL9.png" alt="">
-        <img src="../img/sql/SQL10.png" alt="">
-        <img src="../img/sql/SQL14.png" alt="">
-        <img src="../img/sql/SQL15.png" alt="">
-        <img src="../img/sql/SQL16.png" alt="">
-        <img src="../img/sql/SQL17.png" alt="">
-        <img src="../img/sql/SQL18.png" alt="">
-        <img src="../img/sql/SQL19.png" alt="">
-        <img src="../img/sql/SQL20.png" alt="">
-        <img src="../img/sql/SQL21.png" alt="">
-        <img src="../img/sql/SQL22.png" alt="">
-        <img src="../img/sql/SQL23.png" alt="">
-        <img src="../img/sql/SQL24.png" alt="">
-        <img src="../img/sql/SQL25.png" alt="">
-        <img src="../img/sql/SQL26.png" alt="">
       </div>
     </div>
   </div>

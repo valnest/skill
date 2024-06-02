@@ -35,6 +35,10 @@ body {
   margin-top: 15rem;
 }
 
+img {
+  width: 100%;
+}
+
 
 /*Menu*/
 
@@ -60,6 +64,10 @@ body {
 }
 
 .menu__item_prelude em {
+  color:#525e74
+}
+
+.menu__komment {
   color:#525e74
 }
 
