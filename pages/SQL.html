@@ -51,6 +51,7 @@
           Многие к одному (many-to-one) <br>
           Многие ко многим (many-to-many, реализуется через отдельную таблицу) <br>
           <img src="../img/sql/SQL12.png" alt=""> <br>
+          <span class="menu__komment">Источник: https://drawsql.app/</span>
         </p>
         <br>  
         <details><!--DDL-->
@@ -75,6 +76,26 @@
         field_1 <em>VARCHAR</em>(100),
         field_2 <em>VARCHAR</em>(30),
         field_3 <em>INT</em>
+      );
+
+      <span class="menu__komment">Ограничения на уровне таблицы</span>
+      <em>CREATE</em> <em>TABLE</em> table_1(
+        id <em>PRIMARY KEY</em>,      <span class="menu__komment">Значения в столбце уникальные  и не пустые</span>
+        field_1 <em>VARCHAR</em>(100) <em>UNIQUE</em> <em>NOT</em> <em>NULL</em>, <span class="menu__komment">Значения в столбце уникальные  и не пустые</span>
+        field_2 <em>VARCHAR</em>(30),
+        field_3 <em>INT</em>,
+        field_table_2_id <em>INT</em> <em>REFERENCES</em> table_2(id) <span class="menu__komment">Значения столбца field_table_2_id - ссылки на id таблицы table_2</span>
+        <em>ON</em> <em>DELETE</em> <em>RESTRICT</em> <span class="menu__komment">RESTRICT - запретить удалять id таблицы table_2</span>
+              либо <em>CASCADE</em>, <span class="menu__komment">CASCADE - при удалении id таблицы table_2, удалить соответствующие записи</span>
+        <em>CONSTRAINT</em> positive_field  <span class="menu__komment">Ограничение с именем positive_field</span>
+        <em>CHEK</em> (field_3 >= 0)        <span class="menu__komment">Значения в столбце field_3 должны быть положительными</span>
+      );
+
+      <em>CREATE</em> <em>TABLE</em> table_1(
+        field_table_2_id <em>INT</em> <em>REFERENCES</em> table_2(id),
+        field_table_3_id <em>INT</em> <em>REFERENCES</em> table_3(id),
+        quantity <em>INT</em>,
+        <em>PRIMARY KEY</em>(field_table_2_id, field_table_3_id)  <span class="menu__komment">Уникальный идентификатор состоит из двух столбцов</span>
       );
       <span class="menu__komment"><em>DESCRIBE</em> table - информация о таблице</span>
     </small>
@@ -169,11 +190,11 @@
     <em>WHERE</em> field_2
     <em>LIKE</em> '%value%';
     <span class="menu__komment">Спец.символы в шаблонах LIKE:
-      % - любое количество символов (можно и без символов)
-      _ - ровно один символ
+    % - любое количество символов (можно и без символов)
+    _ - ровно один символ
     </span>
     <span class="menu__komment">Выбрать из таблицы table все строки, у которых одновременно в столбе field_1 значение value_3 
-      и в столбце field_2 значение value_2</span>
+    и в столбце field_2 значение value_2</span>
     <em>SELECT</em> *
     <em>FROM</em> table
     <em>WHERE</em> field_1 = value_3
@@ -197,22 +218,22 @@
     <em>FROM</em> table
     <em>ORDER BY</em> field_3 <span class="menu__komment">Сортировка данных по столбцу field_3, по умолчанию это ASC</span>
     <span class="menu__komment">Порядок сортировки в ORDER BY:
-      ASC (ascending) - сортировка по возрастанию (по умолчанию)
-      DESC (descending) - сортировка по убыванию
+    ASC (ascending) - сортировка по возрастанию (по умолчанию)
+    DESC (descending) - сортировка по убыванию
     </span>
     <em>SELECT</em> *
     <em>FROM</em> table
     <em>ORDER BY</em> field_3 <em>DESC</em>; <span class="menu__komment">Сортировка данных по столбцу field_3 по убыванию</span>
 
     <span class="menu__komment">Выбрать из таблицы table все строки, у которых в столбце field_1 значение value_3 
-      и отсортировать по столбцу field_3 по убыванию</span>
+    и отсортировать по столбцу field_3 по убыванию</span>
     <em>SELECT</em> *
     <em>FROM</em> table
     <em>WHERE</em> field_1 = value_3
     <em>ORDER BY</em> field_3 <em>DESC</em>;
 
     <span class="menu__komment">Выбрать из таблицы table все строки, у которых одновременно в столбе field_1 значение value_3 
-      и в столбце field_2 значение value_2 и отсортировать по столбцу field_3 по убыванию и вывести первые пять строк</span>
+    и в столбце field_2 значение value_2 и отсортировать по столбцу field_3 по убыванию и вывести первые пять строк</span>
     <em>SELECT</em> *
     <em>FROM</em> table
     <em>WHERE</em> field_1 = value_3
@@ -242,16 +263,16 @@
 
   <em>SUM</em> - Возвращает сумму значений в указанном столбце
     <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
-      посчитать сколько записей каждого вида и суммировать значения в столбце field_3 
-      соответствующих сгруппированным видам </span>
+    посчитать сколько записей каждого вида и суммировать значения в столбце field_3 
+    соответствующих сгруппированным видам </span>
     <em>SELECT</em> field_2, <em>COUNT</em>(*), <em>SUM</em>(field_3)
     <em>FROM</em> table
     <em>GROUP BY</em> field_2
 
   <em>AVG</em> - Возвращает среднее значение в указанном столбце
     <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
-      посчитать среднее значение по каждому виду в столбце field_3.
-      Среднее расчитывается со знаками после запятой.</span>
+    посчитать среднее значение по каждому виду в столбце field_3.
+    Среднее расчитывается со знаками после запятой.</span>
     <em>SELECT</em> field_2, <em>AVG</em>(field_3) 
     <em>FROM</em> table
     <em>GROUP BY</em> field_2
@@ -263,9 +284,9 @@
 
   <em>MIN</em> - Возвращает минимальное значение в указанном столбце
     <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
-      определить минимальное и максимальное значение каждого вида в столбце field_3, вывести столбец field_2 
-      с групированными значениями, столбец минимальных и столбец максимальных значений каждого вида,
-      отсортировать по убыванию по столбцу максимальных значений</span>
+    определить минимальное и максимальное значение каждого вида в столбце field_3, вывести столбец field_2 
+    с групированными значениями, столбец минимальных и столбец максимальных значений каждого вида,
+    отсортировать по убыванию по столбцу максимальных значений</span>
     <em>SELECT</em> field_2, <em>MIN</em>(field_3), <em>MAX</em>(field_3)
     <em>FROM</em> table
     <em>GROUP BY</em> field_2
@@ -279,102 +300,164 @@
       <em>SUM</em>(field_2),
       <em>AVG</em>(field_2)
     <em>FROM</em> table
-    </small>
-  В выражении <em>SELECT</em> мы можем вводить <em>подзапросы</em> четырьмя способами:
-    В условии в выражении <em>WHERE</em>
-    В качестве таблицы для выборки в выражении <em>FROM</em>
-    В качестве спецификации столбца в выражении <em>SELECT</em>
-    В условии в выражении <em>HAVING</em>
-    <small>
-      <span class="menu__komment">Выбрать из таблицы table все строки со значением value_3 в столбце field_1,
-        отсортировать по видам в столбце field_2, посчитать количество строк по каждому виду,
-        отсортировать виды, у которых количество строк больше 10</span>
-      <em>SELECT</em> field_2, <em>COUNT</em>(*)
-      <em>FROM</em> table
-      <em>WHERE</em> field_1 = value_3
-      <em>GROUP BY</em> field_2
-      <em>HAVING</em> <em>COUNT</em>(*) > 10 <span class="menu__komment">HAVING работает с результатами группировки</span>
-    </small>
+  </small>
+  <em>Подзапросы (subqueries)</em>:<small>
+    <span class="menu__komment">Сначала выполняются подзапросы.</span>
+    <span class="menu__komment">Выбрать из таблицы table все строки со значением value_3 в столбце field_1,
+    отсортировать по видам в столбце field_2, посчитать количество строк по каждому виду,
+    отсортировать виды, у которых количество строк больше 10</span>
+    <em>SELECT</em> field_2, <em>COUNT</em>(*)
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = value_3
+    <em>GROUP BY</em> field_2
+    <em>HAVING</em> <em>COUNT</em>(*) > 10 <span class="menu__komment">HAVING работает с результатами группировки</span>
+
+    <span class="menu__komment">Выбрать столбцы field_2 и field_3 из таблицы table 
+    и выбрать максимальное значение столбца field_3 таблицы table</span>
+    <em>SELECT</em> field_2, field_3
+    <em>FROM</em> table
+    <em>WHERE</em> field_3 = (
+      <em>SELECT</em> <em>MAX</em>(field_3) 
+      <em>FROM</em> table)
+
+    <span class="menu__komment">Выбрать столбцы field_2 и field_3 из таблицы table_1 
+    и отобрать строки, id которых есть в столбце field_table_1_id таблицы table_2</span>
+    <em>SELECT</em> field_2, field_3
+    <em>FROM</em> table_1
+    <em>WHERE</em> id <em>IN</em> (
+      <em>SELECT</em> field_table_1_id 
+      <em>FROM</em> table_2)
+
+    <span class="menu__komment">Выбрать значения id таблицы table_1 у которых в столбце field_3 значение value_1,
+    увеличить значения столбца field_2 на 500 в строках, 
+    у которых значение в столбце field_table_1_id равно значениям отобранных id
+    </span>
+    <em>UPDATE</em> table_2
+    <em>SET</em> field_2 = field_2 + 500
+    <em>WHERE</em> field_table_1_id = (
+      <em>SELECT</em> id 
+      <em>FROM</em> table_1
+      <em>WHERE</em> field_3 = value_1)
+  </small>
+  <em>Представления</em>:<small>
+  <span class="menu__komment">Представление VIEW - псевдоним для запроса SELECT.
+  Данные в представлении не хранятся, представление ссылается на таблицу.
+  Представление можно создавать из нескольких таблиц.
+  Используется как обычная таблица.
+  Применяется для ограничения доступа к данным, сокрытия реализации базы данных,
+  для избегания повторять выполнение сложных запросов и составных таблиц.
+  Удалить представление DROP VIEW
+  </span>
+    <em>CREATE</em> <em>VIEW</em> table_v field_1, field_2
+    <em>AS</em> <em>SELECT</em> field_1, field_2
+    <em>FROM</em> table
+
+  <span class="menu__komment">Материализованное представление MATERIALIZED VIEW - псевдоним для запроса SELECT.
+  Поддерживаются не всеми СУБД.
+  Данные храняться в представлении.
+  Представление можно создавать из нескольких таблиц.
+  Используется как обычная таблица.
+  Применяется для часто используемых запросом с длительным выполнением.
+  В случае изменения данных в таблице, на которую ссылается материализованное представление, выполнить
+  REFRESH MATERIALIZED VIEW table_v
+  Удалить материализованное представление DROP MATERIALIZED VIEW
+  </span>
+    <em>CREATE</em> <em>MATERIALIZED</em> <em>VIEW</em> table_v field_1, field_2
+    <em>AS</em> <em>SELECT</em> field_1, field_2
+    <em>FROM</em> table
+  </small>
+  <em>Индексы</em>:<small>
+    <span class="menu__komment">Индексы - повышают производительность выполнения запросов SELECT.
+    СУБД применяют индексы при выполнении операторов автоматически.</span>
+    <span class="menu__komment">Создать индекс</span>
+    <em>CREATE</em> <em>INDEX</em> table_field_idx  <span class="menu__komment">Название индекса table_field_idx</span>
+    <em>ON</em> table(field)    <span class="menu__komment">Индекс создаётся для столбца field таблицы table</span>
+    <span class="menu__komment">Удаление индекса</span>
+    <em>DROP</em> <em>INDEX</em> table_field_idx;
+  </small>
 </pre>
           </details>
           <details><!--JOIN-->
               <summary>JOIN</summary>
 <pre>
-<em>Неявное соединение:</em>
-  <small>select * from persons, staff where persons.id = staff.person_id</small>
+Внутренее объединение INNER:
+  <span class="menu__komment">Внутренее объединение - это соединение строк из одной таблицы 
+  для которых есть соответствующие строки из другой таблицы
+</span>
+<em>Неявное объединение:</em>
+<small>
+  <span class="menu__komment">Выбрать все столбцы из таблицы table_1 и table_2,
+  строки сопоставить по значению в столбце id (PRIMARY KEY) table_1
+  равно значению столбца field_table_1_id (FOREIGN KEY) таблицы table_2</span>
+  <em>SELECT</em> * 
+  <em>FROM</em> table_1, table_2
+  <em>WHERE</em> table_1.id = table_2.field_table_1_id
+
   либо
-  <small>select * from persons CROSS JOIN staff where persons.id = staff.person_id</small>
 
-<em>Явное соединение:</em>
-<small>  select [columns] from table1 [INNER] | {[LEFT] | [RIGHT] | [FULL]} [OUTER] JOIN table2
-  ON table1.[column] = table2.[column]
-  
-  select * from persons [INNER] JOIN staff ON persons.id = staff.person_id
-  
-  select [columns] from table1 t1 [LEFT] | [RIGHT] | [FULL] JOIN table2 t2
-  ON t1.[column] = t2.[column]</small>
+  <em>SELECT</em> *
+  <em>FROM</em> table_1 <em>CROSS</em> <em>JOIN</em> table_2 
+  <em>WHERE</em> table_1.id = table_2.field_table_1_id
+</small>
+<em>Явное объединение:</em>
+<small>
+  <span class="menu__komment">Выбрать столбeц field.2 из таблицы table_1 и столбец field.3 из table_2,
+  строки сопоставить по значению в столбце id (PRIMARY KEY) table_1
+  равно значению столбца field_table_1_id (FOREIGN KEY) таблицы table_2</span>
+  <em>SELECT</em> table_1.field.2, table_2.field_3
+  <em>FROM</em> table_1 <em>JOIN</em> table_2 
+  <em>ON</em> table_1.id = table_2.field_table_1_id
 
+  <span class="menu__komment">Псевдонимы</span>
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 <em>AS</em> t1 <em>JOIN</em> table_2 <em>AS</em> t2
+  <em>ON</em> t1.id = t2.field_table_1_id
+
+  либо
+
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 t1 <em>JOIN</em> table_2 t2
+  <em>ON</em> t1.id = t2.field_table_1_id
+  
+  <span class="menu__komment">Выбрать столбeц field.2 из таблицы table_1 и столбец field.3 из table_2,
+  строки сопоставить по значению в столбце id (PRIMARY KEY) table_1
+  равно значению столбца field_table_1_id (FOREIGN KEY) таблицы table_2,
+  отобрать строки где значение в столбце field_2 таблицы table_1 равно value_1
+  и где значение в столбце field_3 таблицы table_2 равно value_4, отсортировать по столбцу field_2 таблицы table_2</span>
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 <em>AS</em> t1 <em>JOIN</em> table_2 <em>AS</em> t2
+  <em>ON</em> t1.id = t2.field_table_1_id
+  <em>WHERE</em> t1.field_2 = value_1
+  <em>AND</em> t2.field_3 = value_4
+  <em>ORDER BY</em> t2.field_2 DESC
+</small>
+Внешнее объединение {[LEFT] | [RIGHT] | [FULL]} OUTER:
+  <span class="menu__komment">Внутренее объединение - это соединение строк из одной таблицы 
+  для которых нет соответствующих строк из другой таблицы.</span>
 <small>
-  select * from persons p JOIN staff s
-  ON p.id = s.person_id
-  
-  select * from persons p LEFT JOIN staff s
-  ON p.id = s.person_id
-  
-  select * from persons p RIGHT JOIN staff s
-  ON p.id = s.person_id
-  
-  select * from persons p FULL JOIN staff s
-  ON p.id = s.person_id</small>
-</pre>
-          </details>
-          <details><!--UNION-->
-              <summary>UNION</summary>
-<pre>
-<em>UNION</em> – объединение:                                         
-  UNION применяется для объединения результатов двух SQL-запросов
-  в единую таблицу, состоящую из схожих строк. Оба запроса должны
-  возвращать одинаковое число столбцов и совместимые типы данных
-  в соответствующих столбцах!!!
+  <span class="menu__komment">LEFT - все строки таблицы слева от ключевого слова JOIN</span>
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 <em>AS</em> t1 <em>LEFT</em> <em>OUTER</em> <em>JOIN</em> table_2 <em>AS</em> t2
+  <em>ON</em> t1.id = t2.field_table_1_id
+
+  <span class="menu__komment">RIGHT - все строки таблицы справа от ключевого слова JOIN</span>
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 <em>AS</em> t1 <em>RIGHT</em> <em>OUTER</em> <em>JOIN</em> table_2 <em>AS</em> t2
+  <em>ON</em> t1.id = t2.field_table_1_id
+
+  <span class="menu__komment">FULL - все строки обеих таблиц</span>
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 <em>AS</em> t1 <em>FULL</em> <em>OUTER</em> <em>JOIN</em> table_2 <em>AS</em> t2
+  <em>ON</em> t1.id = t2.field_table_1_id
+</small>
+Перекрёсное объединение CROSS:
+  <span class="menu__komment">Перекрёсное объединение - это соединение строк из обоих таблиц 
+  по принципу каждая с каждой.</span>
 <small>
-  select columns from table1
-  UNION ALL
-  select columns from table2
+  <em>SELECT</em> t1.field.2, t2.field_3
+  <em>FROM</em> table_1 <em>CROSS</em> <em>JOIN</em> table_2
 </small>
 </pre>
-          </details>
-          <details><!--INTERSECT-->
-              <summary>INTERSECT</summary>
-<pre>
-  <em>INTERSECT</em> - Пересечение:
-  Пересечение — множество, состоящее из элементов, которые
-  одновременно принадлежат всем данным множествам.
-  INTERSECT, также как и UNION обладает ограничением на результат
-  запросов, которые должны быть совместимы по объединению
-<small>
-  select columns from table1
-  INTERSECT
-  select columns from table2
-</small>
-</pre>
-          </details>
-          <details><!--MINUS или EXCEPT-->
-              <summary>MINUS или EXCEPT</summary>
-              <p>
-                  <dfn></dfn> 
-                  
-<pre>
-  <em>MINUS или EXCEPT</em> - Разность:
-  Разность двух множеств — это операция, результатом которой
-  является множество, в которое входят все элементы первого
-  множества, не входящие во второе множество
-<small>
-  select columns from table1
-  MINUS | EXCEPT
-  select columns from table2
-</small>
-</pre>          
-              </p>
           </details>
           <details><!--INSERT-->
               <summary>INSERT</summary>
@@ -423,6 +506,51 @@
 </small>
 </pre>
           </details>
+          <details><!--UNION-->
+            <summary>UNION</summary>
+<pre>
+  <em>UNION</em> – объединение:
+  <small><span class="menu__komment">UNION применяется для объединения результатов двух SQL-запросов
+  в единую таблицу, состоящую из схожих строк. Оба запроса должны
+  возвращать одинаковое число столбцов и совместимые типы данных
+  в соответствующих столбцах!!!
+  </span>
+    <em>SELECT</em> columns <em>FROM</em> table1
+    <em>UNION</em> <em>ALL</em>
+    <em>SELECT</em> columns <em>FROM</em> table2
+  </small>
+</pre>
+        </details>
+        <details><!--INTERSECT-->
+            <summary>INTERSECT</summary>
+<pre>
+  <em>INTERSECT</em> - Пересечение:
+  <small><span class="menu__komment">Пересечение — множество, состоящее из элементов, которые
+  одновременно принадлежат всем данным множествам.
+  INTERSECT, также как и UNION обладает ограничением на результат
+  запросов, которые должны быть совместимы по объединению
+  </span>
+    <em>SELECT</em> columns <em>FROM</em> table1
+    <em>INTERSECT</em>
+    <em>SELECT</em> columns <em>FROM</em> table2
+  </small>
+</pre>
+        </details>
+        <details><!--MINUS или EXCEPT-->
+            <summary>MINUS или EXCEPT</summary>
+<pre>
+  <em>MINUS или EXCEPT</em> - Разность:
+  <small><span class="menu__komment">Разность двух множеств — это операция, результатом которой
+  является множество, в которое входят все элементы первого
+  множества, не входящие во второе множество
+  </span>
+    <em>SELECT</em> columns <em>FROM</em> table1
+    <em>MINUS</em> либо <em>EXCEPT</em>
+    <em>SELECT</em> columns <em>FROM</em> table2
+  </small>
+</pre>          
+            </p>
+        </details>
         </details>
         <details><!--DCL-->
           <summary>Операторы определения доступа к данным (Data Control Language, DCL)</summary>
@@ -435,22 +563,35 @@
         <details><!--TCL-->
           <summary>Операторы управления транзакциями (Transaction Control Language, TCL)</summary>
 <pre>
-  <em>COMMIT</em> - применяет транзакцию
-  <em>ROLLBACK</em> - откатывает все изменения, сделанные в контексте текущей транзакции
-  <em>SAVEPOINT</em> - делит транзакцию на более мелкие участки
+  <em>Транзакция</em> - последовательность команд SQL, 
+  которые должны быть выполнены полностью или не выполнены вообще.
+  <small>
+    <span class="menu__komment">Перевод денег со счёта на счёт</span>
+    <em>START</em> <em>TRANSACTION</em>;
 
-  START TRANSACTION/COMMIT/ROLLBACK:
-  SET AUTOCOMMIT = [1|0] | [ON|OFF]
-  START TRANSACTION;
-  COMMIT;
-  ROLLBACK;
+    <em>UPDATE</em> accounts <em>SET</em> balance = balance - 15000
+    <em>WHERE</em> account_number = 1234567;
+
+    <em>UPDATE</em> accounts <em>SET</em> balance = balance + 15000
+    <em>WHERE</em> account_number = 9876543;
+
+    <em>COMMIT</em>; <span class="menu__komment">применяет транзакцию, записывает изменения в базу данных</span>
+    либо
+    <em>ROLLBACK</em>; <span class="menu__komment">откатывает все изменения, сделанные в контексте текущей транзакции</span>
+
+    <span class="menu__komment">В PostgreSQL START TRANSACTION и AUTOCOMMIT включён по умолчанию.
+    <em>SET</em> <em>AUTOCOMMIT</em> = value; <span class="menu__komment">value может быть 1 (ON) либо 0 (OFF)
+    <em>SAVEPOINT</em> - делит транзакцию на более мелкие участки</span>
+    </span>
+  </small>
 </pre>
         </details>
         <br>
-        <a href="https://sql-ex.ru/?Lang=0">Тренажер</a> <br>
-        <a href="https://sqlbolt.com/lesson/">sqlbolt</a> <br>
-        <a href="https://sql-academy.org/ru/guide/multi-table-request-join">join</a> <br>
-        <a href="https://www.w3schools.com/sql/exercise.asp?">w3s</a> <br>
+        Источник:
+        https://sql-ex.ru/?Lang=0<br>
+        https://sqlbolt.com/lesson/<br>
+        https://sql-academy.org/ru/guide<br>
+        https://www.w3schools.com/sql/exercise.asp?<br>
       </div>
     </div>
   </div>

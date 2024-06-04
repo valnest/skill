@@ -115,6 +115,14 @@ tr:nth-child(even) {
   color: aqua;
 }
 
+.menu__inner b {
+  color: rgb(201, 85, 180);
+}
+
+.menu__inner i {
+  color: white;
+}
+
 
 
 /*Media*/
