@@ -20,103 +20,8 @@
           <a href="https://www.youtube.com/watch?v=8Vl15qYG3GU">upwork youtube</a> <br>
           <a href="https://www.fiverr.com/">fiverr</a> <br>
           <a href="https://www.youtube.com/watch?v=cZ-IJvoKlqQ">fiverr youtube</a> <br>
-          <a href="https://www.reqres.in/">Создать веб-приложение</a>
-<pre>
-HTML:
-- html, head, body
-- title, link, meta
-- header, main, footer
-- p, span, h1 - h6, ul - li, ol - li
-- div, img, a, form, table
-- audio, video
-- семантика (теги)
-- доступность
-
-CSS:
-- классы
-- шрифты и стили текста
-- цвет
-- размер
-- декорация
-- фоновые изображения
-- отступы
-- размеры и декорирование блоков
-- взаимодействие с блочными, строчными и блочно-строчными объектами!!!!!!
-- display
-- псевдоклассы состояния: hover, active, target, focus
-- псевдоклассы навигации: first child, last child, first off type, last off type, not
-- псевдоэлементы: before, after
-- позиционирование!!!!!!!!!!
-- chrome F11
-- форматы изображений - группы, свойства
-- методология БЭМ
-- transition, animation
-- transform
-- относительные еденицы и медиа запросы
-- UI/UX обзорно основы
-- flex
-- grid
-
-API:
-- xml
-- rest
-- soap
-- json
-
-Препроцессоры и сборщики:
-- sass/scss
-- webpack/galp
-
-JS:
-- синтаксис
-- переменные
-- типы данных
-- массивы
-- объекты
-- условное ветвление
-- циклы
-- функции
-- DOM!!!!
-- прокрутка, координаты и размеры
-- события
-
-ПРАКТИКА - верстаем:
-- верстка своего портфолио: 15 - 20 работ
-- оптимизация верстки
-___________________________________________________________________
-timeline - 1 year
--------------------------------------------------------------------
-критерии качества:
-надежность - добавление (изменение) контента не ломает верстку
-удобство пользования на любом устройстве
-скорость загрузки верстки
-семантика и доступность
---------------------------------------------------------------------
-
-CSS framework
-
-CMS:
-Wordpress
-Opencard
-
-JS
-общие принципы программирования
-recursion
-stack
-promise
-classes
-json
-ajax
-сетевые запросы
-ООП
-SOLID
-___________________________________________________________________
-timeline - 2 year
--------------------------------------------------------------------
-Практика - разработка веб приложений
-
-
-</pre>
+          <a href="https://www.reqres.in/">Создать веб-приложение</a> <br>
+          <br>
           <details class="menu__item"><!--HTML-->
             <summary>HTML</summary>
             <div class="menu__inner">
@@ -387,7 +292,10 @@ timeline - 2 year
     <span class="menu__komment">Изображение, строчный</span>
     < <b>img</b> src="" alt="">
   
-    <span class="menu__komment">Kонтейнер для нескольких ресурсов изображений, блочный</span>
+    <em>Тег picture</em> - <span class="menu__komment">контейнер для нескольких ресурсов изображений, блочный,
+      позволяет выводить нужное изображение в зависимости от условий. Адаптив без css, ускоряет загрузку верстки.
+      Если браузер не поддерживает picture, то выведет img.</span>
+    <span class="menu__komment">Kонтейнер </span>
     < <b>picture</b>>
       < <b>source</b> media="" srcset="">
       ...
@@ -502,77 +410,89 @@ timeline - 2 year
     < /<b>video</b>>
   </small>
 </details>
-<span class="menu__komment">Валидаторы HTML:</span>
-  <a href="https://caninclude.glitch.me/">glitch</a>
-  <a href="https://validator.w3.org/">w3</a>
-
 <details><!--Мета тег-->
-  <summary><em>Мета тег</em></summary>
-  <small>
-    < meta charset="UTF-8"> - Кодировка
-    < meta name="viewport" content="width=1170"> - фиксированная ширина вся помещается в экран
-    < meta name="viewport" content="width=device-width"> - адаптивный
+  <summary><em>Мета тег</em></summary><small>
+    < meta charset="UTF-8"> - <span class="menu__komment">Кодировка</span>
+    < meta name="viewport" content="width=1170"> - <span class="menu__komment">фиксированная ширина вся помещается в экран</span>
+    < meta name="viewport" content="width=device-width"> - <span class="menu__komment">адаптивный</span>
     < meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-    - параметры адаптивности
-    < meta name="format-detection" content="telephone=no"> - отключает ссылку у номера телефона на iOS
-    < meta name="description" content="описание до 140 символов"> - для SEO
-    < meta name="keywords" content="ключевые слова через запятую до 20"> - ключевые слова для SEO
-  </small>
-  <em>доступ поисковых роботов к страице</em>:<small>
+    - <span class="menu__komment">параметры адаптивности</span>
+    < meta name="format-detection" content="telephone=no"> - <span class="menu__komment">отключает ссылку у номера телефона на iOS</span>
+    < meta name="description" content="<i>описание до 140 символов</i>"> - <span class="menu__komment">для SEO</span>
+    < meta name="keywords" content="<i>ключевые слова через запятую до 20</i>"> - <span class="menu__komment">ключевые слова для SEO</span>
+  
+  <em>доступ поисковых роботов к страице</em>:
     < meta name="robots" content="noindex, nofollow">
     < meta name="robots" content="none">
-    < meta name="robots" content="noimageindex, nofollow"> - запрет индексации картинок и ссылок
-  </small>
-  <em>технические</em>:<small>
-    < meta name="Author" content="Дарт Вейдер"> - Автор страницы
-    < meta name="Copyright" content="Люк Скайвокер"> - Авторские права
-    < meta name="Address" content="Татуин, кратер № 97"> - Адрес автора
-    < meta http-equiv="refresh" content="0; url="> - обновляет страницу либо перенаправляет пользователя,
-    указать количество секунд до перенаправления и адрес страницы
-  </small>
-  <em>социальные сети</em>:<small>
-    < meta property="og:locale" content="ru_RU"> - локализация для русcкоязычного сайта
-    < meta property="og:type" content="article"> - тип контента статья
-    < meta property="og:title" content="META теги"> - заголовок записи в социальной сети
-    < meta property="og:description" content="описание страницы"> - описание страницы
-    < meta property="og:image" content="http://fls.guru/meta/img/bg.jpg"> - изображение для записи в соцсети
-    < meta property="og:url" content="http://fls.guru/meta/ "> - ссылка на текущую страницу
-    < meta property="og:site_name" content="Название сайта"> - Название сайта
+    < meta name="robots" content="noimageindex, nofollow"> - <span class="menu__komment">запрет индексации картинок и ссылок</span>
+  
+  <em>технические</em>:
+    < meta name="Author" content="<i>Дарт Вейдер</i>"> - <span class="menu__komment">Автор страницы</span>
+    < meta name="Copyright" content="<i>Люк Скайвокер</i>"> - <span class="menu__komment">Авторские права</span>
+    < meta name="Address" content="<i>Татуин, кратер № 97</i>"> - <span class="menu__komment">Адрес автора</span>
+    < meta http-equiv="refresh" content="0; url="> - <span class="menu__komment">обновляет страницу либо перенаправляет пользователя,
+    указать количество секунд до перенаправления и адрес страницы</span>
+  
+  <em>социальные сети</em>:
+    < meta property="og:locale" content="<i>ru_RU</i>"> - <span class="menu__komment">локализация для русcкоязычного сайта</span>
+    < meta property="og:type" content="<i>article</i>"> - <span class="menu__komment">тип контента статья</span>
+    < meta property="og:title" content="<i>META теги</i>"> - <span class="menu__komment">заголовок записи в социальной сети</span>
+    < meta property="og:description" content="<i>описание страницы</i>"> - <span class="menu__komment">описание страницы</span>
+    < meta property="og:image" content="http://fls.guru/meta/img/bg.jpg"> - <span class="menu__komment">изображение для записи в соцсети</span>
+    < meta property="og:url" content="http://fls.guru/meta/ "> - <span class="menu__komment">ссылка на текущую страницу</span>
+    < meta property="og:site_name" content="<i>Название сайта</i>"> - <span class="menu__komment">Название сайта</span>
   
   Facebook https://developers.facebook.com/tools/debug/sharing/
   https://ruogp.me/
   
-    < meta name="twitter:card" content="summary"> - тип карты твитер
-    < meta name="twitter:site" content="Автор"> - имя/логин автора
-    < meta name="twitter:title" content="META теги"> - название страницы
-    < meta name="twitter:description" content="описание страницы"> - описание страницы
-    < meta name="twitter:image" content="http://fls.guru/meta/img/bg.jpg"> - изображение для записи в соцсети
+    < meta name="twitter:card" content="<i>summary</i>"> - <span class="menu__komment">тип карты твитер</span>
+    < meta name="twitter:site" content="<i>Автор</i>"> - <span class="menu__komment">имя/логин автора</span>
+    < meta name="twitter:title" content="<i>META теги</i>"> - <span class="menu__komment">название страницы</span>
+    < meta name="twitter:description" content="<i>описание страницы</i>"> - <span class="menu__komment">описание страницы</span>
+    < meta name="twitter:image" content="http://fls.guru/meta/img/bg.jpg"> - <span class="menu__komment">изображение для записи в соцсети</span>
   
   https://cards-dev.twitter.com/validator
   https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
   </small>
 </details>
+<span class="menu__komment">Валидаторы HTML:</span>
+  <a href="https://caninclude.glitch.me/">glitch</a>
+  <a href="https://validator.w3.org/">w3</a>
 </pre>
             </div>
           </details>
           <details class="menu__item"><!--CSS-->
             <summary>CSS</summary>
             <div class="menu__inner">
-              <p><dfn>Стилем или CSS</dfn> (<i>Cascading Style Sheets, каскадные таблицы стилей</i>) <br>
+              <p><em>Стилем или CSS</em> (<i>Cascading Style Sheets, каскадные таблицы стилей</i>) <br>
                 называется набор параметров форматирования,
                 который применяется к элементам документа,
                 чтобы изменить их внешний вид.
-                <ul>Достоинства:
+                <ul><em>Достоинства</em>:
                     <li>Разграничение кода и оформления</li>
                     <li>Разное оформление для разных устройств</li>
                     <li>Расширенные по сравнению с HTML способы оформления элементов</li>
                     <li>Ускорение загрузки сайта</li>
                     <li>Единое стилевое оформление множества документов</li>
                 </ul>
-              </p>
-              <img src="../img/css/style.png" alt="">
-<pre>
+<pre><small>
+  <em>Применение</em>:
+  <span class="menu__komment">Внутренние стили. Приоритет максимальный.</span>
+  < <b>h1</b> <em>style</em>="color: red;"><i>Текст</i>< /<b>h1</b>>
+  
+  <span class="menu__komment">Глобальные стили</span>
+  < <b>style</b>>
+    <em>h1</em> {
+      color: red;
+    }
+  < /<b>style</b>>
 
+  <span class="menu__komment">Связанные стили</span>
+  < <b>link</b> rel="stylesheet" href="<i>путь/к файлу/CSS</i>">
+</small>
+</pre>
+              </p>
+<pre>
 <details><!--Синтаксис-->
   <summary>Синтаксис</summary><small>
 div.text {}  <span class="menu__komment">применяем css-свойство к тегу div с классом text</span>
@@ -580,9 +500,12 @@ div.text {}  <span class="menu__komment">применяем css-свойство
 .block,.text {}  <span class="menu__komment">применяем к тегам, содержащим один из классов</span>
 .block .text {}  <span class="menu__komment">применяем к тегам, содержащим класс text и находящийся внутри элемента с классом block</span>
 .text > div {}  <span class="menu__komment">применяем к первому div верхнего уровня внутри элемента с классом text</span>
-a + b sibling
-a : b pseudoclass
-a :: b pseudoelement
+.block + .text <span class="menu__komment">sibling</span>
+.block : hover <span class="menu__komment">псевдоклассы состояния: hover, active, target, focus, 
+  псевдоклассы навигации: first child, last child, first off type, last off type, not</span>
+.block :: after <span class="menu__komment">псевдоэлементы: before, after</span>
+
+@import "имя файла"; - <span class="menu__komment">импорт файлов</span>
 
 <em>Параметр в качестве селектора</em>:
 [class*="__container"] {}  <span class="menu__komment">применяем css-свойство ко всем элементам с атрибутом class,
@@ -595,38 +518,15 @@ nomail.com.ua
 font2web.com
 
 <em>БЭМ</em>
-- блок - часть кода, которая повторяется или может повторяться самостоятельно
-- элемент - это часть блока. имя класса блока__имя класса элемента.
-- модификатор - дополняет или уточняет стиль блока или элемента
-имя класса блока_модификатор
-имя класса блока__имя класса элемента_модификатор
-микс - позволяет использовать блоки и элементы в одном объекте
+- блок - <span class="menu__komment">часть кода, которая повторяется или может повторяться самостоятельно</span>
+- элемент - <span class="menu__komment">это часть блока. имя класса блока__имя класса элемента</span>
+- модификатор - <span class="menu__komment">дополняет или уточняет стиль блока или элемента</span>
+<small>
+  имя класса блока_модификатор
+  имя класса блока__имя класса элемента_модификатор
+  микс - позволяет использовать блоки и элементы в одном объекте
+</small>
 Источник: ru.bem.info
-
-<em>Наследование</em>
-%message {
-  <b>font-family</b>: sans-serif;
-  <b>font-size</b>: 18px;
-  <b>font-weight</b>: bold;
-  <b>border</b>: 1px solid black;
-  <b>padding</b>: 20px;
-  <b>maigin</b>: 20px;
-}
-
-.success {
-  <b>@extend %message</b>;
-  <b>background-color</b>: green;
-}
-
-.warning {
-  <b>@extend %message</b>;
-  <b>background-color</b>: orange;
-}
-
-.error {
-  <b>@extend %message</b>;
-  <b>background-color</b>: red;
-}
   </small>
 </details>
 <details><!--Единицы измерения-->
@@ -635,692 +535,737 @@ font2web.com
 <b>px</b> (пиксель)  <span class="menu__komment">Все остальные еденицы измерения пересчитываются браузером в пиксели</span>
 
 <em>Относительные</em>
-
+<b>em</b> - <span class="menu__komment">равен текущему размеру объекта.
+            Лучше использовать для медиа-запросов и в случае когда нужно привязаться к текущему размеру шрифта.</span>
+<b>rem</b> - <span class="menu__komment">равен размеру шрифта в теге html, а если там нет, то браузера по умолчанию (16px). 
+            Т.е. не зависит от резмаера шрифта родителя.
+            Лучше использовать для размеров шрифтов, отступов, не указывая размер для тега html.</span>
+<b>%</b> - <span class="menu__komment">разные свойства css вычисляют % от разных оснований.
+            Лучше использовать для отзывчивых резиновых конструкций, для позиционирования объектов и для скрола.</span>
+<b>vw, vh, vmin, vmax</b> - <span class="menu__komment">работают относительно окна браузера (viewport).
+            Лучше использовать для полноэкранных блоков и scss вычислений.</span>
+<b>fr</b> - <span class="menu__komment">единица измерения в модуле grid.</span>
+<b>ex</b> - <span class="menu__komment">единица измерения относительно размера прописной "е".</span>
+<b>ch</b> - <span class="menu__komment">единица измерения относительно размера 0.</span>
   </small>
-    <p>
-        <dfn></dfn>  (<i></i>). . <br>
-        
-        <ul><dfn>:</dfn>
-            <li> em - равен текущему размеру объекта <br>
-                Лучше использовать для медиа-запросов и в случае когда нужно привязаться к текущему размеру шрифта</li>
-            <li>rem - равен размеру шрифта в теге html, а если там нет, то браузера по умолчанию (16px) <br>
-                Т.е. не зависит от резмаера шрифта родителя. <br>
-                Лучше использовать для размеров шрифтов, отступов, не указывая размер для тега html</li>
-            <li>% - разные свойства css вычисляют % от разных оснований <br>
-                Лучше использовать для отзывчивых резиновых конструкций, для позиционирования объектов и для скрола</li>
-            <li>vw, vh, vmin, vmax - работают относительно окна браузера (viewport) <br>
-                Лучше использовать для полноэкранных блоков и scss вычислений</li>
-            <li>fr - единица измерения в модуле grid</li>
-            <li>ex - единица измерения относительно размера прописной "е"</li>
-            <li>ch - единица измерения относительно размера 0</li>
-        </ul>
-    </p>
 </details>
 <details><!--Обнуление стилей-->
-    <summary>Обнуление стилей</summary>
-<em>Убираем отступы</em>:
-*{
-padding: 0;
-margin: 0;
-border: 0;
-}
-
-<em>Изменение ширины блока</em>:
-*,*:before,*:after{
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
-}
-
-<em>Снятие обводки елементов по умолчанию</em>:
-:focus,:active{outline: none;}
-a:focus,a:active{outline: none;}
-
-<em>Делаем теги блочными</em>:
-nav,footer,header,aside{display: block;}
-
-<em>Уравнять поведение шрифтов в разных браузерах</em>:
-html,body{
-height: 100%;
-width: 100%;
-font-size: 100%;
-line-height: 1;
-font-size: 14px;
--ms-text-size-adjust: 100%;
--moz-text-size-adjust: 100%;
--webkit-text-size-adjust: 100%;
-}
-
-<em>Теги формы наследуют семейство шрифта</em>:
-input,button,textarea{font-family: inherit;}
-
-<em>Убираем отличительные особенности браузеров</em>:
-input::-ms-clear{display: none;}
-button{cursor: pointer;}
-button::-moz-focus-inner {padding:0;border:0;}
-a,a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
-ul li{list-style: none;}
-img{vertical-align: top;}
-
-<em>Обнуляем стили заголовков</em>:
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+<summary>Обнуление стилей</summary><small>
+  <em>Убираем отступы</em>:
+  *{
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  
+  <em>Изменение ширины блока</em>:
+  *,*:before,*:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  <em>Снятие обводки елементов по умолчанию</em>:
+  :focus,:active {outline: none;}
+  a:focus,a:active {outline: none;}
+  
+  <em>Делаем теги блочными</em>:
+  nav,footer,header,aside {display: block;}
+  
+  <em>Уравнять поведение шрифтов в разных браузерах</em>:
+  html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  <em>Теги формы наследуют семейство шрифта</em>:
+  input,button,textarea {font-family: inherit;}
+  
+  <em>Убираем отличительные особенности браузеров</em>:
+  input::-ms-clear {display: none;}
+  button {cursor: pointer;}
+  button::-moz-focus-inner {padding:0; border:0;}
+  a,a:visited {text-decoration: none;}
+  a:hover {text-decoration: none;}
+  ul li {list-style: none;}
+  img {vertical-align: top;}
+  
+  <em>Обнуляем стили заголовков</em>:
+  h1,h2,h3,h4,h5,h6 {font-size:inherit; font-weight: 400;}
+</small>
 </details>
 <details><!--Свойства-->
-    <summary>Свойства</summary>
-font-family - семейство шрифта.
-font-size - размер шрифта елемента.
-font-style - начертание шрифта (курсив, наклон и нормальный)
-font-weight - насыщенность (вес) шрифта
-color - цвет текста
-text-align - горизонтальное выравнивание текста
-text-decoration - оформление текста (подчеркивание, перечеркивание и т.д.)
-text-shadow - добавляет тень к тексту
-text-transform - преобразование заглавных и прописных символов
-text-ident - отступ первой строки от края блока
-letter-spacing - определяет интервал между символами
-word-spacing - определяет интервал между словами
-white-space - управляет свойствами пробелов между словами
-line-height - устанавливает межстрочный интервал текста
-padding - внутренний отступ блочных тегов
-margin - внешний отступ блочных тегов
-width - ширина блочных тегов
-max-width - устанавливает макимальную ширину блочных тегов
-min-width - устанавливает минимальную ширину блочных тегов
-height - устанавливает высоту блочных тегов
-max-height - устанавливает максимальную высоту блочных тегов
-min-height - устанавливает минимальную высоту блочных тегов
-overflow - управляет отображением содержания блочного елемента
-display - определяет как елемент должен быть показан в документе
-border - граница блока
-border-radius - устанавливает радиус скругления уголков блока
-outline - внешняя граница блока
-box-shadow - добавляет тень к блоку
-opacity - определяет уровень прозрачности элемента
-visibility - отображение или скрытие блока
-background - управляет фоном элемента
-background-color - цвет фона элемента
-background-image - фоновое изображение или градиентная заливка
-background-repeat - повторение фонового изображения
-background-position - положение фонового изображения
-background-attachment - прокручивание фона вместе с содержимым элемента
-background-size - размеры фонового изображения
-background позволяет задать несколько фоновых изображений одному блоку
-background-origin и background-clip отвечают за показ фона вместе с границей border.
-Псевдокласс - это модификатор селектора .link:hover{}
-:hover - срабатывает при наведении
-:visited - срабатывает для посещенных ссылок
-:active - срабатывает при нажатии на элемент
-:focus - срабатывает при получении элементом фокуса
-:first-child - обращение к первому элементу в блоке
-:last-child - обращение к последнему элементу в блоке
-:nth-child(номер элемента по порядку, odd, even) - обращение к конкретному элементу в блоке
-Псевдоэлемент - строчный, модификатор содержимого элемента, синтаксис .text:first-line{} либо .text::first-line{}
-::first-line{} - задает стиль первой строки текста
-::first-letter{} - задает стиль первого символа
-::before - для отображения контента до содержимого элемента, к которому применяется.
-Обязательное свойство content: '';
-::after - для отображения контента после содержимого элемента, к которому применяется.
-Обязательное свойство content: '';
-.text:hover::befor{}
-position - совйство позиционирования устанавливает тип позиционирования элемента относительно 
-других элементов или окна браузера
-position: static; - по умолчанию у всех блоков
-position: relative; - положение относительно изначального места в коде, обязательно с:
-left, top, right, bottom - управляют позицией элемента
-z-index - управляет наложением элементов
-position: absolute; - утрачивает связь с местом в коде и свойствами тега, обязательно с:
-left, top, right, bottom - управляют позицией элемента
-Для взаиморасположения относительно друг друга у одного элемента должно быть absolute
-у другого relative
-position: fixed; - фиксирует элемент относительно окна браузера не завися от элементов с relative и прокрутки
-обязательно с: left, top, right, bottom - управляют позицией элемента
-position: sticky; - переводит элемент из static в fixed при достижении элементом указаной позиции
-обязательно с: left, top, right, bottom - управляют позицией элемента
-transform - применяется только к блочным объектам
-transform: translate(0px, 0px); - translate сдвигает элемент на новое место
-transform: scale(1, 1); - scale масштабирует изображения, т.е. zoom. При отрицательном значении - зеркалит.
-transform: rotate(0deg); -https://minfin.com.ua/2023/11/30/115247867/ поворачивает элемент. Положительное значение по часовой, отрицетельное - против.
-transform: skew(0deg, 0deg); - деформирует стороны объекта по вертикали и горизонтали.
-transform: matrix(a, b, c, d, e); - позволяет объединить трансформации. Значения без едениц измерения.
-transform: translate(0px, 0px) scale(1, 1) rotate(0deg);
-transform-origin: center; - смещает центр трансформации
-perspective: 0px; - установка глубины перспективы
-perspective-origin: center; - смена точки начала координат
-transform: translate3d(0px, 0px, 0px);
-transform: scale3d(1, 1, 1);
-transform: rotate3d(x, y, z, deg);
-transform: matrix3d(n, n, n, n, n, n, n, n, n, n, n, n, n, n, n, n); - 16 значений
-transform: translate3d(0px, 0px, 0px) rotate3d(1, 1, 1, 0deg);
-transform-style: flat; - задает стиль трансформации
-backface-visibility: visible; - показывает обратную сторону объекта
+<summary>Свойства</summary><small>
+  <em>Текст</em>
+  font-family - <span class="menu__komment">семейство шрифта.</span>
+  font-size - <span class="menu__komment">размер шрифта елемента.</span>
+  font-style - <span class="menu__komment">начертание шрифта (курсив, наклон и нормальный)</span>
+  font-weight - <span class="menu__komment">насыщенность (вес) шрифта</span>
+  color - <span class="menu__komment">цвет текста</span>
+  text-align - <span class="menu__komment">горизонтальное выравнивание текста</span>
+  text-decoration - <span class="menu__komment">оформление текста (подчеркивание, перечеркивание и т.д.)</span>
+  text-shadow - <span class="menu__komment">добавляет тень к тексту</span>
+  text-transform - <span class="menu__komment">преобразование заглавных и прописных символов</span>
+  text-ident - <span class="menu__komment">отступ первой строки от края блока</span>
+  letter-spacing - <span class="menu__komment">определяет интервал между символами</span>
+  word-spacing - <span class="menu__komment">определяет интервал между словами</span>
+  white-space - <span class="menu__komment">управляет свойствами пробелов между словами</span>
+  line-height - <span class="menu__komment">устанавливает межстрочный интервал текста</span>
+
+  <em>Геометрия</em>
+  padding - <span class="menu__komment">внутренний отступ блочных тегов</span>
+  margin - <span class="menu__komment">внешний отступ блочных тегов</span>
+  width - <span class="menu__komment">ширина блочных тегов</span>
+  max-width - <span class="menu__komment">устанавливает макимальную ширину блочных тегов</span>
+  min-width - <span class="menu__komment">устанавливает минимальную ширину блочных тегов</span>
+  height - <span class="menu__komment">устанавливает высоту блочных тегов</span>
+  max-height - <span class="menu__komment">устанавливает максимальную высоту блочных тегов</span>
+  min-height - <span class="menu__komment">устанавливает минимальную высоту блочных тегов</span>
+
+  <em>Отоброжение</em>
+  overflow - <span class="menu__komment">управляет отображением содержания блочного елемента</span>
+  display - <span class="menu__komment">определяет как елемент должен быть показан в документе</span>
+  border - <span class="menu__komment">граница блока</span>
+  border-radius - <span class="menu__komment">устанавливает радиус скругления уголков блока</span>
+  outline - <span class="menu__komment">внешняя граница блока</span>
+  box-shadow - <span class="menu__komment">добавляет тень к блоку</span>
+  opacity - <span class="menu__komment">определяет уровень прозрачности элемента</span>
+  visibility - <span class="menu__komment">отображение или скрытие блока</span>
+  background - <span class="menu__komment">управляет фоном элемента</span>
+  background-color - <span class="menu__komment">цвет фона элемента</span>
+  background-image - <span class="menu__komment">фоновое изображение или градиентная заливка</span>
+  background-repeat - <span class="menu__komment">повторение фонового изображения</span>
+  background-position - <span class="menu__komment">положение фонового изображения</span>
+  background-attachment - <span class="menu__komment">прокручивание фона вместе с содержимым элемента</span>
+  background-size - <span class="menu__komment">размеры фонового изображения</span>
+  background - <span class="menu__komment">позволяет задать несколько фоновых изображений одному блоку</span>
+  background-origin и background-clip - <span class="menu__komment">отвечают за показ фона вместе с границей border.</span>
+
+  <em>Псевдокласс</em> - <span class="menu__komment">это модификатор селектора</span>
+  .link:hover{}
+  :hover - <span class="menu__komment">срабатывает при наведении</span>
+  :visited - <span class="menu__komment">срабатывает для посещенных ссылок</span>
+  :active - <span class="menu__komment">срабатывает при нажатии на элемент</span>
+  :focus - <span class="menu__komment">срабатывает при получении элементом фокуса</span>
+  :first-child - <span class="menu__komment">обращение к первому элементу в блоке</span>
+  :last-child - <span class="menu__komment">обращение к последнему элементу в блоке</span>
+  :nth-child(номер элемента по порядку, odd, even) - <span class="menu__komment">обращение к конкретному элементу в блоке</span>
+
+  <em>Псевдоэлемент</em>
+  <span class="menu__komment">строчный, модификатор содержимого элемента, синтаксис</span>
+  .text:hover::befor{} либо .text::first-line{}
+  ::first-line{} - <span class="menu__komment">задает стиль первой строки текста</span>
+  ::first-letter{} - <span class="menu__komment">задает стиль первого символа</span>
+  ::before - <span class="menu__komment">для отображения контента до содержимого элемента, к которому применяется.
+    Обязательное свойство <b>content</b>: '';</span>
+  ::after - <span class="menu__komment">для отображения контента после содержимого элемента, к которому применяется.
+    Обязательное свойство <b>content</b>: '';</span>
+
+  <em>Позиционирование</em>
+  position - <span class="menu__komment">совйство позиционирования устанавливает тип позиционирования элемента относительно 
+  других элементов или окна браузера</span>
+  position: static; - <span class="menu__komment">по умолчанию у всех блоков</span>
+  position: relative; - <span class="menu__komment">положение относительно изначального места в коде, обязательно с:</span>
+  left, top, right, bottom - <span class="menu__komment">управляют позицией элемента</span>
+  z-index - <span class="menu__komment">управляет наложением элементов</span>
+  position: absolute; - <span class="menu__komment">утрачивает связь с местом в коде и свойствами тега, обязательно с:</span>
+  left, top, right, bottom - <span class="menu__komment">управляют позицией элемента
+  Для взаиморасположения относительно друг друга у одного элемента должно быть absolute
+  у другого relative</span>
+  position: fixed; - <span class="menu__komment">фиксирует элемент относительно окна браузера не завися от элементов с relative и прокрутки</span>
+  обязательно с: left, top, right, bottom - <span class="menu__komment">управляют позицией элемента</span>
+  position: sticky; - <span class="menu__komment">переводит элемент из static в fixed при достижении элементом указаной позиции</span>
+  обязательно с: left, top, right, bottom - <span class="menu__komment">управляют позицией элемента</span>
+
+  <em>Трансформ</em>
+  transform - <span class="menu__komment">применяется только к блочным объектам</span>
+  transform: translate(0px, 0px); - <span class="menu__komment">translate сдвигает элемент на новое место</span>
+  transform: scale(1, 1); - <span class="menu__komment">scale масштабирует изображения, т.е. zoom.
+  При отрицательном значении - зеркалит.</span>
+  transform: rotate(0deg); - <span class="menu__komment">поворачивает элемент.</span>
+  Положительное значение по часовой, отрицетельное - против.
+  transform: skew(0deg, 0deg); - <span class="menu__komment">деформирует стороны объекта по вертикали и горизонтали.</span>
+  transform: matrix(a, b, c, d, e); - <span class="menu__komment">позволяет объединить трансформации. Значения без едениц измерения.</span>
+  transform: translate(0px, 0px) scale(1, 1) rotate(0deg);
+  transform-origin: center; - <span class="menu__komment">смещает центр трансформации</span>
+  perspective: 0px; - <span class="menu__komment">установка глубины перспективы</span>
+  perspective-origin: center; - <span class="menu__komment">смена точки начала координат</span>
+  transform: translate3d(0px, 0px, 0px);
+  transform: scale3d(1, 1, 1);
+  transform: rotate3d(x, y, z, deg);
+  transform: matrix3d(n, n, n, n, n, n, n, n, n, n, n, n, n, n, n, n); - <span class="menu__komment">16 значений</span>
+  transform: translate3d(0px, 0px, 0px) rotate3d(1, 1, 1, 0deg);
+  transform-style: flat; - <span class="menu__komment">задает стиль трансформации</span>
+  backface-visibility: visible; - <span class="menu__komment">показывает обратную сторону объекта</span>
+</small>
 </details>
 <details><!--Sass-->
-    <summary>Sass</summary>
-<dfn>Sass</dfn> - <i>препроцессор</i>, добавляет функционала в css
-<dfn>SCSS</dfn> - <i>синтаксис</i> Sass похожий на синтаксис css
-вложенность - писать правила css внутрь других правил
->p - применить правила css только к верхнему(первому) параграфу
-& - подставляет вместо себя класс, внутри которого указан. 
-Удобно для указания псевдоклассов и псевдо элементов. 
-$var:80px; - переменная var со значением 80 пикселей
+<summary>Sass</summary><small>
+  <em>Sass</em> - <span class="menu__komment">препроцессор, добавляет функционала в css</span>
+  <em>SCSS</em> - <span class="menu__komment">синтаксис Sass похожий на синтаксис css</span>
+  <em>Вложенность</em> - <span class="menu__komment">писать правила css внутрь других правил</span>
+  <em>&</em> - <span class="menu__komment">подставляет вместо себя класс, внутри которого указан. Удобно для указания псевдоклассов и псевдо элементов</span> 
+  <em>$var:80px;</em> - <span class="menu__komment">переменная var со значением 80 пикселей</span>
+  
+  <em>Шаблоны</em>:
+  <b>%tpl</b> {параметры css} - <span class="menu__komment">задаём шаблон tpl</span>
+  <b>@extend</b> %tpl; - <span class="menu__komment">вставляем в нужный блок правил css</span>
+  либо
+  <b>.tpl</b> {параметры css} - <span class="menu__komment">задаём шаблон tpl</span>
+  <b>@extend</b> .tpl; - <span class="menu__komment">вставляем в нужный блок правил css</span>
+  
+  %message {
+    <b>font-family</b>: sans-serif;
+    <b>font-size</b>: 18px;
+    <b>font-weight</b>: bold;
+    <b>border</b>: 1px solid black;
+    <b>padding</b>: 20px;
+    <b>maigin</b>: 20px;
+  }
+  
+  .success {
+    <b>@extend %message</b>;
+    <b>background-color</b>: green;
+  }
+  
+  .warning {
+    <b>@extend %message</b>;
+    <b>background-color</b>: orange;
+  }
+  
+  .error {
+    <b>@extend %message</b>;
+    <b>background-color</b>: red;
+  }
+  
+  <em>Миксины</em>:
+  @<b>mixin</b> exempl($var) {font-size: $var;} - <span class="menu__komment">объявляем миксин с переменной</span>
+  @<b>include</b> exempl(100px); - <span class="menu__komment">вставляем в нужный блок правил css со значением
+  поддерживает математические рассчеты</span>
+  
+  <em>Комментарии</em>:
+  <b>/* */</b> - <span class="menu__komment">отображается и в файле scss и в css</span>
+  <b>//</b> - <span class="menu__komment">отображается только в файле scss</span>
+  
+  Manual: https://sass-scss.ru/
+</small>
 
-@import "имя файла"; - импорт файлов
-
-<em>шаблоны</em>:
-%tpl {параметры css} - задаём шаблон tpl
-@extend %tpl; - вставляем в нужный блок правил css
-либо
-.tpl {параметры css} - задаём шаблон tpl
-@extend .tpl; - вставляем в нужный блок правил css
-
-<em>миксины</em>:
-@mixin exempl($var) {font-size: $var;} - объявляем миксин с переменной
-@include exempl(100px); - вставляем в нужный блок правил css со значением
-поддерживает математические рассчеты
-
-<em>комментарии</em>:
-/* */ - отображается и в файле scss и в css
-// - отображается только в файле scss
-
-manual: https://sass-scss.ru/
 </details>
 <details><!--Flex-->
-  <summary>Flex</summary>
-Flexbox:
-<img src="../img/css/CSS7.png" alt="">
-<img src="../img/css/CSS8.png" alt="">
-display: flex; - включает флекс разметку
-display: inline-flex; - строчный флекс-контейнер
-justify-content - определяет выравнивание вдоль основной (горизонтальной) оси
-justify-content: flex-start; - елементы слева
-justify-content: flex-end; - елементы справа
-justify-content: center; - елементы в центре
-justify-content: space-between; - пространство между елементами
-justify-content: space-around; - пространство вокруг елементов
-для флекс-контейнера:
-align-items - определяет поведение вдоль вертикальной оси
-align-items: stretch; - елементы подстраиваются под самый высокий
-align-items: flex-start; - высота флекс-елемента от верха на высоту контента
-align-items: flex-end; - высота флекс-елемента от низа на высоту контента
-align-items: center; - флекс-елементы выстроятся по горизонтальному центру самого высокого елемента
-align-items: baseline; - выстраивает флекс-елементы по базовой линии
-flex-wrap: nowrap; - флекс-елементы не адаптируются
-flex-wrap: wrap; - флекс-елементы адаптируются
-flex-wrap: wrap-reverse; - флекс-елементы адаптируются в обратном порядке
-для флекс-елемента:
-align-self - переопределяет выравнивание
-align-self: stretch;
-align-self: center;
-align-self: flex-start;
-align-self: flex-end;
-order - порядок вывода елементов
-order: 1; - выводим первым
-flex-basis - базовый размер элемента
-flex-basis: auto; - по размеру контента
-flex-grow - возможность увеличиваться в размере
-flex-grow: 0; - не больше чем flex-basis
-flex-shrink - возможность уменьшаться в размере
-flex-shrink: 1; - разрешено становиться меньше
-flex: 0 1 auto; - короткая запись flex-grow flex-shrink flex-basis
-flex-direction - устанавливает основную ось
-flex-direction: row; - в ряд
-flex-direction: row-reverse; - в обратную сторону в обратном порядке
-flex-direction: column; - основная ось вертикально
-flex-direction: column-revers; - вертикально снизу вверх
-https://fls.guru/flexbox.html
+  <summary>Flex</summary><small>
+  .counter {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .counter > div {
+    background-color: green;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+  }
+
+  <b>display</b>: flex; - <span class="menu__komment">включает флекс разметку</span>
+  <b>display</b>: inline-flex; - <span class="menu__komment">строчный флекс-контейнер</span>
+
+  <b>justify-content</b> - <span class="menu__komment">определяет выравнивание вдоль основной (горизонтальной) оси</span>
+  <b>justify-content</b>: flex-start; - <span class="menu__komment">елементы слева</span>
+  <b>justify-content</b>: flx-end; - <span class="menu__komment">елементы справа</span>
+  <b>justify-content</b>: cnter; - <span class="menu__komment">елементы в центре</span>
+  <b>justify-content</b>: space-between; - <span class="menu__komment">пространство между елементами</span>
+  <b>justify-content</b>: space-around; - <span class="menu__komment">пространство вокруг елементов</span>
+
+  <em>для флекс-контейнера:</em>
+  <b>align-items</b> - <span class="menu__komment">определяет поведение вдоль вертикальной оси</span>
+  <b>align-items</b>: stretch; - <span class="menu__komment">елементы подстраиваются под самый высокий</span>
+  <b>align-items</b>: flex-start; - <span class="menu__komment">высота флекс-елемента от верха на высоту контента</span>
+  <b>align-items</b>: flex-end; - <span class="menu__komment">высота флекс-елемента от низа на высоту контента</span>
+  <b>align-items</b>: center; - <span class="menu__komment">флекс-елементы выстроятся по горизонтальному центру самого высокого елемента</span>
+  <b>align-items</b>: baseline; - <span class="menu__komment">выстраивает флекс-елементы по базовой линии</span>
+  <b>flex-wrap</b>: nowrap; - <span class="menu__komment">флекс-елементы не адаптируются</span>
+  <b>flex-wrap</b>: wrap; - <span class="menu__komment">флекс-елементы адаптируются</span>
+  <b>flex-wrap</b>: wrap-reverse; - <span class="menu__komment">флекс-елементы адаптируются в обратном порядке</span>
+
+  <em>для флекс-елемента:</em>
+  <b>align-self</b> - <span class="menu__komment">переопределяет выравнивание</span>
+  <b>align-self</b>: stretch;
+  <b>align-self</b>: center;
+  <b>align-self</b>: flex-start;
+  <b>align-self</b>: flex-end;
+
+  <b>order</b> - <span class="menu__komment">порядок вывода елементов</span>
+  <b>order</b>: 1; - <span class="menu__komment">выводим первым</span>
+  <b>flex-basis</b> - <span class="menu__komment">базовый размер элемента</span>
+  <b>flex-basis</b>: auto; - <span class="menu__komment">по размеру контента</span>
+
+  <b>flex-grow</b> - <span class="menu__komment">возможность увеличиваться в размере</span>
+  <b>flex-grow</b>: 0; - <span class="menu__komment">не больше чем flex-basis</span>
+  <b>flex-shrink</b> - <span class="menu__komment">возможность уменьшаться в размере</span>
+  <b>flex-shrink</b>: 1; - <span class="menu__komment">разрешено становиться меньше</span>
+  <b>flex</b>: 0 1 auto; - <span class="menu__komment">короткая запись flex-grow flex-shrink flex-basis</span>
+
+  <b>flex-direction</b> - <span class="menu__komment">устанавливает основную ось</span>
+  <b>flex-direction</b>: row; - <span class="menu__komment">в ряд</span>
+  <b>flex-direction</b>: row-reverse; - <span class="menu__komment">в обратную сторону в обратном порядке</span>
+  <b>flex-direction</b>: column; - <span class="menu__komment">основная ось вертикально</span>
+  <b>flex-direction</b>: column-revers; - <span class="menu__komment">вертикально снизу вверх
+  https://fls.guru/flexbox.html</span>
+  </small>
 </details>
 <details><!--GRID-->
-    <summary>GRID</summary>
-<img src="../img/css/CSS9.png" alt="">
-<img src="../img/css/CSS10.png" alt="">
-<img src="../img/css/CSS11.png" alt="">
-<em>GRID Layout</em>:
-display: grid; - определяет блочный грид-контейнер
-display: inline-grid; - определяет строчный грид-контейнер
-grid-template-columns: ; - управление колонками
-grid-template-rows ; - управление рядами
-grid-template-columns: 200px minmax(150px, 1fr) 200px; - первая колонка шириной 200рх,
+<summary>GRID</summary><small>
+  .somecontent {
+    background-color: green;
+    display: grid;
+    padding: 20px;
+    grip-column-gap: 20px;
+    grip-row-gap: 10px;
+    grid-template-columns: 200px 200px auto;
+  }
+
+  .somecontent-item {
+    background-color: white;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+<b>display</b>: grid; - <span class="menu__komment">определяет блочный грид-контейнер</span>
+<b>display</b>: inline-grid; - <span class="menu__komment">определяет строчный грид-контейнер</span>
+<b>grid-template-columns</b>: ; - <span class="menu__komment">управление колонками</span>
+<b>grid-template-rows</b>: ; - <span class="menu__komment">управление рядами</span>
+<b>grid-template-columns</b>: 200px minmax(150px, 1fr) 200px; - <span class="menu__komment">первая колонка шириной 200рх,
 вторая - минимум 150рх и максимум на всю ширину грид-контейнера,
-третья - шириной 200рх
-grid-template-rows: 1fr 1fr; - два ряда делят высоту грид-контейнера поровну
-grid-template-columns: fit-content(400px) 1fr auto; - ширина первой колонки по контенту, но не шире 400рх,
+третья - шириной 200рх</span>
+<b>grid-template-rows</b>: 1fr 1fr; - <span class="menu__komment">два ряда делят высоту грид-контейнера поровну</span>
+<b>grid-template-columns</b>: fit-content(400px) 1fr auto; - <span class="menu__komment">ширина первой колонки по контенту, но не шире 400рх,
                 вторая колонка - вся свободная ширина блока,
-                третья колонка по ширине контента 
-grid-template-columns: repeat(3, 1fr); - 3 колонки размером 1fr
-grid-template-areas: ; - управляет областями
-grid-area: ; - применяется к елементам
-grid-template: repeat(2, 1fr) / repeat(3, 1fr); - две равные строки и три равные колонки
-grid-template:
+                третья колонка по ширине контента</span>
+<b>grid-template-columns</b>: repeat(3, 1fr); - <span class="menu__komment">3 колонки размером 1fr</span>
+<b>grid-template-areas</b>: ; - <span class="menu__komment"></span>управляет областями
+<b>grid-area</b>: ; - <span class="menu__komment">применяется к елементам</span>
+<b>grid-template</b>: repeat(2, 1fr) / repeat(3, 1fr); - <span class="menu__komment">две равные строки и три равные колонки</span>
+<b>grid-template</b>:
 [start] "header header" 100px [row2]
-[row2]  "side content" 1fr [row-end] / 150px 1fr; - управление областями, 
+[row2]  "side content" 1fr [row-end] / 150px 1fr; - <span class="menu__komment">управление областями, 
             через свойство grid-area присваиваем имена элементам,
             в первом ряду header занимает две колонки,
             второй ряд содержит колонки side и content,
             высота рядов 1fr,
-            ширина колонок 150px 1fr.
-grid-auto-rows: ; - управляет рядом неявной сетки, т.е. ряд, который не обозначен в grid-template-rows
-grid-auto-columns: ; - если не задан grid-template-columns
-grid-auto-flow: row; - выстраивает грид-элементы поочередно в ряд
-grid-auto-flow: column; - выстраивает грид-элементы поочередно в колонку
-grid-auto-flow: dense; - выстраивает грид-элементы в произвольном порядке
+            ширина колонок 150px 1fr.</span>
+<b>grid-auto-rows</b>: ; - <span class="menu__komment">управляет рядом неявной сетки, т.е. ряд, который не обозначен в grid-template-rows</span>
+<b>grid-auto-columns</b>: ; - <span class="menu__komment">если не задан grid-template-columns</span>
+<b>grid-auto-flow</b>: row; - <span class="menu__komment">выстраивает грид-элементы поочередно в ряд</span>
+<b>grid-auto-flow</b>: column; - <span class="menu__komment">выстраивает грид-элементы поочередно в колонку</span>
+<b>grid-auto-flow</b>: dense; - <span class="menu__komment">выстраивает грид-элементы в произвольном порядке</span>
 
 <em>Размещение элементов с помощью линий сетки</em>:    
-grid-row-start: auto;
-grid-row-end: auto;
-grid-column-start: auto;
-grid-column-end: auto;
-grid-row-start: span 2; объект занимает 2 строчки
-grid-template-rows: [start] 1fr [row2] 1fr [row-end]; - две строки одинаковой высоты 
-        и [имена линий] между строк сверху вниз
-grid-template-columns: [start] 1fr [col2] 1fr [col3] 1fr [col-end]; - три столбца одинаковой ширины
-        и [имена линий] между столбцами слева направо
-grid-row: 1 / 2; - применяется к элементу, указывает начало и конец элемента по линиям рядов
-grid-column: 1 / 2; - применяется к элементу, указывает начало и конец элемента по линиям столбцов
+<b>grid-row-start</b>: auto;
+<b>grid-row-end</b>: auto;
+<b>grid-column-start</b>: auto;
+<b>grid-column-end</b>: auto;
+<b>grid-row-start</b>: span 2; <span class="menu__komment">объект занимает 2 строчки</span>
+<b>grid-template-rows</b>: [start] 1fr [row2] 1fr [row-end]; - <span class="menu__komment">две строки одинаковой высоты 
+        и [имена линий] между строк сверху вниз</span>
+<b>grid-template-columns</b>: [start] 1fr [col2] 1fr [col3] 1fr [col-end]; - <span class="menu__komment">три столбца одинаковой ширины
+        и [имена линий] меду столбцами слева направо</span>
+<b>grid-row</b>: 1 / 2; - <span class="menu__komment">применяется к элементу, указывает начало и конец элемента по линиям рядов</span>
+<b>grid-column</b>: 1 / 2; - <span class="menu__komment">применяется к элементу, указывает начало и конец элемента по линиям столбцов</span>
 или
-grid-row: start / row2; - применяется к элементу, указывает начало и конец элемента по линиям рядов
-grid-column: start / col2; - применяется к элементу, указывает начало и конец элемента по линиям столбцов
-order: 1; - задается каждому елементу сетки и определяет порядок вывода елемента
-justify-items: stretch; - растягивает/прижимает елементы в ячейках вправо/влево
-align-items: stretch; - растягивает/прижимает елементы в ячейках вверх/вниз
-row-gap: 20px; - расстояние между строками
-column-gap: 20px; - расстояние между колонками
+<b>grid-row</b>: start / row2; - <span class="menu__komment">применяется к элементу, указывает начало и конец элемента по линиям рядов</span>
+<b>grid-column</b>: start / col2; - <span class="menu__komment">применяется к элементу, указывает начало и конец элемента по линиям столбцов</span>
+<b>order</b>: 1; - <span class="menu__komment">задается каждому елементу сетки и определяет порядок вывода елемента</span>
+<b>justify-items</b>: stretch; - <span class="menu__komment">растягивает/прижимает елементы в ячейках вправо/влево</span>
+<b>align-items</b>: stretch; - <span class="menu__komment">растягивает/прижимает елементы в ячейках вверх/вниз</span>
+<b>row-gap</b>: 20px; - <span class="menu__komment">расстояние между строками</span>
+<b>column-gap</b>: 20px; - <span class="menu__komment">расстояние между колонками</span>
 или
-gap: 20px; - и для строк и для колонок одновременно
+<b>gap</b>: 20px; - <span class="menu__komment">и для строк и для колонок одновременно</span>
+</small>
 </details>
 <details><!--Адаптивная верстка-->
-    <summary>Адаптивная верстка</summary>
-        Адаптивная верстка: <br>
-        <dfn>отзывчивая</dfn> - всё в %, указываем только максимальную ширину для body, 
-        весь контент на своём месте, отзывается на изменение ширины экрана. <br>
-        <dfn>адаптивная</dfn> - брейкпоинты, медиа-запросы, контент перестраивается на брейкпоинтах 
-        при изменении ширины экрана. <br>
-        <dfn>отзывчиво-адаптивная</dfn> - делаем отзывчиую пока читается контент при уменьшении ширины экрана. <br>
-        При ширине плохо читабельного контента далем брейкпоинт - адаптив.
-<.meta name="viewport" content="width=device-width">
-Брейкпоинт:
-@media (max-width:1200px){
-.container{
-max-width: 970px;
-}
-}
-@media (max-width:992px){
-.container{
-max-width: 750px;
-}
-}
-@media (max-width:767px){
-.container{
-max-width: none;
-}
-}
-<.div class="container"><./div> - обворачиваем весь контент
-@import url(color.css) screen and (color); - медиа-запрос в css,
-<.link rel="stylesheet" media="screen and (color)" href="example.css"> - медиа-запрос в html:
-файл стилей подключится в только при выполнении условия медиа-запроса 
+  <summary>Адаптивная верстка</summary><small>
+  <em>отзывчивая</em> - <span class="menu__komment">всё в %, указываем только максимальную ширину для body, 
+  весь контент на своём месте, отзывается на изменение ширины экрана.</span>
+  <em>адаптивная</em> -<span class="menu__komment"> брейкпоинты, медиа-запросы, контент перестраивается на брейкпоинтах 
+  при изменении ширины экрана.</span>
+  <em>отзывчиво-адаптивная</em> - <span class="menu__komment">делаем отзывчиую пока читается контент при уменьшении ширины экрана.
+  При ширине плохо читабельного контента далем брейкпоинт - адаптив.</span>
+  < <b>meta</b> name="viewport" content="width=device-width">
+  <em>Брейкпоинт</em>:
+  @media (max-width:1200px){
+    .container{
+      max-width: 970px;
+    }
+  }
+
+  @media (max-width:992px){
+    .container{
+      max-width: 750px;
+    }
+  }
+
+  @media (max-width:767px){
+    .container{
+      max-width: none;
+    }
+  }
+  < <b>div</b> class="<em>container</em>">< /div> - <span class="menu__komment">обворачиваем весь контент</span>
+  <b>@import</b> url(color.css) screen and (color); - <span class="menu__komment">медиа-запрос в css,</span>
+  < <b>link</b> rel="stylesheet" media="screen and (color)" href="example.css"> - <span class="menu__komment">медиа-запрос в html:
+  файл стилей подключится в только при выполнении условия медиа-запроса</span>
+</small>
 </details>
 <details><!--Animation-->
-    <summary>Animation</summary>
-Анимация:
-transition-duration - время перехода
-transition-property - содержит css свойства к которым будет применен переход.
-Сколько свойств - столько и значений transition-duration через запятую.
-transition-delay - время задержки перехода
-transition-timing-function - сценарий анимации
-общая запись: transition: all 1s ease 0s; - transition: property duration function delay;
-transition: padding 1s ease 0s, color 2s ease-in 0.5s;
+<summary>Animation</summary><small>
+  <b>@keyframes</b> <i>grow</i> {
+    <b>from</b> {
+      font-size: 20px;
+    }
+    <b>to</b> {
+      font-size: 100px;
+    }
+  }
 
-@keyframes name{
-from{
-ключевой кадр
-}
-to{
-ключевой кадр
-}
-}
-или
-@keyframes name{
-0%{
-left: 0;
-}
-50%{
-left: 250px;
-}
-100%{
-left: 500px;
-}
-}
-Animation
-animation-name: имя ключевых кадров, имя ключевых кадров № 2; 
-- список применяемых к элементу анимаций (кадров)
-animation-duration - продолжительность анимации
-animation-timing-function - сценарий анимации
-animation-iteration-count - количество повторов ключевых кадров
-animation-direction - тип и направление проигрования ключевых кадров
-animation-play-state - запускает либо приостанавливает анимацию по событию
-animation-name: none; - возвращает анимацию на исходную
-animation-delay - задержка перед началом анимации
-animation-fill-mode - определяет какие свойства применятся после завершения анимации
-animation: name duration function count direction delay mode;
-animation: firstname 2s linear infinite alternate 0s forwards, secondname 5s ease infinite alternate 0s forwards;
+  <b>h1</b> {
+    <b>animation-name</b>: <i>grow</i>;
+    <b>animation-direction</b>: 2s;
+    <b>animation-fill-mode</b>: forwards;
+  }
+  
+  или
+
+  <b>@keyframes</b> <i>grow</i> {
+    <b>from</b> {
+      left: 0%;
+    }
+    <b>to</b> {
+      left: 50%;
+    }
+  }
+
+  <b>h1</b> {
+    <b>position: relative</b>
+    <b>animation-name</b>: <i>grow</i>;
+    <b>animation-direction</b>: 2s;
+    <b>animation-fill-mode</b>: forwards;
+  }
+
+  <b>animation-name</b>: <span class="menu__komment">имя ключевых кадров, имя ключевых кадров № 2; 
+  - список применяемых к элементу анимаций (кадров)</span>
+  <b>animation-duration</b> - <span class="menu__komment">продолжительность анимации</span>
+  <b>animation-timing-function</b> - <span class="menu__komment">сценарий анимации</span>
+  <b>animation-iteration-count</b> - <span class="menu__komment">количество повторов ключевых кадров</span>
+  <b>animation-direction</b> - <span class="menu__komment">тип и направление проигрования ключевых кадров</span>
+  <b>animation-play-state</b> - <span class="menu__komment">запускает либо приостанавливает анимацию по событию</span>
+  <b>animation-name</b>: none; - <span class="menu__komment">возвращает анимацию на исходную</span>
+  <b>animation-delay</b> - <span class="menu__komment">задержка перед началом анимации</span>
+  <b>animation-fill-mode</b> - <span class="menu__komment">определяет какие свойства применятся после завершения анимации</span>
+  <b>animation</b>: name duration function count direction delay mode;
+  <b>animation</b>: firstname 2s linear infinite alternate 0s forwards, secondname 5s ease infinite alternate 0s forwards;
+
+  Сколько свойств - <span class="menu__komment">столько и значений transition-duration через запятую</span>
+  <b>transition-duration</b> - <span class="menu__komment">время перехода</span>
+  <b>transition-property</b> - <span class="menu__komment">содержит css свойства к которым будет применен переход</span>
+  <b>transition-delay</b> - <span class="menu__komment">время задержки перехода</span>
+  <b>transition-timing-function</b> - <span class="menu__komment">сценарий анимации</span>
+  <b>общая запись</b>: transition: all 1s ease 0s; - transition: property duration function delay;
+  <b>transition</b>: padding 1s ease 0s, color 2s ease-in 0.5s;
+</small>
+
 </details>
 <details><!--Графика-->
-    <summary>Графика</summary>
-Графика:
-JPEG/JPG - растровый, оптимизируется хорошо, лучше для контента
-PNG - растровый, оптимизируется плохо, может быть прозрачным, лучше для фона и элементов дизайна
-GIF - растровый, до 256 цветов, видеоролик в формате изображения, оптимизируется хорошо
-SVG - векторный, хорошо подходит для иконок и при масштабировании изображения
-WebP - замена всех растровых форматов (прозрачность, анимация, хорошо оптимизируется)
-ico - растровый, оптимизируется хорошо, может быть прозрачным, 16х16рх, для иконок
-< link rel="shortcut icon" href="favicon.ico">
-object - работа с изображениями в контейнере как background в фоне
-object-fit: fill; - управляет изображением внутри контейнера
-object-position: center; - позиционирование изображения относительно родителя
-< picture>
-< source srcset="" type="" media="">
-< img src="" alt="">
-< /picture>
-Тег picture - контейнер для исходных материалов, позволяет выводить нужное изображение в зависимости 
-от условий. Адаптив без css, ускоряет загрузку верстки.
-Если браузер не поддерживает picture, то выведет img.
+<summary>Графика</summary><small>
+  <b>JPEG/JPG</b> - <span class="menu__komment">растровый, оптимизируется хорошо, лучше для контента</span>
+  <b>PNG</b> - <span class="menu__komment">растровый, оптимизируется плохо, может быть прозрачным, лучше для фона и элементов дизайна</span>
+  <b>GIF</b> - <span class="menu__komment">растровый, до 256 цветов, видеоролик в формате изображения, оптимизируется хорошо</span>
+  <b>SVG</b> - <span class="menu__komment">векторный, хорошо подходит для иконок и при масштабировании изображения</span>
+  <b>WebP</b> - <span class="menu__komment">замена всех растровых форматов (прозрачность, анимация, хорошо оптимизируется)</span>
+  <b>ico</b> - <span class="menu__komment">растровый, оптимизируется хорошо, может быть прозрачным, 16х16рх, для иконок</span>
+  < <b>link</b> rel="shortcut icon" href="favicon.ico">
+  <b>object</b> - <span class="menu__komment">работа с изображениями в контейнере как background в фоне</span>
+  <b>object-fit</b>: fill; - <span class="menu__komment">управляет изображением внутри контейнера</span>
+  <b>object-position</b>: center; - <span class="menu__komment">позиционирование изображения относительно родителя</span>
+</small>
 </details>
-            <a href="https://www.youtube.com/@OnlineTutorialsYT">OnlineTutorialsYT</a>
-            <a href="https://www.youtube.com/playlist?list=PLM6XATa8CAG6IJvQBkrTTNZmpIcyS2Avk">Как сделать</a>
-            <a href="https://www.youtube.com/watch?v=kfOe-F64C_A&list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr&index=9">Уроки HTML CSS JS</a>
-            <a href="https://www.youtube.com/watch?v=onZV8QqH76g">Верстка сайта</a>
-            <a href="https://www.w3.org/TR/cssom-1/">CSSOM</a>
+<a href="https://www.youtube.com/@OnlineTutorialsYT">OnlineTutorialsYT</a>
+<a href="https://www.youtube.com/playlist?list=PLM6XATa8CAG6IJvQBkrTTNZmpIcyS2Avk">Как сделать</a>
+<a href="https://www.youtube.com/watch?v=kfOe-F64C_A&list=PLM6XATa8CAG4F9nAIYNS5oAiPotxwLFIr&index=9">Уроки HTML CSS JS</a>
+<a href="https://www.youtube.com/watch?v=onZV8QqH76g">Верстка сайта</a>
+<a href="https://www.w3.org/TR/cssom-1/">CSSOM</a>
 </pre>
             </div>
           </details>
           <details class="menu__item"><!--JS-->
             <summary>JS</summary>
             <div class="menu__inner">
-            <p>JavaScript — мультипарадигменный язык программирования. <br>
+            <p><em>JavaScript</em> — мультипарадигменный язык программирования. <br>
                 Поддерживает объектно-ориентированный, императивный и функциональный стили. <br>
                 Является реализацией спецификации ECMAScript. <br>
                 JavaScript обычно используется как встраиваемый язык для программного доступа к объектам приложений. <br>
                 Позволяет взаимодействовать с элементами на странице, изменять их содержание и стиль, реагировать на события, 
                 такие как клики и наведение курсора, а также создавать сложные анимации и эффекты.
             </p>
-            <a href="https://jsfiddle.net/">Онлайн редактор</a>
-            <details><!--Синтаксис-->
-                <summary>Синтаксис</summary>
-                <p>
-                    <.script>alert('Привет мир!') <./script> - вставить скрипт в html, либо <br>
-                    <.script src="/path/to/script.js"> <./script> - подключить в html файл со скриптом. <br>
-                    "use strict" или 'use strict' - строгий режим. Отключить невозможно. <br>
-                    Классы и модули строгий режим включают автоматически. <br>
-                    <br>
-                    Имена должны быть легко читаемые, camelCase, описательные и лаконичные. <br>
-                    " " или ' ' - это строка <br>
-                    ` ` - вставить выражение в строку, обернув в ${...} <br>
-                    // - однострочный комментарий <br>
-                    /*...*/ - многострочный комментарий <br>
+            <a href="https://jsfiddle.net/">Онлайн редактор</a> <br>
+            <br>
 <pre>
-Блок инструкций:
-{
-console.log('Учим');
-console.log('JS');
-}
-Область видимости {}
-const KNOW_VAL = I know the value; - константа с известным заранее значением пишем в верхнем регистре
-const donotKnow = I don't know the value; - константа с неизвестным заранее значением
-var - ключевое слово переменной, можно использовать до объявления.
-область видимости в пределах модуля, 
-исключение: если объявлена в теле функции, то видна только в теле функции.
-</pre>
-                    <ul>Комментируй:
-                        <li>общую архитектуру</li>
-                        <li>использование функций</li>
-                        <li>неочевидные решения</li>
-                        <li>важные детали</li>
-                        <em>Не комментируй что делает код.</em>
-                    </ul>
-                    <br>
-<pre>Значения:
-- фиксированные значения - литералы
-- литерал целого числа:          25
-- литерал дробного числа:        23.8
-- литерал строки:                'Javascript', "Javascript"
-- литерал массива:               [], [15,7,89]
-- литерал объекта:               {}, {name: 'Javascript', surname: 'Javascript'}
-- литерал регулярного выражения: (ab|bc)
+<details><!--Синтаксис-->
+  <summary>Синтаксис</summary><small>
+  < <b>script</b>>alert('Привет мир!') < /<b>script</b>> - <span class="menu__komment">вставить скрипт в html, либо</span>
+  < <b>script</b> src="/path/to/script.js"> < /<b>script</b>> - <span class="menu__komment">подключить в html файл со скриптом.</span>
+  <b>"use strict"</b> или <b>'use strict'</b> - <span class="menu__komment">строгий режим. Отключить невозможно.
+  Классы и модули строгий режим включают автоматически.</span>
 
-- значения констант: const MAX_VALUE = 17;
-- значения переменных: var section = 'JS';
-let arr = ['HTML','CSS','JS'];
+  <span class="menu__komment">Имена должны быть легко читаемые, camelCase, описательные и лаконичные.</span>
+  <b>" "</b> или <b>' '</b> - <span class="menu__komment">это строка</span>
+  <b>`${...} `</b> - <span class="menu__komment">вставить выражение в строку</span>
+  <b>//</b> - <span class="menu__komment">однострочный комментарий</span>
+  <b>/*...*/</b> - <span class="menu__komment">многострочный комментарий</span>
 
-Выражения - комбинация значений переменных и операторов
-Ключевые слова - определяет какое действие нужно выполнить
-</pre>    
-<br>
-                    <dfn>Автоматическое тестирование</dfn> - <i>тесты пишуться отдельно:</i><br>
-                    по-разному запускают функции и сравнивают результат с ожидаемым.
-<pre><code>
-спецификация состоит из:
-describe ("pow", function(){                    // <em>описываем функцию pow</em>
-it ("возводит в степень n", function() {    // <em>рабочий блок - описывает что делает</em>
-assert.equal(pow(2, 3), 8);             // <em>функция assert проверяет работу функции pow</em>
-});
-});
-</code></pre>
-                </p>
-                    <ul>Опциональная цепочка: <br>
-                        Если перед ?. undefined или null, то останавливает вычисление и возвращает undefined (без ошибки). <br>
-                        ?. работает:
-                        <li>с существующими переменными</li>
-                        <li>с функциями user1.admin?.(...)</li>
-                        <li>с квадратными скобками ?.[...]</li>
-                    </ul>
-<pre><code>
-let user = {}; - пользователь без адреса
-alert(user?.adress?.street); - undefined (без ошибки)
-delete user?.name - удалит user.name если user существует
-obj?.prop - вернёт obj.prop если obj есть, иначе undefined
-obj?.[prop] - вернёт obj[prop] если obj есть, иначе undefined
-obj.method?.() - вызовет obj.method если он есть, иначе undefined
-</code></pre>                  
-            </details>
-            <details><!--Types-->
-                <summary>Types</summary>
-                <p>Тип - набор характеристик значения. <br>
-                    Тип - не у переменной, а у значения. <br>
-                    Тип переменной присваиваится вместе со значением. <br>
-                    <br>
-                </p>
-                <details><!--Object-->
-                    <summary>Object</summary>
-<pre>Object {property1: value1, property2: value2}
+  <em>Блок инструкций</em>:
+  {
+    console.log('<i>Учим</i>');
+    console.log('<i>JS</i>');
+  }
 
-let someObj = new Object();
-let someObj = {
-key1: value1,
-};
-console.log(someObj.key); либо console.log(someObj['key']);
+  <em>Область видимости {}</em>
+  const KNOW_VAL = I know the value; - <span class="menu__komment">константа с известным заранее значением пишем в верхнем регистре</span>
+  const donotKnow = I don't know the value; - <span class="menu__komment">константа с неизвестным заранее значением</span>
+  var - <span class="menu__komment">ключевое слово переменной, можно использовать до объявления.
+  область видимости в пределах модуля, 
+  исключение: если объявлена в теле функции, то видна только в теле функции.</span>
 
-someObj.key2 = value2; - добавил в объект свойство (ключ: значение)
-delete someObj.key2; - удалил из объекта свойство (ключ: значение)
-let obj = someObj; - скопировал ссылку на объект в другую переменную
-let obj = Object.assign({}, someObj); - сделал дубликат объекта
+  <em>Комментируй</em>:<span class="menu__komment">
+    - общую архитектуру
+    - использование функций
+    - неочевидные решения
+    - важные детали</span>
+  <em>Не комментируй что делает код.</em>
 
-console.log(userInfo?.address?.street); - опциональная цепочка, выдает значение свойства если оно есть,
-                если его нет выдаст undefined без ошибки
-if ("key1" in someObj) {} - проверка на наличие свойства
-for (let key in object) {} - перебирает все свойства объекта
-let someObj = {
-key1: value1,
-someFunc: function () {}, - метод объекта
-либо
-someFunc() {},
-};
+  <em>Значения</em>:<span class="menu__komment">
+    - фиксированные значения - литералы
+    - литерал целого числа:          25
+    - литерал дробного числа:        23.8
+    - литерал строки:                'Javascript', "Javascript"
+    - литерал массива:               [], [15,7,89]
+    - литерал объекта:               {}, {name: 'Javascript', surname: 'Javascript'}
+    - литерал регулярного выражения: (ab|bc)
+    - значения констант: const MAX_VALUE = 17;
+    - значения переменных: var section = 'JS';</span>
 
-Function - это Object, но выведен отдельно для простоты определения функций
+  let arr = ['HTML','CSS','JS'];
 
-Object.getOwnPropertySymbols(obj) - получить все свойства объекта с ключами-символами.
+  <em>Выражения</em> - <span class="menu__komment">комбинация значений переменных и операторов</span>
+  <em>Ключевые слова</em> - <span class="menu__komment">определяет какое действие нужно выполнить</span>
 
-Reflect.ownKeys(obj) - возвращает все ключи объекта включая символьные.
-</pre>
-                </details>
-                <details><!--Примитивы-->
-                    <summary>Примитивы</summary>
-                    <p><dfn>Примитивы</dfn> - <i>это конкретные значения.</i> <br>
-                    С помощью объектов-оберток (Number, String, ...) все примитивы кроме null и undefined имеют методы работы с ними. <br>
-                    <br>
-                    </p>
-                    <details><!--undefined-->
-                        <summary><dfn>undefined</dfn> - <i>неопределен, нет значения</i></summary>
-                    </details>
-                    <details><!--null-->
-                        <summary><dfn>null</dfn> - <i>переменная определена, значение - ничего</i></summary>
-                    </details>
-                    <details><!--boolean-->
-                        <summary><dfn>boolean</dfn> - <i>true/false</i></summary>
-                    </details>
-                    <details><!--number-->
-                        <summary><dfn>number</dfn> - <i>числа</i></summary>
-<pre><dfn>number</dfn> - <i>числа целые и с точкой</i>
-- infinity (безконечность)
-- NaN (Not a Number)         
+  <em>Автоматическое тестирование</em> - <span class="menu__komment">тесты пишуться отдельно:
+  по-разному запускают функции и сравнивают результат с ожидаемым.</span>
 
-<em>Обычные числа в JS</em> - это числа с плавающей точкой двойной точности 
-(double precision floating point numbers), 64-битный формат IEEE-754.
+  <em>спецификация состоит из</em>:
+  describe ("<i>pow</i>", function(){                // <span class="menu__komment">описываем функцию pow</span>
+    it ("<i>возводит в степень n</i>", function() {  // <span class="menu__komment">рабочий блок - описывает что делает</span>
+      assert.equal(pow(2, 3), 8);             // <span class="menu__komment">функция assert проверяет работу функции pow</span>
+    });
+  });
 
-<em>BigInt</em> - числа позволяют работать с числами произвольной длины.
-123e6 = 123 000 000 (e6 - это 6 нулей) 123e-6 = 0,000123
-let someNum = 1000000; лучше так: let someNum = 1e6;
-let num = 0.000001;                 let num = 1e-6;
+  <em>Опциональная цепочка</em>:
+  <span class="menu__komment">Если перед ?. undefined или null, то останавливает вычисление и возвращает undefined (без ошибки).</span>
+  ?. работает:<span class="menu__komment">
+    - с существующими переменными
+    - с функциями user1.admin?.(...)
+    - с квадратными скобками ?.[...]</span>
+  let user = {}; - <span class="menu__komment">пользователь без адреса</span>
+  alert(user?.adress?.street); - <span class="menu__komment">undefined (без ошибки)</span>
+  delete user?.name - <span class="menu__komment">удалит user.name если user существует</span>
+  obj?.prop - <span class="menu__komment">вернёт obj.prop если obj есть, иначе undefined</span>
+  obj?.[prop] - <span class="menu__komment">вернёт obj[prop] если obj есть, иначе undefined</span>
+  obj.method?.() - <span class="menu__komment">вызовет obj.method если он есть, иначе undefined</span>
+</small>         
+</details>
+<details><!--Types-->
+<summary>Types</summary>
+Тип - набор характеристик значения.
+Тип - не у переменной, а у значения.
+Тип переменной присваиваится вместе со значением.
 
-0b11111111 - бинарная (двоичная) форма записи числа 255
-0о377 - восьмиричная форма записи числа 255
-0xff - шестнадцатиричная форма записи числа 255
-</pre>
-                    </details>
-                    <details><!--string-->
-                        <summary><dfn>string</dfn> - <i>строка</i></summary>
-<pre><dfn>string</dfn> - <i>строка</i> ' ', " ", `${}`
-"Какое-то \n предложение \n\t тут": \n - перевод строки, \t - табуляция (отступ), \ - экранирование
-let someText = "text";
-console.log(someText.length); - длина строки
-let firstSymbol = someText[0]; - получаем символ строки
-let lastSymbol = someText[someText.length-1]; - последний символ строки
+<details><!--Object-->
+  <summary>Object</summary><small>
+  Object {property1: value1, property2: value2}
 
-for (const char of someText) {    - перебирает символы строки
-console.log(char);
-}
+  let someObj = new Object();
+  let someObj = {
+    key1: value1,
+  };
+  console.log(someObj.key); <i>либо</i> console.log(someObj['key']);
 
-someText.toUpperCase() - все буквы большие
-someText.toLowerCase() - все буквы маленькие
+  someObj.key2 = value2; - <span class="menu__komment">добавил в объект свойство (ключ: значение)</span>
+  delete someObj.key2; - <span class="menu__komment">удалил из объекта свойство (ключ: значение)</span>
+  let obj = someObj; - <span class="menu__komment">скопировал ссылку на объект в другую переменную</span>
+  let obj = Object.assign({}, someObj); - <span class="menu__komment">сделал дубликат объекта</span>
 
-someText.indexOf(substr, pos) - ищет подстроку substr в строке someText,
-    pos - необязательный, символ с которого искать
-includes(substr, pos), startsWith(substr), endsWith(substr) - проверяет на наличие, 
-                                возвращает true или false
-slice(start, end) - возвращает часть строки без end
-</pre>
-                    </details>
-                    <details><!--Symbol-->
-                        <summary><dfn>Symbol</dfn> - <i>идентификатор объекта</i></summary>
-                        <p>
-                            Два Symbol("id") с одинаковым "id" - это разные символы. <br>
-                            let id = Symbol.for("id") - читает символ "id" из глобального реестра, <br>
-                            если символа нет, то создаст новый глобальный символ. <br>
-                            В глобальном реестре под одним именем один символ. <br>
-                            Используется как "скрытые" свойства объектов, т.к. символьное свойство не появится в for..in, <br>
-                            например: <br>
-                            - Symbol.iterator - для итераторов, <br>
-                            - Symbol.toPrimitive - для преобразования объектов в примитивы. <br>
-                        </p>
-<pre><code>
-let id = Symbol("id");  // создание символа 
-let user = {
-name: "Вася",       // не преобразуются в строку автоматически
-[id]: 123           // просто id:123 не работает, т.к. нужно значение переменной id, а не срока id.
-};
-</code></pre>
-                    </details>
-                </details>
-                <details><!--typeof-->
-                    <summary><dfn>typeof</dfn> - <i>возвращает тип аргумента</summary>
-<pre>typeof 0 - number
-typeof true - boolean
-typeof 'JS' - string
-typeof undefined - undefined
-typeof Math - object
-typeof Symbol ('JS') - symbol
-typeof null - object - баг, это null
-typeof function() {} - function - баг, это object
-typeof NaN - number - Not a Number возвращает number
-</pre>
-                </details>
-                <details><!--Приведение типов-->
-                    <summary>Приведение типов</summary>
-<pre><code>Основные приведения: строковое, численное и логическое.
-'', 0, null, undefined, Nan, false - приводятся Boolean() к false ("false" - значения).
-Boolean('Hello') - true
-Boolean(' ') - true, пробел - это символ
-Boolean('0') - true, '0' приводится к строке
-Boolean(0) - false
-Boolean([]) - true
-Boolean({}) - true
+  if ("key1" in someObj) {} - <span class="menu__komment">проверка на наличие свойства</span>
+  for (let key in object) {} - <span class="menu__komment">перебирает все свойства объекта</span>
+  let someObj = {
+    key1: value1,
+    someFunc: function () {}, - <span class="menu__komment">метод объекта</span>
+    <i>либо</i>
+    someFunc() {},
+  };
 
-Операторы приводят значения null к 0, а undefined к NaN:
-null > 0 - false            undefined > 0 - false
-null >= 0 - true            undefined < 0 - false
-null == 0 - false           undefined == 0 - false
-NaN возвращает false при любых сравнениях.
-При нестрогом равенстве null/undefined ни к чему не приводятся и равны только друг другу.
-</code>
-<code>Строки и числа:
-String(value); - приведение к строке
-Number(value); - приведение к числу
-Number("123"); - 123
-Number("123z"); - NaN
-Number(true); - 1
-Number(false); - 0
-+true - 1
-+'' - 0
-null + 2 - number 2, null приводится к 0
-1 + '2' - string 12
-'' + 1 + 0 - string 10
-'' - 1 + 0 - number -1, у строки есть только оператор сложения (конкатенация), поэтому -1 это число + 0
-'3' + '8' - number 24
-4 + 10 + 'px' - string 14px
-'px' + 4 + 10 - string px410
-'42' - 40 - number 2
-'42px' - 40 - NaN, px к числу не приводится
-undefined + 2 - NaN, undefined приводится к NaN
-</code></pre>
-                    <p>parseInt() - возвращает целое число, которое смогло получить из параметра
-                        parseFloat()- возвращает число с точкой, которое смогло получить из параметра
-                        parseInt(str, base) - преобразует строку в число, base - система исчисления 2 =< base =< 36, по умолчанию 10 <br>
-                        parseInt('0xff', 16) - 255, дополнительное свойство - читает кодировки чисел <br>
-                        parseInt('100px') - 100 <br>
-                        parseFloat('12.5em') - 12.5 <br>
-                        parseInt('a123') - NaN, не смог прочитать ни одной цифры <br>
-                        num.toString(base) - преобразует число num в строку в виде системы исчисления base (от 2 до 32, по умолчанию 10)<br>
-                        Если вызывать метод на числе, то 123..toString(36) или (123).toString(36) <br>
-                        num.toFixed(n) - округляет до n знаков после запятой и возвращает результат в виде строки <br>
-                        isNaN(value) - преобразует в число и проверяет является ли оно NaN. NaN никогда не будет равно NaN. <br>
-                        NaN === NaN - false<br>
-                        isFinite(value) - преобразует в число и возвращает true если обычное число <br>
-                        Object.is(a, b) - идентично a === b <br>
-                        Object.is(NaN, NaN) === true <br>
-                        Object.is(0, -0) === false, технически 0 и -0 это разные значения <br>
-                        встроенный объект Math - математические операции над числами <br>
-                        <br>
-                        <em>Преобразование объектов в примитивы:</em> <br>
-                        obj[Symbol.toPrimitive](hint) - вызывается метод объекта если он существует <br>
-                        Если hint = string, то вызывается obj.toString(), если такого нет, то obj.valueOf() <br>
-                        Если hint = number или default, то вызывается obj.valueOf(), если такого нет, то obj.toString().
-                    </p>
-                </details>
-            </details>
-            <details><!--Регулярные выражения-->
-                <summary>Регулярные выражения</summary>
-            </details>
-            <details><!--Операторы-->
-                <summary>Операторы</summary>
+  <em>Function</em> - <span class="menu__komment">это Object, но выведен отдельно для простоты определения функций</span>
+
+  Object.getOwnPropertySymbols(obj) - <span class="menu__komment">получить все свойства объекта с ключами-символами</span>
+
+  Reflect.ownKeys(obj) - <span class="menu__komment">возвращает все ключи объекта включая символьные</span>
+</small>
+</details>
+<details><!--Примитивы-->
+<summary>Примитивы</summary><small>
+  <em>Примитивы</em> - <span class="menu__komment">это конкретные значения.
+  С помощью объектов-оберток (Number, String, ...) все примитивы кроме null и undefined
+  имеют методы работы с ними.</span>
+  <em>undefined</em> - <span class="menu__komment">неопределен, нет значения</span>
+  <em>null</em> - <span class="menu__komment">переменная определена, значение - ничего</span>
+  <em>boolean</em> - <span class="menu__komment">true/false</span>
+  <em>number</em> - <span class="menu__komment">числа целые и с точкой
+    - infinity (безконечность)
+    - NaN (Not a Number)</span>
+
+  <em>Обычные числа в JS</em> - <span class="menu__komment">это числа с плавающей точкой двойной точности 
+  (double precision floating point numbers), 64-битный формат IEEE-754.</span>
+
+  <em>BigInt</em> - <span class="menu__komment">числа позволяют работать с числами произвольной длины.</span>
+  123e6 = 123 000 000 (<i>e6 - это 6 нулей</i>) 123e-6 = 0,000123
+  let someNum = 1000000; <i>лучше так</i>: let someNum = 1e6;
+  let num = 0.000001;                 let num = 1e-6;
+
+  0b11111111 - <span class="menu__komment">бинарная (двоичная) форма записи числа 255</span>
+  0о377 - <span class="menu__komment">восьмиричная форма записи числа 255</span>
+  0xff - <span class="menu__komment">шестнадцатиричная форма записи числа 255</span>
+
+  <em>string</em> - <i>строка</i> ' ', " ", `${}`
+  "<i>Какое-то</i> \n <i>предложение</i> \n\t <i>тут</i>": <span class="menu__komment">\n - перевод строки, \t - табуляция (отступ), \ - экранирование</span>
+  let someText = "text";
+  console.log(someText.length); - <span class="menu__komment">длина строки</span>
+  let firstSymbol = someText[0]; - <span class="menu__komment">получаем символ строки</span>
+  let lastSymbol = someText[someText.length-1]; - <span class="menu__komment">последний символ строки</span>
+
+  for (const char of someText) {    - <span class="menu__komment">перебирает символы строки</span>
+    console.log(char);
+  }
+
+  someText.toUpperCase() - <span class="menu__komment">все буквы большие</span>
+  someText.toLowerCase() - <span class="menu__komment">все буквы маленькие</span>
+
+  someText.indexOf(substr, pos) - <span class="menu__komment">ищет подстроку substr в строке someText,</span>
+  pos - <span class="menu__komment">необязательный, символ с которого искать</span>
+  includes(substr, pos), startsWith(substr), endsWith(substr) - <span class="menu__komment">проверяет на наличие, возвращает true или false</span>
+  slice(start, end) - <span class="menu__komment">возвращает часть строки без end</span>
+
+  <em>Symbol</em> - <i>идентификатор объекта</i>
+  Два <b>Symbol("id")</b> с одинаковым "<b>id</b>" - <span class="menu__komment">это разные символы.</span>
+  let id = Symbol.for("id") -<span class="menu__komment"> читает символ "id" из глобального реестра,
+  если символа нет, то создаст новый глобальный символ.</span>
+  <span class="menu__komment">В глобальном реестре под одним именем один символ.</span>
+  <span class="menu__komment">Используется как "скрытые" свойства объектов, т.к. символьное свойство не появится в for..in,
+  например:</span>
+  - Symbol.iterator - <span class="menu__komment">для итераторов,</span>
+  - Symbol.toPrimitive - <span class="menu__komment">для преобразования объектов в примитивы</span>
+      
+  let id = Symbol("id");  // <span class="menu__komment">создание символа</span>
+  let user = {
+    name: "Вася",         // <span class="menu__komment">не преобразуются в строку автоматически</span>
+    [id]: 123             // <span class="menu__komment">просто id:123 не работает, т.к. нужно значение переменной id, а не срока id.</span>
+  };
+  </small>
+</details>
+<details><!--typeof-->
+<summary>typeof - возвращает тип аргумента</summary><small>
+  typeof 0 - <span class="menu__komment">number</span>
+  typeof true - <span class="menu__komment">boolean</span>
+  typeof 'JS' - <span class="menu__komment">string</span>
+  typeof undefined - <span class="menu__komment">undefined</span>
+  typeof Math - <span class="menu__komment">object</span>
+  typeof Symbol ('JS') - <span class="menu__komment">symbol</span>
+  typeof null - object - <span class="menu__komment">баг, это null</span>
+  typeof function() {} - <span class="menu__komment">function - баг, это object</span>
+  typeof NaN - <span class="menu__komment">number - Not a Number возвращает number</span>
+</small>
+</details>
+<details><!--Приведение типов-->
+<summary>Приведение типов</summary><small>
+  Основные приведения: строковое, численное и логическое.
+  '', 0, null, undefined, Nan, false - приводятся Boolean() к false ("false" - значения).
+  Boolean('Hello') - true
+  Boolean(' ') - true, пробел - это символ
+  Boolean('0') - true, '0' приводится к строке
+  Boolean(0) - false
+  Boolean([]) - true
+  Boolean({}) - true
+
+  Операторы приводят значения null к 0, а undefined к NaN:
+  null > 0 - false            undefined > 0 - false
+  null >= 0 - true            undefined < 0 - false
+  null == 0 - false           undefined == 0 - false
+  NaN возвращает false при любых сравнениях.
+  При нестрогом равенстве null/undefined ни к чему не приводятся и равны только друг другу.
+
+  Строки и числа:
+  String(value); - приведение к строке
+  Number(value); - приведение к числу
+  Number("123"); - 123
+  Number("123z"); - NaN
+  Number(true); - 1
+  Number(false); - 0
+  +true - 1
+  +'' - 0
+  null + 2 - number 2, null приводится к 0
+  1 + '2' - string 12
+  '' + 1 + 0 - string 10
+  '' - 1 + 0 - number -1, у строки есть только оператор сложения (конкатенация), поэтому -1 это число + 0
+  '3' + '8' - number 24
+  4 + 10 + 'px' - string 14px
+  'px' + 4 + 10 - string px410
+  '42' - 40 - number 2
+  '42px' - 40 - NaN, px к числу не приводится
+  undefined + 2 - NaN, undefined приводится к NaN
+
+  parseInt() - возвращает целое число, которое смогло получить из параметра
+  parseFloat()- возвращает число с точкой, которое смогло получить из параметра
+  parseInt(str, base) - преобразует строку в число, base - система исчисления 2 =< base =< 36, по умолчанию 10
+  parseInt('0xff', 16) - 255, дополнительное свойство - читает кодировки чисел
+  parseInt('100px') - 100
+  parseFloat('12.5em') - 12.5
+  parseInt('a123') - NaN, не смог прочитать ни одной цифры
+  num.toString(base) - преобразует число num в строку в виде системы исчисления base (от 2 до 32, по умолчанию 10)
+  Если вызывать метод на числе, то 123..toString(36) или (123).toString(36)
+  num.toFixed(n) - округляет до n знаков после запятой и возвращает результат в виде строки
+  isNaN(value) - преобразует в число и проверяет является ли оно NaN. NaN никогда не будет равно NaN.
+  NaN === NaN - false
+  isFinite(value) - преобразует в число и возвращает true если обычное число
+  Object.is(a, b) - идентично a === b
+  Object.is(NaN, NaN) === true
+  Object.is(0, -0) === false, технически 0 и -0 это разные значения
+  встроенный объект Math - математические операции над числами
+
+  <em>Преобразование объектов в примитивы:</em>
+  obj[Symbol.toPrimitive](hint) - вызывается метод объекта если он существует
+  Если hint = string, то вызывается obj.toString(), если такого нет, то obj.valueOf()
+  Если hint = number или default, то вызывается obj.valueOf(), если такого нет, то obj.toString().
+</small>
+</details>
+</details>
+<details><!--Регулярные выражения-->
+    <summary>Регулярные выражения</summary>
+</details>
+<details><!--Операторы-->
+    <summary>Операторы</summary>
 <pre>Операторы:
 операнд - это то, к чему применяется оператор
 -х; - унарный оператор - применяется к одному операнду
@@ -1449,9 +1394,9 @@ let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Repab
 оператор "расширения" работает только с итерируемыми объектами.
 
 </pre>
-            </details>
-            <details><!--Инструкции-->
-                <summary>Инструкции</summary>
+</details>
+<details><!--Инструкции-->
+    <summary>Инструкции</summary>
 <pre><code>Условное ветвление:
 if (...) {          
 ...             
@@ -1536,10 +1481,10 @@ if (!input) break outer;
 outer: - метка-идентификатор с двоеточием
 break/continue поддерживает метки
 </code></pre>
-            </details>
-            <details><!--Функция-->
-                <summary>Функция</summary>
-                <img src="./img/function.jpg" alt="">
+</details>
+<details><!--Функция-->
+    <summary>Функция</summary>
+    <img src="./img/function.jpg" alt="">
 <pre>
 <dfn>Функция</dfn> - это значение, представляющее действие.
 Одна функция - одно действие.
@@ -1821,7 +1766,7 @@ anotherFunc();
 }
 };
 someObj.someFunc(); - ошибка, anotherFunc() создает свою область видимости и замыкается (использует)
-    область видимости someFunc(), this ищет в области видимости someFunc() свойство key1.
+область видимости someFunc(), this ищет в области видимости someFunc() свойство key1.
 
 let someObj = {
 key1: value1,
@@ -1833,8 +1778,8 @@ someVar();
 }
 };
 someObj.someFunc(); - стрелочная функция не создает свою область видимости и пользуется всем что есть у
-    someFunc(), т.е. области видимости someFunc() и someObj.
-    this находит свойство key1 в области видимости someObj 
+someFunc(), т.е. области видимости someFunc() и someObj.
+this находит свойство key1 в области видимости someObj 
 </code>
 <dfn>Перенапрвление вызова</dfn> (<i>call forwarding</i>) - передача всех аргументов вместе с контекстом другой функции:
 call и apply - встроенные методы функции, позволяют вызывать функцию, явно устанавливая this.
@@ -1867,11 +1812,11 @@ function hash (args) {
 alert([].join.call(args));      // позаимствовали join у массива
 }
 </code></pre>    
-            </details>
-            <details><!--Event loop-->
-                <summary>Event loop</summary>
-                <dfn>Event loop</dfn> - <i>событийный цикл (бесконечный цикл)</i>:
-                <img src="./img/Event loop.jpg" alt="">
+</details>
+<details><!--Event loop-->
+    <summary>Event loop</summary>
+    <dfn>Event loop</dfn> - <i>событийный цикл (бесконечный цикл)</i>:
+    <img src="./img/Event loop.jpg" alt="">
 <pre>
 1. Выполнить старейшую задачу из очереди макрозадач. setTimeout(f) с нулевой задержкой добавляет в очередь новую макрозадачу.
 2. Выполнить старейшую задачу из очереди микрозадач. queueMicrotask(f) - добавляет в очередь новую микрозадачу.
@@ -1891,9 +1836,9 @@ alert([].join.call(args));      // позаимствовали join у масс
 - не имеют доступа к DOM
 - используются для длительных тяжёлых вычислений, которые не должны блокировать событийный цикл.
 </pre>
-            </details>
-            <details><!--Environment-->
-                <summary>Environment</summary>
+</details>
+<details><!--Environment-->
+    <summary>Environment</summary>
 <pre>
 <dfn>Переменная</dfn> - <i>это именованное хранилище для данных, которое является свойством Environment Record.</i>
 Переменные - это ссылки на значения, объекты или на другие переменные.
@@ -1969,9 +1914,9 @@ console.log('A:', a); - New Variable A
 console.log('B:', b); - Local Variable B
 </code>
 </pre>                                  
-            </details>
-            <details><!--Коллекции-->
-                <summary>Коллекции</summary>
+</details>
+<details><!--Коллекции-->
+    <summary>Коллекции</summary>
 <pre><em>Объекты для хранения именованных коллекций.</em>
 <dfn>Массив</dfn> - (<i>Array</i>), подвид объектов для хранения упорядоченых коллекций,
 расширяют объекты методами для работы с упорядоченными коллекциями данных и свойством length.
@@ -2012,7 +1957,7 @@ delete arr[1]; - удаление конкретного элемента
 arr.splice(pos, count); - начиная с позиции pos удалить count элементов
 (pos - считаем сначала, -pos - считаем сконца)
 let rm = arr.splice(pos, count); - начиная с позиции pos удалить count элементов 
-        и вернуть удаленные элементы в переменную
+и вернуть удаленные элементы в переменную
 arr.splice(pos, count, elem); - начиная с позиции pos заменить count элементов на elem
 arr.splice(pos, 0, elem1, elem2); - начиная с позиции pos добавить elem1, elem2
 let arrNew = arr.slice(); - копируем весь массив
@@ -2067,7 +2012,7 @@ let res = arr.map(function(elem, index, array) {});
 split() - преобразовывает строку в массив по указанному разделителю
 let str = 'elem1,elem2,elem3';
 let arr = str.split(',', limit); - limit ограничивает количество элементов, которые попадут в массив
-            если не указывать, то все
+если не указывать, то все
 
 join() - преобразовывает массив в строку с указанным разделителем
 let arr = ['elem1', 'elem2', 'elem3'];
@@ -2202,9 +2147,9 @@ weakMap.set(key, value)         weakSet.set(key, value)
 weakMap.delete(key)             weakSet.delete(key)
 weakMap.has(key)                weakSet.has(key)
 </code>WeakMap и WeakSet поддерживают операции только на отдельном элементе коллекции.<pre>
-            </details>
-            <details><!--Модуль-->
-                <summary>Модуль</summary>
+</details>
+<details><!--Модуль-->
+    <summary>Модуль</summary>
 <pre><dfn>Модуль</dfn> - <i>это файл.</i>
 Чтобы работал import/export, нужно указать <.script type="module">.
 export отмечает переменные и функции, которые должны быть доступны вне текущего модуля.
@@ -2259,7 +2204,9 @@ say.default();      // Модуль загружен      }
 </code>Динамический импорт работает в обычных скриптах и не требует указания script type="module".
 import() - это не функция, а спец.синтаксис, как super().
 </pre>
-            </details>
+</details>
+</pre>
+            
             <img src="./img/JS/JS1.png" alt="">
             <img src="./img/JS/JS2.png" alt="">
             <img src="./img/JS/JS3.png" alt="">
