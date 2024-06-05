@@ -1200,64 +1200,64 @@ font2web.com
 </details>
 <details><!--Приведение типов-->
 <summary>Приведение типов</summary><small>
-  Основные приведения: строковое, численное и логическое.
-  '', 0, null, undefined, Nan, false - приводятся Boolean() к false ("false" - значения).
-  Boolean('Hello') - true
-  Boolean(' ') - true, пробел - это символ
-  Boolean('0') - true, '0' приводится к строке
-  Boolean(0) - false
-  Boolean([]) - true
-  Boolean({}) - true
+  <em>Основные приведения: строковое, численное и логическое.</em>
+  '', 0, null, undefined, Nan, false - <span class="menu__komment">приводятся Boolean() к false ("false" - значения).</span>
+  Boolean('Hello') - <span class="menu__komment">true</span>
+  Boolean(' ') - <span class="menu__komment">true, пробел - это символ</span>
+  Boolean('0') - <span class="menu__komment">true, '0' приводится к строке</span>
+  Boolean(0) - <span class="menu__komment">false</span>
+  Boolean([]) - <span class="menu__komment">true</span>
+  Boolean({}) - <span class="menu__komment">true</span>
 
-  Операторы приводят значения null к 0, а undefined к NaN:
+  <span class="menu__komment">Операторы приводят значения null к 0, а undefined к NaN:</span>
   null > 0 - false            undefined > 0 - false
   null >= 0 - true            undefined < 0 - false
   null == 0 - false           undefined == 0 - false
-  NaN возвращает false при любых сравнениях.
-  При нестрогом равенстве null/undefined ни к чему не приводятся и равны только друг другу.
+  <span class="menu__komment"><b>NaN</b> возвращает <b>false</b> при любых сравнениях.</span>
+  <span class="menu__komment">При нестрогом равенстве null/undefined ни к чему не приводятся и равны только друг другу.</span>
 
-  Строки и числа:
-  String(value); - приведение к строке
-  Number(value); - приведение к числу
-  Number("123"); - 123
-  Number("123z"); - NaN
-  Number(true); - 1
-  Number(false); - 0
-  +true - 1
-  +'' - 0
-  null + 2 - number 2, null приводится к 0
-  1 + '2' - string 12
-  '' + 1 + 0 - string 10
-  '' - 1 + 0 - number -1, у строки есть только оператор сложения (конкатенация), поэтому -1 это число + 0
-  '3' + '8' - number 24
-  4 + 10 + 'px' - string 14px
-  'px' + 4 + 10 - string px410
-  '42' - 40 - number 2
-  '42px' - 40 - NaN, px к числу не приводится
-  undefined + 2 - NaN, undefined приводится к NaN
+  <em>Строки и числа</em>:
+  String(value); - <span class="menu__komment">приведение к строке</span>
+  Number(value); - <span class="menu__komment">приведение к числу</span>
+  Number("123"); - <span class="menu__komment">123</span>
+  Number("123z"); - <span class="menu__komment">NaN</span>
+  Number(true); - <span class="menu__komment">1</span>
+  Number(false); - <span class="menu__komment">0</span>
+  +true - <span class="menu__komment">1</span>
+  +'' - <span class="menu__komment">0</span>
+  null + 2 - <span class="menu__komment">number 2, null приводится к 0</span>
+  1 + '2' - <span class="menu__komment">string 12</span>
+  '' + 1 + 0 - <span class="menu__komment">string 10</span>
+  '' - 1 + 0 - <span class="menu__komment">number -1, у строки есть только оператор сложения (конкатенация), поэтому -1 это число + 0</span>
+  '3' + '8' - <span class="menu__komment">number 24</span>
+  4 + 10 + 'px' - <span class="menu__komment">string 14px</span>
+  'px' + 4 + 10 - <span class="menu__komment">string px410</span>
+  '42' - 40 - <span class="menu__komment">number 2</span>
+  '42px' - 40 - <span class="menu__komment">NaN, px к числу не приводится</span>
+  undefined + 2 - <span class="menu__komment">NaN, undefined приводится к NaN</span>
 
-  parseInt() - возвращает целое число, которое смогло получить из параметра
-  parseFloat()- возвращает число с точкой, которое смогло получить из параметра
-  parseInt(str, base) - преобразует строку в число, base - система исчисления 2 =< base =< 36, по умолчанию 10
-  parseInt('0xff', 16) - 255, дополнительное свойство - читает кодировки чисел
-  parseInt('100px') - 100
-  parseFloat('12.5em') - 12.5
-  parseInt('a123') - NaN, не смог прочитать ни одной цифры
-  num.toString(base) - преобразует число num в строку в виде системы исчисления base (от 2 до 32, по умолчанию 10)
-  Если вызывать метод на числе, то 123..toString(36) или (123).toString(36)
-  num.toFixed(n) - округляет до n знаков после запятой и возвращает результат в виде строки
-  isNaN(value) - преобразует в число и проверяет является ли оно NaN. NaN никогда не будет равно NaN.
-  NaN === NaN - false
-  isFinite(value) - преобразует в число и возвращает true если обычное число
-  Object.is(a, b) - идентично a === b
-  Object.is(NaN, NaN) === true
-  Object.is(0, -0) === false, технически 0 и -0 это разные значения
-  встроенный объект Math - математические операции над числами
+  parseInt() - <span class="menu__komment">возвращает целое число, которое смогло получить из параметра</span>
+  parseFloat()- <span class="menu__komment">возвращает число с точкой, которое смогло получить из параметра</span>
+  parseInt(str, base) - <span class="menu__komment">преобразует строку в число, base - система исчисления 2 =< base =< 36, по умолчанию 10</span>
+  parseInt('0xff', 16) - <span class="menu__komment">255, дополнительное свойство - читает кодировки чисел</span>
+  parseInt('100px') - <span class="menu__komment">100</span>
+  parseFloat('12.5em') - <span class="menu__komment">12.5</span>
+  parseInt('a123') - <span class="menu__komment">NaN, не смог прочитать ни одной цифры</span>
+  num.toString(base) - <span class="menu__komment">преобразует число num в строку в виде системы исчисления base (от 2 до 32, по умолчанию 10)
+  Если вызывать метод на числе, то 123..toString(36) или (123).toString(36)</span>
+  num.toFixed(n) - <span class="menu__komment">округляет до n знаков после запятой и возвращает результат в виде строки</span>
+  isNaN(value) - <span class="menu__komment">преобразует в число и проверяет является ли оно NaN. NaN никогда не будет равно NaN.</span>
+  NaN === NaN - <span class="menu__komment">false</span>
+  isFinite(value) - <span class="menu__komment">преобразует в число и возвращает true если обычное число</span>
+  Object.is(a, b) - <span class="menu__komment">идентично a === b</span>
+  Object.is(NaN, NaN) === <span class="menu__komment">true</span>
+  Object.is(0, -0) === <span class="menu__komment">false, технически 0 и -0 это разные значения</span>
+  встроенный объект Math - <span class="menu__komment">математические операции над числами</span>
 
   <em>Преобразование объектов в примитивы:</em>
-  obj[Symbol.toPrimitive](hint) - вызывается метод объекта если он существует
+  obj[Symbol.toPrimitive](hint) - <span class="menu__komment">вызывается метод объекта если он существует
   Если hint = string, то вызывается obj.toString(), если такого нет, то obj.valueOf()
-  Если hint = number или default, то вызывается obj.valueOf(), если такого нет, то obj.toString().
+  Если hint = number или default, то вызывается obj.valueOf(), если такого нет, то obj.toString().</span>
 </small>
 </details>
 </details>
@@ -1265,222 +1265,223 @@ font2web.com
     <summary>Регулярные выражения</summary>
 </details>
 <details><!--Операторы-->
-    <summary>Операторы</summary>
-<pre>Операторы:
-операнд - это то, к чему применяется оператор
--х; - унарный оператор - применяется к одному операнду
-у - х; - бинарный оператор - применяется к двум операндам
-+операнд - приведение к числу
-= оператор присваивания
-все операторы возвращают значение
-+ сложения, если одно из слагаемых строка, то сумма - строка. Остальные операторы дают число.
-- вычитания
-* умножения
-/ деления
-% взятие остатка от деления (5%2 = 1)
-** возведения в степень
+  <summary>Операторы</summary><small>
+операнд - <span class="menu__komment">это то, к чему применяется оператор</span>
+-х; - <span class="menu__komment">унарный оператор - применяется к одному операнду</span>
+у - х; - <span class="menu__komment">бинарный оператор - применяется к двум операндам</span>
++операнд - <span class="menu__komment">приведение к числу</span>
+= <span class="menu__komment">оператор присваивания</span>
 
-Инкремент/декремент можно применять только к переменной.
-++ инкремент увеличивает на 1
--- декремент уменьшает на 1
-counter++ постфиксная форма возвращает старое значение (до увеличения/уменьшения числа)
-++counter префиксная форма возвращает новое значение
-<code>
-операторы == vs === (нестрогое vs строгое)
-== сравнивает с приведением типов
-=== сравнивает без приведения типов
-2 == '2' true
-2 === '2' false
-undefined == null true
-undefined === null false
-'0' == false    true
-'0' == 0        true
-0 == 0          true
-false == ''     true
-false == []     true
-false == {}     false
-'' == 0         true
-'' == []        true
-'' == {}        false
-'' == null      false
-{} == {}        false
-{} === {}       false
-== и === для объектов работают одинаково.
-Два объекта равны если это один и тот же объект.
+<em>все операторы возвращают значение</em>
++ <span class="menu__komment">сложения, если одно из слагаемых строка, то сумма - строка. Остальные операторы дают число.</span>
+- <span class="menu__komment">вычитания</span>
+* <span class="menu__komment">умножения</span>
+/ <span class="menu__komment">деления</span>
+% <span class="menu__komment">взятие остатка от деления (5%2 = 1)</span>
+** <span class="menu__komment">возведения в степень</span>
+
+<em>Инкремент/декремент можно применять только к переменной.</em>
+++ <span class="menu__komment">инкремент увеличивает на 1</span>
+-- <span class="menu__komment">декремент уменьшает на 1</span>
+counter++ <span class="menu__komment">постфиксная форма возвращает старое значение (до увеличения/уменьшения числа)</span>
+++counter <span class="menu__komment">префиксная форма возвращает новое значение</span>
+
+<em>операторы == vs === (нестрогое vs строгое)</em>
+== <span class="menu__komment">сравнивает с приведением типов</span>
+=== <span class="menu__komment">сравнивает без приведения типов</span>
+2 == '2' <span class="menu__komment">true</span>
+2 === '2' <span class="menu__komment">false</span>
+undefined == null <span class="menu__komment">true</span>
+undefined === null <span class="menu__komment">false</span>
+'0' == false    <span class="menu__komment">true</span>
+'0' == 0        <span class="menu__komment">true</span>
+0 == 0          <span class="menu__komment">true</span>
+false == ''     <span class="menu__komment">true</span>
+false == []     <span class="menu__komment">true</span>
+false == {}     <span class="menu__komment">false</span>
+'' == 0         <span class="menu__komment">true</span>
+'' == []        <span class="menu__komment">true</span>
+'' == {}        <span class="menu__komment">false</span>
+'' == null      <span class="menu__komment">false</span>
+{} == {}        <span class="menu__komment">false</span>
+{} === {}       <span class="menu__komment">false</span>
+== и === <span class="menu__komment">для объектов работают одинаково.</span>
+<span class="menu__komment">Два объекта равны если это один и тот же объект.</span>
+
 2**2 = 4
-4**(1/2) = 2 квадратный корень
-8**(1/3) = 2 кубический корень
-</code>
-Приоритет:
-унарный плюс            +
-унарный минус           -
-возведение в степень    **
-умножение               *
-деление                 /
-сложение                +
-вычитание               -
-присваивание            =
+4**(1/2) = 2 <span class="menu__komment">квадратный корень</span>
+8**(1/3) = 2 <span class="menu__komment">кубический корень</span>
 
-Операторы сравнения:
-a > b, a < b    больше/меньше
-a >= b, a <= b  больше/меньше или равно
-a == b          равно
-a === b         строгое равно
-a != b          не равно
-a !== b         строгое не равно
-Все операторы возвращают true или false.
+<em>Приоритет</em>:
++ <span class="menu__komment">унарный плюс</span>
+- <span class="menu__komment">унарный минус</span>
+** <span class="menu__komment">возведение в степень</span>
+* <span class="menu__komment">умножение</span>
+/ <span class="menu__komment">деление</span>
++ <span class="menu__komment">сложение</span>
+- <span class="menu__komment">вычитание</span>
+= <span class="menu__komment">присваивание</span>
+
+<em>Операторы сравнения</em>:
+a > b, a < b    <span class="menu__komment">больше/меньше</span>
+a >= b, a <= b  <span class="menu__komment">больше/меньше или равно</span>
+a == b          <span class="menu__komment">равно</span>
+a === b         <span class="menu__komment">строгое равно</span>
+a != b          <span class="menu__komment">не равно</span>
+a !== b         <span class="menu__komment">строгое не равно</span>
+<span class="menu__komment">Все операторы возвращают true или false.
 Строки сравниваются посимвольно.
-При сравнении разных типов - приведение к числу.
+При сравнении разных типов - приведение к числу.</span>
 
-Оператор запятая (,):
+<em>Оператор запятая</em> (,):<span class="menu__komment">
 - позволяет вычислять несколько выражений, разделяя их запятой.
-- каждое выражение выполняется, но возвращается результат только последнего.
-let a = (1+2, 3+4);   скобки важны, т.к. приоритет ниже чем =
-alert(a);   7-результат 3+4.
-<code>
-Побитовые операторы:
-&   AND                     и
-|   OR                      или
-^   XOR                     побитовое исключающие или
-~   NOT                     не
-<<  LEFT SHIFT              левый сдвиг
->>  RIGHT SHIFT             правый сдвиг
->>> ZERO-FILL RIGHT SHIFT   правый сдвиг с заполнением нулями
-Побитовые операторы работают с 32-разрядными целыми числами (приводят к ним), на уровне их внутреннего двоичного представления.
-</code>
-Логические операторы:
-||  или - если любой из аргументов true, то вернет true, иначе false
-true || true   true
-false || true   true
-true  || false  true
-false || false  false
-- цепочка или || возвращает первое истиное значение или или последнее, если такое значение не найдено.
-- цепочка вычисляется слева направо.
-undefined || null || 0  результат 0.
+- каждое выражение выполняется, но возвращается результат только последнего.</span>
+let a = (1+2, 3+4);   <span class="menu__komment">скобки важны, т.к. приоритет ниже чем =</span>
+alert(a);   <span class="menu__komment">7-результат 3+4.</span>
 
-&&  и - если оба аргумента true, то вернет true, иначе false
-true && true   true
-false && true   false
-true  && false  false
-false && false  false
-- цепочка или && возвращает первое ложное значение или или последнее, если такое значение не найдено.
-- приоритет и && больше чем или ||.
-Или || спотыкается на правде, и && спотыкается на лжи.
+<em>Побитовые операторы</em>:
+&   AND                     <span class="menu__komment">и</span>
+|   OR                      <span class="menu__komment">или</span>
+^   XOR                     <span class="menu__komment">побитовое исключающие или</span>
+~   NOT                     <span class="menu__komment">не</span>
+<<  LEFT SHIFT              <span class="menu__komment">левый сдвиг</span>
+>>  RIGHT SHIFT             <span class="menu__komment">правый сдвиг</span>
+>>> ZERO-FILL RIGHT SHIFT   <span class="menu__komment">правый сдвиг с заполнением нулями</span>
+<span class="menu__komment">Побитовые операторы работают с 32-разрядными целыми числами (приводят к ним), 
+на уровне их внутреннего двоичного представления.</span>
 
-! не  - принимает один аргумент, приводит к логическому типу и возвращает к противоположное значение.
-!true -> false
-!0    -> true
-!! "non-empty string"   true
-!! null                 false
-!!операнд - приведение к boolean
-Приоритет ! наивысший из всех логических операторов.
+<em>Логические операторы</em>:
+||  <span class="menu__komment"></span>или - если любой из аргументов true, то вернет true, иначе false</span>
+true || true   <span class="menu__komment">true</span>
+false || true   <span class="menu__komment">true</span>
+true  || false  <span class="menu__komment">true</span>
+false || false  <span class="menu__komment">false</span>
+<span class="menu__komment">- цепочка или || возвращает первое истиное значение или последнее, если такое значение не найдено.
+- цепочка вычисляется слева направо.</span>
+undefined || null || 0  <span class="menu__komment">результат 0.</span>
 
-?? - оператор объединения с null, возвращает первое определённое значение, если оно отличается от null или undefined.
-операнд ?? операнд - вернет операнд не равный null или undefined
-|| возвращает первое истинное значение,
-?? возвращает первое определённое значение.
+&&  <span class="menu__komment">и - если оба аргумента true, то вернет true, иначе false</span>
+true && true   <span class="menu__komment">true</span>
+false && true   <span class="menu__komment">false</span>
+true  && false  <span class="menu__komment">false</span>
+false && false  <span class="menu__komment">false</span>
+<span class="menu__komment">- цепочка или && возвращает первое ложное значение или или последнее, если такое значение не найдено.</span>
+<span class="menu__komment">- приоритет и && больше чем или ||.</span>
+<span class="menu__komment">Или || спотыкается на правде, и && спотыкается на лжи.</span>
+
+! <span class="menu__komment">не  - принимает один аргумент, приводит к логическому типу и возвращает к противоположное значение.</span>
+!true <span class="menu__komment">-> false</span>
+!0    <span class="menu__komment">-> true</span>
+!! "non-empty string"   <span class="menu__komment">true</span>
+!! null                 <span class="menu__komment">false</span>
+!!операнд - <span class="menu__komment">приведение к boolean</span>
+<span class="menu__komment">Приоритет ! наивысший из всех логических операторов.</span>
+
+?? - <span class="menu__komment">оператор объединения с null, возвращает первое определённое значение, если оно отличается от null или undefined.</span>
+операнд ?? операнд - <span class="menu__komment">вернет операнд не равный null или undefined</span>
+|| <span class="menu__komment">возвращает первое истинное значение,</span>
+?? <span class="menu__komment">возвращает первое определённое значение.</span>
 let height = 0;
-height || 100 вернет 100 
-height ?? 100 вернет 0
-a ?? b результат a, если а определено, иначе b
+height || 100 <span class="menu__komment">вернет 100 </span>
+height ?? 100 <span class="menu__komment">вернет 0</span>
+a ?? b <span class="menu__komment"></span>результат a, если а определено, иначе b</span>
 let user;
-alert(user??"Аноним");  Аноним
-Запрещено использовать оператор ?? вместе с && и || без явного указания приоритета скобками.
+alert(user??"Аноним");  <span class="menu__komment">Аноним
+Запрещено использовать оператор ?? вместе с && и || без явного указания приоритета скобками.</span>
 
-... - троеточие, обозначает оператор "остаточные параметры" если нахидотся в конце списка аргументов функции либо оператор "расширения".
-- оператор "остаточные параметры" используется, чтобы создавать функции с неопределённым числом аргументов, собирает оставшиеся параметры в массив:
+... - <span class="menu__komment">троеточие, обозначает оператор "остаточные параметры" если нахидотся в конце списка аргументов функции либо оператор "расширения".
+- оператор "остаточные параметры" используется, чтобы создавать функции с неопределённым числом аргументов, собирает оставшиеся параметры в массив:</span>
 let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Repablic"];
-- оператор "расширения" позволяет вставить массив в функцию, расширяя перебираемый объект arr в список аргументов (f...arr);
-оператор "расширения" работает только с итерируемыми объектами.
-
-</pre>
+- <span class="menu__komment">оператор "расширения" позволяет вставить массив в функцию, расширяя перебираемый объект arr в список аргументов (f...arr);
+оператор "расширения" работает только с итерируемыми объектами.</span>
+</small>
 </details>
 <details><!--Инструкции-->
-    <summary>Инструкции</summary>
-<pre><code>Условное ветвление:
-if (...) {          
-...             
-} else if (...) {    
-...
-}
-- вычисляет условие в скобках
-- приводит к логическому типу
-- если условие true, то выполняет блок кода
-Блоков else и else if может быть сколько угодно, а может и не быть.
-if () {}
-if () {} else {}
-if () {} else if () {} else {}
-() ? valueIfTrue : valueIfFalse; тоже самое if () {} else {}
+  <summary>Инструкции</summary><small>
+  <em>Условное ветвление</em>:
+  if (...) {          
+    ...             
+  } else if (...) {    
+    ...
+  }<span class="menu__komment">
+  - вычисляет условие в скобках
+  - приводит к логическому типу
+  - если условие true, то выполняет блок кода
+  Блоков else и else if может быть сколько угодно, а может и не быть.</span>
+  if () {}
+  if () {} else {}
+  if () {} else if () {} else {}
+  () <b>?</b> valueIfTrue <b>:</b> valueIfFalse; <i>тоже самое</i> if () {} else {}
 
-switch(x) {
-case 'value1':
-...
-break
-case 'value2':
-...
-break
-default:
-...
-break
-}
-- switch заменяет несколько if.
-- switch имеет один или несколько блоков case.
-- проверка равенства всегда строгая.
-- если нет dreak, то выполнение пойдет по следующим case без проверки.
+  switch(x) {
+    case 'value1':
+      ...
+      break
+    case 'value2':
+      ...
+      break
+    default:
+      ...
+    break
+  }<span class="menu__komment">
+  - switch заменяет несколько if.
+  - switch имеет один или несколько блоков case.
+  - проверка равенства всегда строгая.
+  - если нет dreak, то выполнение пойдет по следующим case без проверки.</span>
 
-? - тернарный оператор (три аргумента)
-let result = условие ? значение1 : значение2;
-если условие true, то значение1, иначе значение2
-break/continue использовать нельзя
-</code>
-<code>Циклы:
-while (...) {
-// код (тело цмкла) - выполняется пока условие true
-}
-while () {} - если процедура не одна, то {}. Если процедура одна: while () procedure;
+  ? - <span class="menu__komment">тернарный оператор (три аргумента)</span>
+  let <b>result</b> = условие <b>?</b> значение1 <b>:</b> значение2;
+  <span class="menu__komment">если условие true, то значение1, иначе значение2</span>
+  break/continue <span class="menu__komment">использовать нельзя</span>
 
-do {
-// тело цикла
-} while (...);
-- выполнить и проверить условие
-- если условие true, то выполнить и проверить условие ещё раз
+  <em>Циклы</em>:
+  while (...) {
+    <i>тело цикла</i> - <span class="menu__komment">выполняется пока условие true</span>
+  }
+  while () {} - <span class="menu__komment">если процедура не одна, то {}. Если процедура одна: while () procedure;</span>
 
-for (начало;условаие;шаг) {
-// тело цикла
-}
-- выполнить начало
-- посторять пока условие true:
-если условие true, то выполнить тело
-выполнить шаг и проверить условие
-Любая часть может быть пропущена.
+  do {
+    <i>тело цикла</i>
+  } while (...);<span class="menu__komment">
+  - выполнить и проверить условие
+  - если условие true, то выполнить и проверить условие ещё раз</span>
 
-for (;;) {
-// будет выполняться вечно
-}
+  for (<i>начало</i>; <i>условаие</i>; <i>шаг</i>) {
+    <i>тело цикла</i>
+  }<span class="menu__komment">
+  - выполнить начало
+  - посторять пока условие true:
+  если условие true, то выполнить тело
+  выполнить шаг и проверить условие
+  Любая часть может быть пропущена.</span>
 
-for (key in object) {
-// тело цикла выполняется для каждого свойства объекта
-}
+  for (;;) {
+    <span class="menu__komment">будет выполняться вечно</span>
+  }
 
-for..in - для перебора свойств объекта
-for..of - для перебора значений массива
+  for (key in object) {
+    <span class="menu__komment">тело цикла выполняется для каждого свойства объекта</span>
+  }
 
-let fruits = ["Яблоко", "Апельсин", "Слива"];
-for (let fruit of fruits) {
-alert(fruit);
-}
-- проходит по значениям каждого элемента массива
-- не предоставляет доступа к номеру элемента, только к его значению
+  for..in - <span class="menu__komment">для перебора свойств объекта</span>
+  for..of - <span class="menu__komment">для перебора значений массива</span>
 
-<dfn>Метка</dfn> - <i>точка местоположения в коде</i>:
-outer: for (...) {
-for (...) {
-if (!input) break outer;
-}
-}
-outer: - метка-идентификатор с двоеточием
-break/continue поддерживает метки
-</code></pre>
+  let fruits = ["Яблоко", "Апельсин", "Слива"];
+  for (let fruit of fruits) {
+    alert(fruit);
+  }<span class="menu__komment">
+  - проходит по значениям каждого элемента массива
+  - не предоставляет доступа к номеру элемента, только к его значению</span>
+
+  <em>Метка</em> - <span class="menu__komment">точка местоположения в коде:</span>
+  outer: for (...) {
+    for (...) {
+      if (!input) break outer;
+    }
+  }
+  outer: - <span class="menu__komment">метка-идентификатор с двоеточием</span>
+  break/continue <span class="menu__komment">поддерживает метки</span>
+</small>
 </details>
 <details><!--Функция-->
     <summary>Функция</summary>
@@ -2205,6 +2206,1707 @@ say.default();      // Модуль загружен      }
 import() - это не функция, а спец.синтаксис, как super().
 </pre>
 </details>
+<details><!--Browser-->
+  <summary>Browser</summary>
+  <img src="./img/windowJS.png" alt="">
+  <details><!--Window-->
+      <summary>Window</summary>
+      <p>Window = globalThis + DOM + BOM - глобальный объект JS в браузере. <br>
+          Object <- EventTarget <- Window - интерфейс Window наследует свойства интерфейса EventTarget
+          и реализует свойства из WindowOrWorkerGlobalScope и миксин WindowEventHandlers. <br>
+          Объект Window реализует интерфейс Window. <br>
+          У каждого окна и у каждой вкладки свой объект Window.
+      </p>
+      <code>
+          functionsayHi() {       // глобальные функции доступны как методы глобального объекта
+              alert('Hello');
+          }
+          window.sayHi();
+      </code>
+      <p>Window.properties: <br>
+          opener - ссылка на открывающее окно, <br>
+          closed - true (закрыто), false (открыто), <br>
+          frames - коллекция объектов window вложенных ифреймов <br>
+          parent - ссылка на родительское окно <br>
+          top - ссылка на окно самого верхнего уровня <br>
+
+          Window.methods: <br>
+          open (url, name, params) - открывает новое окно и возвращает ссылку на него. <br>
+          close() <br>
+          focus() <br>
+          blur() <br>
+          alert("Hello") - показывает сообщение <br>
+          result = promt(title, [default]); - показывает сообщение и запрашивает у пользователя
+          ввод текста. Возвращает напечатанный в поле ввода текст или null. <br>
+          result = confirm (question); - показывает сообщение и ждёт, пока пользователь 
+          нажмёт ОК или Отмена. Возвращает true если нажата ОК и fasle - если отмена.  <br>
+          iframe.contentWindow - объект Window внутри тега <.iframe> <br>
+      </p>
+  </details>
+  <details><!--BOM-->
+      <summary>BOM</summary>
+      <p><a href="https://html.spec.whatwg.org/">BOM:</a><br>
+          Browser Object Model - объектная модель браузера. <br>
+          Window.navigator - информация о браузере пользователя. <br>
+          Window.screen - информация об экране пользователя. <br>
+          Window.location - адресная строка: текущие компоненты. <br>
+          Window.frames - фреймы и ифреймы. <br>
+          Window.history - история посещений (url), движения вперед и назад в окне. <br>
+          Window.XMLHttp Request - встроенный объект для Http запросов к серверу 
+          без перезагрузки страницы. <br>
+          Window.document - DOM-документ загруженный в окно.
+      </p>
+  </details>
+  <details><!--DOM-->
+      <summary>DOM</summary>
+<pre><a href="https://dom.spec.whatwg.org/">DOM:</a>
+Document Object Model - объектная модель документа, представляет всё содержимое страницы в виде объектов.
+<code>document.body.style.background = "red".
+Object <- EventTarget <- Node <- Document
+</code>
+html-документы представленны в браузере в виде дерева DOM.
+
+Веб-воркер — это JavaScript, который работает в фоновом режиме, 
+независимо от других скриптов, не влияя на производительность страницы. 
+Вы можете продолжать делать все, что захотите: щелкать, выбирать объекты и т. д.,
+пока веб-воркер работает в фоновом режиме.
+
+<a href="https://learn.javascript.ru/basic-dom-node-properties#klassy-dom-uzlov">Классы DOM-узлов</a>
+
+</pre>
+      <details><!--Node-->
+      <summary>Node</summary>
+<pre>
+<dfn>Node</dfn> - абстрактный класс.
+Обеспечивает базовую функциональность для всех узлов.
+Объекты класса Node никогда не создаются, но от него наследуются.
+
+Классы:
+<dfn>Text</dfn> - для текстовых узлов. Содержат текст.
+<dfn>Comment</dfn> - для узлов-комментариев. Иногда в них можно включить информацию, которая 
+не будет поазана, но будет доступна в DOM для чтения JS.
+<dfn>Element</dfn> - для узлов-элементов. HTML-тэги - строительные блоки документа.
+Обеспечивает навигацию на уровне узлов-элементов и служит базой
+для классов SVGElement, XMLElement, HTMLElement.
+
+Текст, комментарий и тэг - это DOM-узел.
+Каждый DOM-узел принадлежит своему классу.
+Для наследования используют классы, основанные на прототипах.
+Классы формируют иерархию.
+Весь набор свойств и методов является результатом наследования.
+DOM-узлы - это обычные JS объекты. Реализация соответствующего класса.
+DOM-элемент - это JS объект тэга.
+<dfn>HTMLElement</dfn> - является базовым классом для всех остальных HTML-элементов.
+От него наследуют элементы:
+<em>HTMLInputElement</em> - класс для тега <.input>
+<em>HTMLBodyElement</em> - класс для тега <.body>
+<em>HTMLAnchorElement</em> - класс для тега <.a>
+и т.д., 
+каждому тегу соответствует свой класс, который представляет свойства и методы:
+<dfn>value</dfn> - значение для <.input>, <.select> и <.textarea> (HTMLInputElement, HTMLSelectElement, ...).
+<dfn>href</dfn> - адрес ссылки "href" для <.a href="..."> (HTMLAnchorElement).
+<dfn>id</dfn> - значение атрибута "id" для всех элементов (HTMLElement).
+<code>
+console.log(elem) выводит элемент в виде DOM-дерева.
+console.dir(elem) выводит элемент в виде DOM-объекта, 
+это удобно для анализа его свойств.
+</code>
+Для изменения элементов или проверки DOM-дерева можем использовать инструменты разработчика в браузере.
+</pre>
+      </details>
+      <details><!--DOM-navigation-->
+      <summary>DOM-navigation</summary>
+      <img src="./img/DOM.jpg" alt="">
+<pre><dfn>Дочерние узлы (дети)</dfn> - непосредственные дети-элементы узла.
+<dfn>Потомки</dfn> - все элементы, внутри данного, ключая детей, их детей и т.д.
+Коллекция childNodes содержит список всех детей, включая текст.
+<code>
+elem.childNodes[0] === elem.firstChild
+elem.childNodes[elem.childNodes.length-1] === elem.lastChild
+</code>
+<dfn>Соседи</dfn> - узлы, у которых один и тот же родитель.
+<code>
+<.body> - следующий или правый сосоед <.head>
+<.head> - предыдущий или левый сосед <.body>
+const bodyElement = document.body;
+const firstChildNode = bodyElement.firstChild; - первый узел
+const lastChildNode = bodyElement.lastChild; - последний узел
+
+const childNodes = bodyElement.childNodes; - список всех детей (узлов) объекта 
+                          (в данном случае body) в виде коллекции
+bodyElement.hasChildNodes() - проверяет есть ли дочерние узлы у объекта true or false
+
+Коллекция - это псевдомассив:
+можно перебирать с помощью for ( of ) {} и forEach()
+методы массива не работают
+изменять элемент коллекции как в массиве не получится, только через специальные методы
+
+bodyElement.previousSibling; - предыдущий соседний узел
+bodyElement.nextSibling; - следующий соседний узел
+bodyElement.parentNode; - родительский узел
+
+Для элементов (тегов):
+bodyElement.childNodes; - получаем коллекцию всех дочерних узлов
+bodyElement.children; - получаем коллекцию всех дочерних элементов (тегов)
+bodyElement.firstElementChild; - первый элемент
+bodyElement.lastElementChild; - последний элемент
+bodyElement.previousElementSibling; - предыдущий соседний элемент
+bodyElement.nextElementSibling; - следующий соседний элемент
+bodyElement.parentElement; - родительский элемент
+
+Поиск произвольного элемента:
+elem.querySelectorAll(CSS); - возвращает статичную коллекцию со всеми элементами внутри elem,
+          соответствующие указанному CSS-селектору
+          (класс (с точкой впереди), тег, вложенные теги, атрибут, id и т.д.)
+проверяет только последний указанный в CSS-селекторе элемент без учета контекста
+используется чаще других
+querySelector(CSS); - ищет и возвращает первый попавшийся объект по указанному CSS-селектору
+document.getElementById(id без решетки); - ищет и возвращает элемент по id,
+                          ищет только в document
+getElementsByTagName(тег); - возвращает живую коллекцию, ищет где угодно
+getElementsByClassName(класс без точки впереди); - возвращает живую коллекцию, ищет где угодно
+document.getElementsByName(атрибут name); - возвращает живую коллекцию, ищет только в document
+живая коллекция - содержит в себе всегда актуальную информацию с учетом изменений в дереве DOM
+<img src="./img/querySelector.png" alt="">
+
+elem.closest(css) - ищет ближайшего предка, который соответствует указанному css-селектору
+elem.matches(css) - ничего не ищет, проверяет соответствует ли элемент css селектору,
+  возвращает true or false
+
+const textElement = document.querySelector('.someClass__text'); - получил объект
+const textElementContent = textElement.innerHTML; - получил содержимое объекта как есть
+textElement.innerHTML = `Новое содержимое объекта`; - заменил содержимое объекта
+
+const textElement = document.querySelector('.someClass__text'); - получил объект
+const textElementContent = textElement.outerHTML; - получил содержимое объекта и сам объект
+textElement.outerHTML = `<.p>Новое содержимое объекта<./p>`; - заменил сам объект
+
+const textElement = document.querySelector('.someClass__text'); - получил объект
+const textElementContent = textElement.textContent; - получил содержимое объекта без тегов
+textElement.textContent = `<.p>Новое содержимое объекта<./p>`; - заменил содержимое объекта,
+                                          но теги вставляються как текст
+                      позволяет записывать получаемый текст безопасно
+
+const textElement = document.querySelector('.someClass__text'); - получил объект с классом .someClass__text
+const getComment = textElement.nextSibling; - получил следующий объект - комментарий
+console.log(getComment.data); - вывел текст комментария в консоль
+getComment.data = `Новый текст`; - заменил текст комментария
+</code>
+<ul>Методы поиска элементов в DOM:
+<li>querySelector - ищет внутри элемента по CSS-selector</li>
+<li>querySelectorAll - </li>
+<li>getElementById - ищет по id</li>
+<li>getElementsByName - возвращает коллекцию, ищет по имени</li>
+<li>getElementsByTagName - возвращает коллекцию, ищет внутри элемента по тегу или "*"</li>
+<li>getElementsByClassName - возвращает коллекцию, ищет внутри элемента по class</li>
+<li>elem.matches(css) - проверяет, удовлетворяет ли элемент CSS-селектору</li>
+<li>elem.closest(css) - ищет ближайшего предка</li>
+<li>elemA.contains(elemB) - вернет true если elemB находится внутри elemA или elemA == elemB</li>
+</ul></pre>
+      </details>
+      <details><!--Document-->
+      <summary>Document</summary>
+<pre>Document - интерфейс доступа к узлам, его реализует объект document.
+<code>document - объект DOM, входная точка в DOM
+const htmlElement = document.documentElement; - получить объект html со всем его содержимым
+const headElement = document.head; - получить объект head со всем его содержимым
+const bodyElement = document.body; - получить объект body со всем его содержимым
+</code>
+DOMContentLoaded генерируется на document, когда DOM готов и к нему можно применить JS.
+Изображения и другие ресурсы (стили и т.п.) всё ещё могут продолжать загружаться.
+window.onload - страница и все ресурсы загружены
+window.beforeunload - пользователь покидает страницу. Если отменить событие, то браузер спросит хочет ли пользователь уйти.
+window.unload - пользователь окончательно уходит, можно сделать сетевой запрос.
+document.readyState - текущее состояние загрузки документа.
+Изменения можно отследить с помощью события readyStateChange:
+loading - документ грузится
+interactive - документ прочитан, происходит перед DOMContentLoaded
+complete - документ и ресурсы загружены, происходит перед window.onload
+
+Скрипт должен дождаться пока загрузятся стили.
+Скрипты <.script>...<./script> или <.script src="..."><./script> блокируют DOMContentLoaded.
+Скрипты созданные через document.createElement('script'), добавленные на страницу и скрипты с атрибутами async или defer не блокируют DOMContentLoaded.
+Динамически загружаемые скрипты по умолчанию ведут себя как async,
+script.async = false; - отмена async-поведения
+let script = document.createElement('script');
+script.src = "путь/к/скрипту";
+document.body.append(script);
+
+async - скрипты выполняются по загрузке, DOMContentLoaded не имеет значения.
+defer - скрипты выполняются по расположению в докумете. Скрипт ждёт загружки документа выполняется перед DOMContentLoaded.
+defer работает только у внешних скриптов - у которых есть src="...", все элементы с src="..." дают события:
+load - при успешной загрузке,
+error - при ошибке
+<.iframe> - исключение: всегда даёт load, даже при ошибке.
+Событие readystatechange также работает для ресурсов.
+Обработчики onload/onerror отслеживают только сам процесс загрузки.
+Window.onerror - позволяет "поймать" ошибки в скрипте.
+Скрипт одного сайта не может получить детали ошибки скрипта с другого сайта, нужно поставить тегу <.script> атрибут crossorigin и специальные заголовки на удалённом сервере.
+MutationObserver - встроенный объект, наблюдающий за DOM-элементом и запускающий колбэк в случае изменений.
+let observer = newMutationObserver(callback); - создать наблюдатель
+observer.observe(node, config); -  прикрепить наблюдателя к DOM-узлу.
+observer.disconnect(); - останавливает наблюдение.
+observer.takeRecords(); - получает список необработанных записей измененений, которые произошли, но колбэк для них ещё не выполнился.
+
+В основе выделения лежит Range(диапозон) - пара граничных точек: начало и конец диапозона.
+Range - общий, объект для управления диапозоном.
+Выделение в документе представлено объектом Selection, который можно получить как window.getSelection() или document.getSelection().
+Selection (выделение) имеет начальную границу (якорь) и конечную (фокус).
+<ul>Основные свойства выделения:
+<li>anchorNode - узел начала выделения</li>
+<li>anchorOffset - смещение в anchorNode, где начинается выделение</li>
+<li>focusNode - узел окончания выделения</li>
+<li>focusOffset - смещение в focusNode, где выделение заканчивается</li>
+<li>inCollapsed - true, если диарозон выделения пуст или не существует</li>
+<li>rangeCount - количество диапозонов в выделении</li>
+</ul>
+document.cookie предоставляет доступ к куки:
+- операция записи изменяет только те куки, которые было указано
+- имя и значение куки должны быть закодированы
+- одно уки вмещает до 4 kb данных, количество куки зависит от браузера.
+<ul>Настройки куки:
+<li>path = / - по умолчанию текущий путь, делает куки видимыми только по указанному пути и ниже</li>
+<li>domain = site.com - по умолчанию куки видно только на текущем домене, если явно указан домен, то куки видно и на поддоменах</li>
+<li>expires или max-age - устанавливает дату истечения срока действия, без них куки умрёт при закрытии браузера.</li>
+<li>secure - делает куки доступными только при использовании HTTPS</li>
+<li>somesite - запрещает браузеру отправлять куки с запросами, поступающими извне, помогает предотвратить XSRF-атаки</li>
+</ul>
+Методы создания узлов:
+document.createElement(tag) - создаёт элемент с заданным тегом
+document.createTextNode(value) - создаёт текстовый узел
+document.write(html) - добавляет html на страницу до завершения её загрузки.
+После загрузки затирает начальный документ.
+const newElement = document.createElement(`div`); - создал элемент: тег div
+const newText = document.createTextNode(`Новый текст`); - создал текстовый узел
+elem.cloneNode(deep) - клонирует элемент, если deep == true, то со всеми дочерними элементами.
+
+Вставка и удаление узлов:
+node.append(...nodes or strings) - вставляет в node в конец
+node.prepend(...nodes or strings) - вставляет в node в начало
+node.before(...nodes or strings) - вставляет прямо перед node
+node.after(...nodes or strings) - вставляет сразу после node
+node.replaceWith(...nodes or strings) - заменяет node
+node.remove() - удаляет node
+elem.beforebegin - вставляет html прямо перед elem
+elem.afterbegin - вставляет html в elem в начало
+elem.beforeend - вставляет html в elem в конец
+elem.afterend - вставляет html сразу после elem
+elem.insertAdjacentText - вставляет текстовые строки
+elem.insertAdjacentElement - вставляет элементы
+textElement.before(newElement); - вставил newElement перед textElement
+textElement.after(newElement); - вставил newElement после textElement
+textElement.prepend(newElement); - вставил newElement в начало внутри объекта textElement
+textElement.append(newElement); - вставил newElement в конец внутри объекта textElement
+либо
+textElement.append(newElement, `Новый текст`); - можно вставлять через запятую,
+                          но теги вставляються как текст
+<img src="./img/elem.png" alt="">
+textElement.insertAdjacentHTML('pos', `ins`); - позволяет вставить в DOM что угодно
+          pos - место вставки по отношению к textElement
+              beforebegin - вставить перед textElement
+              afterbegin - вставить в начало textElement
+              beforeend - вставить в конец textElement
+              afterend - вставить после textElement
+          ins - то что вставляем, позволяет вставить теги
+insertAdjacentText();
+insertAdjacentElement();
+<img src="./img/elem1.png" alt="">
+textElement.append(oldElement); - перенес существующий oldElement в конец textElement
+let cloneOldElement = oldElement.cloneNode(); - клонировал без дочерних элементов
+let cloneOldElement = oldElement.cloneNode(true); - клонировал с дочерними элементами
+textElement.remove(); - удаление объекта
+const elementClassNames = element.className; - получил все классы объекта element
+element.className = "red"; - заменил все классы на класс red
+element.classList.add('active'); - добавить класс
+element.classList.remove('active'); - удалить класс
+element.classList.toggle('active'); - добавить класс если его нет, а если есть, то удалить
+element.classList.contains('active'); - проверяет наличие класса, возвращает true or false
+element.style.color = "red"; - получаем доступ к атрибуту style HTML-тега и задаём цвет
+console.log(element.style.marginBottom); - вывод в консоль значения css-свойство атрибута style
+                  HTML-тега объекта element
+element.style.color = ""; - удалил css-свойство из атрибута style HTML-тега
+element.style.cssText = `
+margin-bottom: 30px;
+color: red;
+`; - записываю сразу несколько css-свойств в атрибут style, перезаписывает style полностью
+const elementStyle = getComputedStyle(element); - получил вычисленные стили элемента
+console.log(elementStyle.fontSize); - выводим вычисленое значение размера шрифта
+const elementBeforeStyle = getComputedStyle(element, "::before"); - получил стили псевдоэлемента
+console.log(elementBeforeStyle.backgroundColor); - выводим цвет фона, который реализован
+                              с помощью ::before
+getComputedStyle(); - работает только для чтения
+const paddingLeft = parseInt(elementStyle.paddingLeft); - сразу перевожу значение из строки в число
+element.style.marginLeft = "20px"; - задавать значения всегда с единицами измерения
+<ul>Устаревшие методы (возвращают node):
+<li>parent.appendChild(node)</li>
+<li>parent.insertBefore(node, nextSibling)</li>
+<li>parent.removeChild(node)</li>
+<li>parent.replaceChild(newElem, node)</li>
+</ul>
+
+document.forms - живая коллекция всех форм на странице document.forms[name/index]
+Элементы <.form> или <.fieldset> доступны через form.elements[name/index] или form[name/index].
+Элементы хранят ссылку на свою форму в свойстве element.form.
+Значения элементов формы доступны через input.value, textarea.value, select.value и т.д. либо input.cheked для чекбоксов и переключателей.
+Для <.select> можно получить индекс выбранного пункта через: select.selectedIndex либо select.options.
+Элемент получает фокус когда пользователь кликает по нему или использует Tab.
+HTML-атрибут auto-focus - устанавливает фокус при загрузке страницы.
+HTML позволяет делать валидацию с помощью атрибутор required, pattern и т.д.
+События focus и blur срабатывают на фокусировке/потере фокуса элемента и не всплывают, но можно использовать фазу перехвата или focusin/focusout.
+tabindex делает фокусируемым любой элемент.
+document.activeElement - текущий элемент с фокусом.
+const form = document.forms[0] - получить форму по индексу коллекции
+const form = document.forms.main - по аттрибуту тега name (name="main")
+
+document.querySelectorAll('form') - неживая коллекция
+
+const form = document.forms.main
+console.log(form.elements) -  вывел элементы формы
+
+focus, blur - события не всплывают
+focus(), blur() - методы. Аттрибут taindex = -1 на клавишу tab не реагирует,
+          но можно установить фокус на елемент методом
+document.activeElement - получаем текущий элемент с фокусом 
+focusin / focusout - события всплывают
+
+<dfn>События изменения данных:</dfn>
+change - значение изменено. срабатывает в текстовом поле при потере фокуса, в остальных полях при выборе.
+input - значение изменено. Срабатывает немедлено при каждом изменении текстового поля.
+cut/copy/paste - свойство event.clipboardData даёт доступ на чтение/запись в буфер.
+cut - событие, срабатывает при вырезании
+copy - событие, срабатывает при копировании
+paste - событие, срабатывает при вставке
+submit - событие отправки данных формы, при form.submit() - форма отправится при потере фокуса
+event.preventDefault() - запретит выполнение события
+
+<dfn>Отправка формы:</dfn>
+Нажать кнопку <.input type="submit"> или <.input type="image">
+Нажать Enter на любом поле
+При отправке формы по нажатию Enter в текстовом поле, генерируется событие click на кнопке <.input type="submit">
+При отправке формы срабатывает событие submit, оно используется для проверки формы перед её отправкой на сервер или для отмены отправки и обработки её с помощью JS.
+form.submit() позволяет отправить форму из JS. Используют для создания и отправки собственных форм на сервер, при этом событие submit не генерируется.
+scroll - событие прокрутки позволяет реагировать на прокрутку страницы или элемента.
+window.addEventListener('scroll', function() {
+document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
+});
+</pre>
+      </details>
+      <details><!--EventTarget-->
+      <summary>EventTarget</summary>
+<pre>
+<dfn>EventTarget</dfn> - это абстрактный класс.
+Обеспечивает поддержание DOM-узлами событий.
+
+<dfn>Event</dfn>(<i>Событие</i>) - сигнал от браузера о том, что что-то произошло.
+Событию можно назначить обработчик - функцию, которая сработает, как только событие произошло.
+Способы назначения обработчиков событий:
+Атрибут HTML: onclick="...".
+DOM-свойство: elem.onclick = function.
+Методы: elem.addEventListener(event, handler[, phase]) для добавления
+event - имя события, например "click".
+handler - ссылка на фуекцию обработчик.
+<ul>options - дополнительный объект со свойствами:
+<li>once: если true, тогда обработчик будет удалён после выполнения.</li>
+<li>capture: фаза, на которой должен сработать обработчик (false/true)</li>
+<li>passive: если true, то обработчик не вызовет preventDefault()</li>
+</ul>
+Обработчик всегда хранится в свойстве DOM-объекта, а атрибут - лишь один из способов его инициализации.
+В DOM-свойстве один обработчик на один тип события, так как одно имя - одно свойство.
+Методы - самый гибкий и используемый способ.
+addEventListener поддерживает объекты в качестве обработчиков событий, вызывая метод объекта object.handleEvent(event).
+Убрать обработчик elem.onclick = null.
+Не используй setAttribute для обработчиков.
+Регистр DOM-свойства имеет значение, а HTML-атрибута - нет.
+Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его в качестве аргумента функции-обработчику.
+Любой обработчик получает объект события первым аргументом
+event.type - тип события, например "click"
+event.clientX/event.clientY - координаты курсора для событий мыши в момент клика относительно окна.
+
+События:
+onclick="JScode" - обработчик события, аттрибут тега.
+const button = document.querySelector('.button');
+button.onclick = function () {}; - нет возможности повесить на одно событие несколько обработчиков
+либо
+function showClick() {}
+button.onclick = showClick; - нет возможности повесить на одно событие несколько обработчиков
+
+button.addEventListener("click", function (e) {}); - можно назначить обработчик несколько раз
+либо
+button.addEventListener("click", func);
+function func(e) {}
+
+button.removeEventListener(event, handler); - отключает обработчик
+
+button.addEventListener(event, handler, options); - можно добавить параметры
+const options {
+"capture: false", - фаза, на которой должен сработать обработчик (всплытие/погружение)
+"once": false, - если true, тогда обработчик будет удален после выполнения
+"passive": false - если true, то обработчик никогда не вызовет preventDefault()
+}
+либо
+button.addEventListener("click", func, {"once": true});
+
+Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его
+в качестве аргумента (event) функции - обработчику:
+event.type - тип события
+event.target - объект, на котором сработал обработчик
+event.currentTarget - объект, которому назначен обработчик
+event.clientX - положение курсора по Х
+event.clientY - положение курсора по Y
+console.log(evant) - посмотреть все детали события
+event.stopPropagation(); - остановка всплытия
+Делегирование - вешаем прослушку на родителя
+Отмена действий браузера по умолчанию:
+event.preventDefault(); - для addEventListener
+либо
+button.addEventListener("click", func, {"passive": true});
+
+link.onclick = function () { - для onclick
+return false;
+}
+
+<dfn>Всплытие и погружение:</dfn>
+целевой элемент (event.target) - самый глубоко вложенный элемент, над которым произошло событие.
+Сначала событие двигается вниз (погружение) от корня документа к event.target, по пути вызывая обработчики, поставленные через addEventListener(..., true),
+где true - сокращенно {capture: true}
+Далее обработчики на целевом элементе.
+Потом событие двигается от event.target вверх к корню документа, по пути вызывая обработчики, поставленные через on<.event> и addEventListener без третьего аргумента
+или с третьим аргументом равным fasle.
+<ul>Каждый обработчик имеет доступ к свойствам события event:
+<li>event.target - самый глубокий элемент, на котором произошло событие</li>
+<li>event.currentTarget(=this) - элемент, на котором в данный момент сработал обработчик (тот, на котором "висит" конкретный обработчик)</li>
+<li>event.eventPhase - не какой фазе он сработал: (погружение = 1, фаза цели = 2, всплытие = 3)</li>
+</ul>
+Любой обработчик может остановить событие вызовом event.stopPropagation().
+Всплытие и погружение являются основой для делегирования событий.
+Делегирование событий используется при схожей обработке многих элементов.
+Вешаем обработчик на контейнер.
+В обработчике проверяем целевой элемент event.target.
+Если событие произошло на нужном элементе, то обрабатываем его.
+<ul>Использование
+<li>Упрощает процесс инициализации и экономит память: не нужно вешать много обработчиков.</li>
+<li>Меньше кода: при добавлении и удалении элементов не нужно ставить или снимать обработчики.</li>
+<li>Удобство изменений DOM: можно массово добавлять или удалятьэлементы путём изменения innerHTML и ему подобных.</li>
+</ul>
+Событие должно всплывать. Низкоуровневые обработчики не должны вызывать event.stopPropagation().
+Два способа отменить действие браузера по умолчанию:
+- event.preventDefault() - основной способ
+либо
+- <.a href="/" onclick = "event.preventDefault()">здесь<./a>
+Опция passive: true для addEventListener сообщает браузеру, что действие по умолчанию не будет отменено.
+Это сообщит браузеру, что он не должен ждать выполнения всех обработчиков, а ему следует сразу приступать к выполнению действия по умолчанию, например к прокрутке.
+event.defaultPrevented равно true если событие по умолчанию отменено, иначе false.
+Чтобы сгенерировать событие из кода, вначале нужно создать объект события
+let event = newEvent(name[, options]);
+Базовый конструктор Event(name, options) принимает обязательное имя события и options - объект с тремя свойствами:
+- bubbles: true - чтобы событие всплывало
+- cancelable: true - если нужно, чтобы работал event.preventDefault()
+- composed: true/false - если true, то событие будет всплывать наружу за пределы Shadow DOM.
+По умолчанию все три свойства - false: {bubbles: false, canselable: false, composed: false}.
+elem.dispatchEvent(event) - запускает объект события на элементе.
+event.isTrusted - true для событий от пользователя и false для генерирующих.
+on<.event> - для встроенных событий, addEventListener - для генерируемых.
+При создании встроенных событий использовать конструкторы встроенных событий (newMouseEvent("click") и др.)
+Для пользовательских событий применять конструктор CustomEvent.
+event.detail позволяет передавать информацию в объекте события.
+Генерировать встроенные события в случаях:
+- явный грубый хак, чтобы заставить работать сторонние библиотеки, если нет другого способа.
+- скриптом нажать на кнопку для автоматического тестирования.
+
+<dfn>События мыши:</dfn>
+click - кликнули на элемент левой кнопкой мыши (на устройсвах с сенсорными экранами - при касании).
+contextmenu - происходит, когда кликнули на элемент правой кнопкой мыши
+mouseover/mouseout - когда мышь наводится на/покидает элемент.
+mousedown/mouseup - когда нажали/отжали кнопку мыши на элементе.
+mousemove - при движении мыши.
+Комплексные события состоят из простых, обработчики событий вызываются в следующем порядке: mousedown -> mouseup -> click
+Свойство события мыши which - какая кнопка мыши нажата:
+- event.which == 1 - левая кнопка
+- event.which == 2 - средняя кнопка
+- event.which == 3 - правая кнопка
+Клавиши - модификаторы (true если нажаты): altKey, ctrKey и metaKey (Mac).
+В Мас обычно Cmd вместо ctrl, поэтому лучше проверить: if(e.metaKey || e.ctrlKey).
+Координаты относительно окна: clientX, clientY.
+Координаты относительно документа: pageX/pageY.
+Запрет копирования: <.div oncopy = "alert('Копрование запрещено!'); return false">
+При быстром движении мыши события не будут возникать на промежуточных элементах.
+Браузер периодически проверяет позицию курсора и при изменении генерирует событие mousemove.
+Если был mouseover, то будет и mouseout.
+События mouseover/out и mouseenter/leave имеют дополнительное свойство relatedTarget.
+Для события mouseover:
+event.target - это элемент, на который курсор пришёл.
+event.relatedTarget - это элемент, с которого курсор пришёл (target -> relatedTarget)
+event.relatedTarget равно null - указатель мыши пришёл из-за или ушёл за пределы окна.
+В любой момент времени указатель может быть только над одним элементом - над самым глубоко вложенным.
+События mouseover/out возникают, когда происходит переход с родительского элемента на потомка.
+События mouseenter/leave не всплывают и генерируются, когда курсор переходит или уходит на элемент в целом (без учёта потомков).
+
+Простые:
+mousedown / mouseup - кнопка мыши нажата / отпущена над элементом
+mouseover / mouseout - курсор мыши появляется над элементом и уходит с него
+
+mouseover:
+event.target - элемент откуда ушёл курсор
+event.relatedTarget - элемент куда ушёл курсор
+
+mouseout:
+event.target - элемент куда пришёл курсор
+event.relatedTarget - элемент откуда пришёл курсор
+
+mousemove - каждое движение мыши над элементом генерирует это событие
+contextmenu - вызывается при попытке открытия контекстного меню
+
+Комплексные
+click - mousedown и mouseup над одним и тем же элементом
+dblclick - двойной клик на элементе
+
+event.which = 1 - нажата основная кнопка мыши (левая)
+event.which = 2 - нажата средняя кнопка мыши (колесо)
+event.which = 3 - нажата не основная кнопка мыши (правая)
+
+mouseover / mouseout - всплывают, можно использовать делегирование,
+mouseenter / mouseleave - нет
+
+<em>Базовый алгоритм Drag'n'Drop.</em>
+При mousedown - готовим элемент к перемещению (если нужно создаём его копию).
+При mousemove передвигаем элемент на новые координаты путём смены left/top и position: absolute.
+При mouseup - остановить перенос элемента и произвести окончание Drag'n'Drop.
+Ключевые идеи:
+object.mousedown -> document.mousemove -> object.mouseup
+(обязательно отменить браузерный ondragstart)
+В начале перетаскивания запоминаем начальное смещение указателя относительно элемента(shiftX/shiftY) и сохраняем его при перетаскивании.
+Выявляем потенциальные цели переноса под указателем с помощью document.elementFromPoint.
+На mouseup завершить перенос: изменить данные, переместить элементы.
+События указателя (Pointer events) одновременно обрабатывают действия мыши, касания пера.
+Содержат свойства мыши и дополнительно свои:
+pointerId - идентификатор указателя, вызвавшего событие, генерируется браузером, позволяет обрабатывать несколько указателей (стилус и мультитач).
+pointerType - тип указывающего устройства. Строка с одним из значений: "mouse", "pen" или "touch".
+isPrimary - равно true для основного указателя (первый палец в мультитач).
+При обработке переносов и сложных касаний нужно отменить действие браузера и ставить touch-events: none в CSS для элементов.
+Можно перенаправить (захватить) все события указателя на определённый элемент до наступления события pointerup/pointercancel.
+Два связанных с захватом события:
+getpointercapture срабатывает, когда элемент использует setPointerCapture для включения захвата.
+lostpointercapture срабатывает при освобождении от захвата:
+- явно с помощью releasePointerCapture или
+- автоматически при событии pointerup/pointercancel.
+Сбытия указателя - мыши:
+pointerdown - mousedown
+pointerup - mouseup
+pointermove - mousemove
+pointerover - mouseover
+pointerenter - mouseenter
+pointerleave - mouseleave
+pointercancel - 
+getpointercapture - 
+lostpointercapture - 
+
+События клавиатуры:
+keydown - происходит при нажатии клавиши
+keyup - при отпускании клавиши
+event.code - код нажатой клавиши ("KeyA", "ArrowLeft" и т.д.)
+event.key - клавиша с учетом регистра и раскладки клавиатуры символ ("A", "a" и т.д.)
+event.repeat - вернет true при срабатывании повтора на зажатой клавише
+Нажатие клавиши всегда генерирует клавиатурное событие, кроме клавиши Fn.
+
+Прокрутка:
+scroll - событие прокрутки
+scrollY - количество прокрученных пикселей по вертикали
+scrollX - количество прокрученных пикселей по горизонтали
+
+Загрузка:
+DOMContentLoaded - браузер полностью загрузил HTML, построил DOM-дерево, 
+  но внешние ресурсы могут быть ещё не загружены
+  срабатывает на объекте document
+load - браузер полностью загрузил HTML, и внешние ресурсы
+  срабатывает на объекте window
+beforeunload / unload - пользователь покидает сраницу
+beforeunload - можем вывести пользователю предупреждение о несохраненных данных в форме
+unload - пользователь уже ушёл состраницы, но можно поручить браузеру собрать статистику
+
+document.readyState - состояние загрузки:
+loading - документ загружается
+interactive - документ был полностью прочитан
+complete - документ был полностью прочитан и все ресурсы загружены
+
+События, отправленные сервером (SSE), позволяют веб-странице получать обновления с сервера.
+В случае событий, отправленных сервером, обновления приходят автоматически.
+</pre>
+      </details>
+      <details><!--Properties-->
+      <summary>Properties</summary>
+<pre>
+Когда браузер загружает страницу, он читает (парсит) HTML и генерирует DOM-объекты.
+Для узлов-элементов большинство стандартных HTML-атрибутов автоматически становятся
+свойствами DOM-объектов.
+У каждого тега свои атрибуты:
+Атрибуты написаны в HTML, свойства - в DOM-объектах.
+Можно изменять DOM-узлы добавляя своё свойство.
+<ul>Методы для работы с атрибутами:
+<li>elem.hasAttribute(name) - проверить на наличие</li>
+<li>elem.getAttribute(name) - получить значение</li>
+<li>elem.setAttribute(name, value) - установить значение</li>
+<li>elem.removeAttribute(name) - удалить атрибут</li>
+<li>elem.attributes - коллекция всех атрибутов</li>
+</ul>
+<ul>Свойства:
+<li>nodeType - тип DOM-узла.
+Только для чтения.
+Его значение-числовое: 1- элементы, 3 - текстовые узлы и т.д.
+</li>
+<li>nodeName/tagName - возвращает название тега.
+Только для чтения.
+Для узлов - неэлементов описывает, что за узел.
+</li>
+<li>innerHTML - внутренее HTML-содержимое узла-элемента.
+Изменяемый.
+С innerHTML вставка происходит "как HTML", со всеми HTML-тегами.
+</li>
+</ul>
+console.dir(element); - выведет список доступных свйоств DOM-объекта element
+element.hasAttribute('some-name'); - проверить наличие аттрибута name
+element.getAttribute('some-name'); - получить значение аттрибута name
+element.setAttribute('some-name', value); - создать аттрибут (some-name) и 
+                  установить в него значение (value)
+element.removeAttribute('some-name'); - удалить аттрибут name
+element.tagName - показывает какой тег у объекта
+element.hidden = true; - скрыть или показать объект
+Размеры и координаты
+const mainElement = document.documentElement; - получил объект html
+const mainElementWidth = mainElement.clientWidth; - доступная ширина окна без прокрутки
+const mainElementHeight = mainElement.clientHeight; - доступная высота окна без прокрутки
+
+const windowWidth = window.innerWidth; - ширина окна с полосой прокрутки
+const windowHeight = window.innerHeight; - высота окна с полосой прокрутки
+
+Ширину и высоту всего документа (включая прокрученную часть) можно найти:
+let scrollWidth = Math.max(
+document.body.scrollWidth, document.documentElement.scrollWidth,
+document.body.offsetWidth, document.documentElement.offsetWidth,
+document.body.clientWidth, document.documentElement.clientWidth,
+);
+
+let scrollHeight = Math.max(
+document.body.scrollHeight, document.documentElement.scrollHeight,
+document.body.offsetHeight, document.documentElement.offsetHeight,
+document.body.clientHeight, document.documentElement.clientHeight,
+);
+Метрики <img src="./img/metrics.png" alt="">
+element.offsetParent; - получаем родительский элемент, относительно которого позиционирован element
+element.offsetLeft; - отступ слева от родительского элемента element.offsetParent
+element.offsetTop; - отступ сверху от родительского элемента element.offsetParent
+element.offsetWidth; - общая ширина element
+element.offsetHeight; - общая высота element
+element.clientTop; element.clientLeft; - отступы внутренней части element от внешней
+element.clientWidth; element.clientHeight; - размеры объекта без рамок и полосы прокрутки
+element.scrollWidth; element.scrollHeight; - размеры объекта без рамок и полосы прокрутки,
+                          включая прокручиваемую часть внутри объекта
+element.scrollLeft; element.scrollTop; - размеры прокрученной области внутри объекта, 
+                      можно считывать и задавать значения
+                      к объекту можно применять scrollBy, scrollTo, scrollIntoView
+element.getBoundingClientRect(); - получить координаты относительно окна браузера
+element.getBoundingClientRect().top + window.pageYOffset; - получить координаты относительно документа
+const elem = document.elementFromPoint(x, y); - узнать какой элемент находится по указанным
+                      координатам (координаты относительно окна браузера)
+
+data-аттрибут - для ввода нестандартных аттрибутов:
+element.dataset.size = "1024"; - установил в аттрибут data-size значение 1024
+<code><.script>
+alert(document.body.innerHTML); - читаем текущее содержимое
+document.body.innerHTML = 'Новый BODY!'; - заменяем содержимое
+<./script></code>
+Если innerHTML вставляет в документ тег <.script> - он становится частью HTML, но не запускается.
+<dfn>outerHTML</dfn> - полный HTML узла-элемента.
+Запись в elem.outerHTML заменяет elem во внешнем контексте.
+<code><.div id = "elem">Привет <.b>Мир</.b><./div>
+<.script>
+alert(elem.outerHTML); - <.div id = "elem">Привет <.b>Мир</.b><./div>
+<./script></code>
+<dfn>textContent</dfn> - текст внутри элемента: HTML за вычетом всех <.тегов>.
+Запись в него помещает текст в элемент, при этом все спецюсимволы и теги интерпретируются как текст.
+Можно использовать для защиты от вставки произвольного HTML кода.
+<dfn>hidden</dfn> - если true, то скрывает элемент.
+<dfn>nodeValue и data</dfn> - содержимое узла-неэлемнта (текст, комментарий).
+Обычно используют data. Изменяемый.
+<code><.body>
+Привет
+<.!--Комментарий-->
+<.script>
+let comment = text.nextSibling;
+alert(comment.data); - Комментарий
+<./script>
+<./body>
+
+JS может прочитать if из свойства data и обработать инструкции:
+<.!--if isAdmin-->
+<.div>Добро пожаловать, Админ!<./div>
+<.!--/if--></code>
+Лучше использовать DOM-свойства. Атрибуты используем тогда, когда нужны именно атрибуты.
+Например нестандартный атрибут. Если он начинается с data-, то нужно использовать dataset.
+<.body data-about = "Elephants">
+<.script>
+alert(document.body.dataset.about); - Elephants
+<./script>
+Атрибут из нескольких слов data-order-state это свойство dataset.orderState
+<ul>Геометрические свойства (метрики) DOM-элементов
+<li><em>offsetParent</em> - ближайший CSS-позиционированный родитель или td, th, table, body.</li>
+<li><em>offsetLeft/offsetTop</em> - позиция в пикселях верхнего левого угла offsetParent.</li>
+<li><em>offsetWidth/offsetHeight</em> - внешняя ширина/высота элемента, включая рамки.</li>
+<li><em>clientLeft/clientTop</em> - это border - отступ внутренней части элемента от внешней.</li>
+<li><em>clientWidth/clientHeight</em> - ширина/высота сожержимого вместе 
+с внутренними отступами padding, но без полосы прокрутки.</li>
+<li><em>scrollWidth/scrollHeight</em> - ширина/высота содержимого с учетом 
+прокрученной (невидимой) области элемента.</li>
+<li><em>scrollLeft/scrollTop</em> - ширина/высота прокрученной сверху части элемента,
+считается от верхнего левого угла.</li>
+</ul>
+Все кроме scrollLeft/scrollTop доступны только для чтения.
+Если элемент, или любой его родитель, имеет display:none или отсутствует в документе, 
+то все его метрики равны нулю (или null если это offsetParent).
+Лучше использовать свойства-метрики т.к. CSS-свойства width/height зависят от другого свойства - box-sizing,
+которое определяет CSS-ширину/высоту.
+Изменение box-sizing сломает код.
+CSS-свойства width/height могут быть равны auto.
+Ширина/высота видимой части документа:
+<code>document.documentElement.clientWidth/Height</code>
+Ширина/высота всего документа с прокрученной частью:
+<code>let scrollHeight = Math.max(
+document.body.scrollHeight, document.documentElement.scrollHeight,
+document.body.offsetHeight, document.documentElement.offsetHeight,
+document.body.clientHeight, document.documentElement.clientHeight,
+);</code>
+<code>Прокрутка:
+window.pageYOffset/pageXOffset - прокрутка окна.
+window.scrollTo(pageX, pageY) - абсолютные координаты.
+window.scrollTo(0, 0) - прокрутка в самое начало.
+window.scrollBy(x, y) - прокрутка относительно текущего места.
+window.scrollBy(0, 10) - прокручивает страницу на 10рх вниз.
+window.scrollIntoView(top) - прокрутить страницу, чтобы elem стал видимым
+(выровнять относительно верхней/нижней части окна).
+
+Количество прокрученных пикселей (только для чтения):
+const windowScrollTop = window.pageYOffset; - количество пикселей прокрученных сверху
+const windowScrollLeft = window.pageXOffset; - количество пикселей прокрученных слева
+window.scrollBy(x, y); - прокручивает страницу относительно текущего положения
+window.scroll(x, y); - прокручивает страницу на абсолютные координаты
+window.scrollTo(x, y) - прокручивает страницу на абсолютные координаты
+element.scrollIntoView(top); - прокрутит страницу до элемента element.
+              Если top = true, то элемент будет вверху страницы
+              Если top = false, то элемент будет внизу страницы
+Запретить или разрешить прокрутку:
+document.body.style.overflow = "hidden"; - добавляет overflow = "hidden" в аттрибут style тега body
+либо
+document.body.classList.toggle('scroll-lock'); - добавляет класс в тег body,
+потом нужно добавить в класс css-свойство overflow = "hidden"
+</code>
+Для прокрутки страницы из JS её DOM должен быть полностью построен.
+<code>document.body.style.overflow = "hidden"</code>
+Все координаты в контексте окна считаются от верхнего левого угла.
+<code>position: fixed; - для координат относительно окна.
+position: absolute; - для координат относительно документа.</code>
+Любая точка на странице имеет координаты:
+- относительно окна браузера - elem.getBoundingClientRect()
+- относительно документа - elem.getBoundingClientRect() + прокрутка страницы.
+document.elementFromPoint(x, y) - возвращает самый глубоко вложенный элемент по координатам (х, у). 
+Для координат вне окна возвращает null.
+
+CSS:
+CSS-событие transitioned - CSS-анимация завершена.
+Два способа задания стилей элементу:
+<.div class="..."> - создать класс в CSS и использовать его
+<.div style="..."> - писать стили в атрибуте style
+JS может менять и классы CSS и свойство style.
+Лучше использовать классы. Свойство style только если класс не подходит.
+<ul>Для управления классами существует два DOM-свойства:
+<li>className - строковое значение, заменяет всю строку с классами.</li>
+<li>classList - объект с методами для управления одним классом.</li>
+</ul>
+<ul>Методы classList:
+<li>elem.classList.add/remove("class") - добавить/удалить класс.</li>
+<li>elem.classList.toggle("class") - добавит класс если его нет, иначе удалит.</li>
+<li>elem.classList.contains("class") - проверка наличия класса, возвращает true/false.</li>
+</ul>
+<ul>Свойство style это объект со стилями в camelCase:
+<li>background-color - elem.style.backgroundColor</li>
+<li>z-index - elem.style.zIndex</li>
+<li>border-left-width - elem.style.borderLeftWidth</li>
+<li>style = "width: 100px" - elem.style.width = "100px"</li>
+</ul>
+Чтобы удалить elem.style.display нужно присвоить пустую строку:
+elem.style.display = "".
+Свойство style.cssText - вся строка стилей атрибута style:
+<code><.div id = "div">Button<./div>
+<.script>
+div.style.cssText = `
+color: red !important;
+background-color: yellow;
+width: 100px;
+text-align: center;`
+alert(div.style.cssText);
+<./script>
+</code>
+<dfn>getComputedStyle(elem, [psevdo])</dfn> - возвращает объект для чтения окончательных стилей 
+с учетом всех классов, после применения CSS и вычисления окончательных значений.
+elem - элемент, значения для которого нужно получить.
+psevdo - если нужен псевдоэлемент ::before.
+Без аргумента означает сам элемент.
+</pre>
+      </details>
+      <details><!--Storage-->
+      <summary>Storage</summary>
+<pre>
+<dfn>localStorage и sessionStorage</dfn> - объекты вэб-хранилища, позволяют хранить пары ключ/значение в браузере.
+key и value - строки
+Лимит 2 Mb - зависит от браузера
+Данные не имеют срока хранения
+Данные привязаны к источнику (домен/протокол/порт)
+localStorage - используется между всеми вкладками и окнами одного источника совместно. Переживает перезапуск браузера.
+sessionStorage - разделяется в рамках вкладки браузера, среди ифреймов из того же источника. Переживает перезагрузку страницы, но не закрытие вкладки.
+<ul>API:
+<li>setItem(key, value) - сохранить пару ключ/значение</li>
+<li>getItem(key) - получить данные по ключу key</li>
+<li>removeItem(key) - удалить значение по ключу key</li>
+<li>clear() - удалить всё</li>
+<li>key(index) - получить ключ по заданной позиции</li>
+<li>length - количество элементов в хранилище</li>
+<li>Object.keys - получить все ключи</li>
+</ul>Если обращаться к ключам как к обычным свойствам объекта, то событие storage не срабатывает.
+<ul>Событие storage:
+<li>Срабатывает при вызове setItem, removeItem, clear</li>
+<li>Содержит все данные о произошедшем обновлении (key/oldValue/newValue), url документа и объект хранилища storageArea</li>
+<li>Срабатывает на всех объектах window, которые имеют доспут к хранилищу, кроме того где оно было сгенерировано (внутри вкладкидля sessionStorage, глобально для localStorage)</li>
+</ul>
+
+<dfn>IndexedDB</dfn> - встроенная база данных типа ключ-значение, мощнее localStorage.
+Интерфейс для IndexedDB основан на событиях IndexedDB имеет встроенный механизм версионирования схемы, который отсутствует в серверных базах данных.
+IndexedDB работает на стороне клиента ( в браузере) и у нас нет прямого доступа к данным.
+При публикации новой версии приложения возможно обновлять базу данных.
+Использование:
+ПОдключить обёртку над промисами (idb)
+Открыть базу данных: idb.openDb(name, version, onupgradeneeded)
+Создание хранилищ объектов и индексов в обработчике onupgradeneeded
+Обновление версии - либо сравнивая номера версий, либо проверить что есть, а что нет.
+Для запросов:
+Создать транзакцию db.transaction('books') - можно указать readwrite.
+Получить хранилище объектов transaction.objectStore('books').
+Для поиска по ключу вызвать метод непосредственно у хранилища объектов.
+Для поиска по любому полю объекта нужно создать индекс.
+Если данных не помещаются в памяти, то используй курсор.
+</pre>
+      </details>
+  </details>
+</details>
+<details><!--React-->
+  <summary>React</summary>
+  <img src="./img/React/react.png" alt="">
+  <img src="./img/React/React1.png" alt="">
+  <img src="./img/React/React2.png" alt="">
+  <img src="./img/React/React3.png" alt="">
+  <img src="./img/React/React4.png" alt="">
+  <img src="./img/React/React5.png" alt="">
+  <img src="./img/React/React6.png" alt="">
+  <img src="./img/React/React7.png" alt="">
+  <img src="./img/React/React8.png" alt="">
+  <img src="./img/React/React9.png" alt="">
+  <img src="./img/React/React10.png" alt="">
+  <img src="./img/React/React11.png" alt="">
+  <img src="./img/React/React12.png" alt="">
+  <img src="./img/React/React13.png" alt="">
+  <img src="./img/React/React14.png" alt="">
+  <img src="./img/React/React15.png" alt="">
+  <img src="./img/React/React16.png" alt="">
+  <img src="./img/React/React17.png" alt="">
+  <img src="./img/React/React18.png" alt="">
+  <img src="./img/React/React19.png" alt="">
+  <img src="./img/React/React20.png" alt="">
+  <img src="./img/React/React21.png" alt="">
+  <img src="./img/React/React22.png" alt="">
+  <img src="./img/React/React23.png" alt="">
+  <img src="./img/React/React24.png" alt="">
+  <img src="./img/React/React25.png" alt="">
+  <img src="./img/React/React26.png" alt="">
+  <img src="./img/React/React27.png" alt="">
+  <img src="./img/React/React28.png" alt="">
+  <img src="./img/React/React29.png" alt="">
+  <img src="./img/React/React30.png" alt="">
+  <img src="./img/React/React31.png" alt="">
+  <img src="./img/React/React32.png" alt="">
+  <img src="./img/React/React33.png" alt="">
+  <img src="./img/React/React34.png" alt="">
+<!--<pre>
+API (Application programming interface) - это контракт, который предоставляет программаю “Ко мне можно обращаться так и так, я обязуюсь делать то и это”.
+API -  это набор функций. Наборы формируются разработчиком по функционалу, по заказчику, по смыслу операций и т.д.
+
+- npx create-react-app название папки (проекта) - создаст папку с названием проекта и стартовым шаблоном внутри.
+
+JSX напоминает язык шаблонов, наделённый силой JavaScript.
+JSX - это синтаксический сахар для React.createElement.
+JSX - это расширение JS, чтобы объяснить React как выглядит UI.
+JSX производит элементы React.
+JSX преобразуется в JS функцию, которая возвращает JS объект. После компиляции каждое JSX-выражение становится обычным вызовом JS-функции, результат которого  - объект JS.
+
+Если разделить выражение на строки, то его нужно обернуть в ().
+
+<.div><./div> = <.div/> - если тэг пустой, то самозакрывающийся тэг.
+
+Запись атрибутов в camelCase.
+
+Кавычки (для строковых литералов), фигурные скобки (для JS-выражений), но не то и другое вместе.
+<.div tabIndex=”0”><./div> - литералы в строке
+<.img src={user.avatarUrl}> - JS выражения в { }
+
+const name = ‘Иван-Царевич’; - создали переменную
+const element = <.h1>Здравствуй, {name}!<./h1>; - создали элемент с переменной внутри. Элемент описывает то, что будет на экране.
+ReactDOM.render( 		- команда ReactDOM-у отрисовать созданный элемент
+element,
+document.getElementById(‘root’)	- внутри элемента страницы с выбранным id
+DOM-тэг <.div /> с маленькой буквы, а компонент <.Welcome /> - с большой.
+
+Первоначальный рендеринг компонента в DOM называется “монтированием” (mounting).
+Каждый раз когда DOM-узел, созданный компанентом, удаляется, происходит “размонтирование” (unmounting).
+Методы жизненного цикла:
+componentDidMount() {...} - запускается после того, как компонент отрендерился в DOM
+componentWillUnmount() {...} - запускается перед размонтированием
+
+Поля this.props и this.state в классах особенные, и их устанавливает сам React. Мы можем добавить новые.
+Единственное место где можно присвоить значение this.state - это конструктор, в остальных случаях только через изменение: this.state({comment: ‘Привет’}).
+Родитель-компонент передаёт своё состояние дочерним компонентам в виде пропса. Это однонаправленный поток данных.
+this.props и this.state могут обновляться асинхронно поэтому операции с ними нужно проводить внутри функции, получая текущие значения в качестве параметров: 
+this.setState((state.props) => ({counter: state.counter + props.increment}))
+
+Обработка событий:
+HTML: <.button onclick=”activateLasers()”>Активировать лазеры<./button>
+React: <.button onClick={activateLasers}>Активировать лазеры<./button>
+activateLasers - это функция-обработчик события
+
+В React есть соглашение об именах - on[имя события] для пропсов, отвечающих за события, и handle[имя события] для методов, обрабатывающих события.
+События в React именуются в camelCase.
+С JSX передаём функцию как обработчик события вместо строки:
+<.button onClick={activateLasers}>Активировать лазеры<./button>
+Чтобы предотвратить обработчик события по умолчанию, нужно вызвать preventDefault().
+function ActionLink() {
+function handleClick(e) {
+e.preventDefault()
+console.log(‘По ссылке кликнули’)
+}
+return (
+<.a href=”#” onClick={handleClick}>Нажми на меня<./a>
+)
+}
+
+Обычно, если ссылаться на метод как на ссылку - без вызова, т.е. без () поле него, например, onClick={this.handleClick}, этот метод нужно привязать к контексту:
+в конструкторе this.handleClick = this.handleClick.bind(this);
+в render() - <.button onClick={this.handleClick}>
+
+или так:
+handleClick = () => {console.log(‘значение this: ’, this)}
+<.button onClick={this.handleClick}><./button}
+
+или так:
+handleClick() {console.log(‘значение this: ’, this)}
+<.button onClick={() => this.handleClick()}
+
+Чтобы передать свой аргумент (например id строки) в обработчик события:
+е - событие React передаётся явно в стрелочных функциях и автоматически в bind.
+<.button onClick={this.deleteRow.bind(this, id)}>Удалить строку<./button> - Function.prototype.bind
+<.button onClick={(e) => this.deleteRow(id, e)}>Удалить строку<./button> - стрелочная функция - при каждом рендере создаётся новый коллбэк. Если этот коллбэк попадает как проп в дочерние компоненты, эти компоненты могут быть отрендерены снова. Снижение производительности.
+
+Структура проекта:
+index.html - точка входа в сайт
+index.js - подключает необходимое окружение (react, react-dom, index.css, App.js, serviceWorker.js)
+index.css - задаёт стили
+serviceWorker.js - 
+setupTests.js - 
+context.js - 
+App.js - подключает (объединяет) все компоненты
+Файл .css можно не импортировать, т.к. React ищет его сам в своей папке, либо в папках выше.
+
+Пропсы и композиция дают всю гибкость, необходимую для настройки внешнего вида и поведения компонента явным и безопасным способом.
+
+
+
+Компонент - это функция или класс (работают одинаково).
+Один компонент - одна ответственность.
+Компонент содержит логику и разметку в JSX.
+Компоненты можно вкладывать в друг друга.
+Чтобы создать компонент нужно в файле с расширением js написать в начале
+import React from ‘react’;
+и
+export default App;
+в конце.
+
+Сначала создаём самый маленький компонент, потом вверх по иерархии.
+
+Компонент в виде класса:
+class Example extends React.Component {
+constractor (props) { - конструктор объектов
+super (props) - обязательная ссылка на родителя
+this.state = { … } - задаём начальное состояние
+}
+render() { - обозначает React’y что нужно отобразиь на экране
+return… - возвращает JSX объект
+}
+}
+В JS - классах всегда нужно вызывать super  при объявлении конструктора подкласса.
+Все классовые React - компоненты, у которых есть constractor должны начинаться с вызова super (props).
+
+Компонент в виде функции (функциональный компонент):
+import React from ‘react’;     - подключения
+…
+const styles = { }
+
+function Example (props) { - принимает пропсы
+либо так:
+const Example = (props) => {
+логика на JS
+return …    - возвращает JSX объект
+разметка JSX
+}
+export default Example
+
+class Clock extends React.Component {    - компонент объявлен как класс
+constructor (props) {
+super (props);
+this.state = {date: new Date()}; - задаём начальное состояние при создании объекта
+}
+
+componentDidMount() {    - метод жизненного цикла, который React вызывает когда коипонент <.Clock /> примонтируется в DOM
+this.timerID = setInterval (     - вызываем метод tick() каждую секунду
+() => this.tick(), 1000
+);
+}
+
+componentWillUnmount() {    - метод жизненного цикла, который Ract вызывает когда компонент <.Clock /> удалится из DOM
+}
+
+tick() {
+this.setState({ - обновляем состояние компонента, присваивая новое значение свойства date
+date: new Date()
+});
+}
+
+render() {
+return (
+<.div>
+<.h1>Привет мир!<./h1>
+<.h2>Сейчас {this.state.date.toLocaleTimeString()}<./h2>
+<./div>
+);
+}
+}
+
+ReactDOM.render(
+<.Clock />,
+document.getElementById(‘root’)
+);
+
+Пропс:
+JSON 	- объявляем объект в переменную:
+const user = {
+firstName = ‘Марья’,
+lastName = ‘Маревна’
+}
+и обращаемся к пропсам:
+user.firstName
+user.lastName
+
+this.props - объект, кототрый содержит свойства, которые были определены тем, кто вызывает этот компонент.
+Вложенный контент может быть доступен через props.children
+
+function Square (props) {   - в props получаем значения value и onClick из класса Board ниже
+return(
+<.button className=”square” onClick={props.onClick}>   - возвращаем кнопку для подстановки
+{props.value}                                                                    в качестве объекта this в блок render
+<./button>                                                                              в классе Board
+)                                                                                                
+}
+class Board extends React.Component{
+renderSquare(i){    - props i из блока render() ниже
+return(    - в компанент Square втуливаем значения value и onClick
+<.Square
+value = {this.props.square[i]} - собираем получаемые пропсы в массив
+onClick = {() = this.props.onClick(i)} - создаём обработчик на событие onClick для каждого пропса i
+/>
+)
+}
+render() {
+return(
+<.div>
+<.div className=”board-row”> - передаем в функцию renderSquaer (props.value) - 0 или 1 или 2
+  {this.renderSquare(0)} - первому объекту this передаём value = 0
+  {this.renderSquare(0)} - второму объекту this передаём value = 1
+  {this.renderSquare(0)} - третьему объекту this передаём value = 2
+<./div>
+<./div>
+)
+}
+}
+
+function Welcome(props) {        - компонент объявлен как функция
+return <.h1>Привет, {props.name}!<./h1>;
+}
+или так:
+class Welcome extends React.Component {      - компонент объявлен как класс
+render () {
+return <.h1>Привет, {this.props.name}!<./h1>;
+}
+}
+
+const element = <.Welcome name=”Алиса” />;
+ReactDOM.render(
+element,
+document.getElementById(‘root’)
+);
+
+name=”Алиса” - передаётся в функцию Welcome в виде объекта {name: ‘Алиса’} - это props.
+Функция Welcome возвращает элемент <.h1>Привет, Алиса!<./h1> в ReactDOM.
+
+Пропсы нужно только читать. React-компоненты не меняют свои входные данные.
+Компонент никогда не должен что-то записывать в свои пропсы:
+function sum(a, b) {
+return a + b;
+}
+
+а вот так нельзя:
+function withdraw(account, amount) {
+account.total -= amount;
+}
+
+Передать пропс можно от родителя к потомку пропустив несколько промежуточных потомков напрямую с помощью React.createContext(). Для этого создаём отдельный файл context.js и используем <Context.Provider>.
+
+Файл context.js:
+import React from ‘react’
+const Context = React.createContext()
+export default Context
+
+<.Context.Provider vakue={{ … }}>     - с помощью Context.Provider передаю любое JS сквозь всех потомков
+<.div className=”...”>
+<.h1>Hello world!<./h1>
+<.Example />
+<./div>
+<./Context.Provider>
+
+Состояние:
+Сохранять и изменять можно только состояния (state).
+Конкретный state контролируется и доступен только конкретному компоненту.
+Состояние содержит данные, специфичные для этого компонента. Они могут изменятся со временем.
+Состояние определяется пользователем и должно быть простым объектом JS.
+Состояние можно изменять только через setState(), присвоить состоянию значение напрямую можно только в конструкторе.
+Компонент может передать своё состояние вниз по дереву в виде пропсов дочерних компонентов.
+Этот процесс называется “нисходящим” (“top-down”) или “однонаправленным” (“unidirectional”) потоком данных.
+
+Если несколько компонентов должны отражать одни и теже изменяющиеся данные, то нужно поднимать общее состояние до ближайшего общего предка.
+Чтобы собрать данные из нескольких дочерних элементов, или чтобы дать возможность двум компонентам общаться, вам нужно объявить общее состояние внутри родительского компонента. Родительский компонент может передать состояние обратно дочерним элементам с помощью пропсов.
+Это поддерживает синхронизацию дочерних компонентов друг с другом и с родительким компонентом.
+
+Хуки:
+Хуки - вспомогательные функции
+const [todos, setTodos] = React.useState([ ])
+
+Хуки  - это функции, с которыми можно “подцепиться” к состоянию и к методам жизненного цикла React из функциональных компонентов.
+Хуки не работают в классах, а используются вместо них.
+Хуки вызывают только на верхнем уровне (не в циклах, условиях и т.д.)
+Хуки вызывают только из функциональных компонентов React, не из обычных JS-функций.
+Если имя функции начинается с use (useSamething) и использует другие хуки, то такая функция это пользовательский хук.
+
+useState(i) - возвращает массив из двух элементов: состояние (это state - состояние) и функцию, которая изменяет это состояние. Имена даём возвращаемому состоянию и функции произвольно.
+
+useEffect(i) - React запускает эффекты useEffect(() => {...}) после каждого рендера, включая первый рендер.
+
+useEffect(() => {
+fetch(‘http://…’)
+.then(responce=>responce.json())
+.then(todos=>{
+setTodos(todos)
+})
+}, [])
+
+вызвать хук можно либо
+import React, { useEffect } from ‘react’
+useEffect(i) {...}
+либо
+React.useEffect(i) {...}
+
+Сравнение хука и класса:
+Хук:
+import React, {useState} from ‘react’ - подключение хука
+function Example() {
+const [count, setCount] = useState(0) - 0 это начальное состояние, это может быть не объект.
+return (
+<.div>
+<.p>Вы нажали {count} раз <./p>
+<.button onClick={() => setCount(count + 1)}>
+Нажми на меня
+<./button>
+<./div>
+)
+}
+
+Класс:
+class Example extends React.Component {
+constractor (props) {
+super (props)
+this.state = {
+count: 0
+}
+}
+render () {
+return (
+<.div>
+<.p>Вы нажали {this.state.count} раз <./p>
+<.button onClick={() => this.setState({
+  count.this.state.count + 1})}>
+    Нажми на меня
+<./button>
+<./div>
+)
+}
+}
+Чтобы наделить функциональный компонент состоянием нужно либо преобразовать его в класс, либо добавить в него хук.
+React запоминает значение переменной состояния между вызовами функции.
+Итого:
+подключаем хук: import React, {useState} from ‘react’
+добавляем переменную в функцию: const [count, setCount] = useState(0)
+вызываем функцию изменения: <.button onClick={() => setCount(count + 1)}>
+
+Хук еффекта выполняет побочные эффекты:
+загрузка данных,  оформление подписки и изменение DOM вручную и представляет собой совокупность методов componentDidMount, componentDidUpdate и componentWillUnmount.
+
+Эффекты позволяют выполнить дополнительный код после того, как React обновил DOM, т.е. после каждого рендера.
+Любой эффект может возвратить функцию, которая сбросит его.
+React будет сбрасывать эффект перед тем, как компонент размонтируется. Например оформление и отмена подписки:
+import React , {useState, useEffect} from ‘react’
+function FriendStatus(props) {
+const [isOnline, setIsOnline] = useState(null)
+useEffect(() => {
+function handleStatusChange(status) {
+setIsOnline(status.isOnline)
+}
+ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
+return function cleanup() {             - сброс эффекта
+ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
+}
+})
+if (isOnline === null) {
+return ‘Загрузка…’
+}
+return isOnline ? ‘В сети’ : ‘Не в сети’
+}
+Чтобы React выполнял эффект только в случае изменения нужен второй аргумент в виде массива, с которым будет сравниваться значение первого аргумента. При каждом рендере react сравнивает новое значение переменной в первом аргументе со старым значением переменной, указанным во втором аргументе (в массиве).
+useEffect(() => {
+function handleStatusChange(status) {
+setIsOnline(status.isOnline)
+}
+ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
+return() => {
+ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
+}
+}, - стрелочная функция это первый аргумент эффекта
+[props.friend.id]) - это второй аргумент эффекта со старым значением переменной, по которому будет сравнение первого аргумента: повторно подписаться только если props.friend.id изменился.
+
+Обычный эффект без сброса:
+import React, {useState, useEffect} from ‘react’
+function Example() {
+const [count, setCount] = useState(0)
+useEffect(() => {
+document.title = `Вы нажали ${count} раз`
+}, [count]) - перезапускать эффект только если count поменялся
+return (
+<.div>
+<.p>Вы нажали {count} раз<./p>
+<.button onClick={() => setCount(count + 1)}>
+Нажми на меня
+<./button>
+<./div>
+)
+}
+Для корректной работы с хуками нужно установить плагин для ESLint:
+npm i eslint-plugin-react-hooks --save -dev
+
+
+useContext:
+import React, {useContext} from ‘react’
+const themes = {
+light: {
+foreground: “#000000”,
+background: “#eeeeee”
+}
+dark: {
+foreground: “#ffffff”,
+background: “#222222”
+}
+}
+const ThemeContext = React.createContext(themes.light)    - создаём объект контекста со свойством light
+function App() {
+return(
+<.Theme	Context.Provider value={themes.dark}> - значение value определяет текущее значение
+<.Toolbar />						передаваемого в Toolbar контекста. При обновлении 
+<./ThemeContext.Provider>				значения - новый рендер.
+)								Меняем контекст на тёмную тему.
+}
+function Toolbar (props) {   - передаём контекст потомку
+return(
+<.div>
+<.ThemedButton/>
+<./div>
+)
+}
+function ThemedButton() {
+const theme = useContext(ThemeContext)  - используем контекст с тёмной темой
+return (
+<.button style={{background: theme.background, color: theme.foreground}}>
+Я стилизован темой из контекста!
+<./button>
+)
+}
+
+Управляемый компонент:
+Если форму обрбатывать с помощью JS-функции, у которой есть доступ к введённым данным, то такая форма называется “управляемым компонентом”. Библиотека Formik.
+Или, другими словами, управляемый компонент - это элемент формы рендер, поведение при пользовательском вводе и значение которого контролирует React.
+class NameForm extends React.Component{
+constructor(props){
+super(props)
+this.state={value:’ ’}
+this.handleChange=this.handleChange.bind(this)
+this.handleSubmit=this.handleSubmit.bind(this)
+}
+handleChange(event) {
+this.setState({value: event.target.value})
+}
+handleSubmit(event){
+alert(‘Отправленное имя: ’ + this.state.value)
+event.preventDefault()			- отменяем действе по умолчанию
+}
+render() {
+return (
+<.form onSubmit={this.handleSubmit}>
+<.label>
+Имя:
+<.input type=”text” value={this.state.value} onChange={this.handleChange}/>
+<./label>
+<.input type=”Submit” value=”Отправить” />
+<./form>
+)
+}
+}
+в атрибуте value всегда будет отражаться React состояние this.state.value, а каждое нажатие клавиш через handleChange будет это состояние изменять и React будет обновлять поле ввода по мере печатанья.
+<.textarea><./textarea> также как <.input /> - 
+<.textarea value={this.state.value} onChange={this.handleChange}>
+Чтобы использовать несколько input’ов нужно каждому дать свой атрибут name.
+<.select>
+<.option value=”grapefruit”>Грейпфрут<./option>
+<.option value=”lime”>Лайм<./option>
+<.option selected value=”coconut”>Кокос<./option>
+<.option value=”mango”>Манго<./option>
+<./select>
+если в value передать массив, то можно выбрать несколько опций:
+<.select multiple={true} value={[‘Б’, ‘В’]}>
+в React выбранный элемент присваивается в конструкторе по умолчанию: this.state={value=’cocnut’}, а потом изменяется через setState: <select value={this.state.value} onChange={this.handleChange}></select>
+Если установить значение value, то пользователь изменить его не сможет: 
+ReactDOM.render(<.input value=”Привет”/>).
+Для любых изменяемых данных в React -приложении должен быть один “источник истины” (state).
+Обычно состояние сначала добавляется к компоненту, которому оно требуется для рендера. Затем, если другие компоненты также нуждаются в нём, вы можете поднять его до ближайшего общего предка.
+Вместо того, чтобы пытаться синхронизировать состояние между различными компонентами, вы должны полагаться на однонаправленный поток данных - это водопад пропсов от родителя к потомку, в который каждый компонент добавляет свой state в виде пропса (props).
+
+Композиция:
+Вместо наследования:
+function FancyBorder(props) {
+return (
+<.div className={‘FancyBorder FancyBorder-’ + props.color}> - поместить в div всё, что выделено 
+{props.children}								тэгом <.FancyBorder>
+<./div>
+)
+}
+function Dialog(props) {
+return (
+<.FancyBorder color=”blue”> - определяю тэг <.FancyBorder> и его содержимое для подстановки
+<.h1 className=”Dialog-title”>
+{props.title}
+<./h1>
+<.p className=”Dialog-message”>
+{props.message}
+<./p>
+<./FancyBorder>
+)
+}
+function WelcomDialog() { - определяю компонент для рендера и задаю значение пропсов
+return (
+<.Dialog
+title=”Welcom”
+message=”Thank you for visiting our spacecraft!” />
+)
+}
+ReactDOM.render(
+<.WelcomDialog />,
+document.getElementById(‘root’)
+)
+
+Ключи:
+Ключи помогают React определить, какие элементы были изменены, добавлены или удалены.
+const todoItems = todos.map((todo) => 
+<.li key={todo.id}>
+{todo.text}
+<./li>
+)
+function NumberList(props) {
+const numbers = props.numbers
+const listItems = numbers.map((number) => - функция map() преобразует массив numbers в список
+<.ListItem
+key={number.toString()}    -ключ нужно определить внутри массива, ключ это строка
+value={number}
+/>
+)
+return (
+<.ul>
+{listItems}
+<./ul>
+)
+}
+или так:
+function NumberList(props) {
+const numbers = props.numbers
+return (
+<.ul>
+{numbers.map((number) => 
+<.ListItem
+key={number.toString()}
+value={number}
+/>
+)}
+<./ul>
+)
+}
+
+Валидирование типов:
+Библиотека prop-types нужна для задания типов переменных: npm i prop-types.
+
+import PropTypes from ‘prop-types’
+
+function Example ({prop1, prop2, prop3}) {...}
+Example.propTypes={
+prop1: PropTypes.object.isRequired,
+prop2: PropTypes.number,
+prop3: PropTypes.func.isRequired,
+}
+export default Example
+
+Условный рендеринг:
+if (isLoggedIn) {
+return <.UserGreeting />;
+}
+return <.GuestGreeting />;
+
+{unreadMessages.length > 0 &&
+<.h2>
+у вас {unreadMessages.length} непрочитанных сообщений.
+<./h2>
+}
+Пользователь <.b>{isLoggedIn ? ‘сейчас’ : ‘не’}<./b> на сайте.
+</pre>-->
+
+  <details><!--Redux-->
+    <summary>Redux</summary>
+    <img src="./img/React/redux.jpg" alt="">
+<!--<pre>
+Весь базовый функционал redux умещается в малюсенький файлик
+
+function createStore(reducer, initialState) {
+let state = initialState
+return {
+dispatch: action => { state = reducer(state, action) },
+getState: () => state,
+}
+}
+
+createStore возвращает объект с полем “dispatch”.
+dispatch - это функция, которая всего лишь применяет редюсер к нашему текущему состоянию
+(newState = reducer(state, action)).
+
+С этими 7 строками уже можно писать TodoApp.
+
+Инициализация хранилища:
+function todosReducer(state, action) {
+switch (action.type) {
+case ‘ADD_TODO’:
+return [
+...state,
+{
+id: action.id,
+text: action.text,
+completed: false
+}
+]
+case ‘TOGGLE_TODO’:
+return state.map(todo => {
+if (todo.id === action.id) {
+return { ...todo, completed: !todo.completed }
+}
+return todo
+})
+default:
+return state
+}
+}
+
+const initialTodos = []
+
+const store = createStore(todoReducer, initialTodos)
+
+Использование:
+store.dispatch({
+type: ‘ADD_TODO’,
+id: 1,
+text: ‘Понять на сколько redux прост’
+})
+
+store.getState()       - [{ id: 1, text: ‘Понять насколько redux прост’, completed: false }]
+store.dispatch({
+type: ‘TOGGLE_TODO’,
+id: 1
+})
+
+store.getState()      - [{ id: 1, text: ‘Понять насколько redux прост’, completed: true }]
+Метод combineReducers позволяет вместо того, чтобы создавать один огромный reducer для всего состояния приложения сразу, разбивать его на отдельные модули.
+
+function counterReducer(state, action) {
+if (action.type === ‘ADD’) {
+return state + 1
+} else {
+return state
+}
+}
+
+const reducer = combineReducers({
+todoState: todoReducer, 
+counterState: counterReducer
+})
+
+const initialState = {
+todoState: [],
+counterState: 0,
+}
+
+const store = createStore(reducer, initialState)
+
+Усли упростить, то:
+function reducer(state, action) {
+return {
+todoState: todoReducer(state, action),
+counterState: counterReducer(state, action),
+}
+}
+
+Но этот код плохо масштабируется. Если у нас 2 “под-состояния”, нам нужно дважды написать (state, action), а хорошие программисты так не делают.
+
+Если редюсоров и стэйтов много, то через обработку коллекции редюсеров:
+function combineReducers(reducersMap) {
+return function combinationReducer(state, action) {
+const nextState = {}
+Object.entries(reducersMap).forEach(([key, reducer]) => {
+nextState[key] =  reducer(state[key], action)
+})
+return nextState
+}
+}
+
+middleware в разрезе redux - это какая-то штука, которая слушает все dispatch и при определенных условиях делает что-то.
+const createStoreWithMiddleware = applyMiddleware(someMiddleware)(createStore)
+const store = createStoreWithMiddleware(reducer, initialState)
+applyMiddleware переопределяет метод dispatch, добавляя перед (или после) обновлением состояния какую-то пользовательскую логику.
+самый популярный middleware от создателей redux - redux-thunk, чаще всего используют при асинхронных операциях.
+Его смысл сводится к тому, что можно передавать в store.dispatch сложные функции
+const thunk = store => dispatch => action => {
+if (typeof action === ‘function’) {
+return action(store.dispatch, store.getState)
+}
+return dispatch(action)
+}
+метод createStore принимал атрибуты (reducer, initialState) и возвращал объект с ключами { dispatch, getSate }.
+метод applyMiddleware берёт уже реализованный метод createStore и переопределяет его возвращаемое значение:
+
+function applyMiddleware(middleware) {
+return function createStoreWithMiddleware(createStore) {
+return (reducer, state) => {
+const store = createStore(reducer, state)
+return {
+dispatch: action => middleware(store)(store.dispatch)(action),
+getState: store.getState,
+}
+}
+}
+}
+
+form:
+import { useDispatch } from ‘react-redux’
+import { createPost } from ‘actions/posts’
+
+const [postData, setPostData] = useState({ creator: ‘ ’, title: ‘ ‘, message: ‘ ‘ })
+const dispatch = useDispatch()
+
+const handleSubmit = (e) => {
+e.preventDefault()
+dispatch(createPost(postData))
+}
+
+action:
+export const createPost = (post) => async (dispatch) => {
+try {
+const { data } = await api.createPost(post)
+dispatch ({ type: ‘CREATE’, payload: data })
+} catch (error) {
+console.log(error)
+}
+}
+
+api:
+export const createPost = (newPost) => axios.post(url, newPost)
+
+server/controllers:
+export const createPost = async (req, res) => {
+const post = req.body;
+const newPostMessage = new PostMessage({   …post, creator: req.userId, createdAt: new Date().toISOString() })
+
+try {
+await newPostMessage.save();
+
+res.status(201).json(newPostMessage);
+} catch (error) {
+res.status(409).json({ message: error.message });
+}
+}
+
+server/models:
+import mongoose from ‘mongoose’
+
+const postSchema = mongoose.Schema({
+title: String,
+message: String,
+name: String,
+creator: String,
+tags: [String],
+selectedFile: String,
+likes: { type: [String], default: [] },
+createdAt: {
+type: Date,
+default: new Date(),
+},
+})
+
+export default mongoose.model(‘PostMessage’, postSchema);
+
+reducers:
+export default (post = [ ], action) => {
+switch (action.type) {
+case ‘FATCH_ALL’:
+return action.payload;
+case  ‘CREATE’:
+return [ …posts, action.payload ];
+default:
+return posts;
+}
+}
+</pre>-->
+  </details>
+</details>
 </pre>
             
             <img src="./img/JS/JS1.png" alt="">
@@ -2294,1707 +3996,6 @@ import() - это не функция, а спец.синтаксис, как su
             <img src="./img/JS/Навигация DOM.png" alt="">
             <img src="./img/JS/Прототип.png" alt="">
             <img src="./img/JS/Синтаксис.png" alt="">
-            <details><!--Browser-->
-              <summary>Browser</summary>
-              <img src="./img/windowJS.png" alt="">
-              <details><!--Window-->
-                  <summary>Window</summary>
-                  <p>Window = globalThis + DOM + BOM - глобальный объект JS в браузере. <br>
-                      Object <- EventTarget <- Window - интерфейс Window наследует свойства интерфейса EventTarget
-                      и реализует свойства из WindowOrWorkerGlobalScope и миксин WindowEventHandlers. <br>
-                      Объект Window реализует интерфейс Window. <br>
-                      У каждого окна и у каждой вкладки свой объект Window.
-                  </p>
-                  <code>
-                      functionsayHi() {       // глобальные функции доступны как методы глобального объекта
-                          alert('Hello');
-                      }
-                      window.sayHi();
-                  </code>
-                  <p>Window.properties: <br>
-                      opener - ссылка на открывающее окно, <br>
-                      closed - true (закрыто), false (открыто), <br>
-                      frames - коллекция объектов window вложенных ифреймов <br>
-                      parent - ссылка на родительское окно <br>
-                      top - ссылка на окно самого верхнего уровня <br>
-  
-                      Window.methods: <br>
-                      open (url, name, params) - открывает новое окно и возвращает ссылку на него. <br>
-                      close() <br>
-                      focus() <br>
-                      blur() <br>
-                      alert("Hello") - показывает сообщение <br>
-                      result = promt(title, [default]); - показывает сообщение и запрашивает у пользователя
-                      ввод текста. Возвращает напечатанный в поле ввода текст или null. <br>
-                      result = confirm (question); - показывает сообщение и ждёт, пока пользователь 
-                      нажмёт ОК или Отмена. Возвращает true если нажата ОК и fasle - если отмена.  <br>
-                      iframe.contentWindow - объект Window внутри тега <.iframe> <br>
-                  </p>
-              </details>
-              <details><!--BOM-->
-                  <summary>BOM</summary>
-                  <p><a href="https://html.spec.whatwg.org/">BOM:</a><br>
-                      Browser Object Model - объектная модель браузера. <br>
-                      Window.navigator - информация о браузере пользователя. <br>
-                      Window.screen - информация об экране пользователя. <br>
-                      Window.location - адресная строка: текущие компоненты. <br>
-                      Window.frames - фреймы и ифреймы. <br>
-                      Window.history - история посещений (url), движения вперед и назад в окне. <br>
-                      Window.XMLHttp Request - встроенный объект для Http запросов к серверу 
-                      без перезагрузки страницы. <br>
-                      Window.document - DOM-документ загруженный в окно.
-                  </p>
-              </details>
-              <details><!--DOM-->
-                  <summary>DOM</summary>
-    <pre><a href="https://dom.spec.whatwg.org/">DOM:</a>
-    Document Object Model - объектная модель документа, представляет всё содержимое страницы в виде объектов.
-    <code>document.body.style.background = "red".
-    Object <- EventTarget <- Node <- Document
-    </code>
-    html-документы представленны в браузере в виде дерева DOM.
-  
-    Веб-воркер — это JavaScript, который работает в фоновом режиме, 
-    независимо от других скриптов, не влияя на производительность страницы. 
-    Вы можете продолжать делать все, что захотите: щелкать, выбирать объекты и т. д.,
-    пока веб-воркер работает в фоновом режиме.
-  
-    <a href="https://learn.javascript.ru/basic-dom-node-properties#klassy-dom-uzlov">Классы DOM-узлов</a>
-  
-    </pre>
-                  <details><!--Node-->
-                  <summary>Node</summary>
-    <pre>
-    <dfn>Node</dfn> - абстрактный класс.
-    Обеспечивает базовую функциональность для всех узлов.
-    Объекты класса Node никогда не создаются, но от него наследуются.
-  
-    Классы:
-    <dfn>Text</dfn> - для текстовых узлов. Содержат текст.
-    <dfn>Comment</dfn> - для узлов-комментариев. Иногда в них можно включить информацию, которая 
-    не будет поазана, но будет доступна в DOM для чтения JS.
-    <dfn>Element</dfn> - для узлов-элементов. HTML-тэги - строительные блоки документа.
-    Обеспечивает навигацию на уровне узлов-элементов и служит базой
-    для классов SVGElement, XMLElement, HTMLElement.
-  
-    Текст, комментарий и тэг - это DOM-узел.
-    Каждый DOM-узел принадлежит своему классу.
-    Для наследования используют классы, основанные на прототипах.
-    Классы формируют иерархию.
-    Весь набор свойств и методов является результатом наследования.
-    DOM-узлы - это обычные JS объекты. Реализация соответствующего класса.
-    DOM-элемент - это JS объект тэга.
-    <dfn>HTMLElement</dfn> - является базовым классом для всех остальных HTML-элементов.
-    От него наследуют элементы:
-    <em>HTMLInputElement</em> - класс для тега <.input>
-    <em>HTMLBodyElement</em> - класс для тега <.body>
-    <em>HTMLAnchorElement</em> - класс для тега <.a>
-    и т.д., 
-    каждому тегу соответствует свой класс, который представляет свойства и методы:
-    <dfn>value</dfn> - значение для <.input>, <.select> и <.textarea> (HTMLInputElement, HTMLSelectElement, ...).
-    <dfn>href</dfn> - адрес ссылки "href" для <.a href="..."> (HTMLAnchorElement).
-    <dfn>id</dfn> - значение атрибута "id" для всех элементов (HTMLElement).
-    <code>
-    console.log(elem) выводит элемент в виде DOM-дерева.
-    console.dir(elem) выводит элемент в виде DOM-объекта, 
-    это удобно для анализа его свойств.
-    </code>
-    Для изменения элементов или проверки DOM-дерева можем использовать инструменты разработчика в браузере.
-    </pre>
-                  </details>
-                  <details><!--DOM-navigation-->
-                  <summary>DOM-navigation</summary>
-                  <img src="./img/DOM.jpg" alt="">
-    <pre><dfn>Дочерние узлы (дети)</dfn> - непосредственные дети-элементы узла.
-    <dfn>Потомки</dfn> - все элементы, внутри данного, ключая детей, их детей и т.д.
-    Коллекция childNodes содержит список всех детей, включая текст.
-    <code>
-    elem.childNodes[0] === elem.firstChild
-    elem.childNodes[elem.childNodes.length-1] === elem.lastChild
-    </code>
-    <dfn>Соседи</dfn> - узлы, у которых один и тот же родитель.
-    <code>
-    <.body> - следующий или правый сосоед <.head>
-    <.head> - предыдущий или левый сосед <.body>
-    const bodyElement = document.body;
-    const firstChildNode = bodyElement.firstChild; - первый узел
-    const lastChildNode = bodyElement.lastChild; - последний узел
-  
-    const childNodes = bodyElement.childNodes; - список всех детей (узлов) объекта 
-                                      (в данном случае body) в виде коллекции
-    bodyElement.hasChildNodes() - проверяет есть ли дочерние узлы у объекта true or false
-  
-    Коллекция - это псевдомассив:
-    можно перебирать с помощью for ( of ) {} и forEach()
-    методы массива не работают
-    изменять элемент коллекции как в массиве не получится, только через специальные методы
-  
-    bodyElement.previousSibling; - предыдущий соседний узел
-    bodyElement.nextSibling; - следующий соседний узел
-    bodyElement.parentNode; - родительский узел
-  
-    Для элементов (тегов):
-    bodyElement.childNodes; - получаем коллекцию всех дочерних узлов
-    bodyElement.children; - получаем коллекцию всех дочерних элементов (тегов)
-    bodyElement.firstElementChild; - первый элемент
-    bodyElement.lastElementChild; - последний элемент
-    bodyElement.previousElementSibling; - предыдущий соседний элемент
-    bodyElement.nextElementSibling; - следующий соседний элемент
-    bodyElement.parentElement; - родительский элемент
-  
-    Поиск произвольного элемента:
-    elem.querySelectorAll(CSS); - возвращает статичную коллекцию со всеми элементами внутри elem,
-                      соответствующие указанному CSS-селектору
-                      (класс (с точкой впереди), тег, вложенные теги, атрибут, id и т.д.)
-          проверяет только последний указанный в CSS-селекторе элемент без учета контекста
-          используется чаще других
-    querySelector(CSS); - ищет и возвращает первый попавшийся объект по указанному CSS-селектору
-    document.getElementById(id без решетки); - ищет и возвращает элемент по id,
-                                      ищет только в document
-    getElementsByTagName(тег); - возвращает живую коллекцию, ищет где угодно
-    getElementsByClassName(класс без точки впереди); - возвращает живую коллекцию, ищет где угодно
-    document.getElementsByName(атрибут name); - возвращает живую коллекцию, ищет только в document
-    живая коллекция - содержит в себе всегда актуальную информацию с учетом изменений в дереве DOM
-    <img src="./img/querySelector.png" alt="">
-  
-    elem.closest(css) - ищет ближайшего предка, который соответствует указанному css-селектору
-    elem.matches(css) - ничего не ищет, проверяет соответствует ли элемент css селектору,
-              возвращает true or false
-  
-    const textElement = document.querySelector('.someClass__text'); - получил объект
-    const textElementContent = textElement.innerHTML; - получил содержимое объекта как есть
-    textElement.innerHTML = `Новое содержимое объекта`; - заменил содержимое объекта
-  
-    const textElement = document.querySelector('.someClass__text'); - получил объект
-    const textElementContent = textElement.outerHTML; - получил содержимое объекта и сам объект
-    textElement.outerHTML = `<.p>Новое содержимое объекта<./p>`; - заменил сам объект
-  
-    const textElement = document.querySelector('.someClass__text'); - получил объект
-    const textElementContent = textElement.textContent; - получил содержимое объекта без тегов
-    textElement.textContent = `<.p>Новое содержимое объекта<./p>`; - заменил содержимое объекта,
-                                                      но теги вставляються как текст
-                                  позволяет записывать получаемый текст безопасно
-  
-    const textElement = document.querySelector('.someClass__text'); - получил объект с классом .someClass__text
-    const getComment = textElement.nextSibling; - получил следующий объект - комментарий
-    console.log(getComment.data); - вывел текст комментария в консоль
-    getComment.data = `Новый текст`; - заменил текст комментария
-    </code>
-    <ul>Методы поиска элементов в DOM:
-    <li>querySelector - ищет внутри элемента по CSS-selector</li>
-    <li>querySelectorAll - </li>
-    <li>getElementById - ищет по id</li>
-    <li>getElementsByName - возвращает коллекцию, ищет по имени</li>
-    <li>getElementsByTagName - возвращает коллекцию, ищет внутри элемента по тегу или "*"</li>
-    <li>getElementsByClassName - возвращает коллекцию, ищет внутри элемента по class</li>
-    <li>elem.matches(css) - проверяет, удовлетворяет ли элемент CSS-селектору</li>
-    <li>elem.closest(css) - ищет ближайшего предка</li>
-    <li>elemA.contains(elemB) - вернет true если elemB находится внутри elemA или elemA == elemB</li>
-    </ul></pre>
-                  </details>
-                  <details><!--Document-->
-                  <summary>Document</summary>
-    <pre>Document - интерфейс доступа к узлам, его реализует объект document.
-    <code>document - объект DOM, входная точка в DOM
-    const htmlElement = document.documentElement; - получить объект html со всем его содержимым
-    const headElement = document.head; - получить объект head со всем его содержимым
-    const bodyElement = document.body; - получить объект body со всем его содержимым
-    </code>
-    DOMContentLoaded генерируется на document, когда DOM готов и к нему можно применить JS.
-    Изображения и другие ресурсы (стили и т.п.) всё ещё могут продолжать загружаться.
-    window.onload - страница и все ресурсы загружены
-    window.beforeunload - пользователь покидает страницу. Если отменить событие, то браузер спросит хочет ли пользователь уйти.
-    window.unload - пользователь окончательно уходит, можно сделать сетевой запрос.
-    document.readyState - текущее состояние загрузки документа.
-    Изменения можно отследить с помощью события readyStateChange:
-    loading - документ грузится
-    interactive - документ прочитан, происходит перед DOMContentLoaded
-    complete - документ и ресурсы загружены, происходит перед window.onload
-  
-    Скрипт должен дождаться пока загрузятся стили.
-    Скрипты <.script>...<./script> или <.script src="..."><./script> блокируют DOMContentLoaded.
-    Скрипты созданные через document.createElement('script'), добавленные на страницу и скрипты с атрибутами async или defer не блокируют DOMContentLoaded.
-    Динамически загружаемые скрипты по умолчанию ведут себя как async,
-    script.async = false; - отмена async-поведения
-    let script = document.createElement('script');
-    script.src = "путь/к/скрипту";
-    document.body.append(script);
-  
-    async - скрипты выполняются по загрузке, DOMContentLoaded не имеет значения.
-    defer - скрипты выполняются по расположению в докумете. Скрипт ждёт загружки документа выполняется перед DOMContentLoaded.
-    defer работает только у внешних скриптов - у которых есть src="...", все элементы с src="..." дают события:
-    load - при успешной загрузке,
-    error - при ошибке
-    <.iframe> - исключение: всегда даёт load, даже при ошибке.
-    Событие readystatechange также работает для ресурсов.
-    Обработчики onload/onerror отслеживают только сам процесс загрузки.
-    Window.onerror - позволяет "поймать" ошибки в скрипте.
-    Скрипт одного сайта не может получить детали ошибки скрипта с другого сайта, нужно поставить тегу <.script> атрибут crossorigin и специальные заголовки на удалённом сервере.
-    MutationObserver - встроенный объект, наблюдающий за DOM-элементом и запускающий колбэк в случае изменений.
-    let observer = newMutationObserver(callback); - создать наблюдатель
-    observer.observe(node, config); -  прикрепить наблюдателя к DOM-узлу.
-    observer.disconnect(); - останавливает наблюдение.
-    observer.takeRecords(); - получает список необработанных записей измененений, которые произошли, но колбэк для них ещё не выполнился.
-  
-    В основе выделения лежит Range(диапозон) - пара граничных точек: начало и конец диапозона.
-    Range - общий, объект для управления диапозоном.
-    Выделение в документе представлено объектом Selection, который можно получить как window.getSelection() или document.getSelection().
-    Selection (выделение) имеет начальную границу (якорь) и конечную (фокус).
-    <ul>Основные свойства выделения:
-    <li>anchorNode - узел начала выделения</li>
-    <li>anchorOffset - смещение в anchorNode, где начинается выделение</li>
-    <li>focusNode - узел окончания выделения</li>
-    <li>focusOffset - смещение в focusNode, где выделение заканчивается</li>
-    <li>inCollapsed - true, если диарозон выделения пуст или не существует</li>
-    <li>rangeCount - количество диапозонов в выделении</li>
-    </ul>
-    document.cookie предоставляет доступ к куки:
-    - операция записи изменяет только те куки, которые было указано
-    - имя и значение куки должны быть закодированы
-    - одно уки вмещает до 4 kb данных, количество куки зависит от браузера.
-    <ul>Настройки куки:
-    <li>path = / - по умолчанию текущий путь, делает куки видимыми только по указанному пути и ниже</li>
-    <li>domain = site.com - по умолчанию куки видно только на текущем домене, если явно указан домен, то куки видно и на поддоменах</li>
-    <li>expires или max-age - устанавливает дату истечения срока действия, без них куки умрёт при закрытии браузера.</li>
-    <li>secure - делает куки доступными только при использовании HTTPS</li>
-    <li>somesite - запрещает браузеру отправлять куки с запросами, поступающими извне, помогает предотвратить XSRF-атаки</li>
-    </ul>
-    Методы создания узлов:
-    document.createElement(tag) - создаёт элемент с заданным тегом
-    document.createTextNode(value) - создаёт текстовый узел
-    document.write(html) - добавляет html на страницу до завершения её загрузки.
-    После загрузки затирает начальный документ.
-    const newElement = document.createElement(`div`); - создал элемент: тег div
-    const newText = document.createTextNode(`Новый текст`); - создал текстовый узел
-    elem.cloneNode(deep) - клонирует элемент, если deep == true, то со всеми дочерними элементами.
-  
-    Вставка и удаление узлов:
-    node.append(...nodes or strings) - вставляет в node в конец
-    node.prepend(...nodes or strings) - вставляет в node в начало
-    node.before(...nodes or strings) - вставляет прямо перед node
-    node.after(...nodes or strings) - вставляет сразу после node
-    node.replaceWith(...nodes or strings) - заменяет node
-    node.remove() - удаляет node
-    elem.beforebegin - вставляет html прямо перед elem
-    elem.afterbegin - вставляет html в elem в начало
-    elem.beforeend - вставляет html в elem в конец
-    elem.afterend - вставляет html сразу после elem
-    elem.insertAdjacentText - вставляет текстовые строки
-    elem.insertAdjacentElement - вставляет элементы
-    textElement.before(newElement); - вставил newElement перед textElement
-    textElement.after(newElement); - вставил newElement после textElement
-    textElement.prepend(newElement); - вставил newElement в начало внутри объекта textElement
-    textElement.append(newElement); - вставил newElement в конец внутри объекта textElement
-    либо
-    textElement.append(newElement, `Новый текст`); - можно вставлять через запятую,
-                                      но теги вставляються как текст
-    <img src="./img/elem.png" alt="">
-    textElement.insertAdjacentHTML('pos', `ins`); - позволяет вставить в DOM что угодно
-                      pos - место вставки по отношению к textElement
-                          beforebegin - вставить перед textElement
-                          afterbegin - вставить в начало textElement
-                          beforeend - вставить в конец textElement
-                          afterend - вставить после textElement
-                      ins - то что вставляем, позволяет вставить теги
-    insertAdjacentText();
-    insertAdjacentElement();
-    <img src="./img/elem1.png" alt="">
-    textElement.append(oldElement); - перенес существующий oldElement в конец textElement
-    let cloneOldElement = oldElement.cloneNode(); - клонировал без дочерних элементов
-    let cloneOldElement = oldElement.cloneNode(true); - клонировал с дочерними элементами
-    textElement.remove(); - удаление объекта
-    const elementClassNames = element.className; - получил все классы объекта element
-    element.className = "red"; - заменил все классы на класс red
-    element.classList.add('active'); - добавить класс
-    element.classList.remove('active'); - удалить класс
-    element.classList.toggle('active'); - добавить класс если его нет, а если есть, то удалить
-    element.classList.contains('active'); - проверяет наличие класса, возвращает true or false
-    element.style.color = "red"; - получаем доступ к атрибуту style HTML-тега и задаём цвет
-    console.log(element.style.marginBottom); - вывод в консоль значения css-свойство атрибута style
-                              HTML-тега объекта element
-    element.style.color = ""; - удалил css-свойство из атрибута style HTML-тега
-    element.style.cssText = `
-    margin-bottom: 30px;
-    color: red;
-    `; - записываю сразу несколько css-свойств в атрибут style, перезаписывает style полностью
-    const elementStyle = getComputedStyle(element); - получил вычисленные стили элемента
-    console.log(elementStyle.fontSize); - выводим вычисленое значение размера шрифта
-    const elementBeforeStyle = getComputedStyle(element, "::before"); - получил стили псевдоэлемента
-    console.log(elementBeforeStyle.backgroundColor); - выводим цвет фона, который реализован
-                                          с помощью ::before
-    getComputedStyle(); - работает только для чтения
-    const paddingLeft = parseInt(elementStyle.paddingLeft); - сразу перевожу значение из строки в число
-    element.style.marginLeft = "20px"; - задавать значения всегда с единицами измерения
-    <ul>Устаревшие методы (возвращают node):
-    <li>parent.appendChild(node)</li>
-    <li>parent.insertBefore(node, nextSibling)</li>
-    <li>parent.removeChild(node)</li>
-    <li>parent.replaceChild(newElem, node)</li>
-    </ul>
-  
-    document.forms - живая коллекция всех форм на странице document.forms[name/index]
-    Элементы <.form> или <.fieldset> доступны через form.elements[name/index] или form[name/index].
-    Элементы хранят ссылку на свою форму в свойстве element.form.
-    Значения элементов формы доступны через input.value, textarea.value, select.value и т.д. либо input.cheked для чекбоксов и переключателей.
-    Для <.select> можно получить индекс выбранного пункта через: select.selectedIndex либо select.options.
-    Элемент получает фокус когда пользователь кликает по нему или использует Tab.
-    HTML-атрибут auto-focus - устанавливает фокус при загрузке страницы.
-    HTML позволяет делать валидацию с помощью атрибутор required, pattern и т.д.
-    События focus и blur срабатывают на фокусировке/потере фокуса элемента и не всплывают, но можно использовать фазу перехвата или focusin/focusout.
-    tabindex делает фокусируемым любой элемент.
-    document.activeElement - текущий элемент с фокусом.
-    const form = document.forms[0] - получить форму по индексу коллекции
-    const form = document.forms.main - по аттрибуту тега name (name="main")
-  
-    document.querySelectorAll('form') - неживая коллекция
-  
-    const form = document.forms.main
-    console.log(form.elements) -  вывел элементы формы
-  
-    focus, blur - события не всплывают
-    focus(), blur() - методы. Аттрибут taindex = -1 на клавишу tab не реагирует,
-                      но можно установить фокус на елемент методом
-    document.activeElement - получаем текущий элемент с фокусом 
-    focusin / focusout - события всплывают
-  
-    <dfn>События изменения данных:</dfn>
-    change - значение изменено. срабатывает в текстовом поле при потере фокуса, в остальных полях при выборе.
-    input - значение изменено. Срабатывает немедлено при каждом изменении текстового поля.
-    cut/copy/paste - свойство event.clipboardData даёт доступ на чтение/запись в буфер.
-    cut - событие, срабатывает при вырезании
-    copy - событие, срабатывает при копировании
-    paste - событие, срабатывает при вставке
-    submit - событие отправки данных формы, при form.submit() - форма отправится при потере фокуса
-    event.preventDefault() - запретит выполнение события
-  
-    <dfn>Отправка формы:</dfn>
-    Нажать кнопку <.input type="submit"> или <.input type="image">
-    Нажать Enter на любом поле
-    При отправке формы по нажатию Enter в текстовом поле, генерируется событие click на кнопке <.input type="submit">
-    При отправке формы срабатывает событие submit, оно используется для проверки формы перед её отправкой на сервер или для отмены отправки и обработки её с помощью JS.
-    form.submit() позволяет отправить форму из JS. Используют для создания и отправки собственных форм на сервер, при этом событие submit не генерируется.
-    scroll - событие прокрутки позволяет реагировать на прокрутку страницы или элемента.
-    window.addEventListener('scroll', function() {
-    document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
-    });
-    </pre>
-                  </details>
-                  <details><!--EventTarget-->
-                  <summary>EventTarget</summary>
-    <pre>
-    <dfn>EventTarget</dfn> - это абстрактный класс.
-    Обеспечивает поддержание DOM-узлами событий.
-  
-    <dfn>Event</dfn>(<i>Событие</i>) - сигнал от браузера о том, что что-то произошло.
-    Событию можно назначить обработчик - функцию, которая сработает, как только событие произошло.
-    Способы назначения обработчиков событий:
-    Атрибут HTML: onclick="...".
-    DOM-свойство: elem.onclick = function.
-    Методы: elem.addEventListener(event, handler[, phase]) для добавления
-    event - имя события, например "click".
-    handler - ссылка на фуекцию обработчик.
-    <ul>options - дополнительный объект со свойствами:
-    <li>once: если true, тогда обработчик будет удалён после выполнения.</li>
-    <li>capture: фаза, на которой должен сработать обработчик (false/true)</li>
-    <li>passive: если true, то обработчик не вызовет preventDefault()</li>
-    </ul>
-    Обработчик всегда хранится в свойстве DOM-объекта, а атрибут - лишь один из способов его инициализации.
-    В DOM-свойстве один обработчик на один тип события, так как одно имя - одно свойство.
-    Методы - самый гибкий и используемый способ.
-    addEventListener поддерживает объекты в качестве обработчиков событий, вызывая метод объекта object.handleEvent(event).
-    Убрать обработчик elem.onclick = null.
-    Не используй setAttribute для обработчиков.
-    Регистр DOM-свойства имеет значение, а HTML-атрибута - нет.
-    Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его в качестве аргумента функции-обработчику.
-    Любой обработчик получает объект события первым аргументом
-    event.type - тип события, например "click"
-    event.clientX/event.clientY - координаты курсора для событий мыши в момент клика относительно окна.
-  
-    События:
-    onclick="JScode" - обработчик события, аттрибут тега.
-    const button = document.querySelector('.button');
-    button.onclick = function () {}; - нет возможности повесить на одно событие несколько обработчиков
-    либо
-    function showClick() {}
-    button.onclick = showClick; - нет возможности повесить на одно событие несколько обработчиков
-  
-    button.addEventListener("click", function (e) {}); - можно назначить обработчик несколько раз
-    либо
-    button.addEventListener("click", func);
-    function func(e) {}
-  
-    button.removeEventListener(event, handler); - отключает обработчик
-  
-    button.addEventListener(event, handler, options); - можно добавить параметры
-    const options {
-    "capture: false", - фаза, на которой должен сработать обработчик (всплытие/погружение)
-    "once": false, - если true, тогда обработчик будет удален после выполнения
-    "passive": false - если true, то обработчик никогда не вызовет preventDefault()
-    }
-    либо
-    button.addEventListener("click", func, {"once": true});
-  
-    Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его
-    в качестве аргумента (event) функции - обработчику:
-    event.type - тип события
-    event.target - объект, на котором сработал обработчик
-    event.currentTarget - объект, которому назначен обработчик
-    event.clientX - положение курсора по Х
-    event.clientY - положение курсора по Y
-    console.log(evant) - посмотреть все детали события
-    event.stopPropagation(); - остановка всплытия
-    Делегирование - вешаем прослушку на родителя
-    Отмена действий браузера по умолчанию:
-    event.preventDefault(); - для addEventListener
-    либо
-    button.addEventListener("click", func, {"passive": true});
-  
-    link.onclick = function () { - для onclick
-    return false;
-    }
-  
-    <dfn>Всплытие и погружение:</dfn>
-    целевой элемент (event.target) - самый глубоко вложенный элемент, над которым произошло событие.
-    Сначала событие двигается вниз (погружение) от корня документа к event.target, по пути вызывая обработчики, поставленные через addEventListener(..., true),
-    где true - сокращенно {capture: true}
-    Далее обработчики на целевом элементе.
-    Потом событие двигается от event.target вверх к корню документа, по пути вызывая обработчики, поставленные через on<.event> и addEventListener без третьего аргумента
-    или с третьим аргументом равным fasle.
-    <ul>Каждый обработчик имеет доступ к свойствам события event:
-    <li>event.target - самый глубокий элемент, на котором произошло событие</li>
-    <li>event.currentTarget(=this) - элемент, на котором в данный момент сработал обработчик (тот, на котором "висит" конкретный обработчик)</li>
-    <li>event.eventPhase - не какой фазе он сработал: (погружение = 1, фаза цели = 2, всплытие = 3)</li>
-    </ul>
-    Любой обработчик может остановить событие вызовом event.stopPropagation().
-    Всплытие и погружение являются основой для делегирования событий.
-    Делегирование событий используется при схожей обработке многих элементов.
-    Вешаем обработчик на контейнер.
-    В обработчике проверяем целевой элемент event.target.
-    Если событие произошло на нужном элементе, то обрабатываем его.
-    <ul>Использование
-    <li>Упрощает процесс инициализации и экономит память: не нужно вешать много обработчиков.</li>
-    <li>Меньше кода: при добавлении и удалении элементов не нужно ставить или снимать обработчики.</li>
-    <li>Удобство изменений DOM: можно массово добавлять или удалятьэлементы путём изменения innerHTML и ему подобных.</li>
-    </ul>
-    Событие должно всплывать. Низкоуровневые обработчики не должны вызывать event.stopPropagation().
-    Два способа отменить действие браузера по умолчанию:
-    - event.preventDefault() - основной способ
-    либо
-    - <.a href="/" onclick = "event.preventDefault()">здесь<./a>
-    Опция passive: true для addEventListener сообщает браузеру, что действие по умолчанию не будет отменено.
-    Это сообщит браузеру, что он не должен ждать выполнения всех обработчиков, а ему следует сразу приступать к выполнению действия по умолчанию, например к прокрутке.
-    event.defaultPrevented равно true если событие по умолчанию отменено, иначе false.
-    Чтобы сгенерировать событие из кода, вначале нужно создать объект события
-    let event = newEvent(name[, options]);
-    Базовый конструктор Event(name, options) принимает обязательное имя события и options - объект с тремя свойствами:
-    - bubbles: true - чтобы событие всплывало
-    - cancelable: true - если нужно, чтобы работал event.preventDefault()
-    - composed: true/false - если true, то событие будет всплывать наружу за пределы Shadow DOM.
-    По умолчанию все три свойства - false: {bubbles: false, canselable: false, composed: false}.
-    elem.dispatchEvent(event) - запускает объект события на элементе.
-    event.isTrusted - true для событий от пользователя и false для генерирующих.
-    on<.event> - для встроенных событий, addEventListener - для генерируемых.
-    При создании встроенных событий использовать конструкторы встроенных событий (newMouseEvent("click") и др.)
-    Для пользовательских событий применять конструктор CustomEvent.
-    event.detail позволяет передавать информацию в объекте события.
-    Генерировать встроенные события в случаях:
-    - явный грубый хак, чтобы заставить работать сторонние библиотеки, если нет другого способа.
-    - скриптом нажать на кнопку для автоматического тестирования.
-  
-    <dfn>События мыши:</dfn>
-    click - кликнули на элемент левой кнопкой мыши (на устройсвах с сенсорными экранами - при касании).
-    contextmenu - происходит, когда кликнули на элемент правой кнопкой мыши
-    mouseover/mouseout - когда мышь наводится на/покидает элемент.
-    mousedown/mouseup - когда нажали/отжали кнопку мыши на элементе.
-    mousemove - при движении мыши.
-    Комплексные события состоят из простых, обработчики событий вызываются в следующем порядке: mousedown -> mouseup -> click
-    Свойство события мыши which - какая кнопка мыши нажата:
-    - event.which == 1 - левая кнопка
-    - event.which == 2 - средняя кнопка
-    - event.which == 3 - правая кнопка
-    Клавиши - модификаторы (true если нажаты): altKey, ctrKey и metaKey (Mac).
-    В Мас обычно Cmd вместо ctrl, поэтому лучше проверить: if(e.metaKey || e.ctrlKey).
-    Координаты относительно окна: clientX, clientY.
-    Координаты относительно документа: pageX/pageY.
-    Запрет копирования: <.div oncopy = "alert('Копрование запрещено!'); return false">
-    При быстром движении мыши события не будут возникать на промежуточных элементах.
-    Браузер периодически проверяет позицию курсора и при изменении генерирует событие mousemove.
-    Если был mouseover, то будет и mouseout.
-    События mouseover/out и mouseenter/leave имеют дополнительное свойство relatedTarget.
-    Для события mouseover:
-    event.target - это элемент, на который курсор пришёл.
-    event.relatedTarget - это элемент, с которого курсор пришёл (target -> relatedTarget)
-    event.relatedTarget равно null - указатель мыши пришёл из-за или ушёл за пределы окна.
-    В любой момент времени указатель может быть только над одним элементом - над самым глубоко вложенным.
-    События mouseover/out возникают, когда происходит переход с родительского элемента на потомка.
-    События mouseenter/leave не всплывают и генерируются, когда курсор переходит или уходит на элемент в целом (без учёта потомков).
-  
-    Простые:
-    mousedown / mouseup - кнопка мыши нажата / отпущена над элементом
-    mouseover / mouseout - курсор мыши появляется над элементом и уходит с него
-  
-    mouseover:
-    event.target - элемент откуда ушёл курсор
-    event.relatedTarget - элемент куда ушёл курсор
-  
-    mouseout:
-    event.target - элемент куда пришёл курсор
-    event.relatedTarget - элемент откуда пришёл курсор
-  
-    mousemove - каждое движение мыши над элементом генерирует это событие
-    contextmenu - вызывается при попытке открытия контекстного меню
-  
-    Комплексные
-    click - mousedown и mouseup над одним и тем же элементом
-    dblclick - двойной клик на элементе
-  
-    event.which = 1 - нажата основная кнопка мыши (левая)
-    event.which = 2 - нажата средняя кнопка мыши (колесо)
-    event.which = 3 - нажата не основная кнопка мыши (правая)
-  
-    mouseover / mouseout - всплывают, можно использовать делегирование,
-    mouseenter / mouseleave - нет
-  
-    <em>Базовый алгоритм Drag'n'Drop.</em>
-    При mousedown - готовим элемент к перемещению (если нужно создаём его копию).
-    При mousemove передвигаем элемент на новые координаты путём смены left/top и position: absolute.
-    При mouseup - остановить перенос элемента и произвести окончание Drag'n'Drop.
-    Ключевые идеи:
-    object.mousedown -> document.mousemove -> object.mouseup
-    (обязательно отменить браузерный ondragstart)
-    В начале перетаскивания запоминаем начальное смещение указателя относительно элемента(shiftX/shiftY) и сохраняем его при перетаскивании.
-    Выявляем потенциальные цели переноса под указателем с помощью document.elementFromPoint.
-    На mouseup завершить перенос: изменить данные, переместить элементы.
-    События указателя (Pointer events) одновременно обрабатывают действия мыши, касания пера.
-    Содержат свойства мыши и дополнительно свои:
-    pointerId - идентификатор указателя, вызвавшего событие, генерируется браузером, позволяет обрабатывать несколько указателей (стилус и мультитач).
-    pointerType - тип указывающего устройства. Строка с одним из значений: "mouse", "pen" или "touch".
-    isPrimary - равно true для основного указателя (первый палец в мультитач).
-    При обработке переносов и сложных касаний нужно отменить действие браузера и ставить touch-events: none в CSS для элементов.
-    Можно перенаправить (захватить) все события указателя на определённый элемент до наступления события pointerup/pointercancel.
-    Два связанных с захватом события:
-    getpointercapture срабатывает, когда элемент использует setPointerCapture для включения захвата.
-    lostpointercapture срабатывает при освобождении от захвата:
-    - явно с помощью releasePointerCapture или
-    - автоматически при событии pointerup/pointercancel.
-    Сбытия указателя - мыши:
-    pointerdown - mousedown
-    pointerup - mouseup
-    pointermove - mousemove
-    pointerover - mouseover
-    pointerenter - mouseenter
-    pointerleave - mouseleave
-    pointercancel - 
-    getpointercapture - 
-    lostpointercapture - 
-  
-    События клавиатуры:
-    keydown - происходит при нажатии клавиши
-    keyup - при отпускании клавиши
-    event.code - код нажатой клавиши ("KeyA", "ArrowLeft" и т.д.)
-    event.key - клавиша с учетом регистра и раскладки клавиатуры символ ("A", "a" и т.д.)
-    event.repeat - вернет true при срабатывании повтора на зажатой клавише
-    Нажатие клавиши всегда генерирует клавиатурное событие, кроме клавиши Fn.
-  
-    Прокрутка:
-    scroll - событие прокрутки
-    scrollY - количество прокрученных пикселей по вертикали
-    scrollX - количество прокрученных пикселей по горизонтали
-  
-    Загрузка:
-    DOMContentLoaded - браузер полностью загрузил HTML, построил DOM-дерево, 
-              но внешние ресурсы могут быть ещё не загружены
-              срабатывает на объекте document
-    load - браузер полностью загрузил HTML, и внешние ресурсы
-              срабатывает на объекте window
-    beforeunload / unload - пользователь покидает сраницу
-    beforeunload - можем вывести пользователю предупреждение о несохраненных данных в форме
-    unload - пользователь уже ушёл состраницы, но можно поручить браузеру собрать статистику
-  
-    document.readyState - состояние загрузки:
-    loading - документ загружается
-    interactive - документ был полностью прочитан
-    complete - документ был полностью прочитан и все ресурсы загружены
-  
-    События, отправленные сервером (SSE), позволяют веб-странице получать обновления с сервера.
-    В случае событий, отправленных сервером, обновления приходят автоматически.
-    </pre>
-                  </details>
-                  <details><!--Properties-->
-                  <summary>Properties</summary>
-    <pre>
-    Когда браузер загружает страницу, он читает (парсит) HTML и генерирует DOM-объекты.
-    Для узлов-элементов большинство стандартных HTML-атрибутов автоматически становятся
-    свойствами DOM-объектов.
-    У каждого тега свои атрибуты:
-    Атрибуты написаны в HTML, свойства - в DOM-объектах.
-    Можно изменять DOM-узлы добавляя своё свойство.
-    <ul>Методы для работы с атрибутами:
-    <li>elem.hasAttribute(name) - проверить на наличие</li>
-    <li>elem.getAttribute(name) - получить значение</li>
-    <li>elem.setAttribute(name, value) - установить значение</li>
-    <li>elem.removeAttribute(name) - удалить атрибут</li>
-    <li>elem.attributes - коллекция всех атрибутов</li>
-    </ul>
-    <ul>Свойства:
-    <li>nodeType - тип DOM-узла.
-    Только для чтения.
-    Его значение-числовое: 1- элементы, 3 - текстовые узлы и т.д.
-    </li>
-    <li>nodeName/tagName - возвращает название тега.
-    Только для чтения.
-    Для узлов - неэлементов описывает, что за узел.
-    </li>
-    <li>innerHTML - внутренее HTML-содержимое узла-элемента.
-    Изменяемый.
-    С innerHTML вставка происходит "как HTML", со всеми HTML-тегами.
-    </li>
-    </ul>
-    console.dir(element); - выведет список доступных свйоств DOM-объекта element
-    element.hasAttribute('some-name'); - проверить наличие аттрибута name
-    element.getAttribute('some-name'); - получить значение аттрибута name
-    element.setAttribute('some-name', value); - создать аттрибут (some-name) и 
-                              установить в него значение (value)
-    element.removeAttribute('some-name'); - удалить аттрибут name
-    element.tagName - показывает какой тег у объекта
-    element.hidden = true; - скрыть или показать объект
-    Размеры и координаты
-    const mainElement = document.documentElement; - получил объект html
-    const mainElementWidth = mainElement.clientWidth; - доступная ширина окна без прокрутки
-    const mainElementHeight = mainElement.clientHeight; - доступная высота окна без прокрутки
-  
-    const windowWidth = window.innerWidth; - ширина окна с полосой прокрутки
-    const windowHeight = window.innerHeight; - высота окна с полосой прокрутки
-  
-    Ширину и высоту всего документа (включая прокрученную часть) можно найти:
-    let scrollWidth = Math.max(
-    document.body.scrollWidth, document.documentElement.scrollWidth,
-    document.body.offsetWidth, document.documentElement.offsetWidth,
-    document.body.clientWidth, document.documentElement.clientWidth,
-    );
-  
-    let scrollHeight = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight,
-    );
-    Метрики <img src="./img/metrics.png" alt="">
-    element.offsetParent; - получаем родительский элемент, относительно которого позиционирован element
-    element.offsetLeft; - отступ слева от родительского элемента element.offsetParent
-    element.offsetTop; - отступ сверху от родительского элемента element.offsetParent
-    element.offsetWidth; - общая ширина element
-    element.offsetHeight; - общая высота element
-    element.clientTop; element.clientLeft; - отступы внутренней части element от внешней
-    element.clientWidth; element.clientHeight; - размеры объекта без рамок и полосы прокрутки
-    element.scrollWidth; element.scrollHeight; - размеры объекта без рамок и полосы прокрутки,
-                                      включая прокручиваемую часть внутри объекта
-    element.scrollLeft; element.scrollTop; - размеры прокрученной области внутри объекта, 
-                                  можно считывать и задавать значения
-                                  к объекту можно применять scrollBy, scrollTo, scrollIntoView
-    element.getBoundingClientRect(); - получить координаты относительно окна браузера
-    element.getBoundingClientRect().top + window.pageYOffset; - получить координаты относительно документа
-    const elem = document.elementFromPoint(x, y); - узнать какой элемент находится по указанным
-                                  координатам (координаты относительно окна браузера)
-  
-    data-аттрибут - для ввода нестандартных аттрибутов:
-    element.dataset.size = "1024"; - установил в аттрибут data-size значение 1024
-    <code><.script>
-    alert(document.body.innerHTML); - читаем текущее содержимое
-    document.body.innerHTML = 'Новый BODY!'; - заменяем содержимое
-    <./script></code>
-    Если innerHTML вставляет в документ тег <.script> - он становится частью HTML, но не запускается.
-    <dfn>outerHTML</dfn> - полный HTML узла-элемента.
-    Запись в elem.outerHTML заменяет elem во внешнем контексте.
-    <code><.div id = "elem">Привет <.b>Мир</.b><./div>
-    <.script>
-    alert(elem.outerHTML); - <.div id = "elem">Привет <.b>Мир</.b><./div>
-    <./script></code>
-    <dfn>textContent</dfn> - текст внутри элемента: HTML за вычетом всех <.тегов>.
-    Запись в него помещает текст в элемент, при этом все спецюсимволы и теги интерпретируются как текст.
-    Можно использовать для защиты от вставки произвольного HTML кода.
-    <dfn>hidden</dfn> - если true, то скрывает элемент.
-    <dfn>nodeValue и data</dfn> - содержимое узла-неэлемнта (текст, комментарий).
-    Обычно используют data. Изменяемый.
-    <code><.body>
-    Привет
-    <.!--Комментарий-->
-    <.script>
-    let comment = text.nextSibling;
-    alert(comment.data); - Комментарий
-    <./script>
-    <./body>
-  
-    JS может прочитать if из свойства data и обработать инструкции:
-    <.!--if isAdmin-->
-    <.div>Добро пожаловать, Админ!<./div>
-    <.!--/if--></code>
-    Лучше использовать DOM-свойства. Атрибуты используем тогда, когда нужны именно атрибуты.
-    Например нестандартный атрибут. Если он начинается с data-, то нужно использовать dataset.
-    <.body data-about = "Elephants">
-    <.script>
-    alert(document.body.dataset.about); - Elephants
-    <./script>
-    Атрибут из нескольких слов data-order-state это свойство dataset.orderState
-    <ul>Геометрические свойства (метрики) DOM-элементов
-    <li><em>offsetParent</em> - ближайший CSS-позиционированный родитель или td, th, table, body.</li>
-    <li><em>offsetLeft/offsetTop</em> - позиция в пикселях верхнего левого угла offsetParent.</li>
-    <li><em>offsetWidth/offsetHeight</em> - внешняя ширина/высота элемента, включая рамки.</li>
-    <li><em>clientLeft/clientTop</em> - это border - отступ внутренней части элемента от внешней.</li>
-    <li><em>clientWidth/clientHeight</em> - ширина/высота сожержимого вместе 
-    с внутренними отступами padding, но без полосы прокрутки.</li>
-    <li><em>scrollWidth/scrollHeight</em> - ширина/высота содержимого с учетом 
-    прокрученной (невидимой) области элемента.</li>
-    <li><em>scrollLeft/scrollTop</em> - ширина/высота прокрученной сверху части элемента,
-    считается от верхнего левого угла.</li>
-    </ul>
-    Все кроме scrollLeft/scrollTop доступны только для чтения.
-    Если элемент, или любой его родитель, имеет display:none или отсутствует в документе, 
-    то все его метрики равны нулю (или null если это offsetParent).
-    Лучше использовать свойства-метрики т.к. CSS-свойства width/height зависят от другого свойства - box-sizing,
-    которое определяет CSS-ширину/высоту.
-    Изменение box-sizing сломает код.
-    CSS-свойства width/height могут быть равны auto.
-    Ширина/высота видимой части документа:
-    <code>document.documentElement.clientWidth/Height</code>
-    Ширина/высота всего документа с прокрученной частью:
-    <code>let scrollHeight = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight,
-    );</code>
-    <code>Прокрутка:
-    window.pageYOffset/pageXOffset - прокрутка окна.
-    window.scrollTo(pageX, pageY) - абсолютные координаты.
-    window.scrollTo(0, 0) - прокрутка в самое начало.
-    window.scrollBy(x, y) - прокрутка относительно текущего места.
-    window.scrollBy(0, 10) - прокручивает страницу на 10рх вниз.
-    window.scrollIntoView(top) - прокрутить страницу, чтобы elem стал видимым
-    (выровнять относительно верхней/нижней части окна).
-  
-    Количество прокрученных пикселей (только для чтения):
-    const windowScrollTop = window.pageYOffset; - количество пикселей прокрученных сверху
-    const windowScrollLeft = window.pageXOffset; - количество пикселей прокрученных слева
-    window.scrollBy(x, y); - прокручивает страницу относительно текущего положения
-    window.scroll(x, y); - прокручивает страницу на абсолютные координаты
-    window.scrollTo(x, y) - прокручивает страницу на абсолютные координаты
-    element.scrollIntoView(top); - прокрутит страницу до элемента element.
-                          Если top = true, то элемент будет вверху страницы
-                          Если top = false, то элемент будет внизу страницы
-    Запретить или разрешить прокрутку:
-    document.body.style.overflow = "hidden"; - добавляет overflow = "hidden" в аттрибут style тега body
-    либо
-    document.body.classList.toggle('scroll-lock'); - добавляет класс в тег body,
-          потом нужно добавить в класс css-свойство overflow = "hidden"
-    </code>
-    Для прокрутки страницы из JS её DOM должен быть полностью построен.
-    <code>document.body.style.overflow = "hidden"</code>
-    Все координаты в контексте окна считаются от верхнего левого угла.
-    <code>position: fixed; - для координат относительно окна.
-    position: absolute; - для координат относительно документа.</code>
-    Любая точка на странице имеет координаты:
-    - относительно окна браузера - elem.getBoundingClientRect()
-    - относительно документа - elem.getBoundingClientRect() + прокрутка страницы.
-    document.elementFromPoint(x, y) - возвращает самый глубоко вложенный элемент по координатам (х, у). 
-    Для координат вне окна возвращает null.
-  
-    CSS:
-    CSS-событие transitioned - CSS-анимация завершена.
-    Два способа задания стилей элементу:
-    <.div class="..."> - создать класс в CSS и использовать его
-    <.div style="..."> - писать стили в атрибуте style
-    JS может менять и классы CSS и свойство style.
-    Лучше использовать классы. Свойство style только если класс не подходит.
-    <ul>Для управления классами существует два DOM-свойства:
-    <li>className - строковое значение, заменяет всю строку с классами.</li>
-    <li>classList - объект с методами для управления одним классом.</li>
-    </ul>
-    <ul>Методы classList:
-    <li>elem.classList.add/remove("class") - добавить/удалить класс.</li>
-    <li>elem.classList.toggle("class") - добавит класс если его нет, иначе удалит.</li>
-    <li>elem.classList.contains("class") - проверка наличия класса, возвращает true/false.</li>
-    </ul>
-    <ul>Свойство style это объект со стилями в camelCase:
-    <li>background-color - elem.style.backgroundColor</li>
-    <li>z-index - elem.style.zIndex</li>
-    <li>border-left-width - elem.style.borderLeftWidth</li>
-    <li>style = "width: 100px" - elem.style.width = "100px"</li>
-    </ul>
-    Чтобы удалить elem.style.display нужно присвоить пустую строку:
-    elem.style.display = "".
-    Свойство style.cssText - вся строка стилей атрибута style:
-    <code><.div id = "div">Button<./div>
-    <.script>
-    div.style.cssText = `
-    color: red !important;
-    background-color: yellow;
-    width: 100px;
-    text-align: center;`
-    alert(div.style.cssText);
-    <./script>
-    </code>
-    <dfn>getComputedStyle(elem, [psevdo])</dfn> - возвращает объект для чтения окончательных стилей 
-    с учетом всех классов, после применения CSS и вычисления окончательных значений.
-    elem - элемент, значения для которого нужно получить.
-    psevdo - если нужен псевдоэлемент ::before.
-    Без аргумента означает сам элемент.
-    </pre>
-                  </details>
-                  <details><!--Storage-->
-                  <summary>Storage</summary>
-    <pre>
-    <dfn>localStorage и sessionStorage</dfn> - объекты вэб-хранилища, позволяют хранить пары ключ/значение в браузере.
-    key и value - строки
-    Лимит 2 Mb - зависит от браузера
-    Данные не имеют срока хранения
-    Данные привязаны к источнику (домен/протокол/порт)
-    localStorage - используется между всеми вкладками и окнами одного источника совместно. Переживает перезапуск браузера.
-    sessionStorage - разделяется в рамках вкладки браузера, среди ифреймов из того же источника. Переживает перезагрузку страницы, но не закрытие вкладки.
-    <ul>API:
-    <li>setItem(key, value) - сохранить пару ключ/значение</li>
-    <li>getItem(key) - получить данные по ключу key</li>
-    <li>removeItem(key) - удалить значение по ключу key</li>
-    <li>clear() - удалить всё</li>
-    <li>key(index) - получить ключ по заданной позиции</li>
-    <li>length - количество элементов в хранилище</li>
-    <li>Object.keys - получить все ключи</li>
-    </ul>Если обращаться к ключам как к обычным свойствам объекта, то событие storage не срабатывает.
-    <ul>Событие storage:
-    <li>Срабатывает при вызове setItem, removeItem, clear</li>
-    <li>Содержит все данные о произошедшем обновлении (key/oldValue/newValue), url документа и объект хранилища storageArea</li>
-    <li>Срабатывает на всех объектах window, которые имеют доспут к хранилищу, кроме того где оно было сгенерировано (внутри вкладкидля sessionStorage, глобально для localStorage)</li>
-    </ul>
-  
-    <dfn>IndexedDB</dfn> - встроенная база данных типа ключ-значение, мощнее localStorage.
-    Интерфейс для IndexedDB основан на событиях IndexedDB имеет встроенный механизм версионирования схемы, который отсутствует в серверных базах данных.
-    IndexedDB работает на стороне клиента ( в браузере) и у нас нет прямого доступа к данным.
-    При публикации новой версии приложения возможно обновлять базу данных.
-    Использование:
-    ПОдключить обёртку над промисами (idb)
-    Открыть базу данных: idb.openDb(name, version, onupgradeneeded)
-    Создание хранилищ объектов и индексов в обработчике onupgradeneeded
-    Обновление версии - либо сравнивая номера версий, либо проверить что есть, а что нет.
-    Для запросов:
-    Создать транзакцию db.transaction('books') - можно указать readwrite.
-    Получить хранилище объектов transaction.objectStore('books').
-    Для поиска по ключу вызвать метод непосредственно у хранилища объектов.
-    Для поиска по любому полю объекта нужно создать индекс.
-    Если данных не помещаются в памяти, то используй курсор.
-    </pre>
-                  </details>
-              </details>
-            </details>
-            <details><!--React-->
-              <summary>React</summary>
-              <img src="./img/React/react.png" alt="">
-              <img src="./img/React/React1.png" alt="">
-              <img src="./img/React/React2.png" alt="">
-              <img src="./img/React/React3.png" alt="">
-              <img src="./img/React/React4.png" alt="">
-              <img src="./img/React/React5.png" alt="">
-              <img src="./img/React/React6.png" alt="">
-              <img src="./img/React/React7.png" alt="">
-              <img src="./img/React/React8.png" alt="">
-              <img src="./img/React/React9.png" alt="">
-              <img src="./img/React/React10.png" alt="">
-              <img src="./img/React/React11.png" alt="">
-              <img src="./img/React/React12.png" alt="">
-              <img src="./img/React/React13.png" alt="">
-              <img src="./img/React/React14.png" alt="">
-              <img src="./img/React/React15.png" alt="">
-              <img src="./img/React/React16.png" alt="">
-              <img src="./img/React/React17.png" alt="">
-              <img src="./img/React/React18.png" alt="">
-              <img src="./img/React/React19.png" alt="">
-              <img src="./img/React/React20.png" alt="">
-              <img src="./img/React/React21.png" alt="">
-              <img src="./img/React/React22.png" alt="">
-              <img src="./img/React/React23.png" alt="">
-              <img src="./img/React/React24.png" alt="">
-              <img src="./img/React/React25.png" alt="">
-              <img src="./img/React/React26.png" alt="">
-              <img src="./img/React/React27.png" alt="">
-              <img src="./img/React/React28.png" alt="">
-              <img src="./img/React/React29.png" alt="">
-              <img src="./img/React/React30.png" alt="">
-              <img src="./img/React/React31.png" alt="">
-              <img src="./img/React/React32.png" alt="">
-              <img src="./img/React/React33.png" alt="">
-              <img src="./img/React/React34.png" alt="">
-    <!--<pre>
-    API (Application programming interface) - это контракт, который предоставляет программаю “Ко мне можно обращаться так и так, я обязуюсь делать то и это”.
-    API -  это набор функций. Наборы формируются разработчиком по функционалу, по заказчику, по смыслу операций и т.д.
-  
-    - npx create-react-app название папки (проекта) - создаст папку с названием проекта и стартовым шаблоном внутри.
-  
-    JSX напоминает язык шаблонов, наделённый силой JavaScript.
-    JSX - это синтаксический сахар для React.createElement.
-    JSX - это расширение JS, чтобы объяснить React как выглядит UI.
-    JSX производит элементы React.
-    JSX преобразуется в JS функцию, которая возвращает JS объект. После компиляции каждое JSX-выражение становится обычным вызовом JS-функции, результат которого  - объект JS.
-  
-    Если разделить выражение на строки, то его нужно обернуть в ().
-  
-    <.div><./div> = <.div/> - если тэг пустой, то самозакрывающийся тэг.
-  
-    Запись атрибутов в camelCase.
-  
-    Кавычки (для строковых литералов), фигурные скобки (для JS-выражений), но не то и другое вместе.
-    <.div tabIndex=”0”><./div> - литералы в строке
-    <.img src={user.avatarUrl}> - JS выражения в { }
-  
-    const name = ‘Иван-Царевич’; - создали переменную
-    const element = <.h1>Здравствуй, {name}!<./h1>; - создали элемент с переменной внутри. Элемент описывает то, что будет на экране.
-    ReactDOM.render( 		- команда ReactDOM-у отрисовать созданный элемент
-    element,
-    document.getElementById(‘root’)	- внутри элемента страницы с выбранным id
-    DOM-тэг <.div /> с маленькой буквы, а компонент <.Welcome /> - с большой.
-  
-    Первоначальный рендеринг компонента в DOM называется “монтированием” (mounting).
-    Каждый раз когда DOM-узел, созданный компанентом, удаляется, происходит “размонтирование” (unmounting).
-    Методы жизненного цикла:
-    componentDidMount() {...} - запускается после того, как компонент отрендерился в DOM
-    componentWillUnmount() {...} - запускается перед размонтированием
-  
-    Поля this.props и this.state в классах особенные, и их устанавливает сам React. Мы можем добавить новые.
-    Единственное место где можно присвоить значение this.state - это конструктор, в остальных случаях только через изменение: this.state({comment: ‘Привет’}).
-    Родитель-компонент передаёт своё состояние дочерним компонентам в виде пропса. Это однонаправленный поток данных.
-    this.props и this.state могут обновляться асинхронно поэтому операции с ними нужно проводить внутри функции, получая текущие значения в качестве параметров: 
-    this.setState((state.props) => ({counter: state.counter + props.increment}))
-  
-    Обработка событий:
-    HTML: <.button onclick=”activateLasers()”>Активировать лазеры<./button>
-    React: <.button onClick={activateLasers}>Активировать лазеры<./button>
-    activateLasers - это функция-обработчик события
-  
-    В React есть соглашение об именах - on[имя события] для пропсов, отвечающих за события, и handle[имя события] для методов, обрабатывающих события.
-    События в React именуются в camelCase.
-    С JSX передаём функцию как обработчик события вместо строки:
-    <.button onClick={activateLasers}>Активировать лазеры<./button>
-    Чтобы предотвратить обработчик события по умолчанию, нужно вызвать preventDefault().
-    function ActionLink() {
-    function handleClick(e) {
-    e.preventDefault()
-    console.log(‘По ссылке кликнули’)
-    }
-    return (
-    <.a href=”#” onClick={handleClick}>Нажми на меня<./a>
-    )
-    }
-  
-    Обычно, если ссылаться на метод как на ссылку - без вызова, т.е. без () поле него, например, onClick={this.handleClick}, этот метод нужно привязать к контексту:
-    в конструкторе this.handleClick = this.handleClick.bind(this);
-    в render() - <.button onClick={this.handleClick}>
-  
-    или так:
-    handleClick = () => {console.log(‘значение this: ’, this)}
-    <.button onClick={this.handleClick}><./button}
-  
-    или так:
-    handleClick() {console.log(‘значение this: ’, this)}
-    <.button onClick={() => this.handleClick()}
-  
-    Чтобы передать свой аргумент (например id строки) в обработчик события:
-    е - событие React передаётся явно в стрелочных функциях и автоматически в bind.
-    <.button onClick={this.deleteRow.bind(this, id)}>Удалить строку<./button> - Function.prototype.bind
-    <.button onClick={(e) => this.deleteRow(id, e)}>Удалить строку<./button> - стрелочная функция - при каждом рендере создаётся новый коллбэк. Если этот коллбэк попадает как проп в дочерние компоненты, эти компоненты могут быть отрендерены снова. Снижение производительности.
-  
-    Структура проекта:
-    index.html - точка входа в сайт
-    index.js - подключает необходимое окружение (react, react-dom, index.css, App.js, serviceWorker.js)
-    index.css - задаёт стили
-    serviceWorker.js - 
-    setupTests.js - 
-    context.js - 
-    App.js - подключает (объединяет) все компоненты
-    Файл .css можно не импортировать, т.к. React ищет его сам в своей папке, либо в папках выше.
-  
-    Пропсы и композиция дают всю гибкость, необходимую для настройки внешнего вида и поведения компонента явным и безопасным способом.
-  
-  
-  
-    Компонент - это функция или класс (работают одинаково).
-    Один компонент - одна ответственность.
-    Компонент содержит логику и разметку в JSX.
-    Компоненты можно вкладывать в друг друга.
-    Чтобы создать компонент нужно в файле с расширением js написать в начале
-    import React from ‘react’;
-    и
-    export default App;
-    в конце.
-  
-    Сначала создаём самый маленький компонент, потом вверх по иерархии.
-  
-    Компонент в виде класса:
-    class Example extends React.Component {
-    constractor (props) { - конструктор объектов
-    super (props) - обязательная ссылка на родителя
-    this.state = { … } - задаём начальное состояние
-    }
-    render() { - обозначает React’y что нужно отобразиь на экране
-    return… - возвращает JSX объект
-    }
-    }
-    В JS - классах всегда нужно вызывать super  при объявлении конструктора подкласса.
-    Все классовые React - компоненты, у которых есть constractor должны начинаться с вызова super (props).
-  
-    Компонент в виде функции (функциональный компонент):
-    import React from ‘react’;     - подключения
-    …
-    const styles = { }
-  
-    function Example (props) { - принимает пропсы
-    либо так:
-    const Example = (props) => {
-    логика на JS
-    return …    - возвращает JSX объект
-    разметка JSX
-    }
-    export default Example
-  
-    class Clock extends React.Component {    - компонент объявлен как класс
-    constructor (props) {
-    super (props);
-    this.state = {date: new Date()}; - задаём начальное состояние при создании объекта
-    }
-  
-    componentDidMount() {    - метод жизненного цикла, который React вызывает когда коипонент <.Clock /> примонтируется в DOM
-    this.timerID = setInterval (     - вызываем метод tick() каждую секунду
-      () => this.tick(), 1000
-    );
-    }
-  
-    componentWillUnmount() {    - метод жизненного цикла, который Ract вызывает когда компонент <.Clock /> удалится из DOM
-    }
-  
-    tick() {
-    this.setState({ - обновляем состояние компонента, присваивая новое значение свойства date
-      date: new Date()
-    });
-    }
-  
-    render() {
-    return (
-      <.div>
-          <.h1>Привет мир!<./h1>
-          <.h2>Сейчас {this.state.date.toLocaleTimeString()}<./h2>
-      <./div>
-    );
-    }
-    }
-  
-    ReactDOM.render(
-    <.Clock />,
-    document.getElementById(‘root’)
-    );
-  
-    Пропс:
-    JSON 	- объявляем объект в переменную:
-    const user = {
-    firstName = ‘Марья’,
-    lastName = ‘Маревна’
-    }
-    и обращаемся к пропсам:
-    user.firstName
-    user.lastName
-  
-    this.props - объект, кототрый содержит свойства, которые были определены тем, кто вызывает этот компонент.
-    Вложенный контент может быть доступен через props.children
-  
-    function Square (props) {   - в props получаем значения value и onClick из класса Board ниже
-    return(
-    <.button className=”square” onClick={props.onClick}>   - возвращаем кнопку для подстановки
-      {props.value}                                                                    в качестве объекта this в блок render
-    <./button>                                                                              в классе Board
-    )                                                                                                
-    }
-    class Board extends React.Component{
-    renderSquare(i){    - props i из блока render() ниже
-    return(    - в компанент Square втуливаем значения value и onClick
-      <.Square
-        value = {this.props.square[i]} - собираем получаемые пропсы в массив
-        onClick = {() = this.props.onClick(i)} - создаём обработчик на событие onClick для каждого пропса i
-      />
-    )
-    }
-    render() {
-    return(
-      <.div>
-          <.div className=”board-row”> - передаем в функцию renderSquaer (props.value) - 0 или 1 или 2
-              {this.renderSquare(0)} - первому объекту this передаём value = 0
-              {this.renderSquare(0)} - второму объекту this передаём value = 1
-              {this.renderSquare(0)} - третьему объекту this передаём value = 2
-          <./div>
-      <./div>
-    )
-    }
-    }
-  
-    function Welcome(props) {        - компонент объявлен как функция
-    return <.h1>Привет, {props.name}!<./h1>;
-    }
-    или так:
-    class Welcome extends React.Component {      - компонент объявлен как класс
-    render () {
-    return <.h1>Привет, {this.props.name}!<./h1>;
-    }
-    }
-  
-    const element = <.Welcome name=”Алиса” />;
-    ReactDOM.render(
-    element,
-    document.getElementById(‘root’)
-    );
-  
-    name=”Алиса” - передаётся в функцию Welcome в виде объекта {name: ‘Алиса’} - это props.
-    Функция Welcome возвращает элемент <.h1>Привет, Алиса!<./h1> в ReactDOM.
-  
-    Пропсы нужно только читать. React-компоненты не меняют свои входные данные.
-    Компонент никогда не должен что-то записывать в свои пропсы:
-    function sum(a, b) {
-    return a + b;
-    }
-  
-    а вот так нельзя:
-    function withdraw(account, amount) {
-    account.total -= amount;
-    }
-  
-    Передать пропс можно от родителя к потомку пропустив несколько промежуточных потомков напрямую с помощью React.createContext(). Для этого создаём отдельный файл context.js и используем <Context.Provider>.
-  
-    Файл context.js:
-    import React from ‘react’
-    const Context = React.createContext()
-    export default Context
-  
-    <.Context.Provider vakue={{ … }}>     - с помощью Context.Provider передаю любое JS сквозь всех потомков
-    <.div className=”...”>
-    <.h1>Hello world!<./h1>
-    <.Example />
-    <./div>
-    <./Context.Provider>
-  
-    Состояние:
-    Сохранять и изменять можно только состояния (state).
-    Конкретный state контролируется и доступен только конкретному компоненту.
-    Состояние содержит данные, специфичные для этого компонента. Они могут изменятся со временем.
-    Состояние определяется пользователем и должно быть простым объектом JS.
-    Состояние можно изменять только через setState(), присвоить состоянию значение напрямую можно только в конструкторе.
-    Компонент может передать своё состояние вниз по дереву в виде пропсов дочерних компонентов.
-    Этот процесс называется “нисходящим” (“top-down”) или “однонаправленным” (“unidirectional”) потоком данных.
-  
-    Если несколько компонентов должны отражать одни и теже изменяющиеся данные, то нужно поднимать общее состояние до ближайшего общего предка.
-    Чтобы собрать данные из нескольких дочерних элементов, или чтобы дать возможность двум компонентам общаться, вам нужно объявить общее состояние внутри родительского компонента. Родительский компонент может передать состояние обратно дочерним элементам с помощью пропсов.
-    Это поддерживает синхронизацию дочерних компонентов друг с другом и с родительким компонентом.
-  
-    Хуки:
-    Хуки - вспомогательные функции
-    const [todos, setTodos] = React.useState([ ])
-  
-    Хуки  - это функции, с которыми можно “подцепиться” к состоянию и к методам жизненного цикла React из функциональных компонентов.
-    Хуки не работают в классах, а используются вместо них.
-    Хуки вызывают только на верхнем уровне (не в циклах, условиях и т.д.)
-    Хуки вызывают только из функциональных компонентов React, не из обычных JS-функций.
-    Если имя функции начинается с use (useSamething) и использует другие хуки, то такая функция это пользовательский хук.
-  
-    useState(i) - возвращает массив из двух элементов: состояние (это state - состояние) и функцию, которая изменяет это состояние. Имена даём возвращаемому состоянию и функции произвольно.
-  
-    useEffect(i) - React запускает эффекты useEffect(() => {...}) после каждого рендера, включая первый рендер.
-  
-    useEffect(() => {
-    fetch(‘http://…’)
-    .then(responce=>responce.json())
-    .then(todos=>{
-      setTodos(todos)
-    })
-    }, [])
-  
-    вызвать хук можно либо
-    import React, { useEffect } from ‘react’
-    useEffect(i) {...}
-    либо
-    React.useEffect(i) {...}
-  
-    Сравнение хука и класса:
-    Хук:
-    import React, {useState} from ‘react’ - подключение хука
-    function Example() {
-    const [count, setCount] = useState(0) - 0 это начальное состояние, это может быть не объект.
-    return (
-    <.div>
-      <.p>Вы нажали {count} раз <./p>
-      <.button onClick={() => setCount(count + 1)}>
-          Нажми на меня
-      <./button>
-    <./div>
-    )
-    }
-  
-    Класс:
-    class Example extends React.Component {
-    constractor (props) {
-    super (props)
-    this.state = {
-      count: 0
-    }
-    }
-    render () {
-    return (
-      <.div>
-          <.p>Вы нажали {this.state.count} раз <./p>
-          <.button onClick={() => this.setState({
-              count.this.state.count + 1})}>
-                Нажми на меня
-          <./button>
-      <./div>
-    )
-    }
-    }
-    Чтобы наделить функциональный компонент состоянием нужно либо преобразовать его в класс, либо добавить в него хук.
-    React запоминает значение переменной состояния между вызовами функции.
-    Итого:
-    подключаем хук: import React, {useState} from ‘react’
-    добавляем переменную в функцию: const [count, setCount] = useState(0)
-    вызываем функцию изменения: <.button onClick={() => setCount(count + 1)}>
-  
-    Хук еффекта выполняет побочные эффекты:
-    загрузка данных,  оформление подписки и изменение DOM вручную и представляет собой совокупность методов componentDidMount, componentDidUpdate и componentWillUnmount.
-  
-    Эффекты позволяют выполнить дополнительный код после того, как React обновил DOM, т.е. после каждого рендера.
-    Любой эффект может возвратить функцию, которая сбросит его.
-    React будет сбрасывать эффект перед тем, как компонент размонтируется. Например оформление и отмена подписки:
-    import React , {useState, useEffect} from ‘react’
-    function FriendStatus(props) {
-    const [isOnline, setIsOnline] = useState(null)
-    useEffect(() => {
-    function handleStatusChange(status) {
-      setIsOnline(status.isOnline)
-    }
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
-    return function cleanup() {             - сброс эффекта
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
-    }
-    })
-    if (isOnline === null) {
-    return ‘Загрузка…’
-    }
-    return isOnline ? ‘В сети’ : ‘Не в сети’
-    }
-    Чтобы React выполнял эффект только в случае изменения нужен второй аргумент в виде массива, с которым будет сравниваться значение первого аргумента. При каждом рендере react сравнивает новое значение переменной в первом аргументе со старым значением переменной, указанным во втором аргументе (в массиве).
-    useEffect(() => {
-    function handleStatusChange(status) {
-      setIsOnline(status.isOnline)
-    }
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
-    return() => {
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
-    }
-    }, - стрелочная функция это первый аргумент эффекта
-    [props.friend.id]) - это второй аргумент эффекта со старым значением переменной, по которому будет сравнение первого аргумента: повторно подписаться только если props.friend.id изменился.
-  
-    Обычный эффект без сброса:
-    import React, {useState, useEffect} from ‘react’
-    function Example() {
-    const [count, setCount] = useState(0)
-    useEffect(() => {
-    document.title = `Вы нажали ${count} раз`
-    }, [count]) - перезапускать эффект только если count поменялся
-    return (
-    <.div>
-      <.p>Вы нажали {count} раз<./p>
-      <.button onClick={() => setCount(count + 1)}>
-          Нажми на меня
-      <./button>
-    <./div>
-    )
-    }
-    Для корректной работы с хуками нужно установить плагин для ESLint:
-    npm i eslint-plugin-react-hooks --save -dev
-  
-  
-    useContext:
-    import React, {useContext} from ‘react’
-    const themes = {
-    light: {
-    foreground: “#000000”,
-    background: “#eeeeee”
-    }
-    dark: {
-    foreground: “#ffffff”,
-    background: “#222222”
-    }
-    }
-    const ThemeContext = React.createContext(themes.light)    - создаём объект контекста со свойством light
-    function App() {
-    return(
-    <.Theme	Context.Provider value={themes.dark}> - значение value определяет текущее значение
-      <.Toolbar />						передаваемого в Toolbar контекста. При обновлении 
-    <./ThemeContext.Provider>				значения - новый рендер.
-    )								Меняем контекст на тёмную тему.
-    }
-    function Toolbar (props) {   - передаём контекст потомку
-    return(
-    <.div>
-      <.ThemedButton/>
-    <./div>
-    )
-    }
-    function ThemedButton() {
-    const theme = useContext(ThemeContext)  - используем контекст с тёмной темой
-    return (
-    <.button style={{background: theme.background, color: theme.foreground}}>
-      Я стилизован темой из контекста!
-    <./button>
-    )
-    }
-  
-    Управляемый компонент:
-    Если форму обрбатывать с помощью JS-функции, у которой есть доступ к введённым данным, то такая форма называется “управляемым компонентом”. Библиотека Formik.
-    Или, другими словами, управляемый компонент - это элемент формы рендер, поведение при пользовательском вводе и значение которого контролирует React.
-    class NameForm extends React.Component{
-    constructor(props){
-    super(props)
-    this.state={value:’ ’}
-    this.handleChange=this.handleChange.bind(this)
-    this.handleSubmit=this.handleSubmit.bind(this)
-    }
-    handleChange(event) {
-    this.setState({value: event.target.value})
-    }
-    handleSubmit(event){
-    alert(‘Отправленное имя: ’ + this.state.value)
-    event.preventDefault()			- отменяем действе по умолчанию
-    }
-    render() {
-    return (
-    <.form onSubmit={this.handleSubmit}>
-    <.label>
-            Имя:
-    <.input type=”text” value={this.state.value} onChange={this.handleChange}/>
-    <./label>
-    <.input type=”Submit” value=”Отправить” />
-    <./form>
-    )
-    }
-    }
-    в атрибуте value всегда будет отражаться React состояние this.state.value, а каждое нажатие клавиш через handleChange будет это состояние изменять и React будет обновлять поле ввода по мере печатанья.
-    <.textarea><./textarea> также как <.input /> - 
-    <.textarea value={this.state.value} onChange={this.handleChange}>
-    Чтобы использовать несколько input’ов нужно каждому дать свой атрибут name.
-    <.select>
-    <.option value=”grapefruit”>Грейпфрут<./option>
-    <.option value=”lime”>Лайм<./option>
-    <.option selected value=”coconut”>Кокос<./option>
-    <.option value=”mango”>Манго<./option>
-    <./select>
-    если в value передать массив, то можно выбрать несколько опций:
-    <.select multiple={true} value={[‘Б’, ‘В’]}>
-    в React выбранный элемент присваивается в конструкторе по умолчанию: this.state={value=’cocnut’}, а потом изменяется через setState: <select value={this.state.value} onChange={this.handleChange}></select>
-    Если установить значение value, то пользователь изменить его не сможет: 
-    ReactDOM.render(<.input value=”Привет”/>).
-    Для любых изменяемых данных в React -приложении должен быть один “источник истины” (state).
-    Обычно состояние сначала добавляется к компоненту, которому оно требуется для рендера. Затем, если другие компоненты также нуждаются в нём, вы можете поднять его до ближайшего общего предка.
-    Вместо того, чтобы пытаться синхронизировать состояние между различными компонентами, вы должны полагаться на однонаправленный поток данных - это водопад пропсов от родителя к потомку, в который каждый компонент добавляет свой state в виде пропса (props).
-  
-    Композиция:
-    Вместо наследования:
-    function FancyBorder(props) {
-    return (
-    <.div className={‘FancyBorder FancyBorder-’ + props.color}> - поместить в div всё, что выделено 
-      {props.children}								тэгом <.FancyBorder>
-    <./div>
-    )
-    }
-    function Dialog(props) {
-    return (
-    <.FancyBorder color=”blue”> - определяю тэг <.FancyBorder> и его содержимое для подстановки
-    <.h1 className=”Dialog-title”>
-    {props.title}
-    <./h1>
-    <.p className=”Dialog-message”>
-    {props.message}
-    <./p>
-    <./FancyBorder>
-    )
-    }
-    function WelcomDialog() { - определяю компонент для рендера и задаю значение пропсов
-    return (
-    <.Dialog
-    title=”Welcom”
-    message=”Thank you for visiting our spacecraft!” />
-    )
-    }
-    ReactDOM.render(
-    <.WelcomDialog />,
-    document.getElementById(‘root’)
-    )
-  
-    Ключи:
-    Ключи помогают React определить, какие элементы были изменены, добавлены или удалены.
-    const todoItems = todos.map((todo) => 
-    <.li key={todo.id}>
-    {todo.text}
-    <./li>
-    )
-    function NumberList(props) {
-    const numbers = props.numbers
-    const listItems = numbers.map((number) => - функция map() преобразует массив numbers в список
-    <.ListItem
-    key={number.toString()}    -ключ нужно определить внутри массива, ключ это строка
-    value={number}
-    />
-    )
-    return (
-    <.ul>
-      {listItems}
-    <./ul>
-    )
-    }
-    или так:
-    function NumberList(props) {
-    const numbers = props.numbers
-    return (
-    <.ul>
-    {numbers.map((number) => 
-    <.ListItem
-    key={number.toString()}
-    value={number}
-    />
-    )}
-    <./ul>
-    )
-    }
-  
-    Валидирование типов:
-    Библиотека prop-types нужна для задания типов переменных: npm i prop-types.
-  
-    import PropTypes from ‘prop-types’
-  
-    function Example ({prop1, prop2, prop3}) {...}
-    Example.propTypes={
-    prop1: PropTypes.object.isRequired,
-    prop2: PropTypes.number,
-    prop3: PropTypes.func.isRequired,
-    }
-    export default Example
-  
-    Условный рендеринг:
-    if (isLoggedIn) {
-    return <.UserGreeting />;
-    }
-    return <.GuestGreeting />;
-  
-    {unreadMessages.length > 0 &&
-    <.h2>
-    у вас {unreadMessages.length} непрочитанных сообщений.
-    <./h2>
-    }
-    Пользователь <.b>{isLoggedIn ? ‘сейчас’ : ‘не’}<./b> на сайте.
-    </pre>-->
-            
-              <details><!--Redux-->
-                <summary>Redux</summary>
-                <img src="./img/React/redux.jpg" alt="">
-    <!--<pre>
-    Весь базовый функционал redux умещается в малюсенький файлик
-  
-    function createStore(reducer, initialState) {
-    let state = initialState
-    return {
-    dispatch: action => { state = reducer(state, action) },
-    getState: () => state,
-    }
-    }
-  
-    createStore возвращает объект с полем “dispatch”.
-    dispatch - это функция, которая всего лишь применяет редюсер к нашему текущему состоянию
-    (newState = reducer(state, action)).
-  
-    С этими 7 строками уже можно писать TodoApp.
-  
-    Инициализация хранилища:
-    function todosReducer(state, action) {
-    switch (action.type) {
-    case ‘ADD_TODO’:
-    return [
-    ...state,
-    {
-      id: action.id,
-      text: action.text,
-      completed: false
-    }
-    ]
-    case ‘TOGGLE_TODO’:
-    return state.map(todo => {
-    if (todo.id === action.id) {
-      return { ...todo, completed: !todo.completed }
-    }
-    return todo
-    })
-    default:
-    return state
-    }
-    }
-  
-    const initialTodos = []
-  
-    const store = createStore(todoReducer, initialTodos)
-  
-    Использование:
-    store.dispatch({
-    type: ‘ADD_TODO’,
-    id: 1,
-    text: ‘Понять на сколько redux прост’
-    })
-  
-    store.getState()       - [{ id: 1, text: ‘Понять насколько redux прост’, completed: false }]
-    store.dispatch({
-    type: ‘TOGGLE_TODO’,
-    id: 1
-    })
-  
-    store.getState()      - [{ id: 1, text: ‘Понять насколько redux прост’, completed: true }]
-    Метод combineReducers позволяет вместо того, чтобы создавать один огромный reducer для всего состояния приложения сразу, разбивать его на отдельные модули.
-  
-    function counterReducer(state, action) {
-    if (action.type === ‘ADD’) {
-    return state + 1
-    } else {
-    return state
-    }
-    }
-  
-    const reducer = combineReducers({
-    todoState: todoReducer, 
-    counterState: counterReducer
-    })
-  
-    const initialState = {
-    todoState: [],
-    counterState: 0,
-    }
-  
-    const store = createStore(reducer, initialState)
-  
-    Усли упростить, то:
-    function reducer(state, action) {
-    return {
-    todoState: todoReducer(state, action),
-    counterState: counterReducer(state, action),
-    }
-    }
-  
-    Но этот код плохо масштабируется. Если у нас 2 “под-состояния”, нам нужно дважды написать (state, action), а хорошие программисты так не делают.
-  
-    Если редюсоров и стэйтов много, то через обработку коллекции редюсеров:
-    function combineReducers(reducersMap) {
-    return function combinationReducer(state, action) {
-    const nextState = {}
-    Object.entries(reducersMap).forEach(([key, reducer]) => {
-    nextState[key] =  reducer(state[key], action)
-    })
-    return nextState
-    }
-    }
-  
-    middleware в разрезе redux - это какая-то штука, которая слушает все dispatch и при определенных условиях делает что-то.
-    const createStoreWithMiddleware = applyMiddleware(someMiddleware)(createStore)
-    const store = createStoreWithMiddleware(reducer, initialState)
-    applyMiddleware переопределяет метод dispatch, добавляя перед (или после) обновлением состояния какую-то пользовательскую логику.
-    самый популярный middleware от создателей redux - redux-thunk, чаще всего используют при асинхронных операциях.
-    Его смысл сводится к тому, что можно передавать в store.dispatch сложные функции
-    const thunk = store => dispatch => action => {
-    if (typeof action === ‘function’) {
-    return action(store.dispatch, store.getState)
-    }
-    return dispatch(action)
-    }
-    метод createStore принимал атрибуты (reducer, initialState) и возвращал объект с ключами { dispatch, getSate }.
-    метод applyMiddleware берёт уже реализованный метод createStore и переопределяет его возвращаемое значение:
-  
-    function applyMiddleware(middleware) {
-    return function createStoreWithMiddleware(createStore) {
-    return (reducer, state) => {
-        const store = createStore(reducer, state)
-        return {
-            dispatch: action => middleware(store)(store.dispatch)(action),
-            getState: store.getState,
-        }
-    }
-    }
-    }
-  
-    form:
-    import { useDispatch } from ‘react-redux’
-    import { createPost } from ‘actions/posts’
-  
-    const [postData, setPostData] = useState({ creator: ‘ ’, title: ‘ ‘, message: ‘ ‘ })
-    const dispatch = useDispatch()
-  
-    const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(createPost(postData))
-    }
-  
-    action:
-    export const createPost = (post) => async (dispatch) => {
-    try {
-    const { data } = await api.createPost(post)
-    dispatch ({ type: ‘CREATE’, payload: data })
-    } catch (error) {
-    console.log(error)
-    }
-    }
-  
-    api:
-    export const createPost = (newPost) => axios.post(url, newPost)
-  
-    server/controllers:
-    export const createPost = async (req, res) => {
-    const post = req.body;
-    const newPostMessage = new PostMessage({   …post, creator: req.userId, createdAt: new Date().toISOString() })
-  
-    try {
-    await newPostMessage.save();
-  
-    res.status(201).json(newPostMessage);
-    } catch (error) {
-    res.status(409).json({ message: error.message });
-    }
-    }
-  
-    server/models:
-    import mongoose from ‘mongoose’
-  
-    const postSchema = mongoose.Schema({
-    title: String,
-    message: String,
-    name: String,
-    creator: String,
-    tags: [String],
-    selectedFile: String,
-    likes: { type: [String], default: [] },
-    createdAt: {
-    type: Date,
-    default: new Date(),
-    },
-    })
-  
-    export default mongoose.model(‘PostMessage’, postSchema);
-  
-    reducers:
-    export default (post = [ ], action) => {
-    switch (action.type) {
-    case ‘FATCH_ALL’:
-        return action.payload;
-    case  ‘CREATE’:
-        return [ …posts, action.payload ];
-    default:
-        return posts;
-    }
-    }
-    </pre>-->
-              </details>
-            </details>
           </details>
         </nav>
       </div>
