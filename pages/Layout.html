@@ -2371,7 +2371,6 @@ getElementsByClassName(класс без точки впереди); - <span cla
 document.getElementsByName(атрибут name); - <span class="menu__komment">возвращает живую коллекцию, ищет только в document
 живая коллекция - содержит в себе всегда актуальную информацию с учетом изменений в дереве DOM</span>
 <img src="../img/js/querySelector.png" alt="">
-<img src="../img/js/JS12.png" alt="">
 
 elem.closest(css) - <span class="menu__komment">ищет ближайшего предка, который соответствует указанному css-селектору</span>
 elem.matches(css) - <span class="menu__komment">ничего не ищет, проверяет соответствует ли элемент css селектору,
@@ -2407,389 +2406,412 @@ elem.closest(css) - <span class="menu__komment">ищет ближайшего п
 elemA.contains(elemB) - <span class="menu__komment">вернет true если elemB находится внутри elemA или elemA == elemB</span></small>
       </details>
       <details><!--Document-->
-      <summary>Document</summary>
-<pre>Document - интерфейс доступа к узлам, его реализует объект document.
-<code>document - объект DOM, входная точка в DOM
-const htmlElement = document.documentElement; - получить объект html со всем его содержимым
-const headElement = document.head; - получить объект head со всем его содержимым
-const bodyElement = document.body; - получить объект body со всем его содержимым
-</code>
-DOMContentLoaded генерируется на document, когда DOM готов и к нему можно применить JS.
-Изображения и другие ресурсы (стили и т.п.) всё ещё могут продолжать загружаться.
-window.onload - страница и все ресурсы загружены
-window.beforeunload - пользователь покидает страницу. Если отменить событие, то браузер спросит хочет ли пользователь уйти.
-window.unload - пользователь окончательно уходит, можно сделать сетевой запрос.
-document.readyState - текущее состояние загрузки документа.
-Изменения можно отследить с помощью события readyStateChange:
-loading - документ грузится
-interactive - документ прочитан, происходит перед DOMContentLoaded
-complete - документ и ресурсы загружены, происходит перед window.onload
+      <summary>Document</summary><small>
+<em>Document</em> - <span class="menu__komment">интерфейс доступа к узлам, его реализует объект document.</span>
+<em>document</em> - <span class="menu__komment">объект DOM, входная точка в DOM</span>
+const htmlElement = document.documentElement; - <span class="menu__komment">получить объект html со всем его содержимым</span>
+const headElement = document.head; - <span class="menu__komment">получить объект head со всем его содержимым</span>
+const bodyElement = document.body; - <span class="menu__komment">получить объект body со всем его содержимым
+
+<em>DOMContentLoaded</em> генерируется на document, когда DOM готов и к нему можно применить JS.
+Изображения и другие ресурсы (стили и т.п.) всё ещё могут продолжать загружаться.</span>
+window.onload - <span class="menu__komment">страница и все ресурсы загружены</span>
+window.beforeunload - <span class="menu__komment">пользователь покидает страницу. 
+Если отменить событие, то браузер спросит хочет ли пользователь уйти.</span>
+window.unload - <span class="menu__komment">пользователь окончательно уходит, можно сделать сетевой запрос.</span>
+document.readyState - <span class="menu__komment">текущее состояние загрузки документа.
+
+Изменения можно отследить с помощью события <em>readyStateChange</em>:</span>
+loading - <span class="menu__komment">документ грузится</span>
+interactive - <span class="menu__komment">документ прочитан, происходит перед DOMContentLoaded</span>
+complete - <span class="menu__komment">документ и ресурсы загружены, происходит перед window.onload
 
 Скрипт должен дождаться пока загрузятся стили.
-Скрипты <.script>...<./script> или <.script src="..."><./script> блокируют DOMContentLoaded.
-Скрипты созданные через document.createElement('script'), добавленные на страницу и скрипты с атрибутами async или defer не блокируют DOMContentLoaded.
-Динамически загружаемые скрипты по умолчанию ведут себя как async,
-script.async = false; - отмена async-поведения
+Скрипты <b>script... /script</b> или <b>script src="..." /script</b> блокируют DOMContentLoaded.
+Скрипты созданные через <b>document.createElement('script')</b>, добавленные на страницу и скрипты с атрибутами async или defer 
+не блокируют DOMContentLoaded.
+Динамически загружаемые скрипты по умолчанию ведут себя как async,</span>
+script.async = false; - <span class="menu__komment">отмена async-поведения</span>
 let script = document.createElement('script');
-script.src = "путь/к/скрипту";
+script.src = "<i>путь/к/скрипту</i>";
 document.body.append(script);
 
-async - скрипты выполняются по загрузке, DOMContentLoaded не имеет значения.
-defer - скрипты выполняются по расположению в докумете. Скрипт ждёт загружки документа выполняется перед DOMContentLoaded.
-defer работает только у внешних скриптов - у которых есть src="...", все элементы с src="..." дают события:
-load - при успешной загрузке,
-error - при ошибке
-<.iframe> - исключение: всегда даёт load, даже при ошибке.
-Событие readystatechange также работает для ресурсов.
+<b>async</b> - <span class="menu__komment">скрипты выполняются по загрузке, DOMContentLoaded не имеет значения.
+<b>defer</b> - скрипты выполняются по расположению в докумете. Скрипт ждёт загружки документа выполняется перед DOMContentLoaded.
+defer работает только у внешних скриптов - у которых есть <b>src="..."</b>, все элементы с src="..." дают события:
+<b>load</b> - при успешной загрузке,
+<b>error</b> - при ошибке
+<b>< iframe></b> - исключение: всегда даёт load, даже при ошибке.
+Событие <b>readystatechange</b> также работает для ресурсов.
 Обработчики onload/onerror отслеживают только сам процесс загрузки.
-Window.onerror - позволяет "поймать" ошибки в скрипте.
-Скрипт одного сайта не может получить детали ошибки скрипта с другого сайта, нужно поставить тегу <.script> атрибут crossorigin и специальные заголовки на удалённом сервере.
-MutationObserver - встроенный объект, наблюдающий за DOM-элементом и запускающий колбэк в случае изменений.
+<b>Window.onerror</b> - позволяет "поймать" ошибки в скрипте.
+Скрипт одного сайта не может получить детали ошибки скрипта с другого сайта, нужно поставить тегу <.script> атрибут crossorigin 
+и специальные заголовки на удалённом сервере.
+<b>MutationObserver</b> - встроенный объект, наблюдающий за DOM-элементом и запускающий колбэк в случае изменений.</span>
 let observer = newMutationObserver(callback); - создать наблюдатель
-observer.observe(node, config); -  прикрепить наблюдателя к DOM-узлу.
-observer.disconnect(); - останавливает наблюдение.
-observer.takeRecords(); - получает список необработанных записей измененений, которые произошли, но колбэк для них ещё не выполнился.
+observer.observe(node, config); - <span class="menu__komment">прикрепить наблюдателя к DOM-узлу.</span>
+observer.disconnect(); - <span class="menu__komment">останавливает наблюдение.</span>
+observer.takeRecords(); - <span class="menu__komment">получает список необработанных записей измененений, которые произошли, 
+но колбэк для них ещё не выполнился.
 
-В основе выделения лежит Range(диапозон) - пара граничных точек: начало и конец диапозона.
-Range - общий, объект для управления диапозоном.
-Выделение в документе представлено объектом Selection, который можно получить как window.getSelection() или document.getSelection().
-Selection (выделение) имеет начальную границу (якорь) и конечную (фокус).
-<ul>Основные свойства выделения:
-<li>anchorNode - узел начала выделения</li>
-<li>anchorOffset - смещение в anchorNode, где начинается выделение</li>
-<li>focusNode - узел окончания выделения</li>
-<li>focusOffset - смещение в focusNode, где выделение заканчивается</li>
-<li>inCollapsed - true, если диарозон выделения пуст или не существует</li>
-<li>rangeCount - количество диапозонов в выделении</li>
-</ul>
-document.cookie предоставляет доступ к куки:
+В основе выделения лежит <em>Range(диапозон)</em> - пара граничных точек: начало и конец диапозона.
+<em>Range</em> - общий, объект для управления диапозоном.
+Выделение в документе представлено объектом Selection, который можно получить как 
+<b>window.getSelection()</b> или <b>document.getSelection()</b>.
+<em>Selection</em> (выделение) имеет начальную границу (якорь) и конечную (фокус).
+
+Основные свойства выделения:</span>
+anchorNode - <span class="menu__komment">узел начала выделения</span>
+anchorOffset - <span class="menu__komment">смещение в anchorNode, где начинается выделение</span>
+focusNode - <span class="menu__komment">узел окончания выделения</span>
+focusOffset - <span class="menu__komment">смещение в focusNode, где выделение заканчивается</span>
+inCollapsed - <span class="menu__komment">true, если диарозон выделения пуст или не существует</span>
+rangeCount - <span class="menu__komment">количество диапозонов в выделении
+
+<em>document.cookie</em> предоставляет доступ к куки:
 - операция записи изменяет только те куки, которые было указано
 - имя и значение куки должны быть закодированы
-- одно уки вмещает до 4 kb данных, количество куки зависит от браузера.
-<ul>Настройки куки:
-<li>path = / - по умолчанию текущий путь, делает куки видимыми только по указанному пути и ниже</li>
-<li>domain = site.com - по умолчанию куки видно только на текущем домене, если явно указан домен, то куки видно и на поддоменах</li>
-<li>expires или max-age - устанавливает дату истечения срока действия, без них куки умрёт при закрытии браузера.</li>
-<li>secure - делает куки доступными только при использовании HTTPS</li>
-<li>somesite - запрещает браузеру отправлять куки с запросами, поступающими извне, помогает предотвратить XSRF-атаки</li>
-</ul>
-Методы создания узлов:
-document.createElement(tag) - создаёт элемент с заданным тегом
-document.createTextNode(value) - создаёт текстовый узел
-document.write(html) - добавляет html на страницу до завершения её загрузки.
-После загрузки затирает начальный документ.
-const newElement = document.createElement(`div`); - создал элемент: тег div
-const newText = document.createTextNode(`Новый текст`); - создал текстовый узел
-elem.cloneNode(deep) - клонирует элемент, если deep == true, то со всеми дочерними элементами.
+- одно уки вмещает до 4 kb данных, количество куки зависит от браузера.</span>
 
-Вставка и удаление узлов:
-node.append(...nodes or strings) - вставляет в node в конец
-node.prepend(...nodes or strings) - вставляет в node в начало
-node.before(...nodes or strings) - вставляет прямо перед node
-node.after(...nodes or strings) - вставляет сразу после node
-node.replaceWith(...nodes or strings) - заменяет node
-node.remove() - удаляет node
-elem.beforebegin - вставляет html прямо перед elem
-elem.afterbegin - вставляет html в elem в начало
-elem.beforeend - вставляет html в elem в конец
-elem.afterend - вставляет html сразу после elem
-elem.insertAdjacentText - вставляет текстовые строки
-elem.insertAdjacentElement - вставляет элементы
-textElement.before(newElement); - вставил newElement перед textElement
-textElement.after(newElement); - вставил newElement после textElement
-textElement.prepend(newElement); - вставил newElement в начало внутри объекта textElement
-textElement.append(newElement); - вставил newElement в конец внутри объекта textElement
-либо
-textElement.append(newElement, `Новый текст`); - можно вставлять через запятую,
-                          но теги вставляються как текст
-textElement.insertAdjacentHTML('pos', `ins`); - позволяет вставить в DOM что угодно
-          pos - место вставки по отношению к textElement
-              beforebegin - вставить перед textElement
-              afterbegin - вставить в начало textElement
-              beforeend - вставить в конец textElement
-              afterend - вставить после textElement
-          ins - то что вставляем, позволяет вставить теги
+<em>Настройки куки</em>:
+path = / - <span class="menu__komment">по умолчанию текущий путь, делает куки видимыми только по указанному пути и ниже</span>
+domain = site.com - <span class="menu__komment">по умолчанию куки видно только на текущем домене, если явно указан домен, 
+то куки видно и на поддоменах</span>
+expires или max-age - <span class="menu__komment">устанавливает дату истечения срока действия, без них куки умрёт при закрытии браузера.</span>
+secure - <span class="menu__komment">делает куки доступными только при использовании HTTPS</span>
+somesite - <span class="menu__komment">запрещает браузеру отправлять куки с запросами, поступающими извне, помогает предотвратить XSRF-атаки</span>
+
+<em>Методы создания узлов</em>:
+document.createElement(tag) - <span class="menu__komment">создаёт элемент с заданным тегом</span>
+document.createTextNode(value) - <span class="menu__komment">создаёт текстовый узел</span>
+document.write(html) - <span class="menu__komment">добавляет html на страницу до завершения её загрузки.
+
+После загрузки затирает начальный документ.</span>
+const newElement = document.createElement(`div`); - <span class="menu__komment">создал элемент: тег div</span>
+const newText = document.createTextNode(`Новый текст`); - <span class="menu__komment">создал текстовый узел</span>
+elem.cloneNode(deep) - <span class="menu__komment">клонирует элемент, если deep == true, то со всеми дочерними элементами.
+
+Вставка и удаление узлов:</span>
+node.append(...nodes or strings) - <span class="menu__komment">вставляет в node в конец</span>
+node.prepend(...nodes or strings) - <span class="menu__komment">вставляет в node в начало</span>
+node.before(...nodes or strings) - <span class="menu__komment">вставляет прямо перед node</span>
+node.after(...nodes or strings) - <span class="menu__komment">вставляет сразу после node</span>
+node.replaceWith(...nodes or strings) - <span class="menu__komment">заменяет node</span>
+node.remove() - <span class="menu__komment">удаляет node</span>
+elem.beforebegin - <span class="menu__komment">вставляет html прямо перед elem</span>
+elem.afterbegin - <span class="menu__komment">вставляет html в elem в начало</span>
+elem.beforeend - <span class="menu__komment">вставляет html в elem в конец</span>
+elem.afterend - <span class="menu__komment">вставляет html сразу после elem</span>
+elem.insertAdjacentText - <span class="menu__komment">вставляет текстовые строки</span>
+elem.insertAdjacentElement - <span class="menu__komment">вставляет элементы</span>
+textElement.before(newElement); - <span class="menu__komment">вставил newElement перед textElement</span>
+textElement.after(newElement); - <span class="menu__komment">вставил newElement после textElement</span>
+textElement.prepend(newElement); - <span class="menu__komment">вставил newElement в начало внутри объекта textElement</span>
+textElement.append(newElement); - <span class="menu__komment">вставил newElement в конец внутри объекта textElement</span>
+<i>либо</i>
+textElement.append(newElement, `Новый текст`); - <span class="menu__komment">можно вставлять через запятую,
+                          но теги вставляються как текст</span>
+textElement.insertAdjacentHTML('pos', `ins`); - <span class="menu__komment">позволяет вставить в DOM что угодно</span>
+          pos - <span class="menu__komment">место вставки по отношению к textElement</span>
+              beforebegin - <span class="menu__komment">вставить перед textElement</span>
+              afterbegin - <span class="menu__komment">вставить в начало textElement</span>
+              beforeend - <span class="menu__komment">вставить в конец textElement</span>
+              afterend - <span class="menu__komment">вставить после textElement</span>
+          ins - <span class="menu__komment">то что вставляем, позволяет вставить теги</span>
 insertAdjacentText();
 insertAdjacentElement();
-textElement.append(oldElement); - перенес существующий oldElement в конец textElement
-let cloneOldElement = oldElement.cloneNode(); - клонировал без дочерних элементов
-let cloneOldElement = oldElement.cloneNode(true); - клонировал с дочерними элементами
-textElement.remove(); - удаление объекта
-const elementClassNames = element.className; - получил все классы объекта element
-element.className = "red"; - заменил все классы на класс red
-element.classList.add('active'); - добавить класс
-element.classList.remove('active'); - удалить класс
-element.classList.toggle('active'); - добавить класс если его нет, а если есть, то удалить
-element.classList.contains('active'); - проверяет наличие класса, возвращает true or false
-element.style.color = "red"; - получаем доступ к атрибуту style HTML-тега и задаём цвет
-console.log(element.style.marginBottom); - вывод в консоль значения css-свойство атрибута style
-                  HTML-тега объекта element
-element.style.color = ""; - удалил css-свойство из атрибута style HTML-тега
+textElement.append(oldElement); - <span class="menu__komment">перенес существующий oldElement в конец textElement</span>
+let cloneOldElement = oldElement.cloneNode(); - <span class="menu__komment">клонировал без дочерних элементов</span>
+let cloneOldElement = oldElement.cloneNode(true); - <span class="menu__komment">клонировал с дочерними элементами</span>
+textElement.remove(); - <span class="menu__komment">удаление объекта</span>
+const elementClassNames = element.className; - <span class="menu__komment">получил все классы объекта element</span>
+element.className = "red"; - <span class="menu__komment">заменил все классы на класс red</span>
+element.classList.add('active'); - <span class="menu__komment">добавить класс</span>
+element.classList.remove('active'); - <span class="menu__komment">удалить класс</span>
+element.classList.toggle('active'); - <span class="menu__komment">добавить класс если его нет, а если есть, то удалить</span>
+element.classList.contains('active'); - <span class="menu__komment">проверяет наличие класса, возвращает true or false</span>
+element.style.color = "red"; - <span class="menu__komment">получаем доступ к атрибуту style HTML-тега и задаём цвет</span>
+console.log(element.style.marginBottom); - <span class="menu__komment">вывод в консоль значения css-свойство атрибута style
+                  HTML-тега объекта element</span>
+element.style.color = ""; - <span class="menu__komment">удалил css-свойство из атрибута style HTML-тега</span>
 element.style.cssText = `
 margin-bottom: 30px;
 color: red;
-`; - записываю сразу несколько css-свойств в атрибут style, перезаписывает style полностью
-const elementStyle = getComputedStyle(element); - получил вычисленные стили элемента
-console.log(elementStyle.fontSize); - выводим вычисленое значение размера шрифта
-const elementBeforeStyle = getComputedStyle(element, "::before"); - получил стили псевдоэлемента
-console.log(elementBeforeStyle.backgroundColor); - выводим цвет фона, который реализован
-                              с помощью ::before
-getComputedStyle(); - работает только для чтения
-const paddingLeft = parseInt(elementStyle.paddingLeft); - сразу перевожу значение из строки в число
-element.style.marginLeft = "20px"; - задавать значения всегда с единицами измерения
-<ul>Устаревшие методы (возвращают node):
-<li>parent.appendChild(node)</li>
-<li>parent.insertBefore(node, nextSibling)</li>
-<li>parent.removeChild(node)</li>
-<li>parent.replaceChild(newElem, node)</li>
-</ul>
+`; - <span class="menu__komment">записываю сразу несколько css-свойств в атрибут style, перезаписывает style полностью</span>
+const elementStyle = getComputedStyle(element); - <span class="menu__komment">получил вычисленные стили элемента
+console.log(elementStyle.fontSize); - <span class="menu__komment"></span>выводим вычисленое значение размера шрифта</span>
+const elementBeforeStyle = getComputedStyle(element, "::before"); - <span class="menu__komment">получил стили псевдоэлемента</span>
+console.log(elementBeforeStyle.backgroundColor); - <span class="menu__komment">выводим цвет фона, который реализован с помощью ::before</span>
+getComputedStyle(); - <span class="menu__komment">работает только для чтения</span>
+const paddingLeft = parseInt(elementStyle.paddingLeft); - <span class="menu__komment">сразу перевожу значение из строки в число</span>
+element.style.marginLeft = "20px"; - <span class="menu__komment">задавать значения всегда с единицами измерения
 
-document.forms - живая коллекция всех форм на странице document.forms[name/index]
-Элементы <.form> или <.fieldset> доступны через form.elements[name/index] или form[name/index].
+Устаревшие методы (возвращают node):</span>
+parent.appendChild(node)
+parent.insertBefore(node, nextSibling)
+parent.removeChild(node)
+parent.replaceChild(newElem, node)
+
+document.forms - <span class="menu__komment">живая коллекция всех форм на странице document.forms[name/index]
+Элементы < form> или < fieldset> доступны через <b>form.elements[name/index]</b> или <b>form[name/index]</b>.
 Элементы хранят ссылку на свою форму в свойстве element.form.
 Значения элементов формы доступны через input.value, textarea.value, select.value и т.д. либо input.cheked для чекбоксов и переключателей.
-Для <.select> можно получить индекс выбранного пункта через: select.selectedIndex либо select.options.
-Элемент получает фокус когда пользователь кликает по нему или использует Tab.
-HTML-атрибут auto-focus - устанавливает фокус при загрузке страницы.
-HTML позволяет делать валидацию с помощью атрибутор required, pattern и т.д.
-События focus и blur срабатывают на фокусировке/потере фокуса элемента и не всплывают, но можно использовать фазу перехвата или focusin/focusout.
-tabindex делает фокусируемым любой элемент.
-document.activeElement - текущий элемент с фокусом.
-const form = document.forms[0] - получить форму по индексу коллекции
-const form = document.forms.main - по аттрибуту тега name (name="main")
 
-document.querySelectorAll('form') - неживая коллекция
+Для < select> можно получить индекс выбранного пункта через: <b>select.selectedIndex</b> либо <b>select.options</b>.
+Элемент получает фокус когда пользователь кликает по нему или использует Tab.
+
+HTML-атрибут <b>auto-focus</b> - устанавливает фокус при загрузке страницы.
+HTML позволяет делать валидацию с помощью атрибутор required, pattern и т.д.
+События <b>focus и blur</b> срабатывают на фокусировке/потере фокуса элемента и не всплывают, 
+но можно использовать фазу перехвата или focusin/focusout.
+tabindex делает фокусируемым любой элемент.</span>
+
+document.activeElement - <span class="menu__komment">текущий элемент с фокусом.</span>
+const form = document.forms[0] - <span class="menu__komment">получить форму по индексу коллекции</span>
+const form = document.forms.main - <span class="menu__komment">по аттрибуту тега name (<i>name="main"</i>)</span>
+
+document.querySelectorAll('form') - <span class="menu__komment">неживая коллекция</span>
 
 const form = document.forms.main
-console.log(form.elements) -  вывел элементы формы
+console.log(form.elements) -  <span class="menu__komment">вывел элементы формы</span>
 
-focus, blur - события не всплывают
-focus(), blur() - методы. Аттрибут taindex = -1 на клавишу tab не реагирует,
-          но можно установить фокус на елемент методом
-document.activeElement - получаем текущий элемент с фокусом 
-focusin / focusout - события всплывают
+focus, blur - <span class="menu__komment">события не всплывают</span>
+focus(), blur() - <span class="menu__komment">методы. Аттрибут taindex = -1 на клавишу tab не реагирует,
+          но можно установить фокус на елемент методом</span>
+document.activeElement - <span class="menu__komment">получаем текущий элемент с фокусом</span>
+focusin / focusout - <span class="menu__komment">события всплывают</span>
 
-<dfn>События изменения данных:</dfn>
-change - значение изменено. срабатывает в текстовом поле при потере фокуса, в остальных полях при выборе.
-input - значение изменено. Срабатывает немедлено при каждом изменении текстового поля.
-cut/copy/paste - свойство event.clipboardData даёт доступ на чтение/запись в буфер.
-cut - событие, срабатывает при вырезании
-copy - событие, срабатывает при копировании
-paste - событие, срабатывает при вставке
-submit - событие отправки данных формы, при form.submit() - форма отправится при потере фокуса
-event.preventDefault() - запретит выполнение события
+<em>События изменения данных:</em>
+change - <span class="menu__komment">значение изменено. срабатывает в текстовом поле при потере фокуса, в остальных полях при выборе.</span>
+input - <span class="menu__komment">значение изменено. Срабатывает немедлено при каждом изменении текстового поля.</span>
+cut/copy/paste - <span class="menu__komment">свойство event.clipboardData даёт доступ на чтение/запись в буфер.</span>
+cut - <span class="menu__komment">событие, срабатывает при вырезании</span>
+copy - <span class="menu__komment">событие, срабатывает при копировании</span>
+paste - <span class="menu__komment">событие, срабатывает при вставке</span>
+submit - <span class="menu__komment">событие отправки данных формы, при <b>form.submit()</b> - форма отправится при потере фокуса</span>
+event.preventDefault() - <span class="menu__komment">запретит выполнение события
 
-<dfn>Отправка формы:</dfn>
-Нажать кнопку <.input type="submit"> или <.input type="image">
+<em>Отправка формы:</em>
+Нажать кнопку < <b>input type="submit"</b>> или < <b>input type="image</b>">
 Нажать Enter на любом поле
-При отправке формы по нажатию Enter в текстовом поле, генерируется событие click на кнопке <.input type="submit">
-При отправке формы срабатывает событие submit, оно используется для проверки формы перед её отправкой на сервер или для отмены отправки и обработки её с помощью JS.
-form.submit() позволяет отправить форму из JS. Используют для создания и отправки собственных форм на сервер, при этом событие submit не генерируется.
-scroll - событие прокрутки позволяет реагировать на прокрутку страницы или элемента.
+При отправке формы по нажатию Enter в текстовом поле, генерируется событие click на кнопке < input type="submit">
+При отправке формы срабатывает событие submit, оно используется для проверки формы перед её отправкой на сервер 
+или для отмены отправки и обработки её с помощью JS.
+<b>form.submit()</b> позволяет отправить форму из JS. Используют для создания и отправки собственных форм на сервер, 
+при этом событие submit не генерируется.
+
+<em>scroll</em> - событие прокрутки позволяет реагировать на прокрутку страницы или элемента.</span>
 window.addEventListener('scroll', function() {
-document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
+  document.getElementById('showScroll').innerHTML = pageYOffset + 'px';
 });
-</pre>
+</small>
       </details>
       <details><!--EventTarget-->
       <summary>EventTarget</summary>
-<pre>
-<dfn>EventTarget</dfn> - это абстрактный класс.
+<small>
+<em>EventTarget</em> - <span class="menu__komment">это абстрактный класс.
 Обеспечивает поддержание DOM-узлами событий.
-<img src="../img/js/JS21.png" alt="">
-<dfn>Event</dfn>(<i>Событие</i>) - сигнал от браузера о том, что что-то произошло.
+<em>Event</em>(<i>Событие</i>) - сигнал от браузера о том, что что-то произошло.
 Событию можно назначить обработчик - функцию, которая сработает, как только событие произошло.
 Способы назначения обработчиков событий:
-Атрибут HTML: onclick="...".
-DOM-свойство: elem.onclick = function.
-Методы: elem.addEventListener(event, handler[, phase]) для добавления
-event - имя события, например "click".
-handler - ссылка на фуекцию обработчик.
-<ul>options - дополнительный объект со свойствами:
-<li>once: если true, тогда обработчик будет удалён после выполнения.</li>
-<li>capture: фаза, на которой должен сработать обработчик (false/true)</li>
-<li>passive: если true, то обработчик не вызовет preventDefault()</li>
-</ul>
+Атрибут HTML: <b>onclick="..."</b>.
+DOM-свойство: <b>elem.onclick = function</b>.
+Методы: <b>elem.addEventListener(event, handler[, phase])</b> для добавления</span>
+event - <span class="menu__komment">имя события, например "click".</span>
+handler - <span class="menu__komment">ссылка на фуекцию обработчик.</span>
+options - <span class="menu__komment">дополнительный объект со свойствами:
+<b>once</b>: если true, тогда обработчик будет удалён после выполнения.
+<b>capture</b>: фаза, на которой должен сработать обработчик (false/true)
+<b>passive</b>: если true, то обработчик не вызовет preventDefault()
+
 Обработчик всегда хранится в свойстве DOM-объекта, а атрибут - лишь один из способов его инициализации.
 В DOM-свойстве один обработчик на один тип события, так как одно имя - одно свойство.
-Методы - самый гибкий и используемый способ.
-addEventListener поддерживает объекты в качестве обработчиков событий, вызывая метод объекта object.handleEvent(event).
+<i>Методы</i> - самый гибкий и используемый способ.
+<b>addEventListener</b> поддерживает объекты в качестве обработчиков событий, вызывая метод объекта object.handleEvent(event).
 Убрать обработчик elem.onclick = null.
 Не используй setAttribute для обработчиков.
 Регистр DOM-свойства имеет значение, а HTML-атрибута - нет.
 Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его в качестве аргумента функции-обработчику.
-Любой обработчик получает объект события первым аргументом
-event.type - тип события, например "click"
-event.clientX/event.clientY - координаты курсора для событий мыши в момент клика относительно окна.
+Любой обработчик получает объект события первым аргументом</span>
+event.type - <span class="menu__komment">тип события, например "click"</span>
+event.clientX/event.clientY - <span class="menu__komment">координаты курсора для событий мыши в момент клика относительно окна.</span>
 
 <em>События</em>:
-onclick="JScode" - обработчик события, аттрибут тега.
+onclick="JScode" - <span class="menu__komment">обработчик события, аттрибут тега.</span>
 const button = document.querySelector('.button');
-button.onclick = function () {}; - нет возможности повесить на одно событие несколько обработчиков
-либо
+button.onclick = function () {}; - <span class="menu__komment">нет возможности повесить на одно событие несколько обработчиков</span>
+<i>либо</i>
 function showClick() {}
-button.onclick = showClick; - нет возможности повесить на одно событие несколько обработчиков
+button.onclick = showClick; - <span class="menu__komment">нет возможности повесить на одно событие несколько обработчиков</span>
 
-button.addEventListener("click", function (e) {}); - можно назначить обработчик несколько раз
-либо
+button.addEventListener("click", function (e) {}); - <span class="menu__komment">можно назначить обработчик несколько раз</span>
+<i>либо</i>
 button.addEventListener("click", func);
 function func(e) {}
 
-button.removeEventListener(event, handler); - отключает обработчик
+button.removeEventListener(event, handler); - <span class="menu__komment">отключает обработчик</span>
 
-button.addEventListener(event, handler, options); - можно добавить параметры
+button.addEventListener(event, handler, options); - <span class="menu__komment">можно добавить параметры</span>
 const options {
-"capture: false", - фаза, на которой должен сработать обработчик (всплытие/погружение)
-"once": false, - если true, тогда обработчик будет удален после выполнения
-"passive": false - если true, то обработчик никогда не вызовет preventDefault()
+  "capture: false", - <span class="menu__komment">фаза, на которой должен сработать обработчик (всплытие/погружение)</span>
+  "once": false, - <span class="menu__komment">если true, тогда обработчик будет удален после выполнения</span>
+  "passive": false - <span class="menu__komment">если true, то обработчик никогда не вызовет preventDefault()</span>
 }
-либо
+<i>либо</i>
 button.addEventListener("click", func, {"once": true});
-
+<span class="menu__komment">
 Когда происходит событие, браузер создаёт объект события, записывает в него детали и передаёт его
-в качестве аргумента (event) функции - обработчику:
-event.type - тип события
-event.target - объект, на котором сработал обработчик
-event.currentTarget - объект, которому назначен обработчик
-event.clientX - положение курсора по Х
-event.clientY - положение курсора по Y
-console.log(evant) - посмотреть все детали события
-event.stopPropagation(); - остановка всплытия
-Делегирование - вешаем прослушку на родителя
+в качестве аргумента (event) функции - обработчику:</span>
+event.type - <span class="menu__komment">тип события</span>
+event.target - <span class="menu__komment">объект, на котором сработал обработчик</span>
+event.currentTarget - <span class="menu__komment">объект, которому назначен обработчик</span>
+event.clientX - <span class="menu__komment">положение курсора по Х</span>
+event.clientY - <span class="menu__komment">положение курсора по Y</span>
+console.log(evant) - <span class="menu__komment">посмотреть все детали события</span>
+event.stopPropagation(); - <span class="menu__komment">остановка всплытия</span>
+
+<em>Делегирование</em> - <span class="menu__komment">вешаем прослушку на родителя</span>
 Отмена действий браузера по умолчанию:
-event.preventDefault(); - для addEventListener
-либо
+event.preventDefault(); - <span class="menu__komment">для addEventListener</span>
+<i>либо</i>
 button.addEventListener("click", func, {"passive": true});
 
-link.onclick = function () { - для onclick
-return false;
+link.onclick = function () { - <span class="menu__komment">для onclick</span>
+  return false;
 }
 
-<dfn>Всплытие и погружение:</dfn>
-целевой элемент (event.target) - самый глубоко вложенный элемент, над которым произошло событие.
-Сначала событие двигается вниз (погружение) от корня документа к event.target, по пути вызывая обработчики, поставленные через addEventListener(..., true),
+<em>Всплытие и погружение:</em>
+целевой элемент <b>(event.target)</b> - <span class="menu__komment">самый глубоко вложенный элемент, над которым произошло событие.
+Сначала событие двигается вниз (погружение) от корня документа к event.target, по пути вызывая обработчики, 
+поставленные через <b>addEventListener(..., true)</b>,
 где true - сокращенно {capture: true}
 Далее обработчики на целевом элементе.
-Потом событие двигается от event.target вверх к корню документа, по пути вызывая обработчики, поставленные через on<.event> и addEventListener без третьего аргумента
+Потом событие двигается от event.target вверх к корню документа, по пути вызывая обработчики, 
+поставленные через on< event> и addEventListener без третьего аргумента
 или с третьим аргументом равным fasle.
-<ul>Каждый обработчик имеет доступ к свойствам события event:
-<li>event.target - самый глубокий элемент, на котором произошло событие</li>
-<li>event.currentTarget(=this) - элемент, на котором в данный момент сработал обработчик (тот, на котором "висит" конкретный обработчик)</li>
-<li>event.eventPhase - не какой фазе он сработал: (погружение = 1, фаза цели = 2, всплытие = 3)</li>
-</ul>
-Любой обработчик может остановить событие вызовом event.stopPropagation().
+Каждый обработчик имеет доступ к свойствам события event:</span>
+event.target - <span class="menu__komment">самый глубокий элемент, на котором произошло событие</span>
+event.currentTarget(=this) - <span class="menu__komment">элемент, на котором в данный момент сработал обработчик 
+  (тот, на котором "висит" конкретный обработчик)</span>
+event.eventPhase - <span class="menu__komment">не какой фазе он сработал: (погружение = 1, фаза цели = 2, всплытие = 3)
+
+Любой обработчик может остановить событие вызовом <b>event.stopPropagation()</b>.
 Всплытие и погружение являются основой для делегирования событий.
 Делегирование событий используется при схожей обработке многих элементов.
 Вешаем обработчик на контейнер.
-В обработчике проверяем целевой элемент event.target.
+В обработчике проверяем целевой элемент <b>event.target</b>.
 Если событие произошло на нужном элементе, то обрабатываем его.
-<ul>Использование
-<li>Упрощает процесс инициализации и экономит память: не нужно вешать много обработчиков.</li>
-<li>Меньше кода: при добавлении и удалении элементов не нужно ставить или снимать обработчики.</li>
-<li>Удобство изменений DOM: можно массово добавлять или удалятьэлементы путём изменения innerHTML и ему подобных.</li>
-</ul>
+Использование
+Упрощает процесс инициализации и экономит память: не нужно вешать много обработчиков.
+Меньше кода: при добавлении и удалении элементов не нужно ставить или снимать обработчики.
+Удобство изменений DOM: можно массово добавлять или удалятьэлементы путём изменения innerHTML и ему подобных.
+
 Событие должно всплывать. Низкоуровневые обработчики не должны вызывать event.stopPropagation().
-Два способа отменить действие браузера по умолчанию:
-- event.preventDefault() - основной способ
-либо
-- <.a href="/" onclick = "event.preventDefault()">здесь<./a>
-Опция passive: true для addEventListener сообщает браузеру, что действие по умолчанию не будет отменено.
-Это сообщит браузеру, что он не должен ждать выполнения всех обработчиков, а ему следует сразу приступать к выполнению действия по умолчанию, например к прокрутке.
+Два способа отменить действие браузера по умолчанию:</span>
+- event.preventDefault() - <span class="menu__komment">основной способ</span>
+<i>либо</i>
+- <.a href="/" onclick = "event.preventDefault()">здесь< /a><span class="menu__komment">
+Опция <b>passive</b>: true для addEventListener сообщает браузеру, что действие по умолчанию не будет отменено.
+Это сообщит браузеру, что он не должен ждать выполнения всех обработчиков, 
+а ему следует сразу приступать к выполнению действия по умолчанию, например к прокрутке.
 event.defaultPrevented равно true если событие по умолчанию отменено, иначе false.
-Чтобы сгенерировать событие из кода, вначале нужно создать объект события
-let event = newEvent(name[, options]);
-Базовый конструктор Event(name, options) принимает обязательное имя события и options - объект с тремя свойствами:
-- bubbles: true - чтобы событие всплывало
-- cancelable: true - если нужно, чтобы работал event.preventDefault()
-- composed: true/false - если true, то событие будет всплывать наружу за пределы Shadow DOM.
-По умолчанию все три свойства - false: {bubbles: false, canselable: false, composed: false}.
-elem.dispatchEvent(event) - запускает объект события на элементе.
-event.isTrusted - true для событий от пользователя и false для генерирующих.
-on<.event> - для встроенных событий, addEventListener - для генерируемых.
+Чтобы сгенерировать событие из кода, вначале нужно создать объект события</span>
+let event = newEvent(name[, options]);<span class="menu__komment">
+Базовый конструктор Event(name, options) принимает обязательное имя события и options - объект с тремя свойствами:</span>
+- bubbles: true - <span class="menu__komment">чтобы событие всплывало</span>
+- cancelable: true - <span class="menu__komment">если нужно, чтобы работал event.preventDefault()</span>
+- composed: true/false - <span class="menu__komment">если true, то событие будет всплывать наружу за пределы Shadow DOM.
+По умолчанию все три свойства</span> - false: {bubbles: false, canselable: false, composed: false}.
+elem.dispatchEvent(event) - <span class="menu__komment">запускает объект события на элементе.</span>
+event.isTrusted - <span class="menu__komment">true для событий от пользователя и false для генерирующих.</span>
+on<.event> - <span class="menu__komment">для встроенных событий, addEventListener - для генерируемых.
 При создании встроенных событий использовать конструкторы встроенных событий (newMouseEvent("click") и др.)
 Для пользовательских событий применять конструктор CustomEvent.
 event.detail позволяет передавать информацию в объекте события.
 Генерировать встроенные события в случаях:
 - явный грубый хак, чтобы заставить работать сторонние библиотеки, если нет другого способа.
-- скриптом нажать на кнопку для автоматического тестирования.
+- скриптом нажать на кнопку для автоматического тестирования.</span>
 
-<dfn>События мыши:</dfn>
-click - кликнули на элемент левой кнопкой мыши (на устройсвах с сенсорными экранами - при касании).
-contextmenu - происходит, когда кликнули на элемент правой кнопкой мыши
-mouseover/mouseout - когда мышь наводится на/покидает элемент.
-mousedown/mouseup - когда нажали/отжали кнопку мыши на элементе.
-mousemove - при движении мыши.
+<em>События мыши:</em>
+click - <span class="menu__komment">кликнули на элемент левой кнопкой мыши (на устройсвах с сенсорными экранами - при касании).</span>
+contextmenu - <span class="menu__komment">происходит, когда кликнули на элемент правой кнопкой мыши</span>
+mouseover/mouseout - <span class="menu__komment">когда мышь наводится на/покидает элемент.</span>
+mousedown/mouseup - <span class="menu__komment">когда нажали/отжали кнопку мыши на элементе.</span>
+mousemove - <span class="menu__komment">при движении мыши.
 Комплексные события состоят из простых, обработчики событий вызываются в следующем порядке: mousedown -> mouseup -> click
-Свойство события мыши which - какая кнопка мыши нажата:
-- event.which == 1 - левая кнопка
-- event.which == 2 - средняя кнопка
-- event.which == 3 - правая кнопка
-Клавиши - модификаторы (true если нажаты): altKey, ctrKey и metaKey (Mac).
+Свойство события мыши which - какая кнопка мыши нажата:</span>
+- event.which == 1 - <span class="menu__komment">левая кнопка</span>
+- event.which == 2 - <span class="menu__komment">средняя кнопка</span>
+- event.which == 3 - <span class="menu__komment">правая кнопка
+Клавиши - модификаторы</span> (true если нажаты): altKey, ctrKey и metaKey (Mac).<span class="menu__komment">
 В Мас обычно Cmd вместо ctrl, поэтому лучше проверить: if(e.metaKey || e.ctrlKey).
 Координаты относительно окна: clientX, clientY.
 Координаты относительно документа: pageX/pageY.
-Запрет копирования: <.div oncopy = "alert('Копрование запрещено!'); return false">
+Запрет копирования:</span> <.div oncopy = "alert('Копрование запрещено!'); return false"><span class="menu__komment">
 При быстром движении мыши события не будут возникать на промежуточных элементах.
 Браузер периодически проверяет позицию курсора и при изменении генерирует событие mousemove.
 Если был mouseover, то будет и mouseout.
 События mouseover/out и mouseenter/leave имеют дополнительное свойство relatedTarget.
-Для события mouseover:
-event.target - это элемент, на который курсор пришёл.
-event.relatedTarget - это элемент, с которого курсор пришёл (target -> relatedTarget)
-event.relatedTarget равно null - указатель мыши пришёл из-за или ушёл за пределы окна.
+Для события mouseover:</span>
+event.target - <span class="menu__komment">это элемент, на который курсор пришёл.</span>
+event.relatedTarget - <span class="menu__komment">это элемент, с которого курсор пришёл</span> (target -> relatedTarget)
+event.relatedTarget равно null - <span class="menu__komment">указатель мыши пришёл из-за или ушёл за пределы окна.
 В любой момент времени указатель может быть только над одним элементом - над самым глубоко вложенным.
-События mouseover/out возникают, когда происходит переход с родительского элемента на потомка.
-События mouseenter/leave не всплывают и генерируются, когда курсор переходит или уходит на элемент в целом (без учёта потомков).
+События <b>mouseover/out</b> возникают, когда происходит переход с родительского элемента на потомка.
+События <b>mouseenter/leave</b> не всплывают и генерируются, когда курсор переходит или уходит на элемент в целом (без учёта потомков).</span>
 
-Простые:
-mousedown / mouseup - кнопка мыши нажата / отпущена над элементом
-mouseover / mouseout - курсор мыши появляется над элементом и уходит с него
+<em>Простые</em>:
+mousedown / mouseup - <span class="menu__komment">кнопка мыши нажата / отпущена над элементом</span>
+mouseover / mouseout - <span class="menu__komment">курсор мыши появляется над элементом и уходит с него</span>
 
-mouseover:
-event.target - элемент откуда ушёл курсор
-event.relatedTarget - элемент куда ушёл курсор
+<em>mouseover</em>:
+event.target - <span class="menu__komment">элемент откуда ушёл курсор</span>
+event.relatedTarget - <span class="menu__komment">элемент куда ушёл курсор</span>
 
-mouseout:
-event.target - элемент куда пришёл курсор
-event.relatedTarget - элемент откуда пришёл курсор
+<em>mouseout</em>:
+event.target - <span class="menu__komment">элемент куда пришёл курсор</span>
+event.relatedTarget - <span class="menu__komment">элемент откуда пришёл курсор</span>
 
-mousemove - каждое движение мыши над элементом генерирует это событие
-contextmenu - вызывается при попытке открытия контекстного меню
+mousemove - <span class="menu__komment">каждое движение мыши над элементом генерирует это событие</span>
+contextmenu - <span class="menu__komment">вызывается при попытке открытия контекстного меню</span>
 
-Комплексные
-click - mousedown и mouseup над одним и тем же элементом
-dblclick - двойной клик на элементе
+<em>Комплексные</em>
+click - <span class="menu__komment">mousedown и mouseup над одним и тем же элементом</span>
+dblclick - <span class="menu__komment">двойной клик на элементе</span>
 
-event.which = 1 - нажата основная кнопка мыши (левая)
-event.which = 2 - нажата средняя кнопка мыши (колесо)
-event.which = 3 - нажата не основная кнопка мыши (правая)
+event.which = 1 - <span class="menu__komment">нажата основная кнопка мыши (левая)</span>
+event.which = 2 - <span class="menu__komment">нажата средняя кнопка мыши (колесо)</span>
+event.which = 3 - <span class="menu__komment">нажата не основная кнопка мыши (правая)</span>
 
-mouseover / mouseout - всплывают, можно использовать делегирование,
-mouseenter / mouseleave - нет
+mouseover / mouseout - <span class="menu__komment">всплывают, можно использовать делегирование,</span>
+mouseenter / mouseleave - <span class="menu__komment">нет</span>
 
 <em>Базовый алгоритм Drag'n'Drop.</em>
 При mousedown - готовим элемент к перемещению (если нужно создаём его копию).
 При mousemove передвигаем элемент на новые координаты путём смены left/top и position: absolute.
 При mouseup - остановить перенос элемента и произвести окончание Drag'n'Drop.
 Ключевые идеи:
-object.mousedown -> document.mousemove -> object.mouseup
+<b>object.mousedown -> document.mousemove -> object.mouseup</b><span class="menu__komment">
 (обязательно отменить браузерный ondragstart)
 В начале перетаскивания запоминаем начальное смещение указателя относительно элемента(shiftX/shiftY) и сохраняем его при перетаскивании.
-Выявляем потенциальные цели переноса под указателем с помощью document.elementFromPoint.
+Выявляем потенциальные цели переноса под указателем с помощью <b>document.elementFromPoint</b>.
 На mouseup завершить перенос: изменить данные, переместить элементы.
-События указателя (Pointer events) одновременно обрабатывают действия мыши, касания пера.
-Содержат свойства мыши и дополнительно свои:
-pointerId - идентификатор указателя, вызвавшего событие, генерируется браузером, позволяет обрабатывать несколько указателей (стилус и мультитач).
-pointerType - тип указывающего устройства. Строка с одним из значений: "mouse", "pen" или "touch".
-isPrimary - равно true для основного указателя (первый палец в мультитач).
-При обработке переносов и сложных касаний нужно отменить действие браузера и ставить touch-events: none в CSS для элементов.
+
+<em>События указателя</em> (<i>Pointer events</i>) одновременно обрабатывают действия мыши, касания пера.
+Содержат свойства мыши и дополнительно свои:</span>
+pointerId - <span class="menu__komment">идентификатор указателя, вызвавшего событие, генерируется браузером, 
+позволяет обрабатывать несколько указателей (стилус и мультитач).</span>
+pointerType - <span class="menu__komment">тип указывающего устройства. Строка с одним из значений: "mouse", "pen" или "touch".</span>
+isPrimary - <span class="menu__komment">равно true для основного указателя (<i>первый палец в мультитач</i>).
+При обработке переносов и сложных касаний нужно отменить действие браузера и ставить <b>touch-events: none</b> в CSS для элементов.
 Можно перенаправить (захватить) все события указателя на определённый элемент до наступления события pointerup/pointercancel.
 Два связанных с захватом события:
-getpointercapture срабатывает, когда элемент использует setPointerCapture для включения захвата.
-lostpointercapture срабатывает при освобождении от захвата:
-- явно с помощью releasePointerCapture или
-- автоматически при событии pointerup/pointercancel.
-Сбытия указателя - мыши:
+<b>getpointercapture</b> срабатывает, когда элемент использует <b>setPointerCapture</b> для включения захвата.
+<b>lostpointercapture</b> срабатывает при освобождении от захвата:
+- явно с помощью <b>releasePointerCapture</b> или
+- автоматически при событии <b>pointerup/pointercancel</b>.
+</span>
+<em>Сбытия указателя - мыши</em>:
 pointerdown - mousedown
 pointerup - mouseup
 pointermove - mousemove
@@ -2800,37 +2822,37 @@ pointercancel -
 getpointercapture - 
 lostpointercapture - 
 
-События клавиатуры:
-keydown - происходит при нажатии клавиши
-keyup - при отпускании клавиши
-event.code - код нажатой клавиши ("KeyA", "ArrowLeft" и т.д.)
-event.key - клавиша с учетом регистра и раскладки клавиатуры символ ("A", "a" и т.д.)
-event.repeat - вернет true при срабатывании повтора на зажатой клавише
-Нажатие клавиши всегда генерирует клавиатурное событие, кроме клавиши Fn.
+<em>События клавиатуры</em>:
+keydown - <span class="menu__komment">происходит при нажатии клавиши</span>
+keyup - <span class="menu__komment">при отпускании клавиши</span>
+event.code - <span class="menu__komment">код нажатой клавиши ("KeyA", "ArrowLeft" и т.д.)</span>
+event.key - <span class="menu__komment">клавиша с учетом регистра и раскладки клавиатуры символ ("A", "a" и т.д.)</span>
+event.repeat - <span class="menu__komment">вернет true при срабатывании повтора на зажатой клавише
+Нажатие клавиши всегда генерирует клавиатурное событие, кроме клавиши Fn.</span>
 
-Прокрутка:
-scroll - событие прокрутки
-scrollY - количество прокрученных пикселей по вертикали
-scrollX - количество прокрученных пикселей по горизонтали
+<em>Прокрутка</em>:
+scroll - <span class="menu__komment">событие прокрутки</span>
+scrollY - <span class="menu__komment">количество прокрученных пикселей по вертикали</span>
+scrollX - <span class="menu__komment">количество прокрученных пикселей по горизонтали</span>
 
-Загрузка:
-DOMContentLoaded - браузер полностью загрузил HTML, построил DOM-дерево, 
+<em>Загрузка</em>:
+DOMContentLoaded - <span class="menu__komment">браузер полностью загрузил HTML, построил DOM-дерево, 
   но внешние ресурсы могут быть ещё не загружены
-  срабатывает на объекте document
-load - браузер полностью загрузил HTML, и внешние ресурсы
-  срабатывает на объекте window
-beforeunload / unload - пользователь покидает сраницу
-beforeunload - можем вывести пользователю предупреждение о несохраненных данных в форме
-unload - пользователь уже ушёл состраницы, но можно поручить браузеру собрать статистику
+  срабатывает на объекте document</span>
+load - <span class="menu__komment">браузер полностью загрузил HTML, и внешние ресурсы
+  срабатывает на объекте window</span>
+beforeunload / unload - <span class="menu__komment">пользователь покидает сраницу</span>
+beforeunload - <span class="menu__komment">можем вывести пользователю предупреждение о несохраненных данных в форме</span>
+unload - <span class="menu__komment">пользователь уже ушёл состраницы, но можно поручить браузеру собрать статистику</span>
 
-document.readyState - состояние загрузки:
-loading - документ загружается
-interactive - документ был полностью прочитан
-complete - документ был полностью прочитан и все ресурсы загружены
+document.readyState - <span class="menu__komment">остояние загрузки:</span>с
+loading - <span class="menu__komment">документ загружается</span>
+interactive - <span class="menu__komment">документ был полностью прочитан</span>
+complete - <span class="menu__komment">документ был полностью прочитан и все ресурсы загружены
 
 События, отправленные сервером (SSE), позволяют веб-странице получать обновления с сервера.
-В случае событий, отправленных сервером, обновления приходят автоматически.
-</pre>
+В случае событий, отправленных сервером, обновления приходят автоматически.</span>
+</small>
       </details>
       <details><!--Properties-->
       <summary>Properties</summary>
