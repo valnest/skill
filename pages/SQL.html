@@ -261,6 +261,12 @@
     <em>SELECT</em> field_2, <em>COUNT</em>(*) <em>FROM</em> table
     <em>GROUP BY</em> field_2
 
+    <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
+      посчитать сколько записей каждого вида в столбце field_3 и вывести в новом столбе field_3</span>
+      <em>SELECT</em> field_2, <em>COUNT</em>(field_2) AS field_3
+      <em>FROM</em> table
+      <em>GROUP BY</em> field_2
+
   <em>SUM</em> - Возвращает сумму значений в указанном столбце
     <span class="menu__komment">Выбрать столбец field_2, сгруппировать в стобце field_2 значения по видам,
     посчитать сколько записей каждого вида и суммировать значения в столбце field_3 
@@ -300,6 +306,11 @@
       <em>SUM</em>(field_2),
       <em>AVG</em>(field_2)
     <em>FROM</em> table
+
+  <em>LENGTH()</em> - возвращает длину строки
+    <em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> <em>LENGTH</em>(field_2) > 15;
   </small>
   <em>Подзапросы (subqueries)</em>:<small>
     <span class="menu__komment">Сначала выполняются подзапросы.</span>
