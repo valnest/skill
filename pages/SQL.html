@@ -193,6 +193,20 @@
     % - любое количество символов (можно и без символов)
     _ - ровно один символ
     </span>
+
+    <span class="menu__komment">Return all customers starting with "a", "b", "c", "d", "e" or "f":</span>
+    <em>SELECT</em> * <em>FROM</em> Customers
+    <em>WHERE</em> CustomerName <em>LIKE</em> '[a-f]%';
+
+    <span class="menu__komment">Return all customers starting with either "b", "s", or "p":</span>
+    <em>SELECT</em> * <em>FROM</em> Customers
+    <em>WHERE</em> CustomerName <em>LIKE</em> '[bsp]%';
+
+    <span class="menu__komment">Return all customers starting with NOT either "b", "s", or "p":</span>
+    SELECT * FROM Customers
+    WHERE City LIKE '[!bsp]%';
+
+
     <span class="menu__komment">Выбрать из таблицы table все строки, у которых одновременно в столбе field_1 значение value_3 
     и в столбце field_2 значение value_2</span>
     <em>SELECT</em> *
@@ -245,6 +259,16 @@
     <em>SELECT</em> *
     <em>FROM</em> table
     <em>ORDER BY</em> field_3, field_2;
+
+    <span class="menu__komment">Выбрать из таблицы table столбец field_1 строки в котором не имеют значений</span>
+    <em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 <em>IS</em> <em>NULL</em>; 
+
+    <span class="menu__komment">Выбрать из таблицы table столбец field_1 строки в котором имеют значения</span>
+    <em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 <em>IS</em> <em>NOT</em> <em>NULL</em>; 
   </small>
   
   <em>Агрегатные функции:</em>
@@ -311,6 +335,17 @@
     <em>SELECT</em> field_1
     <em>FROM</em> table
     <em>WHERE</em> <em>LENGTH</em>(field_2) > 15;
+
+
+  <em>Вывести id строк, в которых значение temperature больше temperature предыдущего дня </em>
+  SELECT current_day.id
+  FROM Weather AS current_day
+  WHERE EXISTS (
+      SELECT 1
+      FROM Weather AS yesterday
+      WHERE current_day.temperature > yesterday.temperature
+      AND current_day.recordDate = yesterday.recordDate + 1
+  );
   </small>
   <em>Подзапросы (subqueries)</em>:<small>
     <span class="menu__komment">Сначала выполняются подзапросы.</span>
