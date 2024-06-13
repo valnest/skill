@@ -268,7 +268,51 @@
     <span class="menu__komment">Выбрать из таблицы table столбец field_1 строки в котором имеют значения</span>
     <em>SELECT</em> field_1
     <em>FROM</em> table
-    <em>WHERE</em> field_1 <em>IS</em> <em>NOT</em> <em>NULL</em>; 
+    <em>WHERE</em> field_1 <em>IS</em> <em>NOT</em> <em>NULL</em>;
+
+    <span class="menu__komment">The EXISTS operator is used to test for the existence of any record in a subquery.
+      The EXISTS operator returns TRUE if the subquery returns one or more records.</span>
+    <em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> <em>EXISTS</em>
+    (<em>SELECT</em> field_2 <em>FROM</em> table <em>WHERE</em> condition); 
+
+    <span class="menu__komment">ANY means that the condition will be true if the operation is true 
+      for any of the values in the range.</span>
+    <em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = <em>ANY</em>
+    (<em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> condition);
+
+    <span class="menu__komment">ALL means that the condition will be true only if the operation 
+      is true for all values in the range.</span>
+    <em>SELECT</em> <em>ALL</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> condition;
+
+    <em>SELECT</em> field_1
+    <em>FROM</em> table
+    <em>WHERE</em> field_1 = <em>ALL</em>
+    (<em>SELECT</em> field_2
+    <em>FROM</em> table
+    <em>WHERE</em> condition);
+
+    <span class="menu__komment">Copy all columns into a new table</span>
+    <em>SELECT</em> *
+    <em>INTO</em> newtable [IN externaldb]
+    <em>FROM</em> oldtable
+    <em>WHERE</em> condition;
+
+    <span class="menu__komment">The following SQL statement uses the IN clause 
+      to copy the table into a new table in another database</span>
+    <em>SELECT</em> * <em>INTO</em> CustomersBackup2017 <em>IN</em> 'Backup.mdb'
+    <em>FROM</em> Customers;
+
+    <span class="menu__komment">The following SQL statement copies only a few columns into a new table</span>
+    <em>SELECT</em> CustomerName, ContactName <em>INTO</em> CustomersBackup2017
+    <em>FROM</em> Customers;
   </small>
   
   <em>Агрегатные функции:</em>
@@ -423,6 +467,21 @@
   </small>
 </pre>
           </details>
+          <details><!--CASE-->
+            <summary>CASE</summary><small>
+<pre><span class="menu__komment">The CASE expression goes through conditions and returns a value when the first condition is met 
+  (like an if-then-else statement). 
+  So, once a condition is true, it will stop reading and return the result. 
+  If no conditions are true, it returns the value in the ELSE clause.
+  If there is no ELSE part and no conditions are true, it returns NULL.</span>
+  <em>CASE</em>
+    <em>WHEN</em> condition1 <em>THEN</em> result1
+    <em>WHEN</em> condition2 <em>THEN</em> result2
+    <em>WHEN</em> conditionN <em>THEN</em> resultN
+    <em>ELSE</em> result
+  <em>END</em>; 
+</pre></small>
+          </details>
           <details><!--JOIN-->
               <summary>JOIN</summary>
 <pre>
@@ -513,6 +572,17 @@
   <span class="menu__komment">Вставить в таблицу table значение value_2 в столбец field_1, value_4 в столбец field_2</span>
   <em>INSERT</em> <em>INTO</em> table (field_1, field_2)
   <em>VALUES</em> (value_2, value_4);
+
+  <span class="menu__komment">Copy all columns from one table to another table</span>
+  <em>INSERT</em> <em>INTO</em> table2
+  <em>SELECT</em> * <em>FROM</em> table1
+  <em>WHERE</em> condition;
+
+  <span class="menu__komment">Copy only some columns from one table into another table</span>
+  <em>INSERT</em> <em>INTO</em> table2 (column1, column2, column3, ...)
+  <em>SELECT</em> column1, column2, column3, ...
+  <em>FROM</em> table1
+  <em>WHERE</em> condition;
 </small>
 </pre>
           </details>
