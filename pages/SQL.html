@@ -59,6 +59,9 @@
 <pre>
   <em>CREATE</em> - создает объект БД (саму базу, таблицу, представление, пользователя и т. д.)
     <small>
+      <span class="menu__komment">to create a new SQL database</span>
+      <em>CREATE</em> <em>DATABASE</em> databasename;
+
       <span class="menu__komment">Создать таблицу table со столбцами id, field_1, field_2, field_3.
       По каждому столбцу заданы тип и количество символов</span>
       <em>CREATE</em> <em>TABLE</em> table(
@@ -125,6 +128,10 @@
       field_3 <em>INT</em>
     );
     </small>
+  <em>BACKUP</em> - резервное копирование
+  <small><span class="menu__komment">to create a full back up of an existing SQL database</span>
+    <em>BACKUP</em> <em>DATABASE</em> testDB
+    <em>TO DISK</em> = 'D:\backups\testDB.bak'; </small>
 </pre>
         </details>
         <details><!--DML--> 
@@ -619,6 +626,9 @@
 
   <span class="menu__komment">Удалить из таблицы table все данные</span>
   <em>DELETE</em> <em>FROM</em> table
+
+  <span class="menu__komment">to delete all data inside a table.</span>
+  <em>TRUNCATE</em> <em>TABLE</em> table;
 </small>
 </pre>
           </details>
